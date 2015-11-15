@@ -12,17 +12,22 @@ public class SalvandoPrimeiroObjeto {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("crud_pu");
 		EntityManager manager = factory.createEntityManager();
 
+		Cliente cliente = criaCliente();
+
+		manager.getTransaction().begin();
+		manager.persist(cliente);
+		manager.getTransaction().commit();
+
+		System.out.println("Cliente Salvo com Sucesso!");
+	}
+
+	private static Cliente criaCliente() {
 		Cliente cliente = new Cliente();
 		cliente.setNome("Pedro Bial");
 		cliente.setIdade(48);
 		cliente.setSexo("M");
 		cliente.setProfissao("Jornalista");
-
-		manager.getTransaction().begin();
-		manager.persist(cliente);
-		manager.getTransaction().commit();
-		
-		System.out.println("Cliente Salvo com Sucesso!");
+		return cliente;
 	}
 
 }
