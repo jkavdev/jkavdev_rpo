@@ -29,13 +29,19 @@ public class Transferencia {
 
 		System.out.println("Saldo Conta 1 = " + conta1.getSaldo());
 		System.out.println("Saldo Conta 2 = " + conta2.getSaldo());
-
+		
+		manager.close();
+		manager = factory.createEntityManager();
+		
 		System.out.println("------------------------------------");
 		System.out.println("Digite Valor para retirar da Conta 1 e Depositar na Conta 2");
 		double valorTransferencia = entrada.nextDouble();
 
 		manager.getTransaction().begin();
 		apresentaSaldo(conta1, conta2, valorTransferencia);
+		
+		manager.merge(conta1);
+		manager.merge(conta2);
 
 		if (conta1.getSaldo() > 0) {
 			manager.getTransaction().commit();
