@@ -1,6 +1,7 @@
 package com.algaworks.curso.jpa2.dao;
 
 import java.io.Serializable;
+import java.sql.ResultSet;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -27,5 +28,6 @@ public class FabricanteDAO implements Serializable {
 	public List<Fabricante> buscarTodos() {
 		return manager.createQuery("from Fabricante").getResultList();
 	}
+	
 
 }
