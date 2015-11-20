@@ -8,6 +8,8 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import com.algaworks.curso.jpa2.modelo.Fabricante;
+import com.algaworks.curso.jpa2.service.NegocioException;
+import com.algaworks.curso.jpa2.util.jpa.Transactional;
 
 public class FabricanteDAO implements Serializable {
 
@@ -19,15 +21,17 @@ public class FabricanteDAO implements Serializable {
 		manager.persist(fabricante);
 	}
 
-	public void excluir(Fabricante fabricanteSelecionado) {
-		// TODO Auto-generated method stub
-
+	@Transactional
+	public void excluir(Fabricante fabricanteSelecionado)
+			throws NegocioException {
+		fabricanteSelecionado = manager.find(Fabricante.class, fabricanteSelecionado.getCodigo());
+		manager.remove(fabricanteSelecionado);
+		manager.flush();
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<Fabricante> buscarTodos() {
 		return manager.createQuery("from Fabricante").getResultList();
 	}
-	
 
 }

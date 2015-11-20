@@ -31,17 +31,17 @@ public class PesquisaFabricanteBean implements Serializable {
 		return fabricantes;
 	}
 
-//	public void excluir() {
-//		try {
-//			fabricanteDAO.excluir(fabricanteSelecionado);
-//			this.fabricantes.remove(fabricanteSelecionado);
-//			FacesUtil.addSuccessMessage("Fabricante "
-//					+ fabricanteSelecionado.getNome()
-//					+ " excluído com sucesso.");
-//		} catch (NegocioException e) {
-//			FacesUtil.addErrorMessage(e.getMessage());
-//		}
-//	}
+	public void excluir() {
+		try {
+			fabricanteDAO.excluir(fabricanteSelecionado);
+			this.fabricantes.remove(fabricanteSelecionado);
+			FacesUtil.addSuccessMessage("Fabricante "
+					+ fabricanteSelecionado.getNome()
+					+ " excluído com sucesso.");
+		} catch (NegocioException e) {
+			FacesUtil.addErrorMessage(e.getMessage());
+		}
+	}
 
 	public Fabricante getFabricanteSelecionado() {
 		return fabricanteSelecionado;
