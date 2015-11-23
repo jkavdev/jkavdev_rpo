@@ -1,5 +1,6 @@
 package com.algaworks.cursojsf2.visao;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +23,7 @@ import com.algaworks.cursojsf2.dominio.Produto;
 @SessionScoped
 
 @ManagedBean
-public class GestaoProdutosBean {
+public class GestaoProdutosBean implements Serializable{
 
 	private Produto produto;
 	private List<Produto> produtos;
