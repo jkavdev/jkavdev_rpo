@@ -15,14 +15,16 @@ public class FabricanteDAO implements Serializable {
 	@Inject
 	private EntityManager manager;
 
+	//como o metodo editar salva uma entidade ja gerenciada pelo entitymanager
+	//teremos que fazer um merge das alterações realizadas neste objeto ja gerenciado
+	//para isso usaremos o merge no lugar do persist
 	public void salvar(Fabricante fabricante) {
-		manager.persist(fabricante);
+		manager.merge(fabricante);
 	}
 
 	@Transactional
-	public void excluir(Fabricante fabricante)
-			throws NegocioException {
-		//buscando o objeto pelo codigo do fabricante
+	public void excluir(Fabricante fabricante) throws NegocioException {
+		// buscando o objeto pelo codigo do fabricante
 		fabricante = manager.find(Fabricante.class, fabricante.getCodigo());
 		manager.remove(fabricante);
 		manager.flush();
@@ -32,6 +34,10 @@ public class FabricanteDAO implements Serializable {
 	@SuppressWarnings("unchecked")
 	public List<Fabricante> buscarTodos() {
 		return manager.createQuery("from Fabricante").getResultList();
+	}
+
+	public Fabricante buscarPeloCodigo(Long codigo) {
+		return manager.find(Fabricante.class, codigo);
 	}
 
 }
