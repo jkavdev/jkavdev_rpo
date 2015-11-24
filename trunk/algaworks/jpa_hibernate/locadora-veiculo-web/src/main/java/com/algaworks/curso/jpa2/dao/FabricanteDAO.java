@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 
 import com.algaworks.curso.jpa2.modelo.Fabricante;
 import com.algaworks.curso.jpa2.service.NegocioException;
+import com.algaworks.curso.jpa2.util.jpa.Transactional;
 
 public class FabricanteDAO implements Serializable {
 
@@ -18,8 +19,13 @@ public class FabricanteDAO implements Serializable {
 		manager.persist(fabricante);
 	}
 
-	public void excluir(Fabricante fabricanteSelecionado)
+	@Transactional
+	public void excluir(Fabricante fabricante)
 			throws NegocioException {
+		//buscando o objeto pelo codigo do fabricante
+		fabricante = manager.find(Fabricante.class, fabricante.getCodigo());
+		manager.remove(fabricante);
+		manager.flush();
 
 	}
 
