@@ -12,6 +12,8 @@ import com.algaworks.curso.jpa2.util.jpa.Transactional;
 
 public class FabricanteDAO implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+	
 	@Inject
 	private EntityManager manager;
 

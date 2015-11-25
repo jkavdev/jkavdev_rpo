@@ -1,6 +1,7 @@
 package com.algaworks.curso.jpa2.controller;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -22,7 +23,7 @@ public class PesquisaFabricanteBean implements Serializable{
 	@Inject
 	private FabricanteDAO fabricanteDAO;
 	private Fabricante fabricanteSelecionado;
-	private List<Fabricante> fabricantes;
+	private List<Fabricante> fabricantes = new ArrayList<>();
 	
 	public List<Fabricante> getFabricantes(){
 		return fabricantes;
