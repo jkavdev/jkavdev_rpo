@@ -13,6 +13,8 @@ import com.algaworks.curso.jpa2.util.jpa.Transactional;
 
 public class ModeloCarroDAO implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+	
 	@Inject
 	private EntityManager manager;
 
@@ -24,6 +26,7 @@ public class ModeloCarroDAO implements Serializable {
 		return manager.find(ModeloCarro.class, codigo);
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<ModeloCarro> buscarTodos() {
 		return manager.createQuery("from ModeloCarro").getResultList();
 	}

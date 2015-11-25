@@ -5,8 +5,6 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
-import org.hibernate.mapping.Value;
-
 import com.algaworks.curso.jpa2.dao.FabricanteDAO;
 import com.algaworks.curso.jpa2.modelo.Fabricante;
 import com.algaworks.curso.jpa2.util.cdi.CDIServiceLocator;
@@ -37,7 +35,8 @@ public class FabricanteConverter implements Converter {
 	public String getAsString(FacesContext context, UIComponent componente, Object value) {
 		if(value != null){
 			Long codigo = ((Fabricante)value).getCodigo();
-			String retorno = ((codigo == null ? null : codigo.toString()));
+			String retorno = (codigo == null ? null : codigo.toString());
+			return retorno;
 		}
 		return "";
 	}
