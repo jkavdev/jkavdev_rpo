@@ -7,15 +7,15 @@ import java.util.List;
 public class Contrato {
 
 	private int id;
-	
+
 	private Paciente contratante;
-	
+
 	private Dentista contratada;
-	
+
 	private Date dataCriacao;
-	
+
 	private Date dataExpiracao;
-	
+
 	private List<Pagamento> pagamentos;
 
 	public Contrato(Paciente contratante, Dentista contratada,
@@ -25,8 +25,7 @@ public class Contrato {
 		this.contratada = contratada;
 		this.dataCriacao = dataCriacao;
 		this.dataExpiracao = dataExpiracao;
-		
-	
+
 	}
 
 	public Contrato() {
@@ -134,17 +133,12 @@ public class Contrato {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Contrato [id=").append(id).
-				append(", contratante=").append(contratante)
-				.append(", contratada=").append(contratada)
+		builder.append("Contrato [id=").append(id).append(", contratante=")
+				.append(contratante).append(", contratada=").append(contratada)
 				.append(", dataCriacao=").append(dataCriacao)
 				.append(", dataExpiracao=").append(dataExpiracao)
-				.append(", pagamentos=").append(pagamentos)
-				.append("]");
+				.append(", pagamentos=").append(pagamentos).append("]");
 		return builder.toString();
 	}
-	
-	
-	
-	
+
 }
