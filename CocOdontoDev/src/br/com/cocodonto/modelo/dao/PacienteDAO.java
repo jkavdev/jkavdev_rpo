@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import br.com.cocodonto.framework.dao.CreateDAOException;
 import br.com.cocodonto.framework.dao.DAOHelper;
 import br.com.cocodonto.modelo.entidade.Paciente;
 
@@ -15,7 +16,7 @@ public class PacienteDAO {
 		daoHelper = new DAOHelper();
 	}
 
-	public void inserir(Paciente paciente) {
+	public void inserir(Paciente paciente) throws CreateDAOException {
 		Connection conn = null;
 		PreparedStatement ps = null;
 		try {
@@ -31,7 +32,7 @@ public class PacienteDAO {
 			ps.executeUpdate();
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new CreateDAOException("Não foi Possivel realizar a transação! " + e);
 		} finally {
 			daoHelper.releaseAll(conn, ps);
 		}
