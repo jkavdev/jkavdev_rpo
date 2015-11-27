@@ -14,6 +14,11 @@ public class Paciente {
 	private Contato contato;
 	private Paciente responsavelPor;
 	
+	public Paciente() {
+		cricacao = new Date();
+		sexo = SexoType.F;
+	}
+	
 	public Paciente(long id, String nome, String rg, String cpf, SexoType sexo,
 			Endereco endereco, Contato contato) {
 		super();
@@ -168,6 +173,7 @@ public class Paciente {
 				.append(", sexo=").append(sexo)
 				.append(", endereco=").append(endereco)
 				.append(", contato=").append(contato)
+				.append(", criacao=").append(cricacao)
 				.append("]");
 		return builder.toString();
 	}

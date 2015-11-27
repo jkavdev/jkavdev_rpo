@@ -17,12 +17,12 @@ public class EnderecoDAO {
 		daoHelper = new DAOHelper();
 	}
 
-	public void inserir(Endereco endereco) throws CreateDAOException {
+	public void inserir(Endereco endereco) {
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try {
-			conn = daoHelper.getConnection();
+			conn = daoHelper.getConnectionFromContext();
 			String sql = "insert into endereco(endereco, cidade, bairro, cep) values(?, ?, ?, ?)";
 			int index = 0;
 			ps = conn.prepareStatement(sql,
