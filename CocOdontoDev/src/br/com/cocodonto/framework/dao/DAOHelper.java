@@ -8,6 +8,8 @@ import java.sql.Statement;
 
 public class DAOHelper {
 
+	private static final ThreadLocal<Connection> context = new ThreadLocal<>();
+
 	/**
 	 * Fornece conexao com o banco de dados
 	 * 
@@ -28,10 +30,39 @@ public class DAOHelper {
 		return conn;
 	}
 
+	public void beginTransaction() throws SQLException {
+		Connection conn = getConnection();
+		conn.setAutoCommit(false);
+		context.set(conn);
+	}
+
+	public void endTransaction() throws SQLException {
+		commit(getConnectionFromContext());
+	}
+
+	public void commit(Connection conn) throws SQLException {
+		conn.commit();
+		releaseTransaction();
+	}
+
+	public void releaseTransaction() throws SQLException {
+		Connection conn = getConnectionFromContext();
+		release(conn);
+		context.remove();
+	}
+
+	public Connection getConnectionFromContext() throws SQLException {
+		Connection conn = context.get();
+		if (conn == null)
+			throw new SQLException("Transação invalida!");
+		if (conn.isClosed())
+			throw new SQLException("Transação invalida! Conexao fechada");
+		return conn;
+	}
+
 	public void release(Statement stmt) {
-		if (stmt == null) {
+		if (stmt == null)
 			return;
-		}
 		try {
 			stmt.close();
 		} catch (SQLException e) {
@@ -39,9 +70,8 @@ public class DAOHelper {
 	}
 
 	public void release(Connection conn) {
-		if (conn == null) {
+		if (conn == null)
 			return;
-		}
 		try {
 			conn.close();
 		} catch (SQLException e) {
@@ -49,9 +79,8 @@ public class DAOHelper {
 	}
 
 	public void release(ResultSet rs) {
-		if (rs == null) {
+		if (rs == null)
 			return;
-		}
 		try {
 			rs.close();
 		} catch (SQLException e) {
