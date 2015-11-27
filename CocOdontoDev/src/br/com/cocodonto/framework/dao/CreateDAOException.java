@@ -1,6 +1,6 @@
 package br.com.cocodonto.framework.dao;
 
-public class CreateDAOException extends Exception {
+public class CreateDAOException extends RuntimeException{
 
 	public CreateDAOException() {
 		super();
