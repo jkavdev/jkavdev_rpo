@@ -1,11 +1,14 @@
 package br.com.cocodonto.modelo.entidade;
 
+import java.util.Date;
+
 public class Paciente {
 
 	private long id;
 	private String nome;
 	private String rg;
 	private String cpf;
+	private Date cricacao;
 	private SexoType sexo;
 	private Endereco endereco;
 	private Contato contato;
@@ -104,6 +107,14 @@ public class Paciente {
 		this.responsavelPor = responsavelPor;
 	}
 
+	public Date getCricacao() {
+		return cricacao;
+	}
+
+	public void setCricacao(Date cricacao) {
+		this.cricacao = cricacao;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -160,9 +171,4 @@ public class Paciente {
 				.append("]");
 		return builder.toString();
 	}
-	
-	
-	
-	
-	
 }

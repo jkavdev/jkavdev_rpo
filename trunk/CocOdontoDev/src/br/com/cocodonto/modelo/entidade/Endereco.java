@@ -1,12 +1,21 @@
 package br.com.cocodonto.modelo.entidade;
 
 public class Endereco {
+	private Long id;
 	private String endereco;
 	private String cidade;
 	private String bairro;
 	private String cep;
 
 	public Endereco() {
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getEndereco() {
