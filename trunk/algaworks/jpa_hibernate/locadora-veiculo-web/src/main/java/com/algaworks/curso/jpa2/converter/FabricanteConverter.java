@@ -22,7 +22,7 @@ public class FabricanteConverter implements Converter {
 	public Object getAsObject(FacesContext context, UIComponent component,String value) {
 		Fabricante retorno = null;
 		if (value != null) {
-			retorno = this.fabricanteDAO.buscarPeloFabricante(new Long(value));
+			retorno = this.fabricanteDAO.buscarPeloCodigo(new Long(value));
 		}
 		return retorno;
 	}

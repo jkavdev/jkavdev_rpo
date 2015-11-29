@@ -1,0 +1,30 @@
+package com.algaworks.curso.jpa2.service;
+
+import java.io.Serializable;
+
+import javax.inject.Inject;
+
+import com.algaworks.curso.jpa2.dao.ModeloCarroDAO;
+import com.algaworks.curso.jpa2.modelo.ModeloCarro;
+import com.algaworks.curso.jpa2.util.jpa.Transactional;
+
+public class CadastroModeloCarroService implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	@Inject
+	private ModeloCarroDAO modeloCarroDAO;
+
+	@Transactional
+	public void salvar(ModeloCarro modeloCarro) throws NegocioException {
+		if (modeloCarro.getDescricao() == null || modeloCarro.getDescricao().trim().equals("")) {
+			throw new NegocioException("O nome do Modelo é obrigatório!");
+		}
+		if (modeloCarro.getFabricante() == null) {
+			throw new NegocioException("O Fabricante é obrigatório!");
+		}
+		this.modeloCarroDAO.salvar(modeloCarro);
+		System.out.println("Service - " + modeloCarro.getDescricao());
+	}
+
+}
