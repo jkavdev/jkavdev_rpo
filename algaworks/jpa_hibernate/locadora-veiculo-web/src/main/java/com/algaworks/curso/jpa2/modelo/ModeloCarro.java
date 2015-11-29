@@ -4,24 +4,24 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.TableGenerator;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
-//implementando novo gerador de chave primaria
-@TableGenerator(
-		name="codigo_generator",	//nome do mode de geração da chave, usado no generatorValue 
-		table="gerador_codigo",		//nome da tabela no banco de dados
-		pkColumnName="entidade",	//nome da entidade
-		valueColumnName="alocacao",	//nome do campo do valor gerado
-		allocationSize=5			//quantidade de registros fornecidos pelo banco
-)
-public class Fabricante {
+public class ModeloCarro {
 
 	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@GeneratedValue(generator="codigo_generator", strategy=GenerationType.TABLE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
-	private String nome;
+	private String descricao;
+	//temos muitos modelos de carros para apenas um fabricante
+	@ManyToOne
+	//ao fazer esta modificacao em uma tabela ja criada
+	//a jpa irar criar outra coluna com este nome
+	//deixando o outro campo criado com campos nulos
+	//cuidado ao usar esta anotacao
+	@JoinColumn(name="codigo_fabricante")
+	private Fabricante fabricante;
 
 	public Long getCodigo() {
 		return codigo;
@@ -31,12 +31,20 @@ public class Fabricante {
 		this.codigo = codigo;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getDescricao() {
+		return descricao;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public Fabricante getFabricante() {
+		return fabricante;
+	}
+
+	public void setFabricante(Fabricante fabricante) {
+		this.fabricante = fabricante;
 	}
 
 	@Override
@@ -55,7 +63,7 @@ public class Fabricante {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Fabricante other = (Fabricante) obj;
+		ModeloCarro other = (ModeloCarro) obj;
 		if (codigo == null) {
 			if (other.codigo != null)
 				return false;

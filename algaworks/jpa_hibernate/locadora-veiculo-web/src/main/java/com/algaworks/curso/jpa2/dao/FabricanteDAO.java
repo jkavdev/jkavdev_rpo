@@ -44,7 +44,7 @@ public class FabricanteDAO implements Serializable {
 		manager.flush();
 	}
 
-	public Fabricante buscarPeloFabricante(Long codigo) {
+	public Fabricante buscarPeloCodigo(Long codigo) {
 		return manager.find(Fabricante.class, codigo);
 	}
 
