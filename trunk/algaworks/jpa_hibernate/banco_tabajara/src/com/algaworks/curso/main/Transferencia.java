@@ -44,7 +44,7 @@ public class Transferencia {
 		manager.persist(conta2);
 		manager.getTransaction().commit();
 
-		// apresanta valores das contas
+		// apresenta valores das contas
 
 		System.out.println("Saldo Conta 1 : " + conta1.getSaldo());
 		System.out.println("Saldo Conta 2 : " + conta2.getSaldo());
