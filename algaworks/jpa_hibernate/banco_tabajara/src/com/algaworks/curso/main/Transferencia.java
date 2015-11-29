@@ -49,6 +49,9 @@ public class Transferencia {
 		System.out.println("Saldo Conta 1 : " + conta1.getSaldo());
 		System.out.println("Saldo Conta 2 : " + conta2.getSaldo());
 
+		manager.close();
+		manager = factory.createEntityManager();
+
 		// valor para transferencia entre as contas
 		System.out.println("------------------------------------");
 		System.out
@@ -60,6 +63,11 @@ public class Transferencia {
 		conta1.setSaldo(conta1.getSaldo() - valorTransferencia);
 		conta2.setSaldo(conta2.getSaldo() + valorTransferencia);
 
+		// realizando alteração nos objetos, uma vez que o entitymanager foi
+		// fechado e aberto de novo
+		manager.merge(conta1);
+		manager.merge(conta2);
+
 		if (conta1.getSaldo() > 0) {
 			manager.getTransaction().commit();
 			System.out.println("Transferencia realizada com Sucesso");
@@ -68,7 +76,7 @@ public class Transferencia {
 			System.out
 					.println("Transferencia não realizada, saldo insuficiente!");
 		}
-		
+
 		System.out.println("Saldo Conta 1 : " + conta1.getSaldo());
 		System.out.println("Saldo Conta 2 : " + conta2.getSaldo());
 
