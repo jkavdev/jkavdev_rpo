@@ -21,8 +21,15 @@ public class FabricanteDAO implements Serializable {
 	@Inject
 	private EntityManager manager;
 
+	//o mesmo ocorre com a edicao do registro
+	//sera chamado este metodo
+	//como a entidade a ser editada ja foi gerenciado pelo manager, precisamos
+	//fazer esta entidade ser gerenciada novamente
+	//podemos fazer isto com o merge
+	//pois ele verificara se ja existe um registro com o codigo informado
+	//se existe ele apenas faz as alterações, se existirem
 	public void salvar(Fabricante fabricante) {
-		manager.persist(fabricante);
+		manager.merge(fabricante);
 	}
 
 	//para excluir-mos o objeto, precisamos que o manager o gerencie
@@ -39,6 +46,10 @@ public class FabricanteDAO implements Serializable {
 	@SuppressWarnings("unchecked")
 	public List<Fabricante> buscarTodos() {
 		return manager.createQuery("from Fabricante").getResultList();
+	}
+
+	public Fabricante buscarPeloCodigo(Long codigo) {
+		return manager.find(Fabricante.class, codigo);
 	}
 
 }
