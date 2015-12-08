@@ -6,12 +6,11 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
 
 import escola.musica.dao.CursoDAO;
+import escola.musica.dao.FacesUtil;
 import escola.musica.modelo.Curso;
 import escola.musica.modelo.TipoCurso;
 
@@ -19,17 +18,28 @@ import escola.musica.modelo.TipoCurso;
 @SessionScoped
 public class CursoBean {
 
-	private Curso curso = new Curso();
+	private Curso curso;
 	// transformando um arrays em uma lista
 	private List<TipoCurso> tipos = Arrays.asList(TipoCurso.values());
 	private List<Curso> cursos = new ArrayList<>();
+	
+	public CursoBean() {
+		cursos = new CursoDAO().listarTodos();
+		this.limpar();
+	}
 
 	public String salvar() {
 		new CursoDAO().salvar(curso);
-		cursos.add(curso);		
-		FacesContext.getCurrentInstance().addMessage(null,new FacesMessage("Curso salvo com Sucesso", ""));
+//		cursos.add(curso);
+		cursos = new CursoDAO().listarTodos();
+		FacesUtil.addSuccessMessage("Curso salvo com Sucesso");
 		limpar();
 		return "curso_lista?faces-redirect=true";
+	}
+	
+	public String editar(Curso curso){
+		this.curso = curso;
+		return "curso_formulario?faces-redirect=true";
 	}
 
 	private void limpar() {
