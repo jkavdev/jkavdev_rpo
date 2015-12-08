@@ -10,15 +10,28 @@
 		<title>Cadastro de Cursos</title>
 	</h:head>
 	<h:body>
-		<p:panel header="Cadastro de Cursos">
-			<p:panelGrid columns="2">
-				<h:outputLabel value="Nome: " for="nome"/>
-				<p:inputText id="nome" value="#{cursoBean.curso.nome}"/>
-				
-				<h:outputLabel value="Descrição: " for="descricao"/>
-				<p:inputTextarea id="descricao" value="#{cursoBean.curso.descricao}" cols="40" rows="3"/>
-				
-			</p:panelGrid>
-		</p:panel>
+		<h:form>
+			<p:growl />
+			<p:panel header="Cadastro de Cursos">
+				<p:panelGrid columns="2">
+					<h:outputLabel value="Nome: " for="nome"/>
+					<p:inputText id="nome" value="#{cursoBean.curso.nome}"/>
+					
+					<h:outputLabel value="Descrição: " for="descricao"/>
+					<p:inputTextarea id="descricao" value="#{cursoBean.curso.descricao}" cols="40" rows="3"/>
+					
+					<h:outputLabel value="Duração: " for="duracao"/>
+					<p:spinner id="duracao" value="#{cursoBean.curso.duracao}" min="1" stepFactor="0.5" size="1"/>
+					
+					<h:outputLabel value="Tipo de Curso: " for="tipoCurso"/>
+					<p:selectOneMenu id="tipoCurso" value="#{cursoBean.curso.tipo}">
+						<f:selectItem itemLabel=":: Selecione ::" itemValue="#{null}"/>
+						<f:selectItems value="#{cursoBean.tipos}" var="tipo" itemLabel="#{tipo.descricao}" itemValue="#{tipo}"/>
+					</p:selectOneMenu>
+					
+				</p:panelGrid>
+				<p:commandButton value="Salvar" action="#{cursoBean.salvar}" update="@form"/>
+			</p:panel>
+		</h:form>
 	</h:body>
 </html>
