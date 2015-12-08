@@ -32,7 +32,7 @@
 					</p:selectOneMenu>
 					
 					<h:outputLabel value="Data de Criação: " for="dataCriacao"/>
-					<p:calendar for="dataCriacao" value="#{cursoBean.curso.dataCriacao}" pattern="dd/MM/yyyy" maxdate="#{cursoBean.dataAtual}"/>
+					<p:calendar id="dataCriacao" value="#{cursoBean.curso.dataCriacao}" pattern="dd/MM/yyyy" maxdate="#{cursoBean.dataAtual}"/>
 					
 				</p:panelGrid>
 				
