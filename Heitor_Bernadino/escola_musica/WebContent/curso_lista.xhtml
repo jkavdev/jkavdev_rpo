@@ -11,14 +11,14 @@
 	</h:head>
 	<h:body>
 		<p:growl />
-		<p:panel header="Cursos Cadastrados">
+		<p:panel header="Cursos Cadastrados" style="width:80%;">
 			<p:dataTable value="#{cursoBean.cursos}" var="curso">
-				<p:column headerText="Nome">
+				<p:column headerText="Nome" style="width:300px;">
 					<h:outputText value="#{curso.nome}" />
 				</p:column>
 				
 				<p:column headerText="Duração">
-					<h:outputText value="#{curso.duracao}" />
+					<h:outputText value="#{curso.duracao}" style="width:90px;" />
 				</p:column>
 				
 				<p:column headerText="Tipo">
