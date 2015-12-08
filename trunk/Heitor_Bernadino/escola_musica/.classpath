@@ -13,7 +13,7 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/primefaces 5.3"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/mojarra jsf 2.2.9"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/javax.faces-2.2.9.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/primefaces-5.3.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
