@@ -6,8 +6,10 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 import escola.musica.dao.CursoDAO;
 import escola.musica.dao.FacesUtil;
@@ -40,6 +42,17 @@ public class CursoBean {
 	public String editar(Curso curso){
 		this.curso = curso;
 		return "curso_formulario?faces-redirect=true";
+	}
+	
+	public void excluir(){
+		new CursoDAO().excluir(curso);
+		FacesContext.getCurrentInstance().addMessage(null, 
+				new FacesMessage("Curso excluido com sucesso!"));
+		cursos = new CursoDAO().listarTodos();
+	}
+	
+	public void prepararExclusao(Curso curso){
+		this.curso = curso;
 	}
 
 	private void limpar() {
