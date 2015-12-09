@@ -22,4 +22,13 @@ public class CursoDAO {
 		return manager.createQuery("from Curso").getResultList();
 	}
 
+	public void excluir(Curso curso) {
+		EntityManager manager = JPAUtil.getEntityManager();
+		curso = manager.merge(curso);
+		manager.getTransaction().begin();
+		manager.remove(curso);
+		manager.getTransaction().commit();
+		manager.close();
+	}
+
 }
