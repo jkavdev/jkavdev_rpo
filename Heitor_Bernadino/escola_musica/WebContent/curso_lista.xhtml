@@ -14,7 +14,7 @@
 			<p:button value="Novo Curso" outcome="curso_formulario"/><br /><br />
 			<h:form>
 				<p:growl />
-				<p:dataTable value="#{cursoBean.cursos}" var="curso" paginator="true" rows="10" rowsPerPageTemplate="5, 10, 15" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown} ">
+				<p:dataTable id="tabelaCursos" value="#{cursoBean.cursos}" var="curso" paginator="true" rows="10" rowsPerPageTemplate="5, 10, 15" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown} ">
 				
 					<p:column headerText="Nome" style="width:300px;" sortBy="#{curso.nome}" filterBy="#{curso.nome}" filterMatchMode="contains">
 						<h:outputText value="#{curso.nome}" />
@@ -34,12 +34,24 @@
 						</h:outputText>
 					</p:column>
 					
-					<p:column style="text-align:center">
+					<p:column style="text-align:center" exportable="false">
 						<p:commandLink value="Editar" action="#{cursoBean.editar(curso)}" style="color:blue;"/>
 						<p:commandLink value="Excluir" actionListener="#{cursoBean.prepararExclusao(curso)}" oncomplete="PF('confirmarExclusaoDialog').show();" style="color:red; margin-left:20px;" update="@form" />
 					</p:column>
 						
 				</p:dataTable>
+				
+				<br />
+				
+				<h:commandLink >     
+				    <p:graphicImage library="images" name="exportar_xls.gif"/>
+                	<p:dataExporter type="xls" target="tabelaCursos" fileName="cursos" />
+            	</h:commandLink>
+            	
+            	<h:commandLink style="margin-left:10px;">
+            		<p:graphicImage library="images" name="exportar_pdf.gif"/>                	
+                	<p:dataExporter type="pdf" target="tabelaCursos" fileName="cursos" encoding="iso-8859-1"/>
+            	</h:commandLink>
 				
 				<p:confirmDialog message="deseja Realmentre o Curso #{cursoBean.curso.nome}" widgetVar="confirmarExclusaoDialog">
 					<p:commandButton value="Sim" oncomplete="PF('confirmarExclusaoDialog').hide();" action="#{cursoBean.excluir()}" update="@form"/>
