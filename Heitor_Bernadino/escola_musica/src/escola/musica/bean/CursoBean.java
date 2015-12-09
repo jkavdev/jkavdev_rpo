@@ -24,9 +24,11 @@ public class CursoBean {
 	// transformando um arrays em uma lista
 	private List<TipoCurso> tipos = Arrays.asList(TipoCurso.values());
 	private List<Curso> cursos = new ArrayList<>();
+	private List<Curso> cursosAccordion = new ArrayList<>();
 	
 	public CursoBean() {
 		cursos = new CursoDAO().listarTodos();
+		cursosAccordion = CursoDAO.listarCursosAccordion();
 		this.limpar();
 	}
 
@@ -78,5 +80,11 @@ public class CursoBean {
 	public List<Curso> getCursos() {
 		return cursos;
 	}
+
+	public List<Curso> getCursosAccordion() {
+		return cursosAccordion;
+	}
+	
+	
 
 }
