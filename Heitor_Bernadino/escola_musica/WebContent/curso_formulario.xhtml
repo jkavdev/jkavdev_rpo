@@ -20,7 +20,7 @@
 					</p:inputText>
 					
 					<h:outputLabel value="Descrição: " for="descricao"/>
-					<p:inputTextarea id="descricao" value="#{cursoBean.curso.descricao}" cols="40" rows="3" required="true" requiredMessage="Preencha a descrição"/>
+					<p:inputTextarea id="descricao" value="#{cursoBean.curso.descricao}" cols="40" rows="3" required="true" requiredMessage="Preencha a descrição" maxlength="255"/>
 					
 					<h:outputLabel value="Duração: " for="duracao"/>
 					<p:spinner id="duracao" value="#{cursoBean.curso.duracao}" min="1" stepFactor="0.5" size="1" max="10"/>
