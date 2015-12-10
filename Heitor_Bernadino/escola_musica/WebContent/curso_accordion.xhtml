@@ -18,8 +18,10 @@
    				<p:accordionPanel>
    					<c:forEach items="#{cursoBean.cursosAccordion}" var="curso">
    						<p:tab title="#{curso.nome}">
-   							<p:graphicImage library="images" name="curso.obterImagem()" />
-   							<h:outputText value="#{curso.descricao}" />
+   							<p:panelGrid columns="2" cellpadding="10">
+	   							<p:graphicImage library="images" name="curso.obterImagem()" />
+	   							<h:outputText value="#{curso.descricao}" />
+   							</p:panelGrid>
    						</p:tab>
    					</c:forEach>
    				</p:accordionPanel>

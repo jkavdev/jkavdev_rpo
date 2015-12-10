@@ -84,4 +84,10 @@ public class Curso {
 		this.dataCriacao = dataCriacao;
 	}
 
+	public String obterImagem() {
+		System.out.println(nome);
+		return nome.toLowerCase().replaceAll("ã", "a")
+				.replaceAll("é", "e")
+				.replace(" ", "_").concat(".png");
+	}
 }
