@@ -31,21 +31,23 @@ public class CursoBean {
 	public void iniciarBean() {
 		cursos = new CursoDAO().listarTodos();
 		cursosAccordion = CursoDAO.listarCursosAccordion();
+	}
+	
+	public void novoCurso(){
 		this.limpar();
 	}
 	
-	public String salvar() {
+	public void salvar() {
 		new CursoDAO().salvar(curso);
 //		cursos.add(curso);
 		cursos = new CursoDAO().listarTodos();
-		FacesUtil.addSuccessMessage("Curso salvo com Sucesso");
-		limpar();
-		return "curso_lista?faces-redirect=true";
+		FacesContext.getCurrentInstance().addMessage(null, 
+				new FacesMessage("Curso Salvo com sucesso!"));
+		curso = null;
 	}
 	
-	public String editar(Curso curso){
+	public void editar(Curso curso){
 		this.curso = curso;
-		return "curso_formulario?faces-redirect=true";
 	}
 	
 	public void excluir(){
