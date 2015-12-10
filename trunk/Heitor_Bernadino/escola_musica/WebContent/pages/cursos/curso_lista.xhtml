@@ -10,7 +10,7 @@
 		<title>Cursos Cadastrados</title>
 	</h:head>
 	<h:body>		
-		<p:panel header="Cursos Cadastrados" style="width:80%;">
+		<p:panel header="Cursos Cadastrados" style="width:60%;" rendered="##{cursoBean.curso != null}">
 			<p:button value="Novo Curso" outcome="curso_formulario"/><br /><br />
 			<h:form>
 				<p:growl />
