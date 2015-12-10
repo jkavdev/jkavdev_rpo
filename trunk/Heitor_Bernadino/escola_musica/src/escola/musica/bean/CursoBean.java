@@ -26,12 +26,14 @@ public class CursoBean {
 	private List<Curso> cursos = new ArrayList<>();
 	private List<Curso> cursosAccordion = new ArrayList<>();
 	
-	public CursoBean() {
+	//metodo a ser chamado pelo
+	//pretty face
+	public void iniciarBean() {
 		cursos = new CursoDAO().listarTodos();
 		cursosAccordion = CursoDAO.listarCursosAccordion();
 		this.limpar();
 	}
-
+	
 	public String salvar() {
 		new CursoDAO().salvar(curso);
 //		cursos.add(curso);
