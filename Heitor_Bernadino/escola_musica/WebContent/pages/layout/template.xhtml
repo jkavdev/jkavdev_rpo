@@ -10,10 +10,12 @@
    </h:head>
    
    <h:body>
-	<h3>Conteúdo Fixo</h3>
-	<ui:insert name="principal">
-		Conteudo fixo
-	</ui:insert>
+	<h:form>
+		<p:menubar>
+			<p:menuitem value="Curso" url="/curso/manutencao/"></p:menuitem>
+		</p:menubar>
+	</h:form>
+	<ui:insert name="principal" />
    </h:body>
    
 </html>
