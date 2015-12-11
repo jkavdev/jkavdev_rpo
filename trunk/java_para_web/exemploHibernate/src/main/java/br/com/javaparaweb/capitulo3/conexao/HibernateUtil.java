@@ -12,8 +12,10 @@ public class HibernateUtil {
 		try {
 			Configuration cfg = new Configuration();
 			cfg.configure("hibernate.cfg.xml");
+			//construtor dos servicos do hibernate que trabalha junto com o registrador 
 			StandardServiceRegistryBuilder registradorServico = new StandardServiceRegistryBuilder();
 			registradorServico.applySettings(cfg.getProperties());
+			//registrador de servicos do hibernate
 			StandardServiceRegistry servico = registradorServico.build();
 			return cfg.buildSessionFactory(servico);
 		} catch (Throwable e) {
