@@ -6,9 +6,9 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 
 public class UsuarioDAOHibernate implements UsuarioDAO {
-	
+
 	private Session sessao;
-	
+
 	public void setSessao(Session sessao) {
 		this.sessao = sessao;
 	}
