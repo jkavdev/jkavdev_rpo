@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+   <ui:composition template="template.xhtml">
+   	<ui:define name="corpo">
+   		<div class="titulo">
+   			<legend>Cadastro de Cliente Fisico</legend>   			
+   		</div>
+   		
+   		<h:outputLabel value="Cadastro" style="margin-left: 46%; margin-top: 5%; margin-bottom: 9%; font-family: cursive; color: darkcyan; font-size: 156%;"/>
+   		
+   		<div class="col-sm-5">
+   			<label for="nome" class="control-label">Nome</label>
+   			<h:inputText class="form-control" name="nome" id="nome" >Nome</h:inputText>
+   		</div>
+   		
+   		<h:commandButton class="btn btn-success btn-sm" value="Gravar" />
+   		
+   	</ui:define>
+   </ui:composition>
+   
+</html>
