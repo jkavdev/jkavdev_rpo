@@ -1,5 +1,7 @@
 package br.com.caelum.livraria.bean;
 
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 
 import br.com.caelum.livraria.dao.DAO;
@@ -20,9 +22,9 @@ public class AutorBean {
 	public Autor getAutor() {
 		return autor;
 	}
-
-	public void setAutor(Autor autor) {
-		this.autor = autor;
+	
+	public List<Autor> getAutores(){
+		return new DAO<Autor>(Autor.class).listaTodos();
 	}
 
 }

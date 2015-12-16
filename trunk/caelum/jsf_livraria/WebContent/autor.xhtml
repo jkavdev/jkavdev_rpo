@@ -6,18 +6,33 @@
 
 <h:body>
 	<h1>Novo Autor</h1>
-	<h:form>
+	<h:form id="autor">
 		<fieldset>
 			<legend>Dados do Autor</legend>
 
 			<h:panelGrid columns="2">
 				<h:outputLabel value="Nome:" for="nome" />
-				<h:inputText id="nome" value="#{autorBean.autor.nome}"/>
-
+				<h:inputText id="nome" value="#{autorBean.autor.nome}" required="true">
+					<f:validateLength minimum="5"/>
+				</h:inputText>
+				<h:message for="nome"/>
 				<h:commandButton value="Gravar" action="#{autorBean.gravar()}"/>
 			</h:panelGrid>
 		</fieldset>
 	</h:form>
+	
+	<br /><br />
+	
+	<fieldset>
+		<legend>Autores Cadastrados</legend>
+		<h:dataTable id="tabelaAutores" value="#{autorBean.autores}" var="autor">
+			<h:column>	
+				<f:facet name="header">Nome</f:facet>				
+				<h:outputText value="#{autor.nome}" />
+			</h:column>
+		</h:dataTable>
+	</fieldset>
+	
 </h:body>
 
 </html>
