@@ -27,6 +27,7 @@ public class LivroBean {
 			// throw new RuntimeException("O Livro deve ter pelo menos um
 			// Autor!");
 			FacesContext.getCurrentInstance().addMessage("autor", new FacesMessage("O Livro deve ter pelo menos um Autor!"));
+			return;
 		}
 		new DAO<Livro>(Livro.class).adiciona(this.livro);
 		this.livro = new Livro();
