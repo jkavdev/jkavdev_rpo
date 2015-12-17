@@ -4,64 +4,67 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 	
-	<h:head></h:head>	
-
-<h:body>
-	<h1>Novo Livro</h1>
-	<h:form>
-		<h:messages id="messages"/>
-		<fieldset>
-			<legend>Dados do Livro</legend>
-
-			<h:panelGrid columns="2">
-				<h:outputLabel value="Titulo:" for="livro" />
-				<h:inputText id="livro" label="Livro" value="#{livroBean.livro.titulo}" required="true" requiredMessage="Titulo Obrigatório" validatorMessage="Titulo não pode ser superior a 40">
-					<f:validateLength maximum="40" />
-					<f:ajax event="blur" render="messages"/>
-				</h:inputText>
-				<h:outputLabel value="ISBN:" for="isbn" />
-				<h:inputText id="isbn" value="#{livroBean.livro.isbn}" validator="#{livroBean.comecaComDigitoUm}">
-					<f:ajax event="blur" render="messages"/>
-				</h:inputText>
-				<h:outputLabel value="Preço" for="preco" />
-				<h:inputText id="preco" value="#{livroBean.livro.preco}"/>
-				<h:outputLabel value="Data de Lançamento" for="data_lancamento" />
-				<h:inputText id="data_lancamento" value="#{livroBean.livro.dataLancamento.time}">
-					<f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
-				</h:inputText>
-			</h:panelGrid>
-		</fieldset>
-		
-		<br />
-		
-		<fieldset>
-			<legend>Dados do Autor</legend>
-			<h:outputLabel value="Selecione o Autor:" for="autor" />
-			<h:selectOneMenu id="autor" value="#{livroBean.autor.id}">
-				<f:selectItems value="#{livroBean.autores}" var="autor" itemLabel="#{autor.nome}" itemValue="#{autor.id}"/>
-			</h:selectOneMenu>
-			
-			<h:commandButton value="Gravar" action="#{livroBean.gravarAutor()}" >
-				<f:ajax execute="autor" render="tabelaAutores"/>
-			</h:commandButton>
+	<ui:composition template="_template.xhtml">
+	
+	<ui:define name="titulo">
+		Novo Livro
+	</ui:define>
+	
+	<ui:define name="conteudo">
+		<h:form>
+			<h:messages id="messages"/>
+			<fieldset>
+				<legend>Dados do Livro</legend>
+	
+				<h:panelGrid columns="2">
+					<h:outputLabel value="Titulo:" for="livro" />
+					<h:inputText id="livro" label="Livro" value="#{livroBean.livro.titulo}" required="true" requiredMessage="Titulo Obrigatório" validatorMessage="Titulo não pode ser superior a 40">
+						<f:validateLength maximum="40" />
+						<f:ajax event="blur" render="messages"/>
+					</h:inputText>
+					<h:outputLabel value="ISBN:" for="isbn" />
+					<h:inputText id="isbn" value="#{livroBean.livro.isbn}" validator="#{livroBean.comecaComDigitoUm}">
+						<f:ajax event="blur" render="messages"/>
+					</h:inputText>
+					<h:outputLabel value="Preço" for="preco" />
+					<h:inputText id="preco" value="#{livroBean.livro.preco}"/>
+					<h:outputLabel value="Data de Lançamento" for="data_lancamento" />
+					<h:inputText id="data_lancamento" value="#{livroBean.livro.dataLancamento.time}">
+						<f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
+					</h:inputText>
+				</h:panelGrid>
+			</fieldset>
 			
 			<br />
 			
-			<h:commandLink action="#{livroBean.formAutor}" value="Cadastrar novo autor" immediate="true"/>
+			<fieldset>
+				<legend>Dados do Autor</legend>
+				<h:outputLabel value="Selecione o Autor:" for="autor" />
+				<h:selectOneMenu id="autor" value="#{livroBean.autor.id}">
+					<f:selectItems value="#{livroBean.autores}" var="autor" itemLabel="#{autor.nome}" itemValue="#{autor.id}"/>
+				</h:selectOneMenu>
+				
+				<h:commandButton value="Gravar" action="#{livroBean.gravarAutor()}" >
+					<f:ajax execute="autor" render="tabelaAutores"/>
+				</h:commandButton>
+				
+				<br />
+				
+				<h:commandLink action="#{livroBean.formAutor}" value="Cadastrar novo autor" immediate="true"/>
+				
+				<h:dataTable value="#{livroBean.autoresDoLivro}" var="autor" id="tabelaAutores">
+					<h:column>					
+						<h:outputText value="#{autor.nome}" />
+					</h:column>
+				</h:dataTable>
+			</fieldset>
 			
-			<h:dataTable value="#{livroBean.autoresDoLivro}" var="autor" id="tabelaAutores">
-				<h:column>					
-					<h:outputText value="#{autor.nome}" />
-				</h:column>
-			</h:dataTable>
-		</fieldset>
-		
-		<br />
-		
-		<h:commandButton value="Gravar" action="#{livroBean.gravar}" >
-			<f:ajax execute="@form" render="@form :tabelaLivros"/>
-		</h:commandButton>
-		
+			<br />
+			
+			<h:commandButton value="Gravar" action="#{livroBean.gravar}" >
+				<f:ajax execute="@form" render="@form :tabelaLivros"/>
+			</h:commandButton>
+			
 	</h:form>
 		
 		<br /><br />
@@ -91,7 +94,12 @@
 				</h:column>
 			</h:dataTable>
 		</fieldset>
-			
-</h:body>
+	</ui:define>
+	
+	<ui:define name="rodape">
+		Cadastro de Livros
+	</ui:define>
+	
+	</ui:composition>
 
 </html>
