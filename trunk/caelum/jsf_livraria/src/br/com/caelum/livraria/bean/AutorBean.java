@@ -12,11 +12,13 @@ public class AutorBean {
 
 	private Autor autor = new Autor();
 	
-	public void gravar(){
+	public String gravar(){
 		System.out.println("Gravando autor : " + autor.getNome());
 		new DAO<Autor>(Autor.class).adiciona(autor);
 		//depois de salvar limpar o formulario
 		this.autor = new Autor();
+		
+		return "livro?faces-redirect=true";
 	}
 
 	public Autor getAutor() {
