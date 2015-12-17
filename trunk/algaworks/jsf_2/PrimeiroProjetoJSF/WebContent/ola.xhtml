@@ -9,8 +9,12 @@
    </h:head>
    
    <h:body>
-   	<h:inputText value="Digite um valor"/>
-   	<h:commandButton value="Clique aqui" />
+   	<h:form>
+   		Seu Nome: <h:inputText value="#{olaMundoBean.nome}"/>
+	   	<h:commandButton value="Enviar #{olaMundoBean.nome}" action="#{olaMundoBean.enviar}"/>
+	   	<br />
+	   	Nome Digitado : #{olaMundoBean.nome}
+   	</h:form>
    </h:body>
    
 </html>
