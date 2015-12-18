@@ -1,11 +1,17 @@
 package com.algaworks.cursojsf2.visao;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.NoneScoped;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
 import com.algaworks.cursojsf2.dominio.Produto;
 
@@ -18,13 +24,34 @@ import com.algaworks.cursojsf2.dominio.Produto;
 //utilizara deste bean durante toda a sessao do usuario
 //sessao eh por usuario, nao compartilha dados
 //uma vez que a sessao acaba, o bean e finalizado
-@SessionScoped
+//@SessionScoped
+
+//o jsf criara um instancia do bean
+//utilizara deste bean durante a tela
+//uma vez que a tela for atualizada o bean sera finalizado
+//@ViewScoped
+
+//o jsf criara um instancia do bean
+//utilizara deste bean durante a requisicao
+//uma vez que seja feita uma nova requisao criara uma nova instancia do bean
+//@RequestScoped
+
+//o jsf criara um instancia do bean
+//utilizara por demanda, 
+//uma vez que certo atributo precisa do bean
+//instanciara um novo bean
+@NoneScoped
 
 @ManagedBean
-public class GestaoProdutrosBean {
+public class GestaoProdutrosBean implements Serializable{
 
-	private Produto produto = new Produto();
-	private List<Produto> produtos = new ArrayList<>();
+	private Produto produto;
+	private List<Produto> produtos;
+	
+	public GestaoProdutrosBean() {
+		produtos = new ArrayList<>();
+		produto = new Produto();
+	}
 
 	public void incluir() {
 		this.produtos.add(produto);
@@ -38,13 +65,15 @@ public class GestaoProdutrosBean {
 	public List<Produto> getProdutos() {
 		return produtos;
 	}
-
-	public void setProduto(Produto produto) {
-		this.produto = produto;
+	
+	@PostConstruct
+	public void init(){
+		System.out.println("Bean Iniciado");
 	}
-
-	public void setProdutos(List<Produto> produtos) {
-		this.produtos = produtos;
+	
+	@PreDestroy
+	public void des(){
+		System.out.println("Bean Finalizado");
 	}
 
 }
