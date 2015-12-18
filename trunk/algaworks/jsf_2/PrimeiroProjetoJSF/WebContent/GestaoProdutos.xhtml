@@ -10,11 +10,13 @@
    
    <h:body>
    	<h:form>
+   		<h:commandLink value="Ajuda sobre esta tela" action="#{gestaoProdutrosBean.obterAjuda}" />
+   		<br /><br />
    		Nome : <h:inputText value="#{gestaoProdutrosBean.produto.nome}" />
    		Fabricante : <h:inputText value="#{gestaoProdutrosBean.produto.fabricante}" />
    		Categoria : <h:inputText value="#{gestaoProdutrosBean.produto.categoria}" />
    		
-   		<h:commandButton action="#{gestaoProdutrosBean.incluir()}" value="Incluir" />
+   		<h:commandButton action="#{gestaoProdutrosBean.incluir}" value="Incluir" />
    	</h:form>
    	
    	<ol>
