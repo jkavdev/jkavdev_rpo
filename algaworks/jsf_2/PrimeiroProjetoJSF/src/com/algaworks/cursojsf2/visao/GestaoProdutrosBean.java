@@ -24,7 +24,7 @@ import com.algaworks.cursojsf2.dominio.Produto;
 //utilizara deste bean durante toda a sessao do usuario
 //sessao eh por usuario, nao compartilha dados
 //uma vez que a sessao acaba, o bean e finalizado
-//@SessionScoped
+@SessionScoped
 
 //o jsf criara um instancia do bean
 //utilizara deste bean durante a tela
@@ -40,7 +40,7 @@ import com.algaworks.cursojsf2.dominio.Produto;
 //utilizara por demanda, 
 //uma vez que certo atributo precisa do bean
 //instanciara um novo bean
-@NoneScoped
+//@NoneScoped
 
 @ManagedBean
 public class GestaoProdutrosBean implements Serializable{
@@ -57,6 +57,16 @@ public class GestaoProdutrosBean implements Serializable{
 		this.produtos.add(produto);
 		this.produto = new Produto();
 	}
+	
+	//retornar para qual pagina de ajuda sera exibido
+	public String obterAjuda(){
+		if(this.produtos.isEmpty()){
+			return "AjudaGestaoProdutos?faces-redirect=true";
+		}else{
+			return "AjudaGestaoProdutosTelefone?faces-redirect=true";
+		}
+	}
+	
 
 	public Produto getProduto() {
 		return produto;
