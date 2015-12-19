@@ -30,6 +30,12 @@ public class FabricanteConverter implements Converter {
 
 	@Override
 	public String getAsString(FacesContext context, UIComponent component, Object value) {
+		//sera retornado o valor do id do banco
+		//e transformado para string para por exemplo um combobox ser exibido
+		
+		//quando for gravado o registro sera chamado getAsObject
+		//mas quando ele busca no banco ele compara se o objeto da tela e o mesmo
+		// do banco de dados
 		if (value != null) {
 			Long codigo = ((Fabricante) value).getCodigo();
 			String retorno = (codigo == null ? null : codigo.toString());
