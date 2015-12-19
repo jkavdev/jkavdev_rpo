@@ -21,13 +21,13 @@ public class CadastroFabricanteBean implements Serializable {
 	@Inject
 	private CadastroFabricanteService cadastroFabricanteService;
 	private Fabricante fabricante;
-	
-	//salvando fabricante
-	public void salvar(){
+
+	// salvando fabricante
+	public void salvar() {
 		try {
-			//cadastra fabricante preenchido da tela
+			// cadastra fabricante preenchido da tela
 			cadastroFabricanteService.salvar(fabricante);
-			FacesUtil.addSuccessMessage("Fabricante "+ fabricante.getNome() + " salvo com Sucesso!");
+			FacesUtil.addSuccessMessage("Fabricante " + fabricante.getNome() + " salvo com Sucesso!");
 		} catch (NegocioException e) {
 			FacesUtil.addErrorMessage(e.getMessage());
 		}
@@ -47,6 +47,10 @@ public class CadastroFabricanteBean implements Serializable {
 
 	public Fabricante getFabricante() {
 		return fabricante;
+	}
+
+	public void setFabricante(Fabricante fabricante) {
+		this.fabricante = fabricante;
 	}
 
 }
