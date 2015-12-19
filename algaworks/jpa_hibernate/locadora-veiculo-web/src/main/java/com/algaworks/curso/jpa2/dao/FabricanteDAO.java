@@ -21,8 +21,16 @@ public class FabricanteDAO implements Serializable {
 	private EntityManager manager;
 
 	// salvando o fabricante
+	
+	//quando editamos um fabricante
+	//chamamos a tela de cadastro
+	//e quando isto ocorre o metodo cadastro e chamado
+	//mas como o objeto ja foi gerenciado pelo manager
+	//nao ocorrera a modificacao, temos que usar o 
+	//merge, pois se ja existe ele modifica, 
+	//se nao ele salva
 	public void salvar(Fabricante fabricante) {
-		manager.persist(fabricante);
+		manager.merge(fabricante);
 	}
 
 	// listando todo os registros
@@ -42,6 +50,12 @@ public class FabricanteDAO implements Serializable {
 		fabricanteSelecionado = manager.find(Fabricante.class, fabricanteSelecionado.getCodigo());
 		manager.remove(fabricanteSelecionado);
 		manager.flush();
+	}
+
+	//buscando fabricante de acordo
+	//com o codigo passado
+	public Fabricante buscarPeloCodigo(Long codigo) {
+		return manager.find(Fabricante.class, codigo);
 	}
 
 }
