@@ -5,24 +5,24 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
-import com.algaworks.curso.jpa2.dao.AcessorioDAO;
-import com.algaworks.curso.jpa2.modelo.Acessorio;
+import com.algaworks.curso.jpa2.dao.CarroDAO;
+import com.algaworks.curso.jpa2.modelo.Carro;
 import com.algaworks.curso.jpa2.util.cdi.CDIServiceLocator;
 
-@FacesConverter(value="acessorioConverter" ,forClass = Acessorio.class)
-public class AcessorioConverter implements Converter {
+@FacesConverter(forClass = Carro.class)
+public class CarroConverter implements Converter {
 
-	private AcessorioDAO acessorioDAO;
+	private CarroDAO carroDAO;
 
-	public AcessorioConverter() {
-		this.acessorioDAO = CDIServiceLocator.getBean(AcessorioDAO.class);
+	public CarroConverter() {
+		this.carroDAO = CDIServiceLocator.getBean(CarroDAO.class);
 	}
 
 	@Override
 	public Object getAsObject(FacesContext context, UIComponent component, String value) {
-		Acessorio retorno = null;
+		Carro retorno = null;
 		if (value != null) {
-			retorno = this.acessorioDAO.buscarPeloCodigo(new Long(value));
+			retorno = this.carroDAO.buscarPeloCodigo(new Long(value));
 		}
 		return retorno;
 	}
@@ -30,7 +30,7 @@ public class AcessorioConverter implements Converter {
 	@Override
 	public String getAsString(FacesContext context, UIComponent component, Object value) {
 		if (value != null) {
-			Long codigo = ((Acessorio) value).getCodigo();
+			Long codigo = ((Carro) value).getCodigo();
 			String retorno = (codigo == null ? null : codigo.toString());
 			return retorno;
 		}
