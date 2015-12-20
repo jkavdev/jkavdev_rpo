@@ -55,7 +55,8 @@ public class Aluguel {
 	//a ser feita no banco
 	//no nosso caso apolice tem que ser gravada primeiro
 	//ele ira fazer isso
-	@OneToOne(cascade = CascadeType.ALL)
+//	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne
 	@JoinColumn(name = "codigo_apolice_seguro")
 	public ApoliceSeguro getApoliceSeguro() {
 		return apoliceSeguro;
