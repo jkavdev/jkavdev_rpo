@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
@@ -75,6 +76,10 @@ public class Carro {
 	}
 
 	@ManyToMany
+	@JoinTable(
+			name="carro_acessorio",									//nome da tabela no banco
+			joinColumns=@JoinColumn(name="codigo_carro"),			//nome da coluna da entidade carro
+			inverseJoinColumns=@JoinColumn(name="codigo_acessorio"))//nome da coluna de acessorios
 	public List<Acessorio> getAcessorios() {
 		return acessorios;
 	}
