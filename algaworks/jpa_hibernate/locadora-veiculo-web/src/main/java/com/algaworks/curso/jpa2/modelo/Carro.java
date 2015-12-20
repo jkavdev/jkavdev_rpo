@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -77,7 +78,22 @@ public class Carro {
 		this.modelo = modelo;
 	}
 
-	@ManyToMany
+	//como carros tem uma lista de acessorios
+	//podemos retornar estes na hora que 
+	//carro for carregado
+	//para isso usamos eager
+	
+	//mas pode ocorrer problemas
+	//pois com esse atributo
+	//seram carregados todos os
+	//acessorios de todos os carros retornados
+//	@ManyToMany(fetch=FetchType.EAGER)
+	
+	//podemos trazer os acessorios
+	//apenas quando solicitado
+	//para isso usaremos lazy
+	//padrao paro manytomany
+	@ManyToMany(fetch=FetchType.LAZY)
 	@JoinTable(name = "carro_acessorio", // nome da tabela no banco
 	joinColumns = @JoinColumn(name = "codigo_carro") , // nome da coluna da
 														// entidade carro
