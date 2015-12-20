@@ -42,6 +42,7 @@ public class CadastroCarroBean implements Serializable {
 		} catch (Exception e) {
 			FacesUtil.addErrorMessage("Erro desconhecido. Contatar o administrador : " + e.getMessage());
 		}
+		this.limpar();
 	}
 
 	@PostConstruct
