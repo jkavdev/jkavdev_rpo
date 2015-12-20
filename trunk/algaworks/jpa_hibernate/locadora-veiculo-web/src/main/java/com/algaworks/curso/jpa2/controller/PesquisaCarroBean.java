@@ -38,6 +38,10 @@ public class PesquisaCarroBean implements Serializable {
 			FacesUtil.addErrorMessage(e.getMessage());
 		}
 	}
+	
+	public void buscarCarroComAcessorios(){
+		carroSelecionado = carroDAO.buscarCarroComAcessorios(carroSelecionado.getCodigo());
+	}
 
 	public Carro getCarroSelecionado() {
 		return carroSelecionado;
