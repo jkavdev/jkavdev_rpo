@@ -1,6 +1,8 @@
 package com.algaworks.curso.jpa2.modelo;
 
 import java.math.BigDecimal;
+import java.util.Calendar;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Aluguel {
@@ -17,6 +21,9 @@ public class Aluguel {
 	private BigDecimal valorTotal;
 	private Carro carro;
 	private ApoliceSeguro apoliceSeguro;
+	private Calendar dataPedido;
+	private Date dataEntrega;
+	private Date dataDevolucao;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -63,6 +70,35 @@ public class Aluguel {
 
 	public void setApoliceSeguro(ApoliceSeguro apoliceSeguro) {
 		this.apoliceSeguro = apoliceSeguro;
+	}
+
+	//sera gravado apenas a data no banco
+	@Temporal(TemporalType.DATE)
+	public Calendar getDataPedido() {
+		return dataPedido;
+	}
+
+	public void setDataPedido(Calendar dataPedido) {
+		this.dataPedido = dataPedido;
+	}
+
+	//sera gravado data e hora no banco
+	@Temporal(TemporalType.TIMESTAMP)
+	public Date getDataEntrega() {
+		return dataEntrega;
+	}
+	
+	public void setDataEntrega(Date dataEntrega) {
+		this.dataEntrega = dataEntrega;
+	}
+
+	@Temporal(TemporalType.TIMESTAMP)
+	public Date getDataDevolucao() {
+		return dataDevolucao;
+	}
+
+	public void setDataDevolucao(Date dataDevolucao) {
+		this.dataDevolucao = dataDevolucao;
 	}
 
 	@Override
