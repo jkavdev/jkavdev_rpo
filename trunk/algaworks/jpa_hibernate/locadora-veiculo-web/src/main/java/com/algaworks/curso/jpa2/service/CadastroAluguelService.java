@@ -1,6 +1,7 @@
 package com.algaworks.curso.jpa2.service;
 
 import java.io.Serializable;
+import java.util.Calendar;
 
 import javax.inject.Inject;
 
@@ -11,7 +12,7 @@ import com.algaworks.curso.jpa2.util.jpa.Transactional;
 public class CadastroAluguelService implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Inject
 	private AluguelDAO aluguelDAO;
 
@@ -20,6 +21,9 @@ public class CadastroAluguelService implements Serializable {
 		if (aluguel.getCarro() == null) {
 			throw new NegocioException("O carro é obrigatorio!");
 		}
+		//informando a data atual
+		//quando o aluguel for salvo
+		aluguel.setDataPedido(Calendar.getInstance());
 		this.aluguelDAO.salvar(aluguel);
 	}
 
