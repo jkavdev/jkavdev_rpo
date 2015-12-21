@@ -18,7 +18,7 @@ public class MotoristaDAO implements Serializable {
 	@Inject
 	private EntityManager manager;
 
-	private Motorista buscarPeloCodigo(Long codigo) {
+	public Motorista buscarPeloCodigo(Long codigo) {
 		return manager.find(Motorista.class, codigo);
 	}
 
