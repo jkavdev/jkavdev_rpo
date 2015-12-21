@@ -1,6 +1,8 @@
 package com.algaworks.curso.jpa2.controller;
 
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ViewScoped;
@@ -8,6 +10,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.algaworks.curso.jpa2.modelo.Motorista;
+import com.algaworks.curso.jpa2.modelo.Sexo;
 import com.algaworks.curso.jpa2.service.CadastroMotoristaService;
 import com.algaworks.curso.jpa2.service.NegocioException;
 import com.algaworks.curso.jpa2.util.jsf.FacesUtil;
@@ -21,10 +24,12 @@ public class CadastroMotoristaBean implements Serializable {
 	@Inject
 	private CadastroMotoristaService cadastroMotoristaService;
 	private Motorista motorista;
+	private List<Sexo> sexos;
 
 	@PostConstruct
 	public void init() {
 		this.limpar();
+		this.sexos = Arrays.asList(Sexo.values());
 	}
 
 	public void salvar() {
@@ -47,6 +52,14 @@ public class CadastroMotoristaBean implements Serializable {
 
 	public void setMotorista(Motorista motorista) {
 		this.motorista = motorista;
+	}
+
+	public List<Sexo> getSexos() {
+		return sexos;
+	}
+
+	public void setSexos(List<Sexo> sexos) {
+		this.sexos = sexos;
 	}
 
 }

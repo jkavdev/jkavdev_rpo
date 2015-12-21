@@ -10,9 +10,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.algaworks.curso.jpa2.dao.FuncionarioDAO;
-import com.algaworks.curso.jpa2.dao.MotoristaDAO;
 import com.algaworks.curso.jpa2.modelo.Funcionario;
-import com.algaworks.curso.jpa2.modelo.Motorista;
 import com.algaworks.curso.jpa2.service.NegocioException;
 import com.algaworks.curso.jpa2.util.jsf.FacesUtil;
 
