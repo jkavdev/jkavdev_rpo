@@ -18,10 +18,19 @@ import javax.persistence.TemporalType;
 @Entity
 //com single_table no banco adicionara
 //o tipo da subclasse a classe pessoa 
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(
-		name="tipo_pessoa",	//informando o nome da coluna adicionada na tabela pessoa 
-		discriminatorType=DiscriminatorType.STRING)	//sera adicionada o nome da entidade a ser salva como pessoa
+//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+//@DiscriminatorColumn(
+//		name="tipo_pessoa",	//informando o nome da coluna adicionada na tabela pessoa 
+//		discriminatorType=DiscriminatorType.STRING)	//sera adicionada o nome da entidade a ser salva como pessoa
+
+//podemos usar tambem a estrategia joined
+//no qual ira cria a tabela pessoa 
+//e mais a tabela que herda de pessoa
+//sera apenas criado uma chave estrangeira 
+//na entidade que herdar de pessoa
+//representando aquela pessoa, ou qualquer coisa
+@Inheritance(strategy=InheritanceType.JOINED)
+@DiscriminatorColumn(name="tipo_pessoa",discriminatorType=DiscriminatorType.STRING)
 public abstract class Pessoa {
 
 	private Long codigo;

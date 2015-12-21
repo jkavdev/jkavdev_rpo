@@ -5,7 +5,11 @@ import javax.persistence.Entity;
 
 @Entity
 // informando o nome a ser salvo na classe no banco
-@DiscriminatorValue("MOTORISTA")
+//@DiscriminatorValue("MOTORISTA")
+
+//usando joined
+//inserimos um inteiro
+@DiscriminatorValue("1")
 public class Motorista extends Pessoa {
 
 	private String numeroCNH;
