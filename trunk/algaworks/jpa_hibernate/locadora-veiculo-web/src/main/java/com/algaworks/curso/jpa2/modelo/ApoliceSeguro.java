@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 
 @Entity
@@ -28,6 +29,7 @@ public class ApoliceSeguro {
 		this.codigo = codigo;
 	}
 
+	@JoinColumn(name = "valor_franquia")
 	public BigDecimal getValorFranquia() {
 		return valorFranquia;
 	}
@@ -36,6 +38,7 @@ public class ApoliceSeguro {
 		this.valorFranquia = valorFranquia;
 	}
 
+	@JoinColumn(name = "protecao_terceiro")
 	public Boolean getProtecaoTerceiro() {
 		return protecaoTerceiro;
 	}
@@ -44,6 +47,7 @@ public class ApoliceSeguro {
 		this.protecaoTerceiro = protecaoTerceiro;
 	}
 
+	@JoinColumn(name = "protecao_causas_naturais")
 	public Boolean getProtecaoCausasNaturais() {
 		return protecaoCausasNaturais;
 	}
@@ -52,6 +56,7 @@ public class ApoliceSeguro {
 		this.protecaoCausasNaturais = protecaoCausasNaturais;
 	}
 
+	@JoinColumn(name = "protecao_roubo")
 	public Boolean getProtecaoRoubo() {
 		return protecaoRoubo;
 	}

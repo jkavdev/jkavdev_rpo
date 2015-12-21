@@ -60,6 +60,7 @@ public class Carro {
 		this.chassi = chassi;
 	}
 
+	@JoinColumn(name="valor_diaria")
 	public BigDecimal getValorDiaria() {
 		return valorDiaria;
 	}
