@@ -43,15 +43,29 @@ public class CarroDAO implements Serializable {
 		return manager.find(Carro.class, codigo);
 	}
 
-	//buscar de carro com acessorios
-	//neste caso esta consulta retorna mais de uma entidade
-	//precisamos especificar qual entidade sera retornada
-	
-	//usando namedQuerys
+	// buscar de carro com acessorios
+	// neste caso esta consulta retorna mais de uma entidade
+	// precisamos especificar qual entidade sera retornada
+
+	// usando namedQuerys
 	public Carro buscarCarroComAcessorios(Long codigo) {
 		return manager.createNamedQuery("Carro.buscarCarroComAcessorios", Carro.class)
 				.setParameter("codigo", codigo)
 				.getSingleResult();
+	}
+
+	//mostraremos do primeiro registro ate o numero de registros por pagina
+	@SuppressWarnings("unchecked")
+	public List<Carro> buscarComPaginacao(int first, int pageSize) {
+		return manager.createNamedQuery("Carro.buscarTodos")
+				.setFirstResult(first)
+				.setMaxResults(pageSize)
+				.getResultList();
+	}
+
+	//retornando a quantidade de carros
+	public Long encontrarQuantidadeDeCarros() {
+		return manager.createQuery("select count(c) from Carro c", Long.class).getSingleResult();
 	}
 
 }
