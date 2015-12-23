@@ -9,6 +9,9 @@ import javax.interceptor.InvocationContext;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
+//toda vez que a tractional for chamada
+//esta classe ira inteceptar primeiro
+//para veirificacao
 @Interceptor
 @Transactional
 public class TransactionInterceptor implements Serializable {
@@ -17,8 +20,11 @@ public class TransactionInterceptor implements Serializable {
 
 	private @Inject EntityManager manager;
 	
+	//aqui fala que antes de executar o metodo que contem a transactional
+	//este metodo sera executado antes
 	@AroundInvoke
 	public Object invoke(InvocationContext context) throws Exception {
+		//pegando a transacao
 		EntityTransaction transaction = manager.getTransaction();
 		boolean owner = false;
 
