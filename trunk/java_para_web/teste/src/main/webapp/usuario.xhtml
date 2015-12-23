@@ -10,8 +10,9 @@
 	
 	<h:body>
 		<h1>Cadastro de Usuários</h1>		
-		<hr />		
+		<hr />				
 		<h:form acceptcharset="UTF-8">
+			<h:message />
 			<h:panelGrid columns="2">
 				<h:outputLabel value="Nome" for="nome" />
 				<h:inputText id="nome" value="#{usuarioBean.nome}" label="Nome" required="true" />
