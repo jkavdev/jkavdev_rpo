@@ -12,6 +12,7 @@ import javax.faces.bean.NoneScoped;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
+import javax.faces.event.ActionEvent;
 
 import com.algaworks.cursojsf2.dominio.Produto;
 
@@ -26,47 +27,65 @@ import com.algaworks.cursojsf2.dominio.Produto;
 //uma vez que a sessao acaba, o bean e finalizado
 @SessionScoped
 
-//o jsf criara um instancia do bean
-//utilizara deste bean durante a tela
-//uma vez que a tela for atualizada o bean sera finalizado
-//@ViewScoped
+// o jsf criara um instancia do bean
+// utilizara deste bean durante a tela
+// uma vez que a tela for atualizada o bean sera finalizado
+// @ViewScoped
 
-//o jsf criara um instancia do bean
-//utilizara deste bean durante a requisicao
-//uma vez que seja feita uma nova requisao criara uma nova instancia do bean
-//@RequestScoped
+// o jsf criara um instancia do bean
+// utilizara deste bean durante a requisicao
+// uma vez que seja feita uma nova requisao criara uma nova instancia do bean
+// @RequestScoped
 
-//o jsf criara um instancia do bean
-//utilizara por demanda, 
-//uma vez que certo atributo precisa do bean
-//instanciara um novo bean
-//@NoneScoped
+// o jsf criara um instancia do bean
+// utilizara por demanda,
+// uma vez que certo atributo precisa do bean
+// instanciara um novo bean
+// @NoneScoped
 
 @ManagedBean
-public class GestaoProdutrosBean implements Serializable{
+public class GestaoProdutrosBean implements Serializable {
 
 	private Produto produto;
 	private List<Produto> produtos;
-	
+
+	// produto a ser excluido
+	private Produto produtoSelecionado;
+
 	public GestaoProdutrosBean() {
 		produtos = new ArrayList<>();
 		produto = new Produto();
 	}
 
 	public void incluir() {
+		System.out.println("incluindo");
 		this.produtos.add(produto);
 		this.produto = new Produto();
 	}
-	
-	//retornar para qual pagina de ajuda sera exibido
-	public String obterAjuda(){
-		if(this.produtos.isEmpty()){
+
+	// retornar para qual pagina de ajuda sera exibido
+	public String obterAjuda() {
+		if (this.produtos.isEmpty()) {
 			return "AjudaGestaoProdutos?faces-redirect=true";
-		}else{
+		} else {
 			return "AjudaGestaoProdutosTelefone?faces-redirect=true";
 		}
 	}
-	
+
+	// este metodo sera executado antes da acao do botao
+	// recebe como parametro um actionevent
+	public void verificarInclusao(ActionEvent event) {
+		System.out.println("verificando");
+		if ("".equals(this.produto.getFabricante())) {
+			this.produto.setFabricante("Sem Fabricante");
+		}
+	}
+
+	//setando produto com setPropertyActionListener
+	//no qual pegara cada item da tabela e atribuira ao produto selecionado
+	public void excluir() {
+		this.produtos.remove(produtoSelecionado);
+	}
 
 	public Produto getProduto() {
 		return produto;
@@ -75,15 +94,23 @@ public class GestaoProdutrosBean implements Serializable{
 	public List<Produto> getProdutos() {
 		return produtos;
 	}
-	
+
 	@PostConstruct
-	public void init(){
+	public void init() {
 		System.out.println("Bean Iniciado");
 	}
-	
+
 	@PreDestroy
-	public void des(){
+	public void des() {
 		System.out.println("Bean Finalizado");
+	}
+
+	public Produto getProdutoSelecionado() {
+		return produtoSelecionado;
+	}
+
+	public void setProdutoSelecionado(Produto produtoSelecionado) {
+		this.produtoSelecionado = produtoSelecionado;
 	}
 
 }
