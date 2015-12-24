@@ -10,20 +10,33 @@
    
    <h:body>
    	<h:form>
-   		<h:commandLink value="Ajuda sobre esta tela" action="#{gestaoProdutrosBean.obterAjuda}" />
+   		<h:commandLink value="Ajuda sobre esta tela" action="#{gestaoProdutrosBean.obterAjuda}" >
+   			<!-- chamando acao -->
+   			<f:actionListener binding="#{registroCliequeBotaoListener}"/>
+   		</h:commandLink>
    		<br /><br />
    		Nome : <h:inputText value="#{gestaoProdutrosBean.produto.nome}" />
    		Fabricante : <h:inputText value="#{gestaoProdutrosBean.produto.fabricante}" />
    		Categoria : <h:inputText value="#{gestaoProdutrosBean.produto.categoria}" />
    		
-   		<h:commandButton action="#{gestaoProdutrosBean.incluir}" value="Incluir" />
+   		<h:commandButton action="#{gestaoProdutrosBean.incluir}" value="Incluir" actionListener="#{gestaoProdutrosBean.verificarInclusao}" >
+   			<f:actionListener binding="#{registroCliequeBotaoListener}"/>
+   		</h:commandButton>
    	</h:form>
    	
-   	<ol>
-  		<ui:repeat var="item" value="#{gestaoProdutrosBean.produtos}">
-  			<li>#{item.nome} - #{item.fabricante} - #{item.categoria}</li>
-  		</ui:repeat>
-	</ol>
+   	<h:form>
+	   	<ol>
+	  		<ui:repeat var="item" value="#{gestaoProdutrosBean.produtos}">
+	  			<li>
+	  				#{item.nome} - #{item.fabricante} - #{item.categoria}
+	  				<h:commandButton action="#{gestaoProdutrosBean.excluir}" value="Excluir" >
+	  					<!-- informando que o item selecionado aq, sera o produto selecionado no bean a ser excluido -->
+	  					<f:setPropertyActionListener value="#{item}" target="#{gestaoProdutrosBean.produtoSelecionado}" />
+	  				</h:commandButton>
+	  			</li>
+	  		</ui:repeat>
+		</ol>
+	</h:form>
 
    	
    </h:body>
