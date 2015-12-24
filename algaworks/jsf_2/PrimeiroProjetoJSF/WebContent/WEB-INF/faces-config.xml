@@ -10,9 +10,9 @@
     	<managed-bean-class>com.algaworks.cursojsf2.OlaMundoBean</managed-bean-class>
     	<managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
-    
+    <!-- 
     <lifecycle>
     	<phase-listener>com.algaworks.cursojsf2.dominio.LogPhaseListener</phase-listener>
     </lifecycle>
-
+ 	-->
 </faces-config>

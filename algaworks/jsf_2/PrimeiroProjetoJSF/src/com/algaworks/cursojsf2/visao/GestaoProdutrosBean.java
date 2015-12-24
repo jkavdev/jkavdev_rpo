@@ -13,6 +13,7 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
+import javax.faces.event.ValueChangeEvent;
 
 import com.algaworks.cursojsf2.dominio.Produto;
 
@@ -48,13 +49,35 @@ public class GestaoProdutrosBean implements Serializable {
 
 	private Produto produto;
 	private List<Produto> produtos;
+	private String fabricaPesquisa;
 
 	// produto a ser excluido
 	private Produto produtoSelecionado;
+	//produtos a serem filtrados
+	private List<Produto> produtosFiltrados;
 
 	public GestaoProdutrosBean() {
 		produtos = new ArrayList<>();
+		this.produtosFiltrados = new ArrayList<>();
 		produto = new Produto();
+	}
+	
+	public void pesquisar(){
+		System.out.println("Pesquisando...");
+	}
+	
+	//este metodo sera executado
+	//toda vez em que o valor do campo for alterado
+	//e recebe como parametro um ValueChangeEvent
+	//se o valor nao for alterado, nao sera chamado
+	public void fabricantePesquisaAlterado(ValueChangeEvent changeEvent){
+		System.out.println("evento de mudanca de valor");
+		
+		System.out.println("Valor Atual : " + this.fabricaPesquisa);
+		System.out.println("Valor Novo : " + changeEvent.getNewValue());
+		
+		
+		
 	}
 
 	public void incluir() {
@@ -112,5 +135,19 @@ public class GestaoProdutrosBean implements Serializable {
 	public void setProdutoSelecionado(Produto produtoSelecionado) {
 		this.produtoSelecionado = produtoSelecionado;
 	}
+
+	public String getFabricaPesquisa() {
+		return fabricaPesquisa;
+	}
+
+	public void setFabricaPesquisa(String fabricaPesquisa) {
+		this.fabricaPesquisa = fabricaPesquisa;
+	}
+
+	public List<Produto> getProdutosFiltrados() {
+		return produtosFiltrados;
+	}
+	
+	
 
 }

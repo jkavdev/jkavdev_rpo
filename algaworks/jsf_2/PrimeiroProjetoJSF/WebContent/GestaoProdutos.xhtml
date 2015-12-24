@@ -14,7 +14,7 @@
    			<!-- chamando acao -->
    			<f:actionListener binding="#{registroCliequeBotaoListener}"/>
    		</h:commandLink>
-   		<br /><br />
+   		<br />
    		Nome : <h:inputText value="#{gestaoProdutrosBean.produto.nome}" />
    		Fabricante : <h:inputText value="#{gestaoProdutrosBean.produto.fabricante}" />
    		Categoria : <h:inputText value="#{gestaoProdutrosBean.produto.categoria}" />
@@ -22,6 +22,18 @@
    		<h:commandButton action="#{gestaoProdutrosBean.incluir}" value="Incluir" actionListener="#{gestaoProdutrosBean.verificarInclusao}" >
    			<f:actionListener binding="#{registroCliequeBotaoListener}"/>
    		</h:commandButton>
+   	</h:form>
+   	
+   	<br />
+   	
+   	<h:form>
+   		Pesquisa por fabricante:
+   		<!-- com onchange, sera executado uma acao sempre que o valor do campo for alterado sem formula uma requisicao, em javascript -->
+   		<!-- submit, fara com que o formulario seja atualizado -->
+   		<h:inputText value="#{gestaoProdutrosBean.fabricaPesquisa}" valueChangeListener="#{gestaoProdutrosBean.fabricantePesquisaAlterado}"   		 
+   			onchange="submit()"/>
+   		<!-- implementando consulta sem formular a requisicao  -->   		
+   		<!-- para issso faremos com javascript -->
    	</h:form>
    	
    	<h:form>
