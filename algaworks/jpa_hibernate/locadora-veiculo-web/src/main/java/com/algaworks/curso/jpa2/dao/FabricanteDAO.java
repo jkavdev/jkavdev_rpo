@@ -58,4 +58,16 @@ public class FabricanteDAO implements Serializable {
 		return manager.find(Fabricante.class, codigo);
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<Fabricante> buscarComPaginacao(int first, int pageSize) {
+		return manager.createQuery("from Fabricante")
+				.setFirstResult(first)
+				.setMaxResults(pageSize)
+				.getResultList();
+	}
+
+	public Long encontrarQuantidadeDeFabricantes() {
+		return manager.createQuery("select count(f) from Fabricante f", Long.class).getSingleResult();
+	}
+
 }

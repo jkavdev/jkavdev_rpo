@@ -11,6 +11,7 @@ import javax.inject.Named;
 
 import com.algaworks.curso.jpa2.dao.FuncionarioDAO;
 import com.algaworks.curso.jpa2.modelo.Funcionario;
+import com.algaworks.curso.jpa2.modelolazy.LazyFuncionarioDataModel;
 import com.algaworks.curso.jpa2.service.NegocioException;
 import com.algaworks.curso.jpa2.util.jsf.FacesUtil;
 
@@ -25,6 +26,7 @@ public class PesquisaFuncionarioBean implements Serializable {
 
 	private List<Funcionario> funcionarios = new ArrayList<>();
 	private Funcionario funcionarioSelecionado;
+	private LazyFuncionarioDataModel lazyFuncionario;
 
 	public void excluir() {
 		try {
@@ -38,7 +40,7 @@ public class PesquisaFuncionarioBean implements Serializable {
 
 	@PostConstruct
 	public void init() {
-		funcionarios = funcionarioDAO.buscarTodos();
+		lazyFuncionario = new LazyFuncionarioDataModel(funcionarioDAO);
 	}
 
 	public List<Funcionario> getFuncionarios() {
@@ -55,6 +57,10 @@ public class PesquisaFuncionarioBean implements Serializable {
 
 	public void setFuncionarioSelecionado(Funcionario funcionarioSelecionado) {
 		this.funcionarioSelecionado = funcionarioSelecionado;
+	}
+
+	public LazyFuncionarioDataModel getLazyFuncionario() {
+		return lazyFuncionario;
 	}
 
 }
