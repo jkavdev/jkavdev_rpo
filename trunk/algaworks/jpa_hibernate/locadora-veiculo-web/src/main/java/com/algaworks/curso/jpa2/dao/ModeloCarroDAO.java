@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
 
 import com.algaworks.curso.jpa2.modelo.ModeloCarro;
+import com.algaworks.curso.jpa2.modelo.Motorista;
 import com.algaworks.curso.jpa2.service.NegocioException;
 import com.algaworks.curso.jpa2.util.jpa.Transactional;
 
@@ -41,6 +42,18 @@ public class ModeloCarroDAO implements Serializable {
 
 	public ModeloCarro buscarPeloCodigo(Long codigo) {
 		return manager.find(ModeloCarro.class, codigo);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<ModeloCarro> buscarComPaginacao(int first, int pageSize) {
+		return manager.createQuery("from ModeloCarro")
+				.setFirstResult(first)
+				.setMaxResults(pageSize)
+				.getResultList();
+	}
+
+	public Long encontrarQuantidadeDeModeloCarros() {
+		return manager.createQuery("select count(m) from ModeloCarro m", Long.class).getSingleResult();
 	}
 
 }

@@ -43,4 +43,21 @@ public class AcessorioDAO implements Serializable {
 		return manager.find(Acessorio.class, codigo);
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<Acessorio> buscarComPaginacao(int first, int pageSize) {
+		//informando da onde sera iniciado a pesquisa e 
+		//quantidade de registros a serem retornados
+		return manager.createQuery("from Acessorio")
+				.setFirstResult(first)
+				.setMaxResults(pageSize)
+				.getResultList();
+	}
+
+	public Long encontrarQuantidadeDeCarros() {
+		//busca a quantidade de acessorios
+		//devolve um long e apenas um resultado
+		//para pesquisa no banco
+		return manager.createQuery("select count(a) from Acessorio a", Long.class).getSingleResult();
+	}
+
 }

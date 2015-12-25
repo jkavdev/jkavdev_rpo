@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
 
 import com.algaworks.curso.jpa2.modelo.Funcionario;
+import com.algaworks.curso.jpa2.modelo.Motorista;
 import com.algaworks.curso.jpa2.service.NegocioException;
 import com.algaworks.curso.jpa2.util.jpa.Transactional;
 
@@ -40,6 +41,18 @@ public class FuncionarioDAO implements Serializable {
 		} catch (PersistenceException e) {
 			throw new NegocioException("Funcionario nao pode ser excluido!");
 		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Funcionario> buscarComPaginacao(int first, int pageSize) {
+		return manager.createQuery("from Funcionario")
+				.setFirstResult(first)
+				.setMaxResults(pageSize)
+				.getResultList();
+	}
+
+	public Long encontrarQuantidadeDeFuncionarios() {
+		return manager.createQuery("select count(f) from Funcionario f", Long.class).getSingleResult();
 	}
 
 }

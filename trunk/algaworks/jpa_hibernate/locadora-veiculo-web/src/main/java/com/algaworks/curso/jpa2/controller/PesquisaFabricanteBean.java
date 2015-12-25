@@ -11,6 +11,7 @@ import javax.inject.Named;
 
 import com.algaworks.curso.jpa2.dao.FabricanteDAO;
 import com.algaworks.curso.jpa2.modelo.Fabricante;
+import com.algaworks.curso.jpa2.modelolazy.LazyFabricanteDataModel;
 import com.algaworks.curso.jpa2.service.NegocioException;
 import com.algaworks.curso.jpa2.util.jsf.FacesUtil;
 
@@ -27,13 +28,14 @@ public class PesquisaFabricanteBean implements Serializable {
 	private Fabricante fabricanteSelecionado;
 	// lista de fabricante do banco
 	private List<Fabricante> fabricantes = new ArrayList<>();
+	private LazyFabricanteDataModel lazyFabricante;
 
-	//excluindo fabricante
+	// excluindo fabricante
 	public void excluir() {
 		try {
-			//removendo fabricante do banco
+			// removendo fabricante do banco
 			fabricanteDAO.excluir(fabricanteSelecionado);
-			//removendo fabricante da lista
+			// removendo fabricante da lista
 			this.fabricantes.remove(fabricanteSelecionado);
 			FacesUtil.addSuccessMessage("Fabricante " + fabricanteSelecionado.getNome() + " excluido com sucesso!");
 		} catch (NegocioException e) {
@@ -45,7 +47,8 @@ public class PesquisaFabricanteBean implements Serializable {
 	public void init() {
 		// preenchendo lista com os
 		// registros do banco
-		fabricantes = fabricanteDAO.buscarTodos();
+		// fabricantes = fabricanteDAO.buscarTodos();
+		lazyFabricante = new LazyFabricanteDataModel(fabricanteDAO);
 	}
 
 	public Fabricante getFabricanteSelecionado() {
@@ -62,6 +65,10 @@ public class PesquisaFabricanteBean implements Serializable {
 
 	public List<Fabricante> getFabricantes() {
 		return fabricantes;
+	}
+
+	public LazyFabricanteDataModel getLazyFabricante() {
+		return lazyFabricante;
 	}
 
 }

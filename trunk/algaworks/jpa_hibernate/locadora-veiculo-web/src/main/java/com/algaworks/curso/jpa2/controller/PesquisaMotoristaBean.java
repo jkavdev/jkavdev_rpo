@@ -11,6 +11,7 @@ import javax.inject.Named;
 
 import com.algaworks.curso.jpa2.dao.MotoristaDAO;
 import com.algaworks.curso.jpa2.modelo.Motorista;
+import com.algaworks.curso.jpa2.modelolazy.LazyMotoristaDataModel;
 import com.algaworks.curso.jpa2.service.NegocioException;
 import com.algaworks.curso.jpa2.util.jsf.FacesUtil;
 
@@ -25,6 +26,7 @@ public class PesquisaMotoristaBean implements Serializable {
 
 	private List<Motorista> motoristas = new ArrayList<>();
 	private Motorista motoristaSelecionado;
+	private LazyMotoristaDataModel lazyMotorista;
 
 	public void excluir() {
 		try {
@@ -35,10 +37,10 @@ public class PesquisaMotoristaBean implements Serializable {
 			FacesUtil.addErrorMessage(e.getMessage());
 		}
 	}
-	
+
 	@PostConstruct
-	public void init(){
-		motoristas = motoristaDAO.buscarTodos();
+	public void init() {
+		lazyMotorista = new LazyMotoristaDataModel(motoristaDAO);
 	}
 
 	public List<Motorista> getMotoristas() {
@@ -55,6 +57,10 @@ public class PesquisaMotoristaBean implements Serializable {
 
 	public void setMotoristaSelecionado(Motorista motoristaSelecionado) {
 		this.motoristaSelecionado = motoristaSelecionado;
+	}
+
+	public LazyMotoristaDataModel getLazyMotorista() {
+		return lazyMotorista;
 	}
 
 }
