@@ -17,13 +17,18 @@ import escola.musica.dao.CursoDAO;
 @SessionScoped
 public class CursoBean {
 
-	private Curso curso = new Curso();
+	private Curso curso;
 	private List<TipoCurso> tipos = Arrays.asList(TipoCurso.values());
 	private List<Curso> cursos = new ArrayList<>();
+	
+	public CursoBean() {
+		cursos = new CursoDAO().listarTodos();
+		curso = new Curso();
+	}
 
 	public String salvar() {
 		new CursoDAO().salvar(curso);
-		cursos.add(curso);
+		cursos = new CursoDAO().listarTodos();
 		curso = new Curso();
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Curso salvo com sucesso"));
 
@@ -33,6 +38,12 @@ public class CursoBean {
 	// retornando a data atual
 	public String getDataAtual() {
 		return new SimpleDateFormat("dd/MM/yyyy").format(new Date());
+	}
+	
+	public String editar(Curso curso){
+		this.curso = curso;
+		
+		return "curso_formulario?faces-redirect=true";
 	}
 
 	public Curso getCurso() {
