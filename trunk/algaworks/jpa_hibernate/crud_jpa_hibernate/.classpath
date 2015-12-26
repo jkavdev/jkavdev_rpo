@@ -4,5 +4,8 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.datatools.connectivity.jdt.DRIVERLIBRARY/MySQL 5.0.8"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/hibernate 4.3.11"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/hibernate 4.2.2"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/mysql 5.1.30"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/hibernate"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
