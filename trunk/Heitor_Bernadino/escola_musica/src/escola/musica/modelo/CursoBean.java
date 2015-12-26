@@ -11,6 +11,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
+import escola.musica.dao.CursoDAO;
+
 @ManagedBean
 @SessionScoped
 public class CursoBean {
@@ -20,15 +22,15 @@ public class CursoBean {
 	private List<Curso> cursos = new ArrayList<>();
 
 	public String salvar() {
+		new CursoDAO().salvar(curso);
 		cursos.add(curso);
 		curso = new Curso();
-		FacesContext.getCurrentInstance().addMessage(null, 
-				new FacesMessage("Curso salvo com sucesso"));
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Curso salvo com sucesso"));
 
 		return "curso_lista?faces-redirect=true";
 	}
 
-	//retornando a data atual
+	// retornando a data atual
 	public String getDataAtual() {
 		return new SimpleDateFormat("dd/MM/yyyy").format(new Date());
 	}
