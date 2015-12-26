@@ -23,7 +23,7 @@
 	    			<p:commandButton value="Salvar" id="botaoSalvar" action="#{cadastroCarroBean.salvar}" update="frmCadastro"/>
 	    		</p:toolbarGroup>
 	    		<p:toolbarGroup align="right">
-					<p:button value="Pesquisa" />
+					<p:button value="Pesquisa" outcome="/carro/PesquisaCarros"/>
 				</p:toolbarGroup>
 	    	</p:toolbar>
 	    	
@@ -45,9 +45,10 @@
 			    <p:inputText id="cor" size="20" maxlength="20" value="#{cadastroCarroBean.carro.cor}"/>
 			    		
 			    <p:outputLabel value="Valor diária" for="valorDiaria"/>
-			    <p:inputText id="valorDiaria" size="20" maxlength="20" value="#{cadastroCarroBean.carro.valorDiaria}"/>
+			    <p:inputText id="valorDiaria" size="20" maxlength="20" value="#{cadastroCarroBean.carro.valorDiaria}"/>			    
 			    <p:outputLabel value="Acessórios" for="acessorios"/>
 				<p:selectManyCheckbox id="acessorios" styleClass="many-checkbox" value="#{cadastroCarroBean.carro.acessorios}" converter="acessorioConverter" >
+					<f:attribute name="collectionType" value="java.util.ArrayList" />				
 					<f:selectItems value="#{cadastroCarroBean.acessorios}" var="acessorio" itemLabel="#{acessorio.descricao}" itemValue="#{acessorio}" />
 				</p:selectManyCheckbox>			    
 			</p:panelGrid>
