@@ -2,6 +2,12 @@ package escola.musica.modelo;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Curso {
 
 	private Integer id;
@@ -11,6 +17,8 @@ public class Curso {
 	private TipoCurso tipo;
 	private Date dataCriacao;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getId() {
 		return id;
 	}
