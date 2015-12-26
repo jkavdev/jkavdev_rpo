@@ -30,7 +30,11 @@
 						<f:selectItem itemLabel=":: Selecione ::" itemValue="#{null}"/>
 						<f:selectItems value="#{cursoBean.tipos}" var="tipo" itemLabel="#{tipo.descricao}" itemValue="#{tipo}" />
 					</p:selectOneMenu>
+					
+					<h:outputLabel value="Data de Criação:" />
+					<p:calendar value="#{cursoBean.curso.dataCriacao}" pattern="dd/MM/yyyy" />
 				</p:panelGrid>
+				<br />
 				<p:commandButton value="Salvar" action="#{cursoBean.salvar}" update="@form" />
 			</p:panel>
 		</h:form>
