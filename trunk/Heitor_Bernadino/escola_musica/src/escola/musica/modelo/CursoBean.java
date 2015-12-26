@@ -1,21 +1,28 @@
 package escola.musica.modelo;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 @ManagedBean
+@SessionScoped
 public class CursoBean {
 
 	private Curso curso = new Curso();
 	private List<TipoCurso> tipos = Arrays.asList(TipoCurso.values());
-	
-	public void salvar(){
-		FacesContext.getCurrentInstance().addMessage(null, 
-				new FacesMessage("Curso salvo com sucesso"));
+	private List<Curso> cursos = new ArrayList<>();
+
+	public String salvar() {
+		cursos.add(curso);
+		curso = new Curso();
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Curso salvo com sucesso"));
+		
+		return "curso_lista?faces-redirect=true";
 	}
 
 	public Curso getCurso() {
@@ -32,6 +39,14 @@ public class CursoBean {
 
 	public void setTipos(List<TipoCurso> tipos) {
 		this.tipos = tipos;
+	}
+
+	public List<Curso> getCursos() {
+		return cursos;
+	}
+
+	public void setCursos(List<Curso> cursos) {
+		this.cursos = cursos;
 	}
 
 }
