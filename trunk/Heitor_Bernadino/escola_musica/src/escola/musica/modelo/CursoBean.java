@@ -1,7 +1,9 @@
 package escola.musica.modelo;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
@@ -20,9 +22,15 @@ public class CursoBean {
 	public String salvar() {
 		cursos.add(curso);
 		curso = new Curso();
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Curso salvo com sucesso"));
-		
+		FacesContext.getCurrentInstance().addMessage(null, 
+				new FacesMessage("Curso salvo com sucesso"));
+
 		return "curso_lista?faces-redirect=true";
+	}
+
+	//retornando a data atual
+	public String getDataAtual() {
+		return new SimpleDateFormat("dd/MM/yyyy").format(new Date());
 	}
 
 	public Curso getCurso() {
