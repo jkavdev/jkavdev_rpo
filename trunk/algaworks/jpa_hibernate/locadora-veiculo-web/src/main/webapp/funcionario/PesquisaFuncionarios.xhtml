@@ -44,17 +44,13 @@
 		    			</p:button>
 		    			<p:commandButton icon="ui-icon-trash" title="Excluir" oncomplete="confirmacaoExclusao.show()"
 								process="@this" update=":frmPesquisa:confirmacaoExclusaoDialog">
-							<f:setPropertyActionListener target="#
-
-{pesquisaFuncionarioBean.funcionarioSelecionado}" value="#{funcionario}" />
+							<f:setPropertyActionListener target="#{pesquisaFuncionarioBean.funcionarioSelecionado}" value="#{funcionario}" />
 						</p:commandButton>
 		    		</p:column>
 		    </p:dataTable>
 		    
 		    <p:confirmDialog id="confirmacaoExclusaoDialog" widgetVar="confirmacaoExclusao"
-	        		message="Tem certeza que deseja excluir o funcionario #
-
-{pesquisaFuncionarioBean.funcionarioSelecionado.nome}?"  
+	        		message="Tem certeza que deseja excluir o funcionario #{pesquisaFuncionarioBean.funcionarioSelecionado.nome}?"  
 	                header="Exclusão de funcionario" severity="alert">
 	        	<p:button value="Não" onclick="confirmacaoExclusao.hide(); return false;" />
 	        	<p:commandButton value="Sim" update=":frmPesquisa:funcionariosTable"
