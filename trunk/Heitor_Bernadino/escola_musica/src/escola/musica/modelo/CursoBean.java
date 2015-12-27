@@ -45,6 +45,21 @@ public class CursoBean {
 		
 		return "curso_formulario?faces-redirect=true";
 	}
+	
+	//depois de preparar a exclusao, 
+	//o jsf sabera que o curso sera o do bean
+	public void excluir(){
+		new CursoDAO().excluir(curso);
+		FacesContext.getCurrentInstance().addMessage(null, 
+				new FacesMessage("Curso excluido com sucesso!"));
+		cursos = new CursoDAO().listarTodos();
+	}
+	
+	//setando o o curso do bean, 
+	//com o curso selecionado da datatable
+	public void prepararExclusao(Curso curso){
+		this.curso = curso;
+	}
 
 	public Curso getCurso() {
 		return curso;
