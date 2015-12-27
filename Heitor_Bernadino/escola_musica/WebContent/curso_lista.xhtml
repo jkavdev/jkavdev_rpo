@@ -19,9 +19,13 @@
 				<p:growl />
 				<p:dataTable value="#{cursoBean.cursos}" var="curso" paginator="true" rows="10" rowsPerPageTemplate="5, 10, 15" 
 				paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} 
-					{PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown} ">
+					{PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					 id="tabela-cursos" >
 					
 					<p:column headerText="Nome" style="width:300px;" sortBy="#{curso.nome}" filterBy="#{curso.nome}" filterMatchMode="contains">
+						<f:facet name="header">
+							<h:outputText value="Nome" />
+						</f:facet>
 						<h:outputText value="#{curso.nome}" />
 					</p:column>
 					
@@ -39,12 +43,24 @@
 						</h:outputText>
 					</p:column>
 					
-					<p:column style="text-align:center;">
+					<p:column style="text-align:center;" exportable="false">
 						<p:commandLink value="Editar" action="#{cursoBean.editar(curso)}" style="color:blue;"/>
 						<p:commandLink value="Excluir" actionListener="#{cursoBean.prepararExclusao(curso)}" oncomplete="PF('confirmarExclusaoDialog').show();" style="color:red; margin-left:20px;" update="@form" />
 					</p:column>
 					
 				</p:dataTable>
+				
+				<br />
+				
+				 <h:commandLink >
+				 	<p:graphicImage library="imagens" name="exportar-excel.png" />
+			        <p:dataExporter type="xls" target="tabela-cursos" fileName="cursos" pageOnly="true"/>
+    			</h:commandLink>
+    			
+    			<h:commandLink style="margin-left:10px;">
+    				<p:graphicImage library="imagens" name="exportar-pdf.png" />
+			        <p:dataExporter type="pdf" target="tabela-cursos" fileName="cursos" pageOnly="true" encoding="iso-8859-1" />
+    			</h:commandLink>
 				
 				<p:confirmDialog message="Deseja realmente excluir este curso #{cursoBean.curso.nome}?" widgetVar="confirmarExclusaoDialog">
 					<p:commandButton value="Sim" action="#{cursoBean.excluir()}" oncomplete="PF('confirmarExclusaoDialog').hide();" update="@form" />
