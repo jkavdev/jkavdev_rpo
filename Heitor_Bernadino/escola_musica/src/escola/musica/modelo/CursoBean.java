@@ -20,9 +20,11 @@ public class CursoBean {
 	private Curso curso;
 	private List<TipoCurso> tipos = Arrays.asList(TipoCurso.values());
 	private List<Curso> cursos = new ArrayList<>();
-	
+	private List<Curso> cursosAccordion = new ArrayList<>();
+
 	public CursoBean() {
 		cursos = new CursoDAO().listarTodos();
+		cursosAccordion = CursoDAO.listaCursosAccordion();
 		curso = new Curso();
 	}
 
@@ -39,25 +41,24 @@ public class CursoBean {
 	public String getDataAtual() {
 		return new SimpleDateFormat("dd/MM/yyyy").format(new Date());
 	}
-	
-	public String editar(Curso curso){
+
+	public String editar(Curso curso) {
 		this.curso = curso;
-		
+
 		return "curso_formulario?faces-redirect=true";
 	}
-	
-	//depois de preparar a exclusao, 
-	//o jsf sabera que o curso sera o do bean
-	public void excluir(){
+
+	// depois de preparar a exclusao,
+	// o jsf sabera que o curso sera o do bean
+	public void excluir() {
 		new CursoDAO().excluir(curso);
-		FacesContext.getCurrentInstance().addMessage(null, 
-				new FacesMessage("Curso excluido com sucesso!"));
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Curso excluido com sucesso!"));
 		cursos = new CursoDAO().listarTodos();
 	}
-	
-	//setando o o curso do bean, 
-	//com o curso selecionado da datatable
-	public void prepararExclusao(Curso curso){
+
+	// setando o o curso do bean,
+	// com o curso selecionado da datatable
+	public void prepararExclusao(Curso curso) {
 		this.curso = curso;
 	}
 
@@ -83,6 +84,14 @@ public class CursoBean {
 
 	public void setCursos(List<Curso> cursos) {
 		this.cursos = cursos;
+	}
+
+	public List<Curso> getCursosAccordion() {
+		return cursosAccordion;
+	}
+
+	public void setCursosAccordion(List<Curso> cursosAccordion) {
+		this.cursosAccordion = cursosAccordion;
 	}
 
 }

@@ -22,6 +22,14 @@ public class Curso {
 	private double duracao = 1;
 	private TipoCurso tipo;
 	private Date dataCriacao;
+	
+	public String obterImagem(){
+		return nome.toLowerCase()
+				.replaceAll("ã", "a")
+				.replaceAll("é", "e")
+				.replace(" ", "_")
+				.concat(".png");
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
