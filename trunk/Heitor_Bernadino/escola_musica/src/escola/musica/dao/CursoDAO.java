@@ -31,4 +31,13 @@ public class CursoDAO {
 		manager.close();		
 	}
 
+	@SuppressWarnings("unchecked")
+	public static List<Curso> listaCursosAccordion() {
+		EntityManager manager = JPAUtil.geEntityManager();
+		return  manager.createQuery("from Curso c where c.nome "
+				+ " in('Violino', 'Flauta', 'Clarinete', 'Guitarra', 'Violão', 'Oboé')"
+				+ " order by c.nome")
+				.getResultList();
+	}
+
 }
