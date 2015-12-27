@@ -17,20 +17,23 @@
 			<br /><br />
 			<h:form>
 				<p:growl />
-				<p:dataTable value="#{cursoBean.cursos}" var="curso">
-					<p:column headerText="Nome" style="width:300px;">
+				<p:dataTable value="#{cursoBean.cursos}" var="curso" paginator="true" rows="10" rowsPerPageTemplate="5, 10, 15" 
+				paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} 
+					{PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown} ">
+					
+					<p:column headerText="Nome" style="width:300px;" sortBy="#{curso.nome}" filterBy="#{curso.nome}" filterMatchMode="contains">
 						<h:outputText value="#{curso.nome}" />
 					</p:column>
 					
-					<p:column headerText="Duração" style="width:80px;">
+					<p:column headerText="Duração" style="width:80px;" sortBy="#{curso.duracao}">
 						<h:outputText value="#{curso.duracao}" />
 					</p:column>
 					
-					<p:column headerText="Tipo" >
+					<p:column headerText="Tipo" sortBy="#{curso.tipo}" filterBy="#{curso.tipo}" filterMatchMode="contains">
 						<h:outputText value="#{curso.tipo.descricao}" />
 					</p:column>
 					
-					<p:column headerText="Data de Criação" >
+					<p:column headerText="Data de Criação" sortBy="#{curso.dataCriacao}">
 						<h:outputText value="#{curso.dataCriacao}" >
 							<f:convertDateTime pattern="dd/MM/yyyy"/>
 						</h:outputText>
