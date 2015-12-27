@@ -33,7 +33,7 @@
 		    			<h:outputText value="#{acessorio.descricao}" />
 		    		</p:column>
 		    		<p:column style="width: 100px; text-align: center">
-		    			<p:button outcome="CadastroAcessorio" icon="ui-icon-pencil" title="Editar">
+		    			<p:button outcome="CadastroAcessorio" icon="ui-icon-pencil" title="Editar" >
 		    				<f:param name="acessorio" value="#{acessorio.codigo}"/>
 		    			</p:button>
 		    			<p:commandButton icon="ui-icon-trash" title="Excluir" oncomplete="confirmacaoExclusao.show()"
