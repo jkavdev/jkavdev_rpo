@@ -17,10 +17,10 @@
 			<p:panel header="Cadastro de Cursos" style="width:60%;">
 				<p:panelGrid columns="2" style="width:95%;">
 					<h:outputLabel value="Nome:" />
-					<p:inputText value="#{cursoBean.curso.nome}" required="true"  />
+					<p:inputText value="#{cursoBean.curso.nome}" />
 					
 					<h:outputLabel value="Descrição:" />
-					<p:inputTextarea value="#{cursoBean.curso.descricao}" cols="40" rows="3" />
+					<p:inputTextarea value="#{cursoBean.curso.descricao}" cols="40" rows="3" maxlength="255" />
 					
 					<h:outputLabel value="Duração:" />
 					<p:spinner value="#{cursoBean.curso.duracao}" min="1" stepFactor="0.5" max="10" />

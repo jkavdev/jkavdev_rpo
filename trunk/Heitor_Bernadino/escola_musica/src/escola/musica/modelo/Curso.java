@@ -6,6 +6,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class Curso {
@@ -27,6 +33,10 @@ public class Curso {
 		this.id = id;
 	}
 
+	// verificando se o atributo esta vazio
+	@NotEmpty(message = "O campo nome deve ser informado")
+	//definindo tamanho maximo e minimo
+	@Length(min = 4, max = 50, message = "O campo nome deve ter entre 4 e 50 caracteres")
 	public String getNome() {
 		return nome;
 	}
@@ -35,6 +45,7 @@ public class Curso {
 		this.nome = nome;
 	}
 
+	@NotEmpty(message = "campo descrição deve ser informado")
 	public String getDescricao() {
 		return descricao;
 	}
@@ -43,6 +54,8 @@ public class Curso {
 		this.descricao = descricao;
 	}
 
+	@Min(value=1, message="A duracao nao pode ser menor que 1")
+	@Max(value=10, message="A duracao nao pode ser maior que 10")
 	public double getDuracao() {
 		return duracao;
 	}
@@ -51,6 +64,9 @@ public class Curso {
 		this.duracao = duracao;
 	}
 
+	//como tipo retorna null se nao for
+	//selecionado usamos notnull
+	@NotNull(message="tipo deve ser selecionado")
 	public TipoCurso getTipo() {
 		return tipo;
 	}
@@ -59,6 +75,7 @@ public class Curso {
 		this.tipo = tipo;
 	}
 
+	@NotNull(message="a data deve ser selecionada")
 	public Date getDataCriacao() {
 		return dataCriacao;
 	}
