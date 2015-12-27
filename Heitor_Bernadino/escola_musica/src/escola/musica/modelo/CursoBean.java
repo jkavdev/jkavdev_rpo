@@ -21,8 +21,9 @@ public class CursoBean {
 	private List<TipoCurso> tipos = Arrays.asList(TipoCurso.values());
 	private List<Curso> cursos = new ArrayList<>();
 	private List<Curso> cursosAccordion = new ArrayList<>();
-
-	public CursoBean() {
+	
+	//metodo a ser chamado pelo pretty-config
+	public void inicializarBean(){
 		cursos = new CursoDAO().listarTodos();
 		cursosAccordion = CursoDAO.listaCursosAccordion();
 		curso = new Curso();
