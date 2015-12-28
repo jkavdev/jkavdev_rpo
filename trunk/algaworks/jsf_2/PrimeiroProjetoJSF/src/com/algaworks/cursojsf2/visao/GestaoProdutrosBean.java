@@ -76,7 +76,13 @@ public class GestaoProdutrosBean implements Serializable {
 		System.out.println("Valor Atual : " + this.fabricaPesquisa);
 		System.out.println("Valor Novo : " + changeEvent.getNewValue());
 		
+		this.produtosFiltrados.clear();
 		
+		for (Produto produto : produtosFiltrados) {
+			if(produto.getFabricante() != null && produto.getFabricante().startsWith(this.fabricaPesquisa)){
+				this.produtosFiltrados.add(produto);
+			}
+		}
 		
 	}
 
