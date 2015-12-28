@@ -38,7 +38,7 @@
    	
    	<h:form>
 	   	<ol>
-	  		<ui:repeat var="item" value="#{gestaoProdutrosBean.produtos}">
+	  		<ui:repeat var="item" value="#{gestaoProdutrosBean.produtosFiltrados}">
 	  			<li>
 	  				#{item.nome} - #{item.fabricante} - #{item.categoria}
 	  				<h:commandButton action="#{gestaoProdutrosBean.excluir}" value="Excluir" >
