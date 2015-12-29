@@ -49,7 +49,7 @@ public class GestaoProdutrosBean implements Serializable {
 
 	private Produto produto;
 	private List<Produto> produtos;
-	private String fabricaPesquisa;
+	private String nomePesquisa;
 
 	// produto a ser excluido
 	private Produto produtoSelecionado;
@@ -70,16 +70,16 @@ public class GestaoProdutrosBean implements Serializable {
 	//toda vez em que o valor do campo for alterado
 	//e recebe como parametro um ValueChangeEvent
 	//se o valor nao for alterado, nao sera chamado
-	public void fabricantePesquisaAlterado(ValueChangeEvent changeEvent){
+	public void nomePesquisaAlterado(ValueChangeEvent changeEvent){
 		System.out.println("evento de mudanca de valor");
 		
-		System.out.println("Valor Atual : " + this.fabricaPesquisa);
+		System.out.println("Valor Atual : " + this.nomePesquisa);
 		System.out.println("Valor Novo : " + changeEvent.getNewValue());
 		
 		this.produtosFiltrados.clear();
 		
 		for (Produto produto : produtosFiltrados) {
-			if(produto.getFabricante() != null && produto.getFabricante().startsWith(this.fabricaPesquisa)){
+			if(produto.getNome() != null && produto.getNome().startsWith(changeEvent.getNewValue().toString())){
 				this.produtosFiltrados.add(produto);
 			}
 		}
@@ -142,12 +142,12 @@ public class GestaoProdutrosBean implements Serializable {
 		this.produtoSelecionado = produtoSelecionado;
 	}
 
-	public String getFabricaPesquisa() {
-		return fabricaPesquisa;
+	public String getNomePesquisa() {
+		return nomePesquisa;
 	}
 
-	public void setFabricaPesquisa(String fabricaPesquisa) {
-		this.fabricaPesquisa = fabricaPesquisa;
+	public void setNomePesquisa(String NomePesquisa) {
+		this.nomePesquisa = NomePesquisa;
 	}
 
 	public List<Produto> getProdutosFiltrados() {
