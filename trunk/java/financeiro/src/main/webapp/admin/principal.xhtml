@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+
+	<h:head>
+		<title>Cadastro de Usuarios</title>
+	</h:head>   
+	
+	<h:body>
+		<h1>Cadastro de Usuarios</h1>
+		
+		<h:form>
+			<h:messages />
+			
+			<h:dataTable value="#{usuarioBean.lista}" var="usuario" rules="rows" cellpadding="5">
+				<f:facet name="caption">
+					A listagem a seguir exibe a relação de todos os usuarios do sistema. Voce podera
+					realizar ativacao e desativacao, edicao e exclusao para os usuarios
+				</f:facet>
+				<f:facet name="header">Listagem de Usuarios</f:facet>
+				<f:facet name="footer">Fim da listagem</f:facet>
+				
+				<h:column>
+					<h:commandLink action="#{usuarioBean.ativar}" >
+						<h:graphicImage library="imagens" name="usuario_ativo_#{usuario.ativo}.png" style="border:0" />
+						<f:setPropertyActionListener value="#{usuario}" target="#{usuarioBean.usuario}" />
+					</h:commandLink>					
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Código</f:facet>
+					#{usuario.codigo}
+				</h:column>
+				
+				<h:column>
+					<h:graphicImage library="imagens" name="bandeira_#{usuario.idioma}.png" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Nome</f:facet>
+					#{usuario.nome}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">E-mail</f:facet>
+					<a href="mailto:#{usuario.email}">#{usuario.email}</a> 
+				</h:column>
+				
+				<h:column>
+					<h:commandLink action="#{usuarioBean.editar}" >
+						<h:graphicImage library="imagens" name="editar16.png" style="border:0" />
+						<f:setPropertyActionListener value="#{usuario}" target="#{usuarioBean.usuario}" />
+					</h:commandLink>					
+				</h:column>
+				
+				<h:column>
+					<h:commandLink action="#{usuarioBean.excluir}" onclick="if (!confirm('Confirma a exclusao do usuario #{usuario.nome}?')) return false;" >
+						<h:graphicImage library="imagens" name="excluir16.png" style="border:0" />
+						<f:setPropertyActionListener value="#{usuario}" target="#{usuarioBean.usuario}" />
+					</h:commandLink>					
+				</h:column>
+			</h:dataTable>
+		</h:form>
+	</h:body>
+   
+</html>

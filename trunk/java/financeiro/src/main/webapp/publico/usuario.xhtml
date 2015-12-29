@@ -17,6 +17,7 @@
 			
 			<h:inputHidden value="#{usuarioBean.usuario.codigo}" />
 			<h:inputHidden value="#{usuarioBean.usuario.ativo}" />
+			<h:inputHidden value="#{usuarioBean.destinoSalvar}" />
 			
 			<h:panelGrid columns="2">
 				<h:outputLabel value="Nome" for="nome" />
@@ -34,7 +35,7 @@
 				
 				<h:outputLabel value="Email" for="email" />
 				<h:panelGroup>
-					<h:inputText value="#{usuarioBean.usuario.dataNascimento}" id="email" label="Email" size="50" maxlength="50" validatorMessage="Email invalido!" >
+					<h:inputText value="#{usuarioBean.usuario.email}" id="email" label="Email" size="50" maxlength="50" validatorMessage="Email invalido!" >
 						<f:validateRegex pattern="[a-zA-Z0-9\-\_\.]+@[a-zA-Z0-9\-\_\.]+"  />						
 					</h:inputText>
 					<h:message for="email"/>
