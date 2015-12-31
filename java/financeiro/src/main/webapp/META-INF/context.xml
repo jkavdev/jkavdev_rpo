@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- permitira que configuracoes do aplicacao, que por padrao 
+	deveria estar no arquivo de configuracao do servidor, 
+	possam ser declaradas dentro da propria aplicacao -->
+	
+	<!-- maxActive - numero maximo de conexoes em uso -->
+	<!-- maxIdle - numero maximo de conexoes aguardando uso -->
+	<!-- maxWait - numero maximo de espera por uma conexao disponivel -->
+<Context reloadable="true">
+	<Resource name="jdbc/db_financeiro"
+		auth="Container"
+		type="jvax.sql.Datasource"
+		maxActive="100"
+		maxIdle="30"
+		maxWait="1000"
+		username="root"
+		password="99346554"
+		driverClassName="com.mysql.jdbc.Driver"
+		url="jdbc:mysql://localhost:3306/db_financeiro?autoReconnect=true" />
+</Context>
