@@ -26,16 +26,17 @@ public class CursoBean {
 	public void inicializarBean(){
 		cursos = new CursoDAO().listarTodos();
 		cursosAccordion = CursoDAO.listaCursosAccordion();
+	}
+	
+	public void novoCurso(){
 		curso = new Curso();
 	}
 
-	public String salvar() {
+	public void salvar() {
 		new CursoDAO().salvar(curso);
 		cursos = new CursoDAO().listarTodos();
-		curso = new Curso();
+		curso = null;
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Curso salvo com sucesso"));
-
-		return "curso_lista?faces-redirect=true";
 	}
 
 	// retornando a data atual
@@ -43,10 +44,8 @@ public class CursoBean {
 		return new SimpleDateFormat("dd/MM/yyyy").format(new Date());
 	}
 
-	public String editar(Curso curso) {
+	public void editar(Curso curso) {
 		this.curso = curso;
-
-		return "curso_formulario?faces-redirect=true";
 	}
 
 	// depois de preparar a exclusao,

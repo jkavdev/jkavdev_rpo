@@ -14,7 +14,7 @@
 	<h:body>
 		<h:form id="form-curso">
 			<p:growl />
-			<p:panel header="Cadastro de Cursos" style="width:60%;">
+			<p:panel header="Cadastro de Cursos" style="width:60%;" rendered="#{cursoBean.curso != null}">
 				<p:panelGrid columns="2" style="width:95%;">
 					<h:outputLabel value="Nome:" />
 					<p:inputText value="#{cursoBean.curso.nome}" />
