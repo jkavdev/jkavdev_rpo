@@ -36,6 +36,10 @@
 			<name>jvnet-nexus-releases</name>
 			<url>https://maven.java.net/content/repositories/releases</url>
 		</repository>
+		<repository>
+			<id>org.springframework.security.taglibs.facelets</id>
+			<url>http://spring-security-facelets-taglib.googlecode.com/svn/repo/</url>
+		</repository>
 	</repositories>
 
 	<dependencies>
@@ -66,7 +70,7 @@
 			<version>5.1.38</version>
 			<scope>provided</scope>
 		</dependency>
-		
+
 		<!-- spring -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
@@ -83,7 +87,7 @@
 			<artifactId>spring-jdbc</artifactId>
 			<version>3.2.6.RELEASE</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>commons-logging</groupId>
 			<artifactId>commons-logging</artifactId>
