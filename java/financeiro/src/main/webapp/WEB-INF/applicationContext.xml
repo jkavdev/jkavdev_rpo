@@ -6,7 +6,7 @@
 
 	<!-- cria a referencia para jndi -->
 	<bean id="FinanceiroDataSource"
-		class="org.springframework.jndi.JndiObjectFactoryBean.di.app.Message">
+		class="org.springframework.jndi.JndiObjectFactoryBean.jndi.app.Message">
 		<property name="jndiName">
 			<value>java:com/env/jdbc/db_financeiro</value>
 		</property>

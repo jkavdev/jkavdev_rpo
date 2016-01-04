@@ -2,11 +2,19 @@ package br.com.javaparaweb.financeiro.usuario;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.JoinTable;
+import javax.persistence.UniqueConstraint;
 
 import org.hibernate.annotations.NaturalId;
 
@@ -24,6 +32,7 @@ public class Usuario implements Serializable {
 	private String celular;
 	private String idioma;
 	private boolean ativo;
+	private Set<String> permissao = new HashSet<>();
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -101,6 +110,20 @@ public class Usuario implements Serializable {
 
 	public void setAtivo(boolean ativo) {
 		this.ativo = ativo;
+	}
+
+	@ElementCollection()
+	@JoinTable(
+			name = "usuario_permissao", 
+			uniqueConstraints = { @UniqueConstraint(columnNames = {"usuario", "permissao" }) }, 
+			joinColumns = @JoinColumn(name = "usuario"))
+	@Column(name = "permissao", length = 50)
+	public Set<String> getPermissao() {
+		return permissao;
+	}
+
+	public void setPermissao(Set<String> permissao) {
+		this.permissao = permissao;
 	}
 
 	@Override
