@@ -6,7 +6,7 @@
 
 		<property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
 		<property name="current_session_context_class">thread</property>
-		<property name="connection.datasource">java:/comp/env/jdbc/db_financeiro</property>
+		<property name="connection.datasource">java:/comp/env/jdbc/FinanceiroDB</property>
 
 		<property name="c3p0.min_size">5</property>
 		<property name="c3p0.max_size">20</property>

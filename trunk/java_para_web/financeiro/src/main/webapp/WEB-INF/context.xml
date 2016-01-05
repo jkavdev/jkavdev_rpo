@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context reloadable="true">
-	<Resource name="jdbc/db_financeiro"
+	<Resource name="jdbc/FinanceiroDB"
 		auth="Container"
 		type="javax.sql.DataSource"
 		maxActive="100"
@@ -9,5 +9,5 @@
 		username="root"
 		password="99346554"
 		driverClass="com.mysql.jdbc.Driver"
-		url=""/>
+		url="jdbc:mysql://localhost:3306/db_financeiro?autoReconnect=true"/>
 </Context>

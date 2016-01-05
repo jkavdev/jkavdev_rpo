@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Login</title>
+</h:head>
+
+<h:body>
+	<!-- so sera exibido se caso ocorro algum erro -->
+	<h:panelGroup rendered="#{!empty param.login_error}">
+		<span style="font-color: red;">Erro ao Efetuar o Login!</span>
+		<br />
+			Motivo : #{SPRING_SECURITY_LAST_EXCEPTION.message}
+		</h:panelGroup>
+
+	<!-- o form nao e do jsf, pois se comunicara apenas com o spring, nao precisando usar o componente do jsf -->
+	<form method="post" id="login"
+		action="#{request.contextPath}/j_spring_security_check">
+		<table>
+			<tr>
+				<td>Login</td>
+				<td><input type="text" name="j_username" /></td>
+			</tr>
+			<tr>
+				<td>Senha</td>
+				<td><input type="password" name="j_password" /></td>
+			</tr>
+			<tr>
+				<td align="right"><input type="checkbox"
+					name="_spring_security_remember_me" /></td>
+				<td>Logar Automaticamente</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" value="" /></td>
+			</tr>
+		</table>
+		<script>
+				document.getElementById("login").j_username.value = "#{SPRING_SECURITY_LAST_USERNAME}";
+		</script>
+	</form>
+
+</h:body>
+
+</html>
