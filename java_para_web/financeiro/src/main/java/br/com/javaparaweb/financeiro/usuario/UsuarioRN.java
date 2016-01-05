@@ -22,6 +22,7 @@ public class UsuarioRN {
 
 	public void salvar(Usuario usuario) {
 		if (usuario.getCodigo() == null || usuario.getCodigo() == 0) {
+			usuario.getPermissao().add("ROLE_USUARIO");	//todo registro por inicio tera permissao de usuario
 			this.usuarioDAO.salvar(usuario);
 		} else {
 			this.usuarioDAO.atualizar(usuario);
