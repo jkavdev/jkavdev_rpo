@@ -2,11 +2,18 @@ package br.com.javaparaweb.financeiro.usuario;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.UniqueConstraint;
 
 import org.hibernate.annotations.NaturalId;
 
@@ -15,12 +22,9 @@ public class Usuario implements Serializable {
 
 	private static final long serialVersionUID = -3367544549545896194L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer codigo;
 	private String nome;
 	private String email;
-	@NaturalId
 	private String login;
 	private String senha;
 	private Date dataNascimento;
@@ -28,6 +32,10 @@ public class Usuario implements Serializable {
 	private String idioma;
 	private boolean ativo;
 
+	private Set<String> permissao = new HashSet<>();
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getCodigo() {
 		return codigo;
 	}
@@ -52,6 +60,7 @@ public class Usuario implements Serializable {
 		this.email = email;
 	}
 
+	@NaturalId
 	public String getLogin() {
 		return login;
 	}
@@ -100,6 +109,21 @@ public class Usuario implements Serializable {
 		this.ativo = ativo;
 	}
 
+	//informamos qual a classe a ser carregada no set, no caso String
+	@ElementCollection()
+	@JoinTable(
+			name = "usuario_permissao",	//informa qual sera o nome da tabela do relacionamento 
+			uniqueConstraints = { @UniqueConstraint(columnNames = { "usuario", "permissao" }) },	//criara um indice unico entre os atributos usuario e permissao 
+			joinColumns = @JoinColumn(name = "usuario") )	//informa qual a coluna de ligacao entre as tabelas
+	@Column(name = "permissao", length = 50)	//informa o nome da coluna permissao
+	public Set<String> getPermissao() {	//armazenaremos num set, pois nao sera admitido usuario com permissao repetidos
+		return permissao;
+	}
+
+	public void setPermissao(Set<String> permissao) {
+		this.permissao = permissao;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -107,8 +131,7 @@ public class Usuario implements Serializable {
 		result = prime * result + (ativo ? 1231 : 1237);
 		result = prime * result + ((celular == null) ? 0 : celular.hashCode());
 		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
-		result = prime * result
-				+ ((dataNascimento == null) ? 0 : dataNascimento.hashCode());
+		result = prime * result + ((dataNascimento == null) ? 0 : dataNascimento.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((idioma == null) ? 0 : idioma.hashCode());
 		result = prime * result + ((login == null) ? 0 : login.hashCode());
