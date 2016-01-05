@@ -19,7 +19,12 @@ public class UsuarioDAOHibernate implements UsuarioDAO {
 	}
 
 	@Override
-	public void atualizar(Usuario usuario) {
+	public void atualizar(Usuario usuario) {		
+		if (usuario.getPermissao() == null || usuario.getPermissao().size() == 0) {	//caso a lista de permissao do usuario esteja vazia
+			Usuario usuarioPermissao = this.carregar(usuario.getCodigo());	//caregara do banco
+			usuario.setPermissao(usuarioPermissao.getPermissao());	//setara no objeto a ser salvo
+			this.sessao.evict(usuarioPermissao);	//tirao o usuarioPermissao do contexto de persistencia
+		}
 		this.sessao.update(usuario);
 	}
 

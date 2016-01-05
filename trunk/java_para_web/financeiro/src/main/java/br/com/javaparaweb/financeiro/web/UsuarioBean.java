@@ -1,6 +1,7 @@
 package br.com.javaparaweb.financeiro.web;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -73,6 +74,17 @@ public class UsuarioBean {
 			this.lista = usuarioRN.listar();
 		}
 		return this.lista;
+	}
+	
+	public String atribuiPermissao(Usuario usuario, String permissao){
+		this.usuario = usuario;
+		Set<String> permissoes = this.usuario.getPermissao();
+		if(permissoes.contains(permissao)){
+			permissoes.remove(permissao);
+		}else{
+			permissoes.add(permissao);
+		}
+		return null;
 	}
 
 	public Usuario getUsuario() {
