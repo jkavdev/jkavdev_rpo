@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- configurando o cdi  -->
+
+<!-- 1 - declare a dependencia da implementacao do cdi - weld - de acordo com o 
+	servidor de aplicacao que estiver usando, no nosso caso o tomcat-->
+	<dependency>
+	    <groupId>org.jboss.weld.servlet</groupId>
+	    <artifactId>weld-servlet</artifactId>
+	    <version>1.1.10.Final</version>
+	</dependency>
+<!-- 2 - criar o arquivo beans.xml dentro de src/main/resources/META-INF/beans -->
+<!-- o arquivo pode estar em branco -->
+
+<!-- 3 - criação do arquivo context.xml na pasta src/main/reources/META-INF/context.xml -->
+<!-- 
+	<Context>
+		<Manager pathname="" />
+		<Resource 
+			name="BeanManager" 
+			auth="Container"
+			type="javax.enterprise.inject.spi.BeanManager" 
+			factory="org.jboss.weld.resources.ManagerObjectFactory" />
+	</Context>
+ -->
+ 
+ <!-- 4 - indicar a seguinte configuracao do web.xml -->
+ <!-- 
+ 	<listener>
+		<listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>
+	</listener>
+
+	<resource-env-ref>
+		<resource-env-ref-name>BeanManager</resource-env-ref-name>
+		<resource-env-ref-type>javax.enterprise.inject.spi.BeanManager</resource-env-ref-type>
+	</resource-env-ref>
+ -->
