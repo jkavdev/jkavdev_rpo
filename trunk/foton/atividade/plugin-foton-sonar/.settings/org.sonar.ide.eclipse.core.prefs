@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+extraProperties=sonar.buildVersion\=4.5.2
+projectKey=la.foton.sonar\:plugin-foton-sonar
+serverUrl=http\://localhost\:9000
+version=2
