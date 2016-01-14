@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>la.foton.sonar</groupId>
+  <artifactId>plugin-foton-sonar</artifactId>
+  <packaging>sonar-plugin</packaging>
+  <version>0.1-SNAPSHOT</version>
+
+  <name>Sonar Examples :: Reference Plugin</name>
+  <description>Plugin description will be displayed in SonarQube</description>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <sonar.buildVersion>4.5.2</sonar.buildVersion>
+    <jdk.min.version>1.7</jdk.min.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.codehaus.sonar</groupId>
+      <artifactId>sonar-plugin-api</artifactId>
+      <version>${sonar.buildVersion}</version>
+      <scope>provided</scope>
+    </dependency>
+    
+    <dependency>
+		<groupId>org.codehaus.sonar</groupId>
+		<artifactId>sonar-ws-client</artifactId>
+		<version>5.1</version>
+	</dependency>
+
+    <!-- unit tests -->
+    <dependency>
+      <groupId>org.codehaus.sonar</groupId>
+      <artifactId>sonar-testing-harness</artifactId>
+      <version>${sonar.buildVersion}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.easytesting</groupId>
+      <artifactId>fest-assert</artifactId>
+      <version>1.4</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+		<groupId>org.apache.maven</groupId>
+		<artifactId>maven-core</artifactId>
+		<version>3.0.3</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.bcel</groupId>
+		<artifactId>bcel</artifactId>
+		<version>5.2</version>
+	</dependency>
+	
+	 <!-- Compilador do eclipse -->
+	
+	<dependency>
+		<groupId>org.eclipse.jdt</groupId>
+		<artifactId>core</artifactId>
+		<version>3.3.0-v_771</version>
+	</dependency>
+	<dependency>
+	<groupId>commons-logging</groupId>
+		<artifactId>commons-logging</artifactId>
+		<version>1.2</version>
+	</dependency>
+
+	<dependency>
+		<groupId>commons-configuration</groupId>
+		<artifactId>commons-configuration</artifactId>
+		<version>1.10</version>
+	</dependency>
+	<dependency>
+		<groupId>commons-collections</groupId>
+		<artifactId>commons-collections</artifactId>
+		<version>3.2.1</version>
+	</dependency>
+	<dependency>
+		<groupId>commons-lang</groupId>
+		<artifactId>commons-lang</artifactId>
+		<version>2.6</version>
+	</dependency>
+	<dependency>
+		<groupId>org.eclipse.equinox</groupId>
+		<artifactId>common</artifactId>
+		<version>3.6.200-v20130402-1505</version>
+	</dependency>
+	<dependency>
+		<groupId>com.google.code.gson</groupId>
+		<artifactId>gson</artifactId>
+		<version>2.4</version>
+	</dependency>
+	<dependency>
+		<groupId>org.eclipse.osgi</groupId>
+		<artifactId>org.eclipse.osgi</artifactId>
+		<version>3.7.1</version>
+	</dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.sonar</groupId>
+        <artifactId>sonar-packaging-maven-plugin</artifactId>
+        <version>1.12.1</version>
+        <extensions>true</extensions>
+        <configuration>
+          <pluginClass>la.foton.sonar.principal.PluginFotonAnalise</pluginClass>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.1</version>
+        <configuration>
+          <source>${jdk.min.version}</source>
+          <target>${jdk.min.version}</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <!-- UTF-8 bundles are not supported by Java, so they must be converted during build -->
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>native2ascii-maven-plugin</artifactId>
+        <version>1.0-beta-1</version>
+        <executions>
+          <execution>
+           
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
