@@ -8,8 +8,14 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <body>
+	<!-- informando que este conteudo desta pagina sera uma composicao do template -->
+	<!-- sera encaixado no conteudo de template -->
 	<ui:composition>
-		
+		<!-- nome da aplicacao e centralizando o texto -->
+		<div id="mainHeader" align="center">
+			<!-- messagem provida do arquivo independente do idioma -->
+			${messages.application_name}
+		</div>
 	</ui:composition>
 </body>
 </html>
