@@ -151,11 +151,13 @@
 			<artifactId>javax.faces</artifactId>
 			<version>2.2.10</version>
 		</dependency>
+		<!-- 
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-api</artifactId>
 			<version>2.2.6</version>
 		</dependency>
+		 -->
 
 		<!-- JSP-API -->
 		<dependency>
@@ -237,6 +239,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>wpattern-frameworks-jsf-primefaces</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
