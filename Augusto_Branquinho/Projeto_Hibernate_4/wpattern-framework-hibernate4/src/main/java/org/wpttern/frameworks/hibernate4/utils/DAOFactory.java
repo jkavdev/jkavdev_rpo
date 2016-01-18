@@ -8,7 +8,7 @@ public final class DAOFactory {
 	public DAOFactory() {
 	}
 
-	private static final String PERSISTENCE_UNIT_NAME = "hibernate_4";
+	private static final String PERSISTENCE_UNIT_NAME = "wprojectPersistenceUnit";
 	private static EntityManagerFactory factory;
 
 	public static EntityManagerFactory entityManagerFactoryInstance() {

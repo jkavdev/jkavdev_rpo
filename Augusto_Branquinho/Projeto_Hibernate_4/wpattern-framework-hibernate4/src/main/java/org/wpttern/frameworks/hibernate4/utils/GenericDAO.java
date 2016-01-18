@@ -1,6 +1,7 @@
 package org.wpttern.frameworks.hibernate4.utils;
 
 import java.lang.reflect.ParameterizedType;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -27,17 +28,49 @@ public abstract class GenericDAO<T, PK> {
 	public Object executeQuery(String query, Object... params) {
 		Query createQuery = this.manager.createQuery(query);
 		for (int i = 0; i < params.length; i++) {
-
+			createQuery.setParameter(i, params[i]);
 		}
-		return createQuery;
+		return createQuery.getResultList();
 	}
 
-	public void delete(T entity){
-		try{
+	@SuppressWarnings("unchecked")
+	public List<T> findAll() {
+		return this.manager.createQuery(("from " + this.clazz.getName())).getResultList();
+	}
+
+	@SuppressWarnings("unchecked")
+	public T findById(PK pk) {
+		return (T) this.manager.find(this.clazz, pk);
+	}
+
+	public void save(T entity) {
+		try {
+			this.beginTransaction();
+			this.manager.persist(entity);
+			this.commit();
+		} catch (Exception e) {
+			this.rollback();
+			throw e;
+		}
+	}
+
+	public void update(T entity) {
+		try {
+			this.beginTransaction();
+			this.manager.merge(entity);
+			this.commit();
+		} catch (Exception e) {
+			this.rollback();
+			throw e;
+		}
+	}
+
+	public void delete(T entity) {
+		try {
 			this.beginTransaction();
 			this.manager.remove(entity);
 			this.commit();
-		}catch(Exception e){
+		} catch (Exception e) {
 			this.rollback();
 			throw e;
 		}
