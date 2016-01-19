@@ -1,4 +1,4 @@
-package org.wpttern.frameworks.hibernate4.entites;
+package org.wpattern.frameworks.hibernate4.entites;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.wpttern.frameworks.hibernate4.utils.BaseBean;
+import org.wpattern.frameworks.hibernate4.utils.BaseBean;
 
 @Entity
 @Table(name = "categories")

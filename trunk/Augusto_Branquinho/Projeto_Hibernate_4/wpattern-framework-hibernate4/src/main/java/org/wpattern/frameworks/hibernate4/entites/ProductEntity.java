@@ -1,4 +1,4 @@
-package org.wpttern.frameworks.hibernate4.entites;
+package org.wpattern.frameworks.hibernate4.entites;
 
 import java.math.BigDecimal;
 
@@ -7,11 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.wpttern.frameworks.hibernate4.utils.BaseBean;
+import org.wpattern.frameworks.hibernate4.utils.BaseBean;
 
 @Entity
 @Table(name = "products")
