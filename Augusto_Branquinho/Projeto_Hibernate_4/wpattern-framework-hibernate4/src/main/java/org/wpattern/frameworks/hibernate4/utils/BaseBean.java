@@ -1,4 +1,4 @@
-package org.wpttern.frameworks.hibernate4.utils;
+package org.wpattern.frameworks.hibernate4.utils;
 
 import java.io.Serializable;
 
