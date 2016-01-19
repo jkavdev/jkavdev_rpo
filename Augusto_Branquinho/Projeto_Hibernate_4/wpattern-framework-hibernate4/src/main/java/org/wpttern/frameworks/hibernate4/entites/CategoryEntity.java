@@ -33,7 +33,7 @@ public class CategoryEntity extends BaseBean {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "category_id")
+	@Column(name = "CategoryID")
 	public Long getId() {
 		return id;
 	}
@@ -42,7 +42,7 @@ public class CategoryEntity extends BaseBean {
 		this.id = id;
 	}
 
-	@Column(name = "category_name")
+	@Column(name = "CategoryName")
 	public String getCategoryName() {
 		return categoryName;
 	}
@@ -51,6 +51,7 @@ public class CategoryEntity extends BaseBean {
 		this.categoryName = categoryName;
 	}
 
+	@Column(name = "Description")
 	public String getDescription() {
 		return description;
 	}
@@ -59,6 +60,7 @@ public class CategoryEntity extends BaseBean {
 		this.description = description;
 	}
 
+	@Column(name = "Picture")
 	public Byte[] getPicture() {
 		return picture;
 	}
