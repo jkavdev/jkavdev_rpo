@@ -25,6 +25,12 @@ public class CategoryMB extends BaseBeans {
 		categories.add(new CategoryEntity(3L, "Category Name 3", "Description 3", null));
 		categories.add(new CategoryEntity(4L, "Category Name 4", "Description 4", null));
 		categories.add(new CategoryEntity(5L, "Category Name 5", "Description 5", null));
+		categories.add(new CategoryEntity(6L, "Category Name 1", "Description 1", null));
+		categories.add(new CategoryEntity(7L, "Category Name 2", "Description 2", null));
+		categories.add(new CategoryEntity(8L, "Category Name 3", "Description 3", null));
+		categories.add(new CategoryEntity(9L, "Category Name 4", "Description 4", null));
+		categories.add(new CategoryEntity(10L, "Category Name 5", "Description 5", null));
+		categories.add(new CategoryEntity(11L, "Category Name 5", "Description 5", null));
 	}
 
 	public List<CategoryEntity> getCategories() {
