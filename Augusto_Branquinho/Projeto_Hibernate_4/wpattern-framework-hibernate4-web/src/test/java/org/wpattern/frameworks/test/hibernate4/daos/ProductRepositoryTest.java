@@ -10,7 +10,7 @@ import org.wpattern.frameworks.hibernate4.utils.DAOFactory;
 
 public class ProductRepositoryTest {
 	
-	private static final Logger LOGGER = Logger.getLogger(CategoryRepositoryTest.class);
+	private static final Logger LOGGER = Logger.getLogger(ProductRepositoryTest.class);
 	private ProductDAO productDAO = DAOFactory.productInstance();
 
 	@Test
