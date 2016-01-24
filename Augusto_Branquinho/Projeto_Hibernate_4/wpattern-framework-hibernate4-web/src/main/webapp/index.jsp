@@ -1,10 +1,14 @@
 <html>
 	<head>
-		<title>Oi</title>
+		<link rel="shortcut icon" type="image/x-icon" href="/resources/imagens/wpattern.ico" />
+		<title>WPattern Frameworks Hibernate4</title>
 	</head>
 	
 	<body>
-		OI
+		<h1>Options</h1> <br />
+		
+		<a href="/category/list.jsp" >Categories</a>
+		
 	</body>
 	
 </html>
