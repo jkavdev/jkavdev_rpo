@@ -10,27 +10,27 @@ import org.wpattern.frameworks.hibernate4.utils.DAOFactory;
 
 public class ProductRepositoryTest {
 	
-//	private static final Logger LOGGER = Logger.getLogger(CategoryRepositoryTest.class);
-//	private ProductDAO productDAO = DAOFactory.productInstance();
-//
-//	@Test
-//	public void testFindAll() {
-//		List<ProductEntity> products = this.productDAO.findAll();
-//		
-//		LOGGER.info(products);
-//		System.out.println(products);
-//	}
-	
-	public static void main(String[] args) {
-		
-		final Logger LOGGER = Logger.getLogger(CategoryRepositoryTest.class);
-		ProductDAO productDAO = DAOFactory.productInstance();
+	private static final Logger LOGGER = Logger.getLogger(CategoryRepositoryTest.class);
+	private ProductDAO productDAO = DAOFactory.productInstance();
 
-			List<ProductEntity> products = productDAO.findAll();
-			
-			LOGGER.info(products);
-			System.out.println(products);
+	@Test
+	public void testFindAll() {
+		List<ProductEntity> products = this.productDAO.findAll();
 		
+		LOGGER.info(products);
+//		System.out.println(products);
 	}
+	
+//	public static void main(String[] args) {
+//		
+//		final Logger LOGGER = Logger.getLogger(CategoryRepositoryTest.class);
+//		ProductDAO productDAO = DAOFactory.productInstance();
+//
+//			List<ProductEntity> products = productDAO.findAll();
+//			
+//			LOGGER.info(products);
+//			System.out.println(products);
+//		
+//	}
 
 }
