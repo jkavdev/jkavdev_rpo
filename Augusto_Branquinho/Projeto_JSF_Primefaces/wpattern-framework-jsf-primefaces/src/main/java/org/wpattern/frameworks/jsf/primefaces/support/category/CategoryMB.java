@@ -41,4 +41,8 @@ public class CategoryMB extends BaseBeans {
 		this.categories = categories;
 	}
 
+	public void unselectedCategory() {
+		
+	}
+
 }
