@@ -20,6 +20,8 @@ public class CategoryAddEditMB extends BaseBeans {
 
 	private static final long serialVersionUID = 1L;
 
+	@Inject
+	private CategoryMB categoryMB;
 	//contexto do primefaces
 	@Inject
 	private FacesContext context;
@@ -36,7 +38,30 @@ public class CategoryAddEditMB extends BaseBeans {
 	public void update() {
 		this.title = this.getResourceProperty("labels", "category_update");
 	}
+	
+	public void save(){
+		if(this.category != null){
+			if(this.category.getId() == null){
+				//salva 
+//				this.categoryRepository.save(this.category);
+				category.setId(this.categoryMB.getCategories().size() + 1L);
+				this.categoryMB.getCategories().add(category);
+			}else{
+				//atualiza
+//				this.categoryRepository.update(this.category);
+				for (int i = 0; i < this.categoryMB.getCategories().size(); i++) {
+					if(this.categoryMB.getCategories().get(i).getId() == this.category.getId()){
+						this.categoryMB.getCategories().set(i, category);
+					}
+				}
+			}
+		}
+	}
 
+	public void cancel(){
+		this.categoryMB.unselectedCategory();
+	}
+	
 	private String getResourceProperty(String resource, String label) {
 		Application application = this.context.getApplication();
 		ResourceBundle bundle = application.getResourceBundle(this.context, resource);

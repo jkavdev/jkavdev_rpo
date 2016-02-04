@@ -20,21 +20,15 @@
 	   			
 	   			<p:outputLabel value="#{labels.description}" />
 	   			<p:inputText value="#{categoryAddEditMB.category.description}" />
-	   			<!-- 
+	   			
 	   			<f:facet name="footer">
 	   				<p:row>
 	   					<p:outputPanel style="width:100%; text-align:center;" layout="block">
-	   						<p:commandButton value="#{labels.button_save}"
-	   						action="list.faces" actionListener="#{categoryAddEditMB.save}" 
-	   						style="margin: 130 auto;" ajax="false"/>
-	   						<p:commandButton value="#{labels.button_cancel}"
-	   						action="/pages/category/list.faces" 
-	   						actionListener="#{categoryAddEditMB.cancel}" 
-	   						style="margin: 130 auto;" ajax="false"/>
+	   						<p:commandButton value="#{labels.button_save}" action="list.faces" actionListener="#{categoryAddEditMB.save}" style="margin: 130 auto;" ajax="false"/>
+	   						<p:commandButton value="#{labels.button_cancel}" action="/pages/category/list.faces" actionListener="#{categoryAddEditMB.cancel}" style="margin: 130 auto;" ajax="false"/>
 	   					</p:outputPanel>
 	   				</p:row>
 	   			</f:facet>
-	   			 -->
 	   		</p:panelGrid>
 	   	</h:form>
 	   </ui:define>
