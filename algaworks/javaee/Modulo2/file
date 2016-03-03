@@ -1,0 +1,10 @@
+ciclo de vida do jsf
+
+Requisição
+	1 - Restaurar Visao
+	2 - Aplicar Valores da Requisicao
+	3 - Processar Validações
+	4 - Atualizar os Valores do Modelo
+	5 - Invocar a Aplicação
+	6 - Renderizar Resposta
+Resposta

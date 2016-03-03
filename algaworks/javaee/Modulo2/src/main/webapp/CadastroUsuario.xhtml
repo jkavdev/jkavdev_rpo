@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		
+	</h:head>
+	
+	<h:body>
+		<h:form id="frm">
+			<!-- exibira todas as informacoes do sistema -->
+			<!-- autoUpdate=true - atualizara as mensagens caso ocorra algum evento ajax -->>
+			<p:messages autoUpdate="true" />
+			
+			<p:panelGrid columns="2">
+				<p:outputLabel value="Login" for="login" />
+				<!-- agrupando componentes em uma coluna -->
+				<h:panelGroup>
+					<p:inputText id="login" value="#{cadastroUsuarioBean.login}" required="true" />
+					<!-- process="login @this" - indicamos que somente o login sera processado pelas fases do jsf e o componente q esta -->
+					<!-- invocando o process -->
+					<p:commandButton value="Verificar Disponibilidade" action="#{cadastroUsuarioBean.verificarDisponibilidadeLogin}" process="login @this" />
+				</h:panelGroup>
+				
+				<p:outputLabel for="nome" value="Nome" />
+				<p:inputText id="nome" value="#{cadastroUsuarioBean.nome}" required="true" />
+			</p:panelGrid>
+			
+			<p:commandButton value="Cadastrar" action="#{cadastroUsuarioBean.cadastrar}" />
+		</h:form>
+	</h:body>
+
+</html>
