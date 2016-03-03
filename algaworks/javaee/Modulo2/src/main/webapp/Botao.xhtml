@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		
+	</h:head>
+	
+	<h:body>
+		<h:form id="frm">
+			<p:panelGrid columns="2">
+				<h:outputLabel value="Nome" for="nome" />
+				<h:inputText value="#{inversaoNomeBean.nome}" id="nome" />
+			</p:panelGrid>
+			
+			<br />
+			
+			<p:outputLabel value="#{inversaoNomeBean.nomeInvertido}" id="nomeInvertido" />
+			
+			<br /><br />
+			
+			<!-- habilitando o ajax do componente do prime -->
+			<!-- com o update informamos o id componente que sera atualizado com ajax -->
+			<!-- atualizando o nome do servidor update="nomeInvertido" -->
+			<!-- atualizando o nome do cliente update="frm:nomeInvertido" -->
+			<!-- @from - executa o metodo e atualiza o formulario -->
+			<!-- @none - nao atualiza nada -->
+			
+			<p:commandButton action="#{inversaoNomeBean.inverter()}" value="Inverter" update="frm:nomeInvertido"/>
+			
+		</h:form>
+	</h:body>
+
+</html>
