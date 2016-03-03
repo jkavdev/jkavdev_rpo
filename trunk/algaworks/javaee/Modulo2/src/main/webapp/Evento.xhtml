@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		
+	</h:head>
+	
+	<h:body>
+		<h:form id="frm">
+			<p:panelGrid columns="2">
+				<h:outputLabel value="Nome" for="nome" />
+				
+				<!-- evento de mudanca de valor -->
+				<!-- quando o foco sair do input executara uma açao -->
+				<h:inputText value="#{inversaoNomeBean.nome}" id="nome" >
+				
+					<!-- listener - quando o componente ajax for chamado, ele executara um metodo -->
+					<!-- keyup - executara o listener toda vez quando uma tecla for pressionada -->
+					<p:ajax listener="#{inversaoNomeBean.inverter()}" update="nomeInvertido" event="keyup" />
+				</h:inputText>
+			</p:panelGrid>
+			
+			<br />
+			
+			<p:outputLabel value="#{inversaoNomeBean.nomeInvertido}" id="nomeInvertido" />
+			
+		</h:form>
+	</h:body>
+
+</html>
