@@ -27,6 +27,12 @@ public class CadastroUsuarioBean implements Serializable {
 		FacesMessage msg = null;
 		System.out.println("Verificando disponibilidade: " + this.login);
 		
+		//simula demora no processamento
+		try{
+			//demorara um segundo
+			Thread.sleep(1000);
+		}catch(InterruptedException e){}
+		
 		if("joao".equalsIgnoreCase(login)){
 			msg = new FacesMessage("Login já está em Uso!");
 			//indicando uma nivel de severidade da mensagem
