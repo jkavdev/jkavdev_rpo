@@ -1,6 +1,8 @@
 package com.algaworks.javaee;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -15,11 +17,26 @@ public class PerfilUsuario implements Serializable {
 
 	private String login;
 	private String senha;
+	private String nome;
+	private String sobre;
 
 	public void atualizar() {
 		System.out.println("Senha: " + this.senha);
 
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Perfil Atualizado"));
+	}
+	
+	public List<String> completarTexto(String consulta){
+		List<String> resultados = new ArrayList<String>();
+		
+		if(consulta.startsWith("Thi")){
+			resultados.add("Thiago");
+			resultados.add("Thiago Faria");
+			resultados.add("Thiago Faria de Andrade");
+			resultados.add("Thiago da Algaworks");
+		}
+		
+		return resultados;
 	}
 
 	public String getLogin() {
@@ -37,5 +54,23 @@ public class PerfilUsuario implements Serializable {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+
+	public String getSobre() {
+		return sobre;
+	}
+
+	public void setSobre(String sobre) {
+		this.sobre = sobre;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
+	
 
 }
