@@ -18,7 +18,8 @@
 				<h:panelGroup>
 					<p:inputText id="login" value="#{cadastroUsuarioBean.login}" required="true" >
 						<!-- event=change - indica que o listener sera chamado sempre quando o componente for alterado -->
-						<p:ajax listener="#{cadastroUsuarioBean.verificarDisponibilidadeLogin}" event="change" process="@this" />
+						<!-- partialSubmit=true - indica que somente este componente sera processado para a proxima fase do jsf -->
+						<p:ajax listener="#{cadastroUsuarioBean.verificarDisponibilidadeLogin}" event="change" process="@this" partialSubmit="true" />
 					</p:inputText>
 				</h:panelGroup>
 				
