@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+	</h:head>
+	
+	<h:body>
+		<h:form>
+			<p:messages />
+			
+			<p:panelGrid columns="2">
+				<p:outputLabel value="Login" for="login" />
+				<p:inputText id="login" required="true" value="#{perfilUsuario.login}" />
+				
+				<p:outputLabel value="Senha" for="senha" />
+				<!-- feedback - indica se a senha informada eh fraca boa e forte -->
+				<!-- weak, good e strongLabel - sao para custmizar os labels indicando quando fraca boa e forte -->
+				<!-- prompLabel - indica a mensagem inicial antes de informar uma senha -->
+				<!-- inLine - indica que a mensagem ficara debaixo do componente -->
+				<!-- match - indica o componente no qual o campo senha tem que ser igual -->
+				<p:password id="senha" value="#{perfilUsuario.senha}" required="true" feedback="true" weakLabel="Fraca" goodLabel="Boa" strongLabel="Forte" promptLabel="Informe a Senha" inline="true" match="confirmaSenha"/>
+				
+				<p:outputLabel value="Confirmar Senha" for="confirmaSenha" />
+				<p:password id="confirmaSenha" required="true" />
+			</p:panelGrid>
+			
+			<p:commandButton value="Atualizar" action="#{perfilUsuario.atualizar()}" update="@form" />
+		</h:form>
+	</h:body>
+
+</html>
