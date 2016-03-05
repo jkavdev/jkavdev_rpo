@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		<!-- para que possamos traduzir o calendarios exbido temo o sguinte script -->
+		<script type="text/javascript">
+			PrimeFaces.locales['pt'] = {
+	            closeText: 'Fechar',
+	            prevText: 'Anterior',
+	            nextText: 'Próximo',
+	            currentText: 'Começo',
+	            monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+	            monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun', 'Jul','Ago','Set','Out','Nov','Des'],
+	            dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
+	            dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'],
+	            dayNamesMin: ['D','S','T','Q','Q','S','S'],
+	            weekHeader: 'Semana',
+	            firstDay: 1,
+	            isRTL: false,
+	            showMonthAfterYear: false,
+	            yearSuffix: '',
+	            timeOnlyTitle: 'Só Horas',
+	            timeText: 'Tempo',
+	            hourText: 'Hora',
+	            minuteText: 'Minuto',
+	            secondText: 'Segundo',
+	            currentText: 'Data Atual',
+	            ampm: false,
+	            month: 'Mês',
+	            week: 'Semana',
+	            day: 'Dia',
+	            allDayText : 'Todo Dia'
+        	};
+</script>
+	</h:head>
+	
+	<h:body>
+		<h:form>
+			<p:messages />
+			
+			<p:panelGrid columns="2">
+				<p:outputLabel value="Nome" for="nome" />
+				<p:inputText id="nome" required="true" value="#{perfilUsuario.nome}" />
+				
+				<p:outputLabel value="Data de Nascimento" for="dataNascimento" />
+				<!-- pattern - padrao de data -->
+				<!-- pattern-HH:mm:ss - indica que queremos tambem adicionar horas a data -->
+				<!-- readOnly - bloqueia a digitacao de data, apenas com o popUp de datas -->
+				<!-- navegator - podemos buscar por anos e meses -->
+				<!-- pages - indica quantos calendarios sera apresentado, padrao eh 1 -->
+				<!-- mode - forma de apresentacao do calendario -->
+				<!-- maxDate - indica qual sera a data maxima -->
+				<!-- locale - informarmos a localidade da hora ou data -->
+				<p:calendar id="dataNascimento" required="true" value="#{perfilUsuario.dataNascimento}" pattern="dd/MM/yyyy" readonlyInput="true" navigator="false" pages="3" mode="popup" maxdate="#{perfilUsuario.dataHoje}" locale="pt" />
+				
+			</p:panelGrid>
+			
+			<p:commandButton value="Atualizar" action="#{perfilUsuario.atualizar}" update="@form" />
+		</h:form>
+	</h:body>
+
+</html>
