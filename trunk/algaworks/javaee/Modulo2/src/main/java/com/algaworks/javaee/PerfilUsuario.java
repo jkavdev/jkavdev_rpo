@@ -21,9 +21,22 @@ public class PerfilUsuario implements Serializable {
 	private String nome;
 	private String sobre;
 	private Date dataNascimento;
+	private String profissao;
+	private Interesse interesse;
+	
+	public static final List<Interesse> INTERESSES = new ArrayList<>();
+	
+	//inicializando lista de interesses
+	static{		
+		INTERESSES.add(new Interesse("Esportes", "esportes"));
+		INTERESSES.add(new Interesse("Computação", "computação"));
+		INTERESSES.add(new Interesse("Cinema", "cinema"));
+		INTERESSES.add(new Interesse("Leitura", "leitura"));
+	}
 
 	public void atualizar() {
-		System.out.println("Data de Nascimento: " + this.dataNascimento);
+		System.out.println("Profissão: " + this.profissao);
+		System.out.println("Interesse: " + this.interesse.getDescricao());
 
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Perfil Atualizado"));
 	}
@@ -44,6 +57,10 @@ public class PerfilUsuario implements Serializable {
 	//retorna a data atual
 	public Date getDataHoje(){
 		return new Date();
+	}
+	
+	public List<Interesse> getInteresses(){
+		return INTERESSES;
 	}
 
 	public String getLogin() {
@@ -84,6 +101,22 @@ public class PerfilUsuario implements Serializable {
 
 	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
+	}
+
+	public String getProfissao() {
+		return profissao;
+	}
+
+	public void setProfissao(String profissao) {
+		this.profissao = profissao;
+	}
+
+	public Interesse getInteresse() {
+		return interesse;
+	}
+
+	public void setInteresse(Interesse interesse) {
+		this.interesse = interesse;
 	}
 	
 	
