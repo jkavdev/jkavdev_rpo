@@ -8,7 +8,7 @@ import javax.faces.convert.FacesConverter;
 //conversor da classe interesse
 
 //como sera chamado nas telas
-@FacesConverter("interesse")
+@FacesConverter("interesseConverter")
 // tem que implementar Converter
 public class InteresseConverter implements Converter {
 
@@ -34,7 +34,7 @@ public class InteresseConverter implements Converter {
 	@Override
 	public String getAsString(FacesContext context, UIComponent component, Object value) {
 		// se tem um objeto
-		if (value != null) {
+		if (value != null && !value.equals("")) {
 			// fazemos o cast
 			Interesse interesse = (Interesse) value;
 			// retorna o nome do icone

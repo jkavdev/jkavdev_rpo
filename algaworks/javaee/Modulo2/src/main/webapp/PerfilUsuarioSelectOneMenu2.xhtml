@@ -16,22 +16,14 @@
 				<p:outputLabel value="Nome" for="nome" />
 				<p:inputText id="nome" required="true" value="#{perfilUsuario.nome}" />
 				
-				<p:outputLabel value="Profissão" for="profissao" />
-				<p:selectOneListbox id="profissao" value="#{perfilUsuario.profissao}" required="true">
-					<!-- itemLabel - indica o que sera mostrado -->
-					<!-- itemValue - indica o que sera enviado -->
-					<f:selectItem itemLabel="Estudante" itemValue="1"/>
-					<f:selectItem itemLabel="Empresário" itemValue="2"/>
-					<f:selectItem itemLabel="Programador" itemValue="3"/>
-					<f:selectItem itemLabel="Outras" itemValue="4"/>		
-				</p:selectOneListbox>
-				
 				<p:outputLabel value="Interesse" for="interesse" />
-				<p:selectOneListbox id="interesse" value="#{perfilUsuario.interesse}" required="true" 
-					converter="interesseConverter" var="i" style="width:200px">
-					
-					<f:selectItems value="#{perfilUsuario.interesses}" var="interesse" 
-						itemLabel="#{interesse.descricao}" itemValue="#{interesse}" />
+				<!-- filter - habilita campo de filtro -->
+				<!-- filterMatchMode - indica como sera feito o filtro -->
+				<p:selectOneMenu id="interesse" value="#{perfilUsuario.interesse}" required="true" 
+					converter="interesseConverter" var="i" filter="true" filterMatchMode="startsWith">
+					<f:selectItem itemLabel="Selecione" itemValue="" />
+					<f:selectItems value="#{perfilUsuario.interesses}" var="interesse"
+						itemLabel="#{interesse.descricao}" itemValue="#{interesse}"/>
 						
 					<p:column>
 						<h:graphicImage library="imagens" name="#{i.nomeIcone}.jpg" />
@@ -39,8 +31,7 @@
 					<p:column>
 						<h:outputText value="#{i.descricao}" />
 					</p:column>
-					
-				</p:selectOneListbox>
+				</p:selectOneMenu>
 			</p:panelGrid>
 			
 			<p:commandButton value="Atualizar" action="#{perfilUsuario.atualizar()}" update="@form" />

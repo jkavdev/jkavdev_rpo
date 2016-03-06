@@ -29,13 +29,13 @@ public class PerfilUsuario implements Serializable {
 	//inicializando lista de interesses
 	static{		
 		INTERESSES.add(new Interesse("Esportes", "esportes"));
-		INTERESSES.add(new Interesse("Computação", "computação"));
+		INTERESSES.add(new Interesse("Computação", "computacao"));
 		INTERESSES.add(new Interesse("Cinema", "cinema"));
 		INTERESSES.add(new Interesse("Leitura", "leitura"));
 	}
 
 	public void atualizar() {
-		System.out.println("Profissão: " + this.profissao);
+		System.out.println("Interesse: " + this.interesse.getDescricao());
 
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Perfil Atualizado"));
 	}
