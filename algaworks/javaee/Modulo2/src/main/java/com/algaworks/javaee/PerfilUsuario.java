@@ -27,16 +27,28 @@ public class PerfilUsuario implements Serializable {
 	private String cidade;
 	private String sexo;
 	private String estadoCivil;
+	private String pais;
 	
 	public static final List<Interesse> INTERESSES = new ArrayList<>();
 	private List<String> estados = new ArrayList<>();
 	private List<String> cidades = new ArrayList<>();
 	private List<String> interessesM;
+	private List<String> paises = new ArrayList<>();
 	
 	public PerfilUsuario() {
 		estados.add("MG");
 		estados.add("SP");
 		estados.add("RJ");
+		
+		paises.add("Alemanha");
+		paises.add("Argelia");
+		paises.add("Argentina");
+		paises.add("Belgica");
+		paises.add("Bolivia");
+		paises.add("Brasil");
+		paises.add("Bulgaria");
+		paises.add("Espanha");
+		paises.add("Estados Unidos");
 	}
 	
 	public void carregarCidades(){
@@ -64,9 +76,7 @@ public class PerfilUsuario implements Serializable {
 	}
 
 	public void atualizar() {
-		for (String interesse : interessesM) {
-			System.out.println("Interesse: " + interesse);	
-		}		
+			System.out.println("Pais: " + this.pais);
 
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Perfil Atualizado"));
 	}
@@ -82,6 +92,20 @@ public class PerfilUsuario implements Serializable {
 		}
 		
 		return resultados;
+	}
+	
+	public List<String> sugerirPaises(String consulta){
+		System.out.println("Consulta: " + consulta);
+		
+		List<String> paisesSugeridos = new ArrayList<>();
+		
+		for (String pais : this.paises) {
+			if(pais.toLowerCase().startsWith(consulta.toLowerCase())){
+				paisesSugeridos.add(pais);
+			}
+		}
+		
+		return paisesSugeridos;
 	}
 	
 	//retorna a data atual
@@ -203,6 +227,14 @@ public class PerfilUsuario implements Serializable {
 
 	public void setInteressesM(List<String> interessesM) {
 		this.interessesM = interessesM;
+	}
+
+	public String getPais() {
+		return pais;
+	}
+
+	public void setPais(String pais) {
+		this.pais = pais;
 	}
 	
 	
