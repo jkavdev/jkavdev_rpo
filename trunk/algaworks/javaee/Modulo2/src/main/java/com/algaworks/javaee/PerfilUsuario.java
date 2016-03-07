@@ -31,6 +31,7 @@ public class PerfilUsuario implements Serializable {
 	public static final List<Interesse> INTERESSES = new ArrayList<>();
 	private List<String> estados = new ArrayList<>();
 	private List<String> cidades = new ArrayList<>();
+	private List<String> interessesM;
 	
 	public PerfilUsuario() {
 		estados.add("MG");
@@ -63,8 +64,9 @@ public class PerfilUsuario implements Serializable {
 	}
 
 	public void atualizar() {
-		System.out.println("Sexo: " + this.sexo);
-		System.out.println("Estado Civil: " + this.estadoCivil);
+		for (String interesse : interessesM) {
+			System.out.println("Interesse: " + interesse);	
+		}		
 
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Perfil Atualizado"));
 	}
@@ -193,6 +195,14 @@ public class PerfilUsuario implements Serializable {
 
 	public void setEstadoCivil(String estadoCivil) {
 		this.estadoCivil = estadoCivil;
+	}
+
+	public List<String> getInteressesM() {
+		return interessesM;
+	}
+
+	public void setInteressesM(List<String> interessesM) {
+		this.interessesM = interessesM;
 	}
 	
 	
