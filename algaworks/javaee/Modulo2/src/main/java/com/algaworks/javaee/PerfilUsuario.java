@@ -32,6 +32,7 @@ public class PerfilUsuario implements Serializable {
 	private String telefone;
 	private String telefoneComercial;
 	private String matricula;
+	private Boolean aceito;
 	
 	public static final List<Interesse> INTERESSES = new ArrayList<>();
 	public static final List<Pais> PAISESAUTOCOMPLETEPOJO = new ArrayList<>();
@@ -91,9 +92,7 @@ public class PerfilUsuario implements Serializable {
 	}
 
 	public void atualizar() {
-		System.out.println("Telefone: " + this.telefone);
-		System.out.println("Telefone Comercial: " + this.telefoneComercial);
-		System.out.println("Matricula: " + this.matricula);
+		System.out.println("Aceito: " + this.aceito);
 	}
 	
 	public List<String> completarTexto(String consulta){
@@ -301,6 +300,14 @@ public class PerfilUsuario implements Serializable {
 
 	public void setMatricula(String matricula) {
 		this.matricula = matricula;
+	}
+
+	public Boolean getAceito() {
+		return aceito;
+	}
+
+	public void setAceito(Boolean aceito) {
+		this.aceito = aceito;
 	}
 	
 	
