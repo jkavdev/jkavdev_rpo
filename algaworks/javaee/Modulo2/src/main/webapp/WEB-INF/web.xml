@@ -20,9 +20,4 @@
 		<url-pattern>*.xhtml</url-pattern>
 	</servlet-mapping>
 
-	<mime-mapping>
-		<extension>dynamicontent</extension>
-		<mime-type>image/jpeg</mime-type>
-	</mime-mapping>
-
 </web-app>

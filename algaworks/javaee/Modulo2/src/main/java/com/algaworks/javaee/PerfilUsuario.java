@@ -28,8 +28,10 @@ public class PerfilUsuario implements Serializable {
 	private String sexo;
 	private String estadoCivil;
 	private String pais;
+	private Pais paisAutoCompletePojo;
 	
 	public static final List<Interesse> INTERESSES = new ArrayList<>();
+	public static final List<Pais> PAISESAUTOCOMPLETEPOJO = new ArrayList<>();
 	private List<String> estados = new ArrayList<>();
 	private List<String> cidades = new ArrayList<>();
 	private List<String> interessesM;
@@ -49,6 +51,16 @@ public class PerfilUsuario implements Serializable {
 		paises.add("Bulgaria");
 		paises.add("Espanha");
 		paises.add("Estados Unidos");
+		
+		PAISESAUTOCOMPLETEPOJO.add(new Pais(1, "Alemanha"));
+		PAISESAUTOCOMPLETEPOJO.add(new Pais(2, "Argelia"));
+		PAISESAUTOCOMPLETEPOJO.add(new Pais(3, "Argentina"));
+		PAISESAUTOCOMPLETEPOJO.add(new Pais(4, "Belgica"));
+		PAISESAUTOCOMPLETEPOJO.add(new Pais(5, "Bolivia"));
+		PAISESAUTOCOMPLETEPOJO.add(new Pais(6, "Brasil"));
+		PAISESAUTOCOMPLETEPOJO.add(new Pais(7, "Bulgaria"));
+		PAISESAUTOCOMPLETEPOJO.add(new Pais(8, "Espanha"));
+		PAISESAUTOCOMPLETEPOJO.add(new Pais(9, "Estados Unidos"));
 	}
 	
 	public void carregarCidades(){
@@ -76,9 +88,13 @@ public class PerfilUsuario implements Serializable {
 	}
 
 	public void atualizar() {
-			System.out.println("Pais: " + this.pais);
-
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Perfil Atualizado"));
+		System.out.println("Pais: " + this.paisAutoCompletePojo);
+		if(this.paisAutoCompletePojo == null){
+			adicionarMensagem("Perfil atualizado sem Pais");
+		}else{
+			adicionarMensagem("Perfil atualizado com Pais " + this.paisAutoCompletePojo.getNome()
+					+ " (" + this.paisAutoCompletePojo.getCodigo() + ").");
+		}
 	}
 	
 	public List<String> completarTexto(String consulta){
@@ -106,6 +122,21 @@ public class PerfilUsuario implements Serializable {
 		}
 		
 		return paisesSugeridos;
+	}
+	
+	public List<Pais> sugerirPaisesAutoCompletePojo(String consulta){
+		List<Pais> paisesSugeridos = new ArrayList<>();
+		for (Pais pais : PAISESAUTOCOMPLETEPOJO) {
+			if(pais.getNome().toLowerCase().startsWith(consulta.toLowerCase())){
+				paisesSugeridos.add(pais);
+			}
+		}
+		
+		return paisesSugeridos;
+	}
+	
+	private void adicionarMensagem(String messagem){
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(messagem));
 	}
 	
 	//retorna a data atual
@@ -235,6 +266,18 @@ public class PerfilUsuario implements Serializable {
 
 	public void setPais(String pais) {
 		this.pais = pais;
+	}
+
+	public static List<Pais> getPaisesa() {
+		return PAISESAUTOCOMPLETEPOJO;
+	}
+
+	public Pais getPaisAutoCompletePojo() {
+		return paisAutoCompletePojo;
+	}
+
+	public void setPaisAutoCompletePojo(Pais paisA) {
+		this.paisAutoCompletePojo = paisA;
 	}
 	
 	
