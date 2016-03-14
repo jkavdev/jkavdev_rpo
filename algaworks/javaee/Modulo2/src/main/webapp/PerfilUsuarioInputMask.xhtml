@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+	</h:head>
+	
+	<h:body>
+		<h:form>
+			<p:messages />
+			
+			<p:panelGrid columns="2">
+				<p:outputLabel value="Nome" for="nome" />
+				<p:inputText id="nome" required="true" value="#{perfilUsuario.nome}" />
+				
+				<p:outputLabel value="Telefone" for="telefone" />
+				<!-- caractere 9 - indica qualquer caractere numerico -->
+				<p:inputMask id="telefone" value="#{perfilUsuario.telefone}" mask="(99) 9999-9999" />
+				<p:outputLabel value="Telefone Comercial" for="telefoneComercial" />
+				<!-- ? - a partir do ponto de interrogacao eh opcional -->
+				<p:inputMask id="telefoneComercial" value="#{perfilUsuario.telefoneComercial}" mask="(99) 9999-9999? x9999" />
+				<p:outputLabel value="Matricula" for="matricula" />
+				<!-- aaaa - indica que serao usados apenas caracteres de 'a ate z' -->
+				<!-- aaa* - aceita caracteres de 'a ate z' e digitos na posicao do asterisco-->
+				<p:inputMask id="matricula" value="#{perfilUsuario.matricula}" mask="aaa*-9999" placeHolder="" />
+			</p:panelGrid>
+			
+			<p:commandButton value="Atualizar" action="#{perfilUsuario.atualizar()}" update="@form" />
+		</h:form>
+	</h:body>
+
+</html>

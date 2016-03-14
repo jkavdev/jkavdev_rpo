@@ -29,6 +29,9 @@ public class PerfilUsuario implements Serializable {
 	private String estadoCivil;
 	private String pais;
 	private Pais paisAutoCompletePojo;
+	private String telefone;
+	private String telefoneComercial;
+	private String matricula;
 	
 	public static final List<Interesse> INTERESSES = new ArrayList<>();
 	public static final List<Pais> PAISESAUTOCOMPLETEPOJO = new ArrayList<>();
@@ -88,13 +91,9 @@ public class PerfilUsuario implements Serializable {
 	}
 
 	public void atualizar() {
-		System.out.println("Pais: " + this.paisAutoCompletePojo);
-		if(this.paisAutoCompletePojo == null){
-			adicionarMensagem("Perfil atualizado sem Pais");
-		}else{
-			adicionarMensagem("Perfil atualizado com Pais " + this.paisAutoCompletePojo.getNome()
-					+ " (" + this.paisAutoCompletePojo.getCodigo() + ").");
-		}
+		System.out.println("Telefone: " + this.telefone);
+		System.out.println("Telefone Comercial: " + this.telefoneComercial);
+		System.out.println("Matricula: " + this.matricula);
 	}
 	
 	public List<String> completarTexto(String consulta){
@@ -278,6 +277,30 @@ public class PerfilUsuario implements Serializable {
 
 	public void setPaisAutoCompletePojo(Pais paisA) {
 		this.paisAutoCompletePojo = paisA;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+	public String getTelefoneComercial() {
+		return telefoneComercial;
+	}
+
+	public void setTelefoneComercial(String telefoneComercial) {
+		this.telefoneComercial = telefoneComercial;
+	}
+
+	public String getMatricula() {
+		return matricula;
+	}
+
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
 	}
 	
 	
