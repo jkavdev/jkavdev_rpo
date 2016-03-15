@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<!-- o template ficara em webinf, pois ninguem tera acesso a esta pasta -->
+	<h:head>
+		<title><ui:insert name="titulo">Sistema de Pedidos de Venda</ui:insert></title>
+		<h:outputStylesheet name="sistema.css" library="css" />
+	</h:head>
+	
+	<!-- cabeçalho -->
+	<h:body>
+		<header>
+			<div>
+				<h:link>
+					<h:graphicImage library="images" name="logo-algaworks.png" />
+				</h:link>
+			</div>
+		</header>
+	</h:body>
+	
+	<div id="conteudo">
+		<ui:insert name="corpo" />
+	</div>
+	
+	<!-- aparece uma linha -->
+	<p:separator style="margin-top: 20px" />
+	
+	<!-- rodape -->
+	<footer>
+		Curso Online de Sistemas Comerciais Java EE com CDI, JPA e Primefaces - 
+		<a href="http://bit.ly/Y8saFl" target="_black">www.algaworks.com</a>
+	</footer>
+
+</html>
