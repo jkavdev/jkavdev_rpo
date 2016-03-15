@@ -11,14 +11,12 @@ header {
 	padding: 5px 0px;
 	margin-bottom: 20px;
 	height: 30px;
-	
 	background-color: #545454;
 	color: #fff;
-	
-	box-shadow: 0px 2px 2px #ccc;	
+	box-shadow: 0px 2px 2px #ccc;
 }
 
-header > div {
+header>div {
 	margin-left: 8px;
 }
 
@@ -50,5 +48,12 @@ footer {
 	border: 1px solid #ccc;
 	margin-top: 8px;
 	padding: 10px;
-	
+}
+
+.rotulo {
+	width: 150px;
+}
+
+.ui-panelgrid td {
+	height: 34px;	
 }
