@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+	</h:head>
+	
+	<h:body>
+		<h:form id="frm">
+			<p:messages id="msg1" autoUpdate="true"/>
+			<!-- autoUpdate - indica que todo o comando ajax de mensagem -->
+			<!-- sera exibido neste componente -->
+			<!-- sticky - indica que a caixa de mensagem deve ser fechada manualmente -->
+			
+			<p:growl autoUpdate="true" sticky="false"/>
+		
+			<h:outputLabel value="Nome" for="nome"/>
+			<p:inputText id="nome" required="true" />
+			
+			<p:commandButton value="Enviar" update="msg1"/>
+		</h:form>
+	</h:body>
+
+</html>
