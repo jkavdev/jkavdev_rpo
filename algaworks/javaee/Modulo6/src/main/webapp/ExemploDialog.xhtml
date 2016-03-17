@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+	</h:head>
+	
+	<h:body>
+		<h:form id="frm">
+			<!-- chamaremos o dialogo com javascrip -->
+			<!-- return false - indica para que nao seja executado nenhum javascript -->
+			<!-- quando chamarmos o dialogo -->
+			<p:button value="Exibir" onclick="meuDialogo.show(); return false;"  />
+			<p:button value="Ocultar" onclick="meuDialogo.hide(); return false;"  />
+			
+			<!-- widgetvar - nome da variavel do dialogo -->
+			<!-- draggable - indica se o dialogo pode ser arrastado -->
+			<!-- resizable - indica se o dialogo pode ser redimensionado -->
+			<!-- modal - indica quando o dialog for chamado, somente ele estara disponivel na tela -->
+			<!-- minimizable - indica se o dialog pode ser minimizado -->
+			<!-- maximazable - indica se o dialog pode ser maximizado -->
+			<!-- showeffect - efeito ao chamar o dialogo -->
+			<!-- hideffect - efeito ao fechar o dialogo -->
+			<p:dialog header="Meu Dialogo" widgetVar="meuDialogo" draggable="false"
+				resizable="false" modal="false" minimizable="true" maximizable="true"
+				showEffect="shake" hideEffect="fade">
+				Conteudo do dialogo
+			</p:dialog>
+		</h:form>
+	</h:body>
+
+</html>
