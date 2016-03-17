@@ -15,10 +15,23 @@ public class ProdutosBean implements Serializable {
 
 	private List<String> produtos = new ArrayList<>();
 	private String nomeProduto;
+	private String produtoSelecionado;
+
+	public ProdutosBean() {
+		produtos.add("Arroz");
+		produtos.add("Feijao");
+		produtos.add("Queijo");
+		produtos.add("Notebook");
+	}
 
 	public void incluirProduto() {
 		produtos.add(nomeProduto);
 		nomeProduto = null;
+	}
+
+	public void excluirProduto() {
+		System.out.println(produtoSelecionado);
+		produtos.remove(produtoSelecionado);
 	}
 
 	public String getNomeProduto() {
@@ -31,6 +44,14 @@ public class ProdutosBean implements Serializable {
 
 	public List<String> getProdutos() {
 		return produtos;
+	}
+
+	public String getProdutoSelecionado() {
+		return produtoSelecionado;
+	}
+
+	public void setProdutoSelecionado(String produtoSelecionado) {
+		this.produtoSelecionado = produtoSelecionado;
 	}
 
 }

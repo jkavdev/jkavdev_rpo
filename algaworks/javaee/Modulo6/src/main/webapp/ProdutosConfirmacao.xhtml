@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+
+<h:body>
+
+	<h:form id="frm">
+		<p:dataTable value="#{produtosBean.produtos}" var="produto" id="produtosTable" emptyMessage="Nao existe Produtos!">
+			<p:column headerText="Produto">
+				<h:outputText value="#{produto}" />
+			</p:column>
+			<p:column width="40">
+				<p:commandButton icon="ui-icon-trash" oncomplete="confirmacao.show()">
+					<!-- atribuindo o produto selecionado na datatable como o atributo do produtosBean -->
+					<f:setPropertyActionListener value="#{produto}" target="#{produtosBean.produtoSelecionado}" />
+				</p:commandButton>
+			</p:column>
+		</p:dataTable>
+
+		<p:confirmDialog header="Exclusao de Produtos" message="Tem certeza que deseja excluir o Produto?" widgetVar="confirmacao">
+			<p:commandButton value="Sim" update="produtosTable" oncomplete="confirmacao.hide()" action="#{produtosBean.excluirProduto()}"/>
+			<p:button value="Nao" onclick="confirmacao.hide(); return false;" />
+		</p:confirmDialog>
+	</h:form>
+</h:body>
+
+</html>
