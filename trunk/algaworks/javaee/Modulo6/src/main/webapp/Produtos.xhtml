@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+	</h:head>
+	
+	<h:body>
+	
+		<!-- funcao javascript para esconder o dialogo caso nao haja erro -->
+		<script >
+			//args - variavel do primefaces
+			function tratarInclusaoProduto(args){
+				//caso a validacao nao ocorra erro
+				if(!args.validationFailed){
+					//esconde o dialogo
+					inclusaoProdutoDialog.hide();
+				}
+			}
+		</script>
+	
+		<h:form id="frm">
+			<p:button value="Adicionar Produto" onclick="inclusaoProdutoDialog.show(); return false;"  />
+			
+			<p:dataTable value="#{produtosBean.produtos}" var="produto" id="produtosTable" emptyMessage="Nao existe Produtos!">
+				<p:column headerText="Produto">
+					<h:outputText value="#{produto}" />
+				</p:column>
+			</p:dataTable>
+			
+			<p:dialog header="Inclusao de Produtos" widgetVar="inclusaoProdutoDialog" modal="true" resizable="false" hideEffect="fade">
+				<h:panelGroup id="inclusaoPanel">
+					<p:messages />
+					
+					<h:panelGrid columns="2">
+						<p:outputLabel value="Nome" />
+						<p:inputText value="#{produtosBean.nomeProduto}" required="true" requiredMessage="Informe o nome do Produto!" />
+					</h:panelGrid>
+					
+					<!-- update - atualizara o datatable e o proprio componente de nomes -->
+					<!-- oncomplete - chamara a funcao javascrit, quando o acao do botao terminar -->
+					<p:commandButton value="Incluir" action="#{produtosBean.incluirProduto()}" update="produtosTable inclusaoPanel" oncomplete="tratarInclusaoProduto(args)"/>
+				</h:panelGroup>
+			</p:dialog>
+		</h:form>
+	</h:body>
+
+</html>
