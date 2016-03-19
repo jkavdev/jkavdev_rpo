@@ -6,6 +6,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -22,7 +23,10 @@ import com.algaworks.cursojavaee.service.CalculadoraPreco;
 
 //como o session eh um escopo de longa duracao
 //a classe que o tiver tem que implementar serializable
-@SessionScoped
+//@SessionScoped
+
+//usando escopo view com cdi
+@ViewScoped
 public class PrecoProdutoBean implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
