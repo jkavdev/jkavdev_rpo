@@ -29,8 +29,21 @@ public class PrecoProdutoBean implements Serializable {
 	
 	//fazendo a injecao de CalculadoraPreco
 	//nao nos preocupamos como o objeto sera criado
-	@Inject
+	
+	//podemos fazer o inject atraves de um atributo
+//	@Inject
 	private CalculadoraPreco calculadoraPreco;
+	
+	public PrecoProdutoBean() {
+	}
+	
+	
+	//podemos fazer o inject tambem atraves do construtor
+	@Inject
+	public PrecoProdutoBean(CalculadoraPreco calculadoraPreco){
+		System.out.println(calculadoraPreco.getClass());
+		this.calculadoraPreco = calculadoraPreco;
+	}
 	
 	//executado sempre quando o bean for instanciado
 	//usado em vez do construtor
@@ -50,6 +63,16 @@ public class PrecoProdutoBean implements Serializable {
 		//ela tambem faz esta verificacao se o objet eh usado ou nao
 		System.out.println(calculadoraPreco.getClass());
 		return calculadoraPreco.CalculaPreco(12, 44.55);
+	}
+	
+	//podemos fazer a injecao de tres maneiras
+		//chamos isso de pontos de injecao
+
+	//podemos fazer isso atraves de um metodo
+//	@Inject	
+	public void setCalculadoraPreco(CalculadoraPreco calculadoraPreco) {
+		System.out.println(calculadoraPreco);
+		this.calculadoraPreco = calculadoraPreco;
 	}
 
 }
