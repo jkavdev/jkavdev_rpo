@@ -3,6 +3,7 @@ package com.algaworks.cursojavaee.service;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.Dependent;
+import javax.enterprise.context.RequestScoped;
 
 //bean padrao do cdi
 
@@ -11,7 +12,8 @@ import javax.enterprise.context.Dependent;
 //no caso se produto bean que eh o injeto deste bean
 //for request este bean tambem sera request, mudando seu escopo 
 //@Dependent
-@ApplicationScoped
+//@ApplicationScoped
+@RequestScoped
 public class CalculadoraPreco {
 	
 	@PostConstruct

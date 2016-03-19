@@ -45,6 +45,10 @@ public class PrecoProdutoBean implements Serializable {
 	}
 	
 	public double getPreco(){
+		//$Proxy$_$$_WeldClientProxy copiara a classe a ser injetada
+		//e instanciara um objeto se for requerido
+		//ela tambem faz esta verificacao se o objet eh usado ou nao
+		System.out.println(calculadoraPreco.getClass());
 		return calculadoraPreco.CalculaPreco(12, 44.55);
 	}
 
