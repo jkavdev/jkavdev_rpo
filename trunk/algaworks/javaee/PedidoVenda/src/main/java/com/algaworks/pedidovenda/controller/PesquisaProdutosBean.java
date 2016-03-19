@@ -3,12 +3,11 @@ package com.algaworks.pedidovenda.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.inject.Named;
 
-@ManagedBean
+@Named
 //usando escopo view com cdi
-@ViewScoped
 public class PesquisaProdutosBean {
 
 	private List<Integer> produtosFiltrados;
