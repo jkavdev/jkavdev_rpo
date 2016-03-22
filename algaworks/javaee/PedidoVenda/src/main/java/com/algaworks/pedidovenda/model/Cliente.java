@@ -5,7 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -38,10 +41,12 @@ public class Cliente implements Serializable {
 		return nome;
 	}
 
+	@Column(nullable = false, length = 100)
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
+	@Column(nullable = false, length = 255)
 	public String getEmail() {
 		return email;
 	}
@@ -50,6 +55,7 @@ public class Cliente implements Serializable {
 		this.email = email;
 	}
 
+	@Column(name = "doc_receita_federeal", nullable = false, length = 14)
 	public String getDocumentoReceitaFederal() {
 		return documentoReceitaFederal;
 	}
@@ -58,6 +64,8 @@ public class Cliente implements Serializable {
 		this.documentoReceitaFederal = documentoReceitaFederal;
 	}
 
+	@Enumerated(EnumType.STRING)
+	@Column(nullable = false, length = 10)
 	public TipoPessoa getTipo() {
 		return tipo;
 	}
