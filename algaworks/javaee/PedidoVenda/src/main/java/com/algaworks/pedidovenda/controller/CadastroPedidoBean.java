@@ -1,6 +1,5 @@
 package com.algaworks.pedidovenda.controller;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,9 +8,7 @@ import javax.inject.Named;
 
 @Named
 @RequestScoped
-public class CadastroPedidoBean implements Serializable{
-
-	private static final long serialVersionUID = 1L;
+public class CadastroPedidoBean {
 
 	private List<Integer> itens;
 
