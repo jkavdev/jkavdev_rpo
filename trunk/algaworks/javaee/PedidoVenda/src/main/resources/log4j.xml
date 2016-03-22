@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<!-- appenders - sao destinos para onde as mensagens de log serao exibidas -->
+	
+	<!-- console -->
+	<!-- classe que cuida para exibição no console -->
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<!-- destino console -->
+		<param name="Target" value="System.out" />
+		<!-- layout - informa como sera exibida as mensagens -->
+		<layout class="org.apache.log4j.PatternLayout">
+			<!-- %d - data do log -->
+			<!-- %-5p - nivelo do log - error, info... -->
+			<!-- [%c] - classe em qual foi gerado o log -->
+			<!-- %m%n - indica a mensagem do log, depois uma quebra de linha-->
+			<param name="ConversionPattern" value="%d %-5p [%c] %m%n" />
+		</layout>
+	</appender>
+
+	<!-- arquivo -->
+	<!-- com esta classe sera criado um arquivo de log por dia -->
+	<appender name="arquivo" class="org.apache.log4j.DailyRollingFileAppender">
+		<!-- o arquivo sera criado na raiz do tomcat com pedido-venda -->
+		<param name="file" value="${catalina.home}/logs/pedido-venda.log" />
+		<!-- padrao de data -->
+		<param name="datePattern" value="'.'yyyy-MM-dd" />
+		<!-- informa que as informações serao incrementadas, e nao apagadas -->
+		<param name="append" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p [%c] %m%n" />
+		</layout>
+	</appender>
+
+	<root>
+		<!-- configura a prioridade -->
+		<!-- as mensagens de info terao mais prioridade -->
+		<priority value="info" />
+		<appender-ref ref="arquivo" />
+		<appender-ref ref="console" />
+	</root>
+
+</log4j:configuration>
