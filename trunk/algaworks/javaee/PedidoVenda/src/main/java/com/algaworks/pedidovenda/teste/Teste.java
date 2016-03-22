@@ -31,9 +31,12 @@ public class Teste {
 		endereco.setNumero("15");
 		endereco.setCidade("Planaltina de Goiais");
 		endereco.setUf("GO");
-		endereco.setCep("73754012");
-		manager.persist(cliente);
+		endereco.setCep("73754012");		
 		endereco.setCliente(cliente);
+		
+		cliente.getEnderecos().add(endereco);
+		
+		manager.persist(cliente);
 
 		transaction.commit();
 
