@@ -12,11 +12,16 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ExceptionQueuedEvent;
 import javax.faces.event.ExceptionQueuedEventContext;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import com.algaworks.pedidovenda.service.NegocioException;
 
 //tratador de excecoes
 
 public class JsfExceptionHandler extends ExceptionHandlerWrapper {
+	
+	private static Log log = LogFactory.getLog(JsfExceptionHandler.class);
 
 	private ExceptionHandler wrapped;
 
@@ -64,6 +69,8 @@ public class JsfExceptionHandler extends ExceptionHandlerWrapper {
 					// se nao ViewExpiredException
 					// joga para tela de erro
 					handled = true;
+					//primeiro eh a mensagem depois a causa do erro
+					log.error("Erro de Sistema: " + exception.getMessage(), exception);
 					redirect("/Erro.xhtml");
 				}
 				// retira a excecao da pilha
