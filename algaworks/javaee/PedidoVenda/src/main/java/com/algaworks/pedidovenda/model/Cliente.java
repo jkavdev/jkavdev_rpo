@@ -4,6 +4,15 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Transient;
+
+@Entity
 public class Cliente implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -15,6 +24,8 @@ public class Cliente implements Serializable {
 	private TipoPessoa tipo;
 	private List<Endereco> enderecos = new ArrayList<>();
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long getId() {
 		return id;
 	}
@@ -55,6 +66,9 @@ public class Cliente implements Serializable {
 		this.tipo = tipo;
 	}
 
+	// mappedBy - defino quem sera tera o relacionamento no banco
+	// caso sera a tabela endereco pelo atributo cliente
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
 	public List<Endereco> getEnderecos() {
 		return enderecos;
 	}
