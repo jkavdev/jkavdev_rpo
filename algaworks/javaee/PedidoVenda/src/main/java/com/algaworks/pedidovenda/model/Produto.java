@@ -14,6 +14,9 @@ import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name = "produto")
@@ -38,6 +41,8 @@ public class Produto implements Serializable {
 		this.id = id;
 	}
 
+	@NotBlank	//invalida campos com somente espacos
+	@Size(max = 10)
 	@Column(nullable = false, length = 80)
 	public String getNome() {
 		return nome;
@@ -47,6 +52,7 @@ public class Produto implements Serializable {
 		this.nome = nome;
 	}
 
+	@NotBlank
 	@Column(nullable = false, length = 20, unique = true)
 	public String getSku() {
 		return sku;
@@ -56,6 +62,7 @@ public class Produto implements Serializable {
 		this.sku = sku == null ? null : sku.toUpperCase();
 	}
 
+	@NotNull
 	@Column(name = "valor_unitario", nullable = false, precision = 10, scale = 2)
 	public BigDecimal getValorUnitario() {
 		return valorUnitario;
@@ -78,6 +85,7 @@ public class Produto implements Serializable {
 		this.quantidadeEstoque = quantidadeEstoque;
 	}
 
+	@NotNull
 	@ManyToOne
 	@JoinColumn(name = "categoria_id", nullable = false)
 	public Categoria getCategoria() {
