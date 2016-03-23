@@ -8,6 +8,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Named;
 
+import com.algaworks.pedidovenda.model.EnderecoEntrega;
 import com.algaworks.pedidovenda.model.Pedido;
 import com.algaworks.pedidovenda.service.NegocioException;
 
@@ -22,6 +23,7 @@ public class CadastroPedidoBean implements Serializable {
 
 	public CadastroPedidoBean() {
 		pedido = new Pedido();
+		pedido.setEnderecoEntrega(new EnderecoEntrega());
 		itens = new ArrayList<>();
 		itens.add(1);
 	}

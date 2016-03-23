@@ -40,7 +40,7 @@ public class Pedido implements Serializable {
 	private FormaPagamento formaPagamento;
 	private Usuario vendedor;
 	private Cliente cliente;
-	private EnderecoEntrega enderecoEntrega = new EnderecoEntrega();
+	private EnderecoEntrega enderecoEntrega;
 	private List<ItemPedido> itens = new ArrayList<>();
 
 	@Id
