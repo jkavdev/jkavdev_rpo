@@ -1,7 +1,8 @@
 package com.algaworks.pedidovenda.model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -11,19 +12,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "item_pedido")
-public class ItemPedido implements Serializable {
+@Table(name = "categoria")
+public class Categoria implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
-	private Integer quantidade;
-	private BigDecimal valorUnitario;
-	private Produto produto;
-	private Pedido pedido;
+	private String descricao;
+	private Categoria categoriaPai;
+	private List<Categoria> subCategorias = new ArrayList<>();
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,42 +36,32 @@ public class ItemPedido implements Serializable {
 		this.id = id;
 	}
 
-	@Column(nullable = false, length = 3)
-	public Integer getQuantidade() {
-		return quantidade;
+	@Column(nullable = false, length = 60)
+	public String getDescricao() {
+		return descricao;
 	}
 
-	public void setQuantidade(Integer quantidade) {
-		this.quantidade = quantidade;
-	}
-
-	@Column(name = "valor_unitario", nullable = false, precision = 10, scale = 2)
-	public BigDecimal getValorUnitario() {
-		return valorUnitario;
-	}
-
-	public void setValorUnitario(BigDecimal valorUnitario) {
-		this.valorUnitario = valorUnitario;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
 	@ManyToOne
-	@JoinColumn(name = "produto_id", nullable = false)
-	public Produto getProduto() {
-		return produto;
+	@JoinColumn(name = "categoria_pai_id")
+	public Categoria getCategoriaPai() {
+		return categoriaPai;
 	}
 
-	public void setProduto(Produto produto) {
-		this.produto = produto;
+	public void setCategoriaPai(Categoria categoriaPai) {
+		this.categoriaPai = categoriaPai;
 	}
 
-	@ManyToOne()
-	@JoinColumn(name = "pedido_id", nullable = false)
-	public Pedido getPedido() {
-		return pedido;
+	@OneToMany(mappedBy = "categoriaPai", cascade = CascadeType.ALL)
+	public List<Categoria> getSubCategorias() {
+		return subCategorias;
 	}
 
-	public void setPedido(Pedido pedido) {
-		this.pedido = pedido;
+	public void setSubCategorias(List<Categoria> subCategorias) {
+		this.subCategorias = subCategorias;
 	}
 
 	@Override
@@ -89,7 +80,7 @@ public class ItemPedido implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ItemPedido other = (ItemPedido) obj;
+		Categoria other = (Categoria) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

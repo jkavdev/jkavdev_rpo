@@ -1,31 +1,23 @@
 package com.algaworks.pedidovenda.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "usuario")
-public class Usuario implements Serializable {
+@Table(name = "grupo")
+public class Grupo implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
 	private String nome;
-	private String email;
-	private String senha;
-	private List<Grupo> grupos = new ArrayList<>();
+	private String descricao;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,7 +29,7 @@ public class Usuario implements Serializable {
 		this.id = id;
 	}
 
-	@Column(nullable = false, length = 80)
+	@Column(nullable = false, length = 40)
 	public String getNome() {
 		return nome;
 	}
@@ -46,34 +38,13 @@ public class Usuario implements Serializable {
 		this.nome = nome;
 	}
 
-	@Column(nullable = false, unique = true, length = 255)
-	public String getEmail() {
-		return email;
+	@Column(nullable = false, length = 80)
+	public String getDescricao() {
+		return descricao;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	@Column(nullable = false, length = 20)
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "usuario_grupo", 
-		joinColumns = @JoinColumn(name = "usuario_id"), 
-		inverseJoinColumns = @JoinColumn(name = "grupo_id"))
-	public List<Grupo> getGrupos() {
-		return grupos;
-	}
-
-	public void setGrupos(List<Grupo> grupos) {
-		this.grupos = grupos;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
 	@Override
@@ -92,7 +63,7 @@ public class Usuario implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Usuario other = (Usuario) obj;
+		Grupo other = (Grupo) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
