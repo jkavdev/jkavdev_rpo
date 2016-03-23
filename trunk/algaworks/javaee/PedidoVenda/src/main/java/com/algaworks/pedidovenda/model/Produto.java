@@ -11,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "produto")
@@ -62,6 +65,10 @@ public class Produto implements Serializable {
 		this.valorUnitario = valorUnitario;
 	}
 
+	// nao deixa o atributo ser persistido nulo
+	@NotNull
+	@Min(0)	//nao pode ser valor de negativo
+	@Max(9999)	//maximo valor
 	@Column(name = "quantidade_estoque", nullable = false, length = 5)
 	public Integer getQuantidadeEstoque() {
 		return quantidadeEstoque;
