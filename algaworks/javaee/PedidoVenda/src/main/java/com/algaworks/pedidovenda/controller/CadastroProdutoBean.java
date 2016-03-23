@@ -7,11 +7,10 @@ import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 import com.algaworks.pedidovenda.model.Categoria;
 import com.algaworks.pedidovenda.model.Produto;
+import com.algaworks.pedidovenda.repository.CategoriaRepository;
 
 @Named
 @ViewScoped
@@ -21,6 +20,8 @@ public class CadastroProdutoBean implements Serializable {
 
 	@Inject
 	private EntityManager manager;
+	@Inject
+	private CategoriaRepository categoriaRepository;
 	private Produto produto;
 	private List<Categoria> categoriasRaizes;
 
@@ -31,7 +32,7 @@ public class CadastroProdutoBean implements Serializable {
 	public void inicializar() {
 		System.out.println("Inicializando");
 
-		categoriasRaizes = manager.createQuery("from Categoria", Categoria.class).getResultList();
+		categoriasRaizes = categoriaRepository.raizes();
 	}
 
 	public void salvar() {
