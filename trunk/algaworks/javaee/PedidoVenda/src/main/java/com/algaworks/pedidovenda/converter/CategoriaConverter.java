@@ -17,7 +17,7 @@ public class CategoriaConverter implements Converter {
 
 	public CategoriaConverter() {
 		// retorna uma instancia de categoryRepository
-		categoryRepository = CDIServiceLocator.getBean(CategoriaRepository.class);
+		this.categoryRepository = CDIServiceLocator.getBean(CategoriaRepository.class);
 	}
 
 	@Override
