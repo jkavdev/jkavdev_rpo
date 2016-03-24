@@ -7,7 +7,9 @@ import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Named;
+import javax.validation.constraints.NotNull;
 
+import com.algaworks.pedidovenda.model.Categoria;
 import com.algaworks.pedidovenda.model.EnderecoEntrega;
 import com.algaworks.pedidovenda.model.Pedido;
 import com.algaworks.pedidovenda.service.NegocioException;
@@ -18,7 +20,7 @@ public class CadastroPedidoBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private Pedido pedido;
+	private Pedido pedido;	
 	private List<Integer> itens;
 
 	public CadastroPedidoBean() {
@@ -27,8 +29,8 @@ public class CadastroPedidoBean implements Serializable {
 		itens = new ArrayList<>();
 		itens.add(1);
 	}
-	
-	public void salvar(){
+
+	public void salvar() {
 		
 	}
 
@@ -39,5 +41,7 @@ public class CadastroPedidoBean implements Serializable {
 	public List<Integer> getItens() {
 		return itens;
 	}
+
+	
 
 }
