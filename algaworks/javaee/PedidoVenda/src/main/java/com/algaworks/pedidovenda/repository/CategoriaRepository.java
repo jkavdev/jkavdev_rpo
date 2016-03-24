@@ -16,8 +16,11 @@ public class CategoriaRepository implements Serializable {
 	private EntityManager manager;
 
 	public List<Categoria> raizes() {
-		return manager.createQuery("from Categoria", Categoria.class)
-				.getResultList();
+		return manager.createQuery("from Categoria", Categoria.class).getResultList();
+	}
+
+	public Categoria porId(Long id) {
+		return manager.find(Categoria.class, id);
 	}
 
 }
