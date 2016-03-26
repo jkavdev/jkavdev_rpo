@@ -12,6 +12,7 @@ import javax.validation.constraints.NotNull;
 import com.algaworks.pedidovenda.model.Categoria;
 import com.algaworks.pedidovenda.model.Produto;
 import com.algaworks.pedidovenda.repository.CategoriaRepository;
+import com.algaworks.pedidovenda.util.jsf.FacesUtil;
 
 @Named
 @ViewScoped
@@ -23,6 +24,7 @@ public class CadastroProdutoBean implements Serializable {
 	private CategoriaRepository categoriaRepository;
 	private Produto produto;
 	private List<Categoria> categoriasRaizes;
+	private List<Categoria> subCategorias;
 	private Categoria categoriaPai;
 
 	public CadastroProdutoBean() {
@@ -32,12 +34,22 @@ public class CadastroProdutoBean implements Serializable {
 	public void inicializar() {
 		System.out.println("Inicializando");
 
-		categoriasRaizes = categoriaRepository.raizes();
-		System.out.println(categoriasRaizes.size());
+		//se ainda estiver na mesma tela e ao tiver atualizado
+		//nao vai fazer a consulta
+		if (FacesUtil.isNotPostback()) {
+			categoriasRaizes = categoriaRepository.raizes();
+			System.out.println(categoriasRaizes.size());
+		}
 	}
 
 	public void salvar() {
 		System.out.println("Categoria Pai: " + getCategoriaPai().getDescricao());
+		System.out.println("SubCategoria Selecionada: " + produto.getCategoria().getDescricao());
+	}
+	
+	public void carregarSubCategorias(){
+		//prencheendo as subcategorias de acordo com a categoria pai
+		subCategorias = categoriaRepository.subCategoriasDe(categoriaPai);
 	}
 
 	public Produto getProduto() {
@@ -46,6 +58,10 @@ public class CadastroProdutoBean implements Serializable {
 
 	public List<Categoria> getCategoriasRaizes() {
 		return categoriasRaizes;
+	}
+
+	public List<Categoria> getSubCategorias() {
+		return subCategorias;
 	}
 
 	@NotNull
