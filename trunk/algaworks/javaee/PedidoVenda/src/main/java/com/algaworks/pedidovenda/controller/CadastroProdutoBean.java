@@ -1,6 +1,7 @@
 package com.algaworks.pedidovenda.controller;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ViewScoped;
@@ -12,6 +13,7 @@ import javax.validation.constraints.NotNull;
 import com.algaworks.pedidovenda.model.Categoria;
 import com.algaworks.pedidovenda.model.Produto;
 import com.algaworks.pedidovenda.repository.CategoriaRepository;
+import com.algaworks.pedidovenda.service.CadastroProdutoService;
 import com.algaworks.pedidovenda.util.jsf.FacesUtil;
 
 @Named
@@ -22,33 +24,42 @@ public class CadastroProdutoBean implements Serializable {
 
 	@Inject
 	private CategoriaRepository categoriaRepository;
+	@Inject
+	private CadastroProdutoService cadastroProdutoService;
 	private Produto produto;
 	private List<Categoria> categoriasRaizes;
 	private List<Categoria> subCategorias;
 	private Categoria categoriaPai;
 
 	public CadastroProdutoBean() {
-		produto = new Produto();
+		this.limpar();
 	}
 
 	public void inicializar() {
 		System.out.println("Inicializando");
 
-		//se ainda estiver na mesma tela e ao tiver atualizado
-		//nao vai fazer a consulta
+		// se ainda estiver na mesma tela e ao tiver atualizado
+		// nao vai fazer a consulta
 		if (FacesUtil.isNotPostback()) {
 			categoriasRaizes = categoriaRepository.raizes();
 			System.out.println(categoriasRaizes.size());
 		}
 	}
 
-	public void salvar() {
-		System.out.println("Categoria Pai: " + getCategoriaPai().getDescricao());
-		System.out.println("SubCategoria Selecionada: " + produto.getCategoria().getDescricao());
+	private void limpar() {
+		this.produto = new Produto();
+		categoriaPai = null;
+		subCategorias = new ArrayList<>();
 	}
-	
-	public void carregarSubCategorias(){
-		//prencheendo as subcategorias de acordo com a categoria pai
+
+	public void salvar() {
+		this.produto = cadastroProdutoService.salvar(produto);
+		this.limpar();
+		FacesUtil.addInfoMessage("Produto salvo com Sucesso");
+	}
+
+	public void carregarSubCategorias() {
+		// prencheendo as subcategorias de acordo com a categoria pai
 		subCategorias = categoriaRepository.subCategoriasDe(categoriaPai);
 	}
 
