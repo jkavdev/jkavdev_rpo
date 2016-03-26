@@ -10,11 +10,7 @@ public class TestaListagem {
 
 	public static void main(String[] args) throws SQLException {
 
-		String url = "jdbc:mysql://localhost:3306/db_loja_virtual";
-		String user = "root";
-		String pass = "99346554";
-
-		Connection connection = DriverManager.getConnection(url, user, pass);
+		Connection connection = Database.getConnection();
 
 		String sql = "select * from produto";
 

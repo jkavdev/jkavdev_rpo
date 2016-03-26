@@ -2,18 +2,28 @@ package br.com.caelum.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class TestaConexao {
 
 	public static void main(String[] args) throws SQLException {
-		String url = "jdbc:mysql://localhost:3306/db_loja_virtual";
-		String user = "root";
-		String pass = "99346554";
-		
-		Connection connection = DriverManager.getConnection(url, user, pass);
-		System.out.println("Conexao Aberta!");
-		
+		Connection connection = Database.getConnection();
+
+		String sql = "insert into Produto(nome, descricao) values('Notebook', 'Notebook i5')";
+
+		Statement statement = connection.createStatement();
+		boolean resultado = statement.execute(sql, Statement.RETURN_GENERATED_KEYS);
+		System.out.println(resultado);
+
+		ResultSet resultSet = statement.getGeneratedKeys();
+
+		while (resultSet.next()) {
+			long id = resultSet.getLong("id");
+			System.out.println(id + " gerado");
+		}
+
 		connection.close();
 
 	}
