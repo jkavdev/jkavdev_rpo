@@ -45,7 +45,7 @@ public class Produto implements Serializable {
 	}
 
 	@NotBlank	//invalida campos com somente espacos
-	@Size(max = 10)
+	@Size(max = 80)
 	@Column(nullable = false, length = 80)
 	public String getNome() {
 		return nome;
