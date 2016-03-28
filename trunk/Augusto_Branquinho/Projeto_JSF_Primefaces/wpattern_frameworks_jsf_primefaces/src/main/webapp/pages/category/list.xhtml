@@ -17,7 +17,7 @@
 			<!-- "actionListener="#{categoryAddEditBean.add}"" -->
 				<p:commandButton widgetVar="addButton" value="#{labels.button_add}" action="/pages/category/addEdit.faces" ajax="false" />
 				
-				<p:dataTable id="categoryDataTable" widgetVar="dataTable" var="category" loadginMessage="#{labels.category_load}" paginator="true" rows="10" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLink} {NextPageLink} {LastPageLink}" rowsPerPageTemplate="5, 10, 20" rowKey="#{category.id}" selectionMode="single">
+				<p:dataTable id="categoryDataTable" widgetVar="dataTable" var="category" loadginMessage="#{labels.category_load}" value="#{categoryBean.categories}" paginator="true" rows="10" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLink} {NextPageLink} {LastPageLink}" rowsPerPageTemplate="5, 10, 20" rowKey="#{category.id}" selectionMode="single">
 					<p:column>
 						<f:facet name="header">
 							<h:outputText value="#{labels.category_id}" />
