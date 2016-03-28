@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" 
+	template="../main.xhtml">
+
+	<ui:define name="content">
+		<f:view>
+			<f:event listener="#{categoryBean.onLoad}" type="preRenderView"></f:event>
+		</f:view>
+		
+		<p:panel id="categoryPanel" header="#{labels.category}">
+			<h:form id="categoryForm">
+			<!-- "actionListener="#{categoryAddEditBean.add}"" -->
+				<p:commandButton widgetVar="addButton" value="#{labels.button_add}" action="/pages/category/addEdit.faces" ajax="false" />
+				
+				<p:dataTable id="categoryDataTable" widgetVar="dataTable" var="category" loadginMessage="#{labels.category_load}" paginator="true" rows="10" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLink} {NextPageLink} {LastPageLink}" rowsPerPageTemplate="5, 10, 20" rowKey="#{category.id}" selectionMode="single">
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="#{labels.category_id}" />
+						</f:facet>
+						<h:outputText value="#{category.id}" />
+					</p:column>
+					
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="#{labels.category_name}" />
+						</f:facet>
+						<h:outputText value="#{category.categoryName}" />
+					</p:column>
+					
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="#{labels.category_description}" />
+						</f:facet>
+						<h:outputText value="#{category.description}" />
+					</p:column>
+				</p:dataTable>
+			</h:form>
+		</p:panel>
+	</ui:define>
+
+</ui:composition>
