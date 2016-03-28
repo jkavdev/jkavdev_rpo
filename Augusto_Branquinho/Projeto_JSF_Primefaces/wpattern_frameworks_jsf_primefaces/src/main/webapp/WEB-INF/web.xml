@@ -13,6 +13,24 @@
 	<session-config>
 		<session-timeout>30</session-timeout>
 	</session-config>
+	
+	<!-- LOADER OF SPRING CONTEXT -->
+	<!-- configura parametros de contexto do spring -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath:ctx-wpattern-frameworks-jsf-primefaces.xml
+		</param-value>
+	</context-param>
+
+	<!-- SPRING LISTENER -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<listener>
+		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>
 
 	<!-- PRIMEFACES THEME CONFIG -->
 	<context-param>
