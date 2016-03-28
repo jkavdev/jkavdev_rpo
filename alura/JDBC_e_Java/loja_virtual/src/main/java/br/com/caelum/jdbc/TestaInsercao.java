@@ -2,6 +2,7 @@ package br.com.caelum.jdbc;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -16,10 +17,15 @@ public class TestaInsercao {
 			connection.setAutoCommit(false);
 
 			int index = 0;
-			String sql = "insert into produto (nome, descricao) values (?, ?)";
+			String sql = "insert into produto(nome, decricao) values(?, ?)";
 
 			// criara um statement e no final fechara automaticamente
-			try (PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+			try (PreparedStatement statement = connection.prepareStatement(sql,
+					Statement.RETURN_GENERATED_KEYS)) {
+
+				// statement.setString(1, "Geladeira");
+				// statement.setString(2, "Geladeira 4 Portas");
+				// statement.execute();
 
 				adiciona("TV LCD", "32 Polegadas", index, sql, statement);
 				adiciona("Bluray", "Full HDMI", index, sql, statement);
@@ -36,28 +42,30 @@ public class TestaInsercao {
 
 	}
 
-	private static void adiciona(String nome, String descricacao, int index, String sql, PreparedStatement statement)
-			throws SQLException {
+	private static void adiciona(String nome, String descricacao, int index,
+			String sql, PreparedStatement statement) throws SQLException {
 
 		if (nome.equals("blueray")) {
 			throw new IllegalArgumentException("Problema Ocorrido!");
 		}
 
 		// tratando os parametros passados
-		statement.setString(++index, nome);
-		statement.setString(++index, descricacao);
+		statement.setString(1, nome);
+		statement.setString(2, descricacao);
 
-		boolean resultado = statement.execute(sql);
-		System.out.println(resultado);
+		// boolean resultado = statement.execute(sql);
+		statement.execute();
+		// System.out.println(resultado);
 
-		// ResultSet resultSet = statement.getGeneratedKeys();
-		//
-		// while (resultSet.next()) {
-		// long id = resultSet.getLong("id");
-		// System.out.println(id + " gerado");
-		// }
-		//
-		// resultSet.close();
+		ResultSet resultSet = statement.getGeneratedKeys();
+
+		while (resultSet.next()) {
+			//index da coluna da chave primaria
+			int id = resultSet.getInt(1);
+			System.out.println(id + " gerado");
+		}
+
+		resultSet.close();
 	}
 
 }
