@@ -9,6 +9,7 @@
 
 	<ui:define name="content">
 		<f:view>
+			<!-- carrega os dados antes de a pagina ser renderizada -->
 			<f:event listener="#{categoryBean.onLoad}" type="preRenderView"></f:event>
 		</f:view>
 		
@@ -16,6 +17,8 @@
 			<h:form id="categoryForm">
 			<!-- "actionListener="#{categoryAddEditBean.add}"" -->
 				<p:commandButton widgetVar="addButton" value="#{labels.button_add}" action="/pages/category/addEdit.faces" ajax="false" />
+				<p:commandButton widgetVar="deleteButton" value="#{labels.button_delete}" update="categoryDataTable" />
+				<p:commandButton widgetVar="updateButton" value="#{labels.button_update}" action="/pages/category/AddEdit.faces" actionListener="#{categoryAddEditMB.update}" />
 				
 				<p:dataTable id="categoryDataTable" widgetVar="dataTable" var="category" loadginMessage="#{labels.category_load}" value="#{categoryBean.categories}" paginator="true" rows="10" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLink} {NextPageLink} {LastPageLink}" rowsPerPageTemplate="5, 10, 20" rowKey="#{category.id}" selectionMode="single">
 					<p:column>
