@@ -7,37 +7,39 @@
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:p="http://primefaces.org/ui">
 	
-		<h:head>
-			<h:graphicImage library="images" name="wpattern_wproject_icon.ico" />
-			<h:outputStylesheet library="css" name="main.css"/>
-			<h:outputScript library="js" name="main.js"/>
-			<title>WTrader - JSF and Primefaces</title>
-		</h:head>
-		
-		<h:body>	
-			<p:layout fullPage="true">
-				<!-- cabecalho -->
-				<!-- layoutUnit - indicamos qual sera a posicao do componente -->
-				<p:layoutUnit position="north" size="100" resizable="false" closable="false" collapsible="false">
-					<!-- incluindo arquivos -->
-					<ui:include src="header.xhtml" />
-				</p:layoutUnit>
-				
-				<!-- rodape -->
-				<p:layoutUnit position="south" size="30" resizable="false" closable="false" collapsible="false">
-					<ui:include src="footer.xhtml" />
-				</p:layoutUnit>
-				
-				<!-- menu -->				
-				<!-- #{labels.menu_name} - usando um arquivo de configuracao para obter os nomes de acordo com o idioma  -->
-				<p:layoutUnit position="west" size="200" header="#{labels.menu_name}" resizable="false" closable="false" collapsible="false">
-					<ui:include src="menu.xhtml" />
-				</p:layoutUnit>
-				
-				<!-- conteudo -->
-				<p:layoutUnit position="center">
-					<ui:insert name="content"/>
-				</p:layoutUnit>
-			</p:layout>
-		</h:body>
+		<f:view locale="#{languageBean.localCode}">
+			<h:head>
+				<h:graphicImage library="images" name="wpattern_wproject.ico" />
+				<h:outputStylesheet library="css" name="main.css"/>
+				<h:outputScript library="js" name="main.js"/>
+				<title>WTrader - JSF and Primefaces</title>
+			</h:head>
+			
+			<h:body>	
+				<p:layout fullPage="true">
+					<!-- cabecalho -->
+					<!-- layoutUnit - indicamos qual sera a posicao do componente -->
+					<p:layoutUnit position="north" size="100" resizable="false" closable="false" collapsible="false">
+						<!-- incluindo arquivos -->
+						<ui:include src="header.xhtml" />
+					</p:layoutUnit>
+					
+					<!-- rodape -->
+					<p:layoutUnit position="south" size="30" resizable="false" closable="false" collapsible="false">
+						<ui:include src="footer.xhtml" />
+					</p:layoutUnit>
+					
+					<!-- menu -->				
+					<!-- #{labels.menu_name} - usando um arquivo de configuracao para obter os nomes de acordo com o idioma  -->
+					<p:layoutUnit position="west" size="200" header="#{labels.menu_name}" resizable="false" closable="false" collapsible="false">
+						<ui:include src="menu.xhtml" />
+					</p:layoutUnit>
+					
+					<!-- conteudo -->
+					<p:layoutUnit position="center">
+						<ui:insert name="content"/>
+					</p:layoutUnit>
+				</p:layout>
+			</h:body>
+		</f:view>
 </html>
