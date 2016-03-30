@@ -2,6 +2,7 @@ package br.com.cocodonto.frameworkdao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -51,8 +52,27 @@ public class DaoHelper {
 		context.remove();
 	}
 
+	public void rollbackTransaction() {
+		Connection connection;
+		try {
+			connection = getConnectionFromContext();
+			rollback(connection);
+			release(connection);
+			context.remove();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+
 	public void commit(Connection connection) throws SQLException {
 		connection.commit();
+	}
+
+	public void rollback(Connection connection) throws SQLException {
+		if (connection != null) {
+			connection.rollback();
+		}
 	}
 
 	public Connection getConnectionFromContext() throws SQLException {
@@ -116,4 +136,51 @@ public class DaoHelper {
 		release(resultSet);
 	}
 
+	/**
+	 * controlando chaves e conteudos a serem persistidos
+	 * 
+	 * @throws SQLException
+	 */
+	public long executePreparedUpdateAndReturnGeneratedKeys(Connection connection, String query, Object... params)
+			throws SQLException {
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		long result = 0;
+
+		try {
+			preparedStatement = connection.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS);
+			int index = 0;
+			for (Object param : params) {
+				preparedStatement.setObject(++index, param);
+			}
+
+			preparedStatement.executeUpdate();
+
+			resultSet = preparedStatement.getGeneratedKeys();
+			if (resultSet.next()) {
+				result = resultSet.getLong(1);
+			}
+		} finally {
+			release(preparedStatement);
+			release(resultSet);
+		}
+
+		return result;
+	}
+
+	public void executePreparedUpdate(Connection connection, String query, Object... params) throws SQLException {
+		PreparedStatement preparedStatement = null;
+
+		try {
+			preparedStatement = connection.prepareStatement(query);
+			int index = 0;
+			for (Object param : params) {
+				preparedStatement.setObject(++index, param);
+			}
+
+			preparedStatement.executeUpdate();
+		} finally {
+			release(preparedStatement);
+		}
+	}
 }
