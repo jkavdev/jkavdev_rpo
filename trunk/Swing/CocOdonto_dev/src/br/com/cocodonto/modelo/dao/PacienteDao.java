@@ -1,7 +1,6 @@
 package br.com.cocodonto.modelo.dao;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import br.com.cocodonto.frameworkdao.CreateDaoException;
@@ -18,32 +17,36 @@ public class PacienteDao {
 
 	public void inserir(Paciente paciente) throws CreateDaoException {
 		Connection connection = null;
-		PreparedStatement statement = null;
-		EnderecoDao enderecoDao = new EnderecoDao();
 
 		try {
 			daoHelper.beginTransaction();
 			connection = daoHelper.getConnectionFromContext();
 
-			int index = 0;
-			String sql = "insert into paciente(nome, rg, cpf, sexo) values(?, ?, ?, ?)";
-			statement = connection.prepareStatement(sql);
+			String query = "insert into paciente(nome, rg, cpf, sexo) values(?, ?, ?, ?)";
+			long id = daoHelper.executePreparedUpdateAndReturnGeneratedKeys(connection, query, paciente.getNome(),
+					paciente.getRg(), paciente.getCpf(), paciente.getSexo().toString());
 
-			statement.setString(++index, paciente.getNome());
-			statement.setString(++index, paciente.getRg());
-			statement.setString(++index, paciente.getCpf());
-			statement.setString(++index, paciente.getSexo().toString());
+			paciente.setId(id);
 
-			statement.executeUpdate();
-			
-			enderecoDao.inserir(paciente.getEndereco());
+			inserirPacienteEndereco(paciente);
+
 			daoHelper.endTransaction();
 
 		} catch (SQLException e) {
+			daoHelper.rollbackTransaction();
 			throw new CreateDaoException("Não foi possivel realizar a transacao!", e);
 		} finally {
-			daoHelper.releaseAll(connection, statement);
 		}
+	}
+
+	private void inserirPacienteEndereco(Paciente paciente) throws SQLException {
+		EnderecoDao enderecoDao = new EnderecoDao();
+		enderecoDao.inserir(paciente.getEndereco());
+
+		String query = "insert into paciente_endereco(paciente_id, endereco_id) values(?, ?)";
+
+		daoHelper.executePreparedUpdate(daoHelper.getConnectionFromContext(), query, paciente.getId(),
+				paciente.getEndereco().getId());
 	}
 
 }
