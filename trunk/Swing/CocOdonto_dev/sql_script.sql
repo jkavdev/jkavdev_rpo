@@ -1,16 +1,32 @@
 create database db_coc_odonto;
 
-use coc_odonto;
+use db_coc_odonto;
 
-create table paciente(
-	id integer not null auto_increment,
-	nome varchar(255),
-	rg varchar(255),
-	cpf varchar(255),
-	sexo varchar(1),
-	endereco_id integer(255),
-	email varchar(255),
-	telefone varchar(20),
-	celular varchar(20),
-	primary key(id)
+drop table paciente;
+drop table endereco;
+CREATE TABLE paciente (
+    id INTEGER NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(255),
+    rg VARCHAR(255),
+    cpf VARCHAR(255),
+    sexo VARCHAR(1),
+    PRIMARY KEY (id)
 );
+
+CREATE TABLE ENDERECO (
+    id INT NOT NULL AUTO_INCREMENT,
+    endereco VARCHAR(255),
+    cidade VARCHAR(255),
+    cep VARCHAR(20),
+    bairro VARCHAR(255),
+    PRIMARY KEY (id)
+);
+
+show tables;
+
+desc paciente;
+desc endereco;
+SELECT 
+    *
+FROM
+    paciente;

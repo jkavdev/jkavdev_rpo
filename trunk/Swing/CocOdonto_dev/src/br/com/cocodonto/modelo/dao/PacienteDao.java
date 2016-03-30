@@ -19,12 +19,14 @@ public class PacienteDao {
 	public void inserir(Paciente paciente) throws CreateDaoException {
 		Connection connection = null;
 		PreparedStatement statement = null;
+		EnderecoDao enderecoDao = new EnderecoDao();
 
 		try {
-			connection = daoHelper.getConnection();
+			daoHelper.beginTransaction();
+			connection = daoHelper.getConnectionFromContext();
 
 			int index = 0;
-			String sql = "insert int paciente(nome, rg, cpf, sexo) values(?, ?, ?, ?)";
+			String sql = "insert into paciente(nome, rg, cpf, sexo) values(?, ?, ?, ?)";
 			statement = connection.prepareStatement(sql);
 
 			statement.setString(++index, paciente.getNome());
@@ -33,6 +35,9 @@ public class PacienteDao {
 			statement.setString(++index, paciente.getSexo().toString());
 
 			statement.executeUpdate();
+			
+			enderecoDao.inserir(paciente.getEndereco());
+			daoHelper.endTransaction();
 
 		} catch (SQLException e) {
 			throw new CreateDaoException("Não foi possivel realizar a transacao!", e);
