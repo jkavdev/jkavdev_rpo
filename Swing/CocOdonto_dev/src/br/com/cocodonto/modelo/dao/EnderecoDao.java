@@ -38,11 +38,29 @@ public class EnderecoDao {
 			if (generatedKeys.next()) {
 				endereco.setId(generatedKeys.getLong(1));
 			}
-			
-			
 
 		} catch (SQLException e) {
 			throw new CreateDaoException("Nao foi possivel armazenar Endereco: " + e);
+		}
+	}
+
+	public void atualizar(Endereco endereco) throws SQLException {
+		String query = "update endereco set enderecp = ?, cidade = ?, bairro = ?, cep = ? where id = ?";
+		daoHelper.executePreparedUpdate(query, endereco.getEndereco(), endereco.getCidade(), endereco.getBairro(),
+				endereco.getCep());
+	}
+
+	public void delete(Endereco endereco) throws SQLException {
+
+		try {
+			daoHelper.beginTransaction();
+
+			String query = "delete from endereco  where id = ?";
+			daoHelper.executePreparedUpdate(query, endereco.getId());
+
+			daoHelper.endTransaction();
+		} catch (SQLException e) {
+			daoHelper.rollbackTransaction();
 		}
 	}
 
