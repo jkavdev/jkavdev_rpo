@@ -1,6 +1,5 @@
 package br.com.cocodonto.modelo.dao;
 
-import java.sql.Connection;
 import java.sql.SQLException;
 
 import br.com.cocodonto.frameworkdao.CreateDaoException;
@@ -16,19 +15,18 @@ public class PacienteDao {
 	}
 
 	public void inserir(Paciente paciente) throws CreateDaoException {
-		Connection connection = null;
 
 		try {
 			daoHelper.beginTransaction();
-			connection = daoHelper.getConnectionFromContext();
 
 			String query = "insert into paciente(nome, rg, cpf, sexo) values(?, ?, ?, ?)";
-			long id = daoHelper.executePreparedUpdateAndReturnGeneratedKeys(connection, query, paciente.getNome(),
+			long id = daoHelper.executePreparedUpdateAndReturnGeneratedKeys(query, paciente.getNome(),
 					paciente.getRg(), paciente.getCpf(), paciente.getSexo().toString());
 
 			paciente.setId(id);
 
 			inserirPacienteEndereco(paciente);
+			inserirPacienteContato(paciente);
 
 			daoHelper.endTransaction();
 
@@ -45,8 +43,15 @@ public class PacienteDao {
 
 		String query = "insert into paciente_endereco(paciente_id, endereco_id) values(?, ?)";
 
-		daoHelper.executePreparedUpdate(daoHelper.getConnectionFromContext(), query, paciente.getId(),
-				paciente.getEndereco().getId());
+		daoHelper.executePreparedUpdate(query, paciente.getId(), paciente.getEndereco().getId());
 	}
 
+	private void inserirPacienteContato(Paciente paciente) throws SQLException {
+		ContatoDao contatoDao = new ContatoDao();
+		contatoDao.inserir(paciente.getContato());
+
+		String query = "insert into paciente_contato(paciente_id, contato_id) values(?, ?)";
+
+		daoHelper.executePreparedUpdate(query, paciente.getId(), paciente.getContato().getId());
+	}
 }

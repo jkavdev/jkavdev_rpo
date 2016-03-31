@@ -141,6 +141,10 @@ public class DaoHelper {
 	 * 
 	 * @throws SQLException
 	 */
+	public long executePreparedUpdateAndReturnGeneratedKeys(String query, Object... params) throws SQLException {
+		return executePreparedUpdateAndReturnGeneratedKeys(getConnectionFromContext(), query, params);
+	}
+
 	public long executePreparedUpdateAndReturnGeneratedKeys(Connection connection, String query, Object... params)
 			throws SQLException {
 		PreparedStatement preparedStatement = null;
@@ -168,6 +172,10 @@ public class DaoHelper {
 		return result;
 	}
 
+	public void executePreparedUpdate(String query, Object... params) throws SQLException {
+		executePreparedUpdate(getConnectionFromContext(), query, params);
+	}
+
 	public void executePreparedUpdate(Connection connection, String query, Object... params) throws SQLException {
 		PreparedStatement preparedStatement = null;
 
@@ -183,4 +191,5 @@ public class DaoHelper {
 			release(preparedStatement);
 		}
 	}
+
 }
