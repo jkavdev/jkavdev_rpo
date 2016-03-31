@@ -1,12 +1,17 @@
 package br.com.cocodonto.modelo.dao;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
+import br.com.cocodonto.framework.dao.QueryMapping;
 import br.com.cocodonto.frameworkdao.CreateDaoException;
 import br.com.cocodonto.frameworkdao.DaoHelper;
 import br.com.cocodonto.frameworkdao.DeleteDaoException;
 import br.com.cocodonto.frameworkdao.UpdateDaoException;
 import br.com.cocodonto.modelo.entidade.Paciente;
+import br.com.cocodonto.modelo.entidade.SexoType;
 
 public class PacienteDao {
 
@@ -97,5 +102,30 @@ public class PacienteDao {
 			daoHelper.rollbackTransaction();
 			throw new DeleteDaoException("Nao foi possivel deletar paciente!: ", e);
 		}
+	}
+
+	public List<Paciente> listaTodosPacientes() {
+		final List<Paciente> pacientes = new ArrayList<>();
+		try {
+			String query = "select * from paciente";
+			daoHelper.executePreparedQuery(query, new QueryMapping<Paciente>() {
+
+				@Override
+				public void mapping(ResultSet resultSet) throws SQLException {
+					while (resultSet.next()) {
+						Paciente paciente = new Paciente();
+						paciente.setId(resultSet.getLong("id"));
+						paciente.setNome(resultSet.getString("nome"));
+						paciente.setRg(resultSet.getString("rg"));
+						paciente.setCpf(resultSet.getString("cpf"));
+						paciente.setSexo(SexoType.valueOf(resultSet.getString("sexo")));
+						pacientes.add(paciente);
+					}
+				}
+			});
+		} catch (SQLException e) {
+			
+		}
+		return pacientes;
 	}
 }
