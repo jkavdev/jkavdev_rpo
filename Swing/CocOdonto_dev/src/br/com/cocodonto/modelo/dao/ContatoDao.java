@@ -2,7 +2,7 @@ package br.com.cocodonto.modelo.dao;
 
 import java.sql.SQLException;
 
-import br.com.cocodonto.frameworkdao.DaoHelper;
+import br.com.cocodonto.framework.dao.DaoHelper;
 import br.com.cocodonto.modelo.entidade.Contato;
 
 public class ContatoDao {
