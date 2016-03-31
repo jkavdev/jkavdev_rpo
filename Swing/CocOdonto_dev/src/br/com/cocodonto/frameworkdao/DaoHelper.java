@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import br.com.cocodonto.framework.dao.QueryMapping;
+
 public class DaoHelper {
 
 	private static final ThreadLocal<Connection> context = new ThreadLocal<>();
@@ -153,10 +155,7 @@ public class DaoHelper {
 
 		try {
 			preparedStatement = connection.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS);
-			int index = 0;
-			for (Object param : params) {
-				preparedStatement.setObject(++index, param);
-			}
+			populatePreparedStatement(preparedStatement, params);
 
 			preparedStatement.executeUpdate();
 
@@ -181,14 +180,55 @@ public class DaoHelper {
 
 		try {
 			preparedStatement = connection.prepareStatement(query);
-			int index = 0;
-			for (Object param : params) {
-				preparedStatement.setObject(++index, param);
-			}
+			populatePreparedStatement(preparedStatement, params);
 
 			preparedStatement.executeUpdate();
 		} finally {
 			release(preparedStatement);
+		}
+	}
+
+	private void populatePreparedStatement(PreparedStatement preparedStatement, Object... params) throws SQLException {
+		int index = 0;
+		for (Object param : params) {
+			preparedStatement.setObject(++index, param);
+		}
+	}
+
+	public <T> void executePreparedQuery(String query, QueryMapping<T> queryMapping) throws SQLException {
+		executePreparedQuery(getConnection(), query, queryMapping);
+	}
+
+	public <T> void executePreparedQuery(Connection connection, String query, QueryMapping<T> queryMapping)
+			throws SQLException {
+		Statement statement = null;
+		ResultSet resultSet = null;
+		try {
+			statement = connection.createStatement();
+			resultSet = statement.getResultSet();
+			queryMapping.mapping(resultSet);
+		} finally {
+			release(resultSet);
+			release(statement);
+		}
+	}
+
+	public <T> void executePreparedQuery(String query, QueryMapping<T> queryMapping, Object... params)
+			throws SQLException {
+		executePreparedQuery(getConnection(), query, queryMapping, params);
+	}
+
+	public <T> void executePreparedQuery(Connection connection, String query, QueryMapping<T> queryMapping, Object... params) throws SQLException {
+		PreparedStatement prepareStatement = connection.prepareStatement(query);
+		ResultSet resultSet = null;		
+		try {
+			prepareStatement = connection.prepareStatement(query);
+			populatePreparedStatement(prepareStatement, params);	
+			resultSet = prepareStatement.getResultSet();
+			queryMapping.mapping(resultSet);
+		} finally {
+			release(resultSet);
+			release(prepareStatement);
 		}
 	}
 

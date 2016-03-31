@@ -34,6 +34,9 @@ public class Paciente {
 		this.cpf = cpf;
 		this.sexo = sexo;
 	}
+	
+	public Paciente() {
+	}
 
 	public long getId() {
 		return id;
