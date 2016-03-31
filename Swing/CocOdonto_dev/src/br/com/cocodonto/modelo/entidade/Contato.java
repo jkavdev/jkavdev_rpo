@@ -1,11 +1,38 @@
 package br.com.cocodonto.modelo.entidade;
 
 public class Contato {
+
+	private long id;
 	private String email;
 	private String telefone;
 	private String celular;
+	private String fax;
 
 	public Contato() {
+	}
+
+	public Contato(String email, String telefone, String celular, String fax) {
+		this();
+		this.email = email;
+		this.telefone = telefone;
+		this.celular = celular;
+		this.fax = fax;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getFax() {
+		return fax;
+	}
+
+	public void setFax(String fax) {
+		this.fax = fax;
 	}
 
 	public String getEmail() {
