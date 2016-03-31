@@ -2,7 +2,7 @@ package br.com.cocodonto.modelo.dao;
 
 import java.util.List;
 
-import br.com.cocodonto.frameworkdao.CreateDaoException;
+import br.com.cocodonto.framework.dao.CreateDaoException;
 import br.com.cocodonto.modelo.entidade.Contato;
 import br.com.cocodonto.modelo.entidade.Endereco;
 import br.com.cocodonto.modelo.entidade.Paciente;

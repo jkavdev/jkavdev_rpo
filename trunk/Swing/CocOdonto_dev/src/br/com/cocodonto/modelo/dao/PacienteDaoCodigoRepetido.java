@@ -5,8 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import br.com.cocodonto.frameworkdao.CreateDaoException;
-import br.com.cocodonto.frameworkdao.DaoHelper;
+import br.com.cocodonto.framework.dao.CreateDaoException;
+import br.com.cocodonto.framework.dao.DaoHelper;
 import br.com.cocodonto.modelo.entidade.Paciente;
 
 public class PacienteDaoCodigoRepetido {

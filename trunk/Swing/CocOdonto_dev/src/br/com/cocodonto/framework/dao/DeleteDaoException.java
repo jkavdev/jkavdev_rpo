@@ -1,4 +1,4 @@
-package br.com.cocodonto.frameworkdao;
+package br.com.cocodonto.framework.dao;
 
 public class DeleteDaoException extends RuntimeException {
 

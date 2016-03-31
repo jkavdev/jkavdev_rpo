@@ -5,11 +5,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.cocodonto.framework.dao.CreateDaoException;
+import br.com.cocodonto.framework.dao.DaoHelper;
+import br.com.cocodonto.framework.dao.DeleteDaoException;
 import br.com.cocodonto.framework.dao.QueryMapping;
-import br.com.cocodonto.frameworkdao.CreateDaoException;
-import br.com.cocodonto.frameworkdao.DaoHelper;
-import br.com.cocodonto.frameworkdao.DeleteDaoException;
-import br.com.cocodonto.frameworkdao.UpdateDaoException;
+import br.com.cocodonto.framework.dao.UpdateDaoException;
 import br.com.cocodonto.modelo.entidade.Paciente;
 import br.com.cocodonto.modelo.entidade.SexoType;
 
