@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class DaoHelper {
+public class DaoHelperAula6 {
 
 	private static final ThreadLocal<Connection> context = new ThreadLocal<>();
 
@@ -197,12 +197,13 @@ public class DaoHelper {
 		executePreparedQuery(getConnection(), query, queryMapping);
 	}
 
-	public <T> void executePreparedQuery(Connection connection, String query, QueryMapping<T> queryMapping) throws SQLException {
+	public <T> void executePreparedQuery(Connection connection, String query, QueryMapping<T> queryMapping)
+			throws SQLException {
 		Statement statement = null;
 		ResultSet resultSet = null;
 		try {
 			statement = connection.createStatement();
-			resultSet = statement.executeQuery(query);
+			resultSet = statement.getResultSet();
 			queryMapping.mapping(resultSet);
 		} finally {
 			release(resultSet);
