@@ -4,6 +4,9 @@ import java.io.Serializable;
 
 import com.algaworks.pedidovenda.validation.SKU;
 
+//classe responsavel por receber os atributos para filtrar
+//na pesquisa com o banco de dados
+
 public class ProdutoFilter implements Serializable {
 
 	private static final long serialVersionUID = 1L;

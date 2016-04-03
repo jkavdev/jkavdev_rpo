@@ -45,13 +45,17 @@ public class ProdutoRepository implements Serializable {
 
 		// se nao for branco, vazio
 		if (StringUtils.isNotBlank(filtro.getSku())) {
+			//where equals
 			criteria.add(Restrictions.eq("sku", filtro.getSku()));
 		}
 
 		if (StringUtils.isNotBlank(filtro.getNome())) {
+			//ilike - um like nao case sensitive
+			//MatchMode - indica onde o simbolo '%%' resultado colocado
 			criteria.add(Restrictions.ilike("nome", filtro.getNome(), MatchMode.ANYWHERE));
 		}
 
+		//retornando em ordem crescente resultado
 		return criteria.addOrder(Order.asc("nome")).list();
 
 	}
