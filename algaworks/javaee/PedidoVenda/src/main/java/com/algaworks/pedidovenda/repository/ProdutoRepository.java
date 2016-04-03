@@ -6,6 +6,7 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
+import javax.persistence.PersistenceException;
 
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.Criteria;
@@ -16,6 +17,8 @@ import org.hibernate.criterion.Restrictions;
 
 import com.algaworks.pedidovenda.model.Produto;
 import com.algaworks.pedidovenda.repository.filter.ProdutoFilter;
+import com.algaworks.pedidovenda.service.NegocioException;
+import com.algaworks.pedidovenda.util.jpa.Transactional;
 
 public class ProdutoRepository implements Serializable {
 
@@ -58,6 +61,18 @@ public class ProdutoRepository implements Serializable {
 		// retornando em ordem crescente resultado
 		return criteria.addOrder(Order.asc("nome")).list();
 
+	}
+
+	@Transactional
+	public void remover(Produto produto) {
+		produto = porId(produto.getId());
+		try {
+			manager.remove(produto);
+			// executa operacao na hora
+			manager.flush();
+		} catch (PersistenceException e) {
+			throw new NegocioException("Produto nao pode ser Excluido!: ");
+		}
 	}
 
 	public Produto porId(Long id) {
