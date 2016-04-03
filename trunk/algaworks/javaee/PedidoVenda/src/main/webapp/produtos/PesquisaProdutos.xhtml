@@ -53,7 +53,10 @@
 						<h:outputText value="#{produto.quantidadeEstoque}" />
 					</p:column>
 					<p:column style="text-align: center; width: 100px">
-						<p:button icon="ui-icon-pencil" title="Editar" />
+						<p:button outcome="/produtos/CadastroProduto" icon="ui-icon-pencil" title="Editar" >
+							<!-- enviado o codigo do produto pela requisicao -->
+							<f:param name="produto" value="#{produto.id}"/>
+						</p:button>
 						<p:commandButton icon="ui-icon-trash" title="Excluir" oncomplete="confirmaExclusao.show();"/>
 					</p:column>
 				</p:dataTable>
