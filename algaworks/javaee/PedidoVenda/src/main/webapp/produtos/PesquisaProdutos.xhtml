@@ -29,9 +29,8 @@
 				<p:inputText id="sku" size="20" value="#{pesquisaProdutosBean.filtro.sku}" />
 				
 				<p:outputLabel value="Nome" for="nome"/>
-				<p:inputText id="nome" size="60" value="#{pesquisaProdutosBean.filtro.nome}"/>
-				
-				</p:panelGrid>
+				<p:inputText id="nome" size="60" value="#{pesquisaProdutosBean.filtro.nome}"/>				
+			</p:panelGrid>
 				
 				<p:dataTable id="produtosTable" value="#{pesquisaProdutosBean.produtosFiltrados}" var="produto" 
 					style="margin-top: 20px" emptyMessage="Nenhum produto encontrado!" rows="20" 
