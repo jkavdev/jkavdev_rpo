@@ -24,7 +24,7 @@
 			<version>2.1.21</version>
 			<scope>compile</scope>
 		</dependency>
-		
+
 		<!-- OmniFaces(utilitarios para o jsf) -->
 		<dependency>
 			<groupId>org.omnifaces</groupId>
@@ -72,7 +72,7 @@
 			<version>5.1.0.Final</version>
 			<scope>compile</scope>
 		</dependency>
-		
+
 		<!-- Implementacao do Bean Validation -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -88,13 +88,19 @@
 			<version>5.1.38</version>
 			<scope>compile</scope>
 		</dependency>
-		
+
 		<!-- Commons lang(utilidades) -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>3.1</version>
 			<scope>compile</scope>
+		</dependency>
+		<!-- SERVLET API -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
 		</dependency>
 	</dependencies>
 
