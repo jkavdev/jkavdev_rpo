@@ -13,11 +13,11 @@ import br.com.jkavdev.fj21.jdbc.modelo.Contato;
 import br.com.jkavdev.fj21.jdbc.util.ConnectionFactory;
 import br.com.jkavdev.fj21.jdbc.util.DaoException;
 
-public class ContatoDao {
+public class FuncionarioDao {
 
 	private Connection connection;
 
-	public ContatoDao() {
+	public FuncionarioDao() {
 		this.connection = new ConnectionFactory().getConnection();
 	}
 

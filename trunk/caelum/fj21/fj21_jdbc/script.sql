@@ -10,5 +10,16 @@ create table contato(
     primary key(id)
 );
 
+create table funcionario(
+	id bigint not null auto_increment,
+    nome varchar(255),
+    usuario varchar(255),
+    senha varchar(255),
+    primary key(id)
+);
+
+desc funcionario;
+select * from funcionario;
+
 desc contato;
 select * from contato;
