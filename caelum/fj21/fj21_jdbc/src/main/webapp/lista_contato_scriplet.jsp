@@ -15,10 +15,10 @@
 			for (Contato contato : contatos) {
 		%>
 		<tr>
-			<td><%=contato.getNome()%></td>
-			<td><%=contato.getEmail()%></td>
-			<td><%=contato.getEndereco()%></td>
-			<td><%=contato.getDataNascimento().getTime() %></td>
+			<td><%= contato.getNome()%></td>
+			<td><%= contato.getEmail()%></td>
+			<td><%= contato.getEndereco()%></td>
+			<td><%= contato.getDataNascimento().getTime() %></td>
 		</tr>
 		<%
 			}
