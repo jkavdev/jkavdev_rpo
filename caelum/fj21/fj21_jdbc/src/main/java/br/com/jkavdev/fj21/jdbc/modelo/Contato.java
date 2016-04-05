@@ -69,4 +69,15 @@ public class Contato {
 		this.dataNascimento = dataNascimento;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Contato [id=").append(id)
+				.append(", nome=").append(nome)
+				.append(", email=").append(email)
+				.append(", endereco=").append(endereco)
+				.append(", dataNascimento=").append(dataNascimento).append("]");
+		return builder.toString();
+	}
+
 }
