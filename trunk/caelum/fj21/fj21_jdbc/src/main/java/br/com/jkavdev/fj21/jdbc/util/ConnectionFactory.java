@@ -11,8 +11,9 @@ public class ConnectionFactory {
 			String url = "jdbc:mysql://localhost:3306/db_fj21";
 			String password = "99346554";
 			String user = "root";
+			Class.forName("com.mysql.jdbc.Driver");
 			return DriverManager.getConnection(url, user, password);
-		} catch (SQLException e) {
+		} catch (SQLException | ClassNotFoundException e) {
 			//lancando uma runtime, indicando que o codigo nao fico
 			//acoplado com o sql
 			throw new RuntimeException(e);
