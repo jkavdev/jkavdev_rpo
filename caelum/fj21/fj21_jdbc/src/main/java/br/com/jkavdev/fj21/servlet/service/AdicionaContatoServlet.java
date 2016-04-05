@@ -39,10 +39,16 @@ public class AdicionaContatoServlet extends HttpServlet {
 			Date date = new SimpleDateFormat("dd/MM/yyyy").parse(dataEmTexto);
 			dataNascimento = Calendar.getInstance();
 			dataNascimento.setTime(date);
+			
+			//codigo que pode lancar uma ParseException
 		}catch(ParseException e){
 			writer.println("Erro de Conversao de Data");
 			//para execucao
 			return;
+			
+			//podemos lancar uma servletException
+			//wrapping servletException
+			//throw new ServletException(e);
 		}
 		
 		//montando objeto
@@ -61,7 +67,7 @@ public class AdicionaContatoServlet extends HttpServlet {
 		writer.println("<body>");
 		writer.println("Contato: " + contato.getNome() + " adicionado com Sucesso!");
 		writer.println("</body>");
-		writer.println("</html>");;
+		writer.println("</html>");
 		
 	}
 
