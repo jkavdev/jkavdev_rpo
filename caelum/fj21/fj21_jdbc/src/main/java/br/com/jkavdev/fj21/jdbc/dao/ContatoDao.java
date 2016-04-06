@@ -42,8 +42,8 @@ public class ContatoDao {
 
 	public List<Contato> getLista() {
 		try {
-			PreparedStatement preparedStatement = this.connection
-					.prepareStatement("select * from contato where nome like 'C%'");
+//			PreparedStatement preparedStatement = this.connection.prepareStatement("select * from contato where nome like 'C%'");
+			PreparedStatement preparedStatement = this.connection.prepareStatement("select * from contato");
 			ResultSet resultSet = preparedStatement.executeQuery();
 
 			List<Contato> contatos = new ArrayList<Contato>();
