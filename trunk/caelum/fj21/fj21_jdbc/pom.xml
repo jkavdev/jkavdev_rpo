@@ -25,6 +25,13 @@
 	</build>
 
 	<dependencies>
+		<!-- display tag - tabelas -->
+		<dependency>
+			<groupId>displaytag</groupId>
+			<artifactId>displaytag</artifactId>
+			<version>1.2</version>
+		</dependency>
+
 		<!-- jstl api -->
 		<dependency>
 			<groupId>jstl</groupId>
