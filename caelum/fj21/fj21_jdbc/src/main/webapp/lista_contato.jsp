@@ -36,7 +36,9 @@
 					</c:choose>
 				</td>
 				<td>${contato.endereco}</td>
-				<fmt:formatDate value="${contato.dataNascimento.time}" pattern="dd/MM/yyyy"/>
+				<td>
+					<fmt:formatDate value="${contato.dataNascimento.time}" pattern="dd/MM/yyyy"/>
+				</td>
 			</tr>
 		</c:forEach>
 	</table>
