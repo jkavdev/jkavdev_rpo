@@ -8,7 +8,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
 public class PacienteFrm extends javax.swing.JFrame {
-    
+
     private PacienteActionListener listener;
 
     public PacienteFrm() {
@@ -44,7 +44,7 @@ public class PacienteFrm extends javax.swing.JFrame {
         jlEnderecoId = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jtfCidade = new javax.swing.JTextField();
-        Bairro = new javax.swing.JTextField();
+        jtfBairro = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jtfEndereco = new javax.swing.JTextField();
@@ -173,7 +173,7 @@ public class PacienteFrm extends javax.swing.JFrame {
                             .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Bairro, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtfBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jtfEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jtfCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(35, 35, 35))
@@ -206,7 +206,7 @@ public class PacienteFrm extends javax.swing.JFrame {
                 .addGap(5, 5, 5)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(Bairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtfBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
@@ -452,12 +452,20 @@ public class PacienteFrm extends javax.swing.JFrame {
         });
     }
 
+    public JTextField getJtfBairro() {
+        return jtfBairro;
+    }
+
+    public void setJtfBairro(JTextField jtfBairro) {
+        this.jtfBairro = jtfBairro;
+    }
+
     public JTextField getBairro() {
-        return Bairro;
+        return jtfBairro;
     }
 
     public void setBairro(JTextField Bairro) {
-        this.Bairro = Bairro;
+        this.jtfBairro = Bairro;
     }
 
     public JButton getJbAlterar() {
@@ -620,10 +628,8 @@ public class PacienteFrm extends javax.swing.JFrame {
         this.jtpContatoEndereco = jtpContatoEndereco;
     }
 
-    
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Bairro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -659,6 +665,7 @@ public class PacienteFrm extends javax.swing.JFrame {
     private javax.swing.JLabel jlPacienteId;
     private javax.swing.JTextField jrfRg;
     private javax.swing.JScrollPane jspPaciente;
+    private javax.swing.JTextField jtfBairro;
     private javax.swing.JTextField jtfCelular;
     private javax.swing.JTextField jtfCep;
     private javax.swing.JTextField jtfCidade;
