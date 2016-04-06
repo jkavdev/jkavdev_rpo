@@ -1,12 +1,19 @@
 package br.com.cocodonto.apresentacao.paciente;
 
-public class PacienteFrm extends javax.swing.JFrame {
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
+import javax.swing.JTextField;
 
-    /**
-     * Creates new form PacienteFrm
-     */
+public class PacienteFrm extends javax.swing.JFrame {
+    
+    private PacienteActionListener listener;
+
     public PacienteFrm() {
         initComponents();
+        listener = new PacienteActionListener(this);
     }
 
     @SuppressWarnings("unchecked")
@@ -14,6 +21,7 @@ public class PacienteFrm extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jlPacienteId = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jtfNome = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -24,6 +32,7 @@ public class PacienteFrm extends javax.swing.JFrame {
         jtpContatoEndereco = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
+        jlContatoId = new javax.swing.JLabel();
         jtfEmail = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -32,6 +41,7 @@ public class PacienteFrm extends javax.swing.JFrame {
         jtfCelular = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
+        jlEnderecoId = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jtfCidade = new javax.swing.JTextField();
         Bairro = new javax.swing.JTextField();
@@ -90,11 +100,16 @@ public class PacienteFrm extends javax.swing.JFrame {
                     .addComponent(jtfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtfCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(30, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jlContatoId, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
+                .addComponent(jlContatoId, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jtfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -106,7 +121,7 @@ public class PacienteFrm extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(jtfCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         jPanel6Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel5, jLabel6, jLabel7});
@@ -166,7 +181,9 @@ public class PacienteFrm extends javax.swing.JFrame {
                         .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jtfCep, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(217, 217, 217))
+                        .addGap(130, 130, 130)
+                        .addComponent(jlEnderecoId, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(jLabel12)
                         .addGap(18, 18, 18)
@@ -177,9 +194,11 @@ public class PacienteFrm extends javax.swing.JFrame {
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(jtfCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel11)
+                        .addComponent(jtfCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jlEnderecoId, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
@@ -224,12 +243,12 @@ public class PacienteFrm extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jtpContatoEndereco)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jtpContatoEndereco, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jSeparator1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3))
@@ -241,13 +260,17 @@ public class PacienteFrm extends javax.swing.JFrame {
                                 .addComponent(jLabel4)
                                 .addGap(18, 18, 18)
                                 .addComponent(jtfCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jtfNome))))
+                            .addComponent(jtfNome)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jlPacienteId, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addComponent(jlPacienteId, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jtfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -429,6 +452,176 @@ public class PacienteFrm extends javax.swing.JFrame {
         });
     }
 
+    public JTextField getBairro() {
+        return Bairro;
+    }
+
+    public void setBairro(JTextField Bairro) {
+        this.Bairro = Bairro;
+    }
+
+    public JButton getJbAlterar() {
+        return jbAlterar;
+    }
+
+    public void setJbAlterar(JButton jbAlterar) {
+        this.jbAlterar = jbAlterar;
+    }
+
+    public JButton getJbCancelar() {
+        return jbCancelar;
+    }
+
+    public void setJbCancelar(JButton jbCancelar) {
+        this.jbCancelar = jbCancelar;
+    }
+
+    public JButton getJbExcluir() {
+        return jbExcluir;
+    }
+
+    public void setJbExcluir(JButton jbExcluir) {
+        this.jbExcluir = jbExcluir;
+    }
+
+    public JButton getJbIncluir() {
+        return jbIncluir;
+    }
+
+    public void setJbIncluir(JButton jbIncluir) {
+        this.jbIncluir = jbIncluir;
+    }
+
+    public JButton getJbSalvar() {
+        return jbSalvar;
+    }
+
+    public void setJbSalvar(JButton jbSalvar) {
+        this.jbSalvar = jbSalvar;
+    }
+
+    public JComboBox<String> getJcbEstado() {
+        return jcbEstado;
+    }
+
+    public void setJcbEstado(JComboBox<String> jcbEstado) {
+        this.jcbEstado = jcbEstado;
+    }
+
+    public JLabel getJlContatoId() {
+        return jlContatoId;
+    }
+
+    public void setJlContatoId(JLabel jlContatoId) {
+        this.jlContatoId = jlContatoId;
+    }
+
+    public JLabel getJlEnderecoId() {
+        return jlEnderecoId;
+    }
+
+    public void setJlEnderecoId(JLabel jlEnderecoId) {
+        this.jlEnderecoId = jlEnderecoId;
+    }
+
+    public JLabel getJlPacienteId() {
+        return jlPacienteId;
+    }
+
+    public void setJlPacienteId(JLabel jlPacienteId) {
+        this.jlPacienteId = jlPacienteId;
+    }
+
+    public JTextField getJrfRg() {
+        return jrfRg;
+    }
+
+    public void setJrfRg(JTextField jrfRg) {
+        this.jrfRg = jrfRg;
+    }
+
+    public JScrollPane getJspPaciente() {
+        return jspPaciente;
+    }
+
+    public void setJspPaciente(JScrollPane jspPaciente) {
+        this.jspPaciente = jspPaciente;
+    }
+
+    public JTextField getJtfCelular() {
+        return jtfCelular;
+    }
+
+    public void setJtfCelular(JTextField jtfCelular) {
+        this.jtfCelular = jtfCelular;
+    }
+
+    public JTextField getJtfCep() {
+        return jtfCep;
+    }
+
+    public void setJtfCep(JTextField jtfCep) {
+        this.jtfCep = jtfCep;
+    }
+
+    public JTextField getJtfCidade() {
+        return jtfCidade;
+    }
+
+    public void setJtfCidade(JTextField jtfCidade) {
+        this.jtfCidade = jtfCidade;
+    }
+
+    public JTextField getJtfCpf() {
+        return jtfCpf;
+    }
+
+    public void setJtfCpf(JTextField jtfCpf) {
+        this.jtfCpf = jtfCpf;
+    }
+
+    public JTextField getJtfEmail() {
+        return jtfEmail;
+    }
+
+    public void setJtfEmail(JTextField jtfEmail) {
+        this.jtfEmail = jtfEmail;
+    }
+
+    public JTextField getJtfEndereco() {
+        return jtfEndereco;
+    }
+
+    public void setJtfEndereco(JTextField jtfEndereco) {
+        this.jtfEndereco = jtfEndereco;
+    }
+
+    public JTextField getJtfNome() {
+        return jtfNome;
+    }
+
+    public void setJtfNome(JTextField jtfNome) {
+        this.jtfNome = jtfNome;
+    }
+
+    public JTextField getJtfTelefone() {
+        return jtfTelefone;
+    }
+
+    public void setJtfTelefone(JTextField jtfTelefone) {
+        this.jtfTelefone = jtfTelefone;
+    }
+
+    public JTabbedPane getJtpContatoEndereco() {
+        return jtpContatoEndereco;
+    }
+
+    public void setJtpContatoEndereco(JTabbedPane jtpContatoEndereco) {
+        this.jtpContatoEndereco = jtpContatoEndereco;
+    }
+
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Bairro;
     private javax.swing.JLabel jLabel1;
@@ -461,6 +654,9 @@ public class PacienteFrm extends javax.swing.JFrame {
     private javax.swing.JButton jbIncluir;
     private javax.swing.JButton jbSalvar;
     private javax.swing.JComboBox<String> jcbEstado;
+    private javax.swing.JLabel jlContatoId;
+    private javax.swing.JLabel jlEnderecoId;
+    private javax.swing.JLabel jlPacienteId;
     private javax.swing.JTextField jrfRg;
     private javax.swing.JScrollPane jspPaciente;
     private javax.swing.JTextField jtfCelular;
