@@ -9,6 +9,7 @@
 <title>Listagem de Contatos</title>
 </head>
 <body>
+	<c:import url="cabecalho.jsp" />
 
 	<!-- instanciando contato dao -->
 	<jsp:useBean id="contatoDao"
@@ -40,6 +41,8 @@
 			</tr>
 		</c:forEach>
 	</table>
+
+	<c:import url="rodape.jsp" />
 
 </body>
 </html>
