@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+	<h:head>
+		<title>cadastro de Usuarios</title>
+	</h:head>
+	
+	<h:body>
+		<h1>Cadastro de Usuarios</h1>
+		
+		<hr />
+		
+		<h:form acceptcharset="UTF-8">
+			<h:messages />
+			
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Nome" for="nome" />
+				<h:inputText id="nome" label="Nome" value="#{usuarioBean.nome}" required="true"/>
+				
+				<h:outputLabel value="Email" for="email" />
+				<h:inputText id="email" label="Email" value="#{usuarioBean.email}"/>
+				
+				
+				<h:outputLabel value="Senha" for="senha" />
+				<h:inputSecret id="senha" label="Nome" value="#{usuarioBean.senha}" required="true"/>
+				
+				<h:outputLabel value="Confirme a Senha" for="confirmaSenha" />
+				<h:inputSecret id="confirmaSenha" label="Confirmar senha" value="#{usuarioBean.confirmaSenha}" required="true"/>
+				
+				<h:commandButton action="#{usuarioBean.salvar}" value="Salvar" />
+			</h:panelGrid>
+		</h:form>
+		
+	</h:body>
+
+</html>
