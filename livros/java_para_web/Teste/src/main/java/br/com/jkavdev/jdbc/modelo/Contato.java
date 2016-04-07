@@ -61,4 +61,16 @@ public class Contato {
 		this.dataCadastro = dataCadastro;
 	}
 
+	@Override
+	public String toString() {
+		return "codigo = " + codigo 
+				+ ", nome = " + nome 
+				+ ", email = " + email 
+				+ ", telefone = " + telefone 
+				+ ", observacao = " + observacao 
+				+ ", dataCadastro = " + dataCadastro + "]";
+	}
+	
+	
+
 }
