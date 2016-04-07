@@ -11,3 +11,5 @@ create table contato(
 	primary key(codigo)
 );
 
+create database db_jpw_comercio;
+use db_jpw_comercio;

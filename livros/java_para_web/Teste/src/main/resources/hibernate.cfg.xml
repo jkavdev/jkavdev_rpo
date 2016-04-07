@@ -8,7 +8,7 @@
 	<session-factory>
 		<!-- dados para conexao com o banco -->
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/db_jpw_agenda</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/db_jpw_comercio</property>
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password">99346554</property>
 		<property name="hibernate.current_session_context_class">thread</property>		
@@ -39,6 +39,14 @@
 		
 		<!-- mapeamento das classes que representam as tabelas no banco -->
 		<mapping class="br.com.jkavdev.hibernate.modelo.Contato"/>
+		
+		<mapping class="br.com.jkavdev.comercio.modelo.entidade.Categoria"/>
+		<mapping class="br.com.jkavdev.comercio.modelo.entidade.Cliente"/>
+		<mapping class="br.com.jkavdev.comercio.modelo.entidade.Empregado"/>
+		<mapping class="br.com.jkavdev.comercio.modelo.entidade.Endereco"/>
+		<mapping class="br.com.jkavdev.comercio.modelo.entidade.Item"/>
+		<mapping class="br.com.jkavdev.comercio.modelo.entidade.Pedido"/>
+		<mapping class="br.com.jkavdev.comercio.modelo.entidade.Produto"/>
 	</session-factory>
 	
 </hibernate-configuration>
