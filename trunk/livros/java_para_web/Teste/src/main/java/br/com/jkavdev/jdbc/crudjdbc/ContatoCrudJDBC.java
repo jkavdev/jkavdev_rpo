@@ -96,18 +96,18 @@ public class ContatoCrudJDBC {
 		Connection conexao = null;
 
 		try {
-			
+
 			String url = "jdbc:mysql://localhost:3306/db_jpw_agenda";
 			String usuario = "root";
 			String senha = "99346554";
-			
+
 			conexao = DriverManager.getConnection(url, usuario, senha);
-			
+
 			System.out.println("Conectou");
 		} catch (SQLException e) {
 			System.out.println("Erro de Conexao: " + e);
 		}
-		
+
 		return conexao;
 
 	}
@@ -116,15 +116,29 @@ public class ContatoCrudJDBC {
 		ContatoCrudJDBC contatoCrudJDBC = new ContatoCrudJDBC();
 
 		// criando um contato
+//		salvarContatos(contatoCrudJDBC);
+//		System.out.println("Contatos Cadastrados");
+		
+		listaContatos(contatoCrudJDBC);
+
+		
+	}
+
+	private static void listaContatos(ContatoCrudJDBC contatoCrudJDBC) {
+		List<Contato> contatos = contatoCrudJDBC.listar();
+		for (Contato contato : contatos) {
+			System.out.println(contato);
+		}
+	}
+
+	private static void salvarContatos(ContatoCrudJDBC contatoCrudJDBC) {
 		Contato jhonatan = criarContato("Jhonatan", "jhonatan@gmail.com", "99346554", "Novo Cliente");
 		Contato lucas = criarContato("Lucas", "lucas@gmail.com", "91940455", "Novo Cliente");
 		Contato douglas = criarContato("Douglas", "douglas@gmail.com", "99220468", "Novo Cliente");
-		
+
 		contatoCrudJDBC.salvar(jhonatan);
 		contatoCrudJDBC.salvar(lucas);
 		contatoCrudJDBC.salvar(douglas);
-		
-		System.out.println("Contatos Cadastrados");
 	}
 
 	private static Contato criarContato(String nome, String telefone, String email, String observacao) {
