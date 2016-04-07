@@ -36,6 +36,10 @@
 		<property name="c3p0.max_statements">50</property>
 		<!-- limita tempo de inatividade, caso a conexao nao seja validada -->
 		<property name="c3p0.idle_test_period">3000</property>
+		
+		<!-- mapeamento das classes que representam as tabelas no banco -->
+		<mapping class="br.com.jkavdev.hibernate.modelo.Contato"/>
 	</session-factory>
 	
 </hibernate-configuration>
+
