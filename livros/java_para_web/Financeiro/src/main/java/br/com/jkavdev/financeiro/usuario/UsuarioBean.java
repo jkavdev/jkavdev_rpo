@@ -2,6 +2,7 @@ package br.com.jkavdev.financeiro.usuario;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -20,7 +21,8 @@ public class UsuarioBean implements Serializable {
 	private String destinoSalvar;
 
 	public String novo() {
-		//quando for um novo usuario, destinoSalvar vai para usuario cadastrado com sucesso
+		// quando for um novo usuario, destinoSalvar vai para usuario cadastrado
+		// com sucesso
 		this.destinoSalvar = "usuarioSucesso";
 		this.usuario = new Usuario();
 		this.usuario.setAtivo(true);
@@ -28,7 +30,8 @@ public class UsuarioBean implements Serializable {
 	}
 
 	public String editar() {
-		//pega a senha do usuario que esta vindo do formulario e seta em confirmarSenha
+		// pega a senha do usuario que esta vindo do formulario e seta em
+		// confirmarSenha
 		this.confirmarSenha = this.usuario.getSenha();
 		return "/publico/usuario";
 	}
@@ -44,21 +47,21 @@ public class UsuarioBean implements Serializable {
 		}
 		UsuarioService usuarioService = new UsuarioService();
 		usuarioService.salvar(this.usuario);
-		
+
 		return this.destinoSalvar;
 	}
 
 	public String excluir() {
 		UsuarioService usuarioService = new UsuarioService();
 		usuarioService.excluir(this.usuario);
-		//forca o carregamento da lista
+		// forca o carregamento da lista
 		this.lista = null;
-		//refresh para mesma pagina
+		// refresh para mesma pagina
 		return null;
 	}
 
 	public String ativar() {
-		//ativa usuario
+		// ativa usuario
 		if (this.usuario.isAtivo()) {
 			this.usuario.setAtivo(false);
 		} else {
@@ -67,17 +70,28 @@ public class UsuarioBean implements Serializable {
 
 		UsuarioService usuarioService = new UsuarioService();
 		usuarioService.salvar(this.usuario);
-		//refresh para mesma pagina
+		// refresh para mesma pagina
 		return null;
 	}
 
 	public List<Usuario> getLista() {
-		//verifica se a lista ja existe
+		// verifica se a lista ja existe
 		if (this.lista == null) {
 			UsuarioService usuarioService = new UsuarioService();
 			lista = usuarioService.listar();
 		}
 		return this.lista;
+	}
+
+	public String atribuirPermissao(Usuario usuario, String permissao) {
+		this.usuario = usuario;
+		Set<String> permissoes = this.usuario.getPermissoes();
+		if (permissoes.contains(permissao)) {
+			permissoes.remove(permissao);
+		} else {
+			permissoes.add(permissao);
+		}
+		return null;
 	}
 
 	public Usuario getUsuario() {

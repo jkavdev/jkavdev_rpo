@@ -2,10 +2,17 @@ package br.com.jkavdev.financeiro.usuario;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.UniqueConstraint;
 
 import org.hibernate.annotations.NaturalId;
 
@@ -23,6 +30,7 @@ public class Usuario implements Serializable {
 	private String celular;
 	private String idioma;
 	private boolean ativo;
+	private Set<String> permissoes = new HashSet<String>();
 
 	@Id
 	@GeneratedValue
@@ -42,7 +50,7 @@ public class Usuario implements Serializable {
 		this.nome = nome;
 	}
 
-	//unico
+	// unico
 	@NaturalId
 	public String getEmail() {
 		return email;
@@ -98,6 +106,20 @@ public class Usuario implements Serializable {
 
 	public void setAtivo(boolean ativo) {
 		this.ativo = ativo;
+	}
+
+	@ElementCollection(targetClass = String.class)
+	@JoinTable(
+			name = "usuario_permissao", 
+			uniqueConstraints = { @UniqueConstraint(columnNames = {"usuario", "permissao" }) }, 
+			joinColumns = @JoinColumn(name = "usuario"))
+	@Column(name = "permissao", length = 50)
+	public Set<String> getPermissoes() {
+		return permissoes;
+	}
+
+	public void setPermissoes(Set<String> permissoes) {
+		this.permissoes = permissoes;
 	}
 
 	@Override

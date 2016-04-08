@@ -20,6 +20,11 @@ public class UsuarioDaoHibernate implements UsuarioDao {
 
 	@Override
 	public void atualizar(Usuario usuario) {
+		if(usuario.getPermissoes() == null || usuario.getPermissoes().size() == 0){
+			Usuario usuarioPermissao = this.carregar(usuario.getCodigo());
+			usuario.setPermissoes(usuarioPermissao.getPermissoes());
+			this.session.evict(usuarioPermissao);
+		}
 		this.session.update(usuario);
 	}
 
