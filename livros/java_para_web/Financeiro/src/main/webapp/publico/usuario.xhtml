@@ -15,6 +15,11 @@
 		<h:form>
 			<h:messages />
 			
+			<!-- dados quando o registro for editado -->
+			<h:inputHidden value="#{usuarioBean.usuario.codigo}" />
+			<h:inputHidden value="#{usuarioBean.usuario.ativo}" />
+			<h:inputHidden value="#{usuarioBean.destinoSalvar}" />
+			
 			<h:panelGrid columns="2">
 				<h:outputLabel value="Nome" for="nome" />
 				<h:inputText value="#{usuarioBean.usuario.nome}" id="nome" size="30" maxlength="30" required="true" requiredMessage="Você não tem Nome?"/>
@@ -37,7 +42,7 @@
 				
 				<h:outputLabel value="Idioma" for="idioma" />
 				<h:selectOneMenu value="#{usuarioBean.usuario.idioma}" id="idioma">
-					<f:selectItem itemValue="pt_Br" itemLabel="Português"/>
+					<f:selectItem itemValue="pt_BR" itemLabel="Português"/>
 					<f:selectItem itemValue="en_US" itemLabel="Inglês"/>
 					<f:selectItem itemValue="es_ES" itemLabel="Espanhol"/>
 				</h:selectOneMenu>
