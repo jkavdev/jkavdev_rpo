@@ -44,7 +44,6 @@
 		<mapping class="br.com.jkavdev.comercio.modelo.entidade.Cliente"/>
 		<mapping class="br.com.jkavdev.comercio.modelo.entidade.Empregado"/>
 		<mapping class="br.com.jkavdev.comercio.modelo.entidade.Endereco"/>
-		<mapping class="br.com.jkavdev.comercio.modelo.entidade.Item"/>
 		<mapping class="br.com.jkavdev.comercio.modelo.entidade.Pedido"/>
 		<mapping class="br.com.jkavdev.comercio.modelo.entidade.Produto"/>
 	</session-factory>
