@@ -22,10 +22,9 @@ public class UsuarioService {
 
 	public void salvar(Usuario usuario) {
 		if (usuario.getCodigo() == null || usuario.getCodigo() == 0) {
-			System.out.println("Salvando");
+			usuario.getPermissoes().add("ROLE_USUARIO");
 			this.usuarioDao.salvar(usuario);			
 		} else {
-			System.out.println("Atualizando");
 			this.usuarioDao.atualizar(usuario);
 		}
 	}
