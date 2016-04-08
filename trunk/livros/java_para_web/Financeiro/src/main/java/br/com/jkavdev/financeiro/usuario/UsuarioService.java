@@ -22,8 +22,10 @@ public class UsuarioService {
 
 	public void salvar(Usuario usuario) {
 		if (usuario.getCodigo() == null || usuario.getCodigo() == 0) {
-			this.usuarioDao.salvar(usuario);
+			System.out.println("Salvando");
+			this.usuarioDao.salvar(usuario);			
 		} else {
+			System.out.println("Atualizando");
 			this.usuarioDao.atualizar(usuario);
 		}
 	}
