@@ -16,7 +16,7 @@ public class HibernateUtil {
 		try {
 			// ler o arquivo de configuracao do hibernate
 			Configuration configuration = new Configuration();
-			configuration.configure("hibernate.cfg.xml");
+			configuration.configure("META-INF/hibernate.cfg.xml");
 
 			StandardServiceRegistryBuilder registradorServico = new StandardServiceRegistryBuilder();
 			registradorServico.applySettings(configuration.getProperties());
