@@ -90,7 +90,7 @@ public class Pedido implements Serializable {
 	@ManyToMany
 	@JoinTable(
 			name = "item", //nome da tabela a ser gerada
-			joinColumns = { @JoinColumn(name = "cod_pedido", referencedColumnName = "cod_pedido") }, 
+			joinColumns = { @JoinColumn(name = "cod_pedido", referencedColumnName = "cod_pedido") }, //chaves primarias
 			inverseJoinColumns = { @JoinColumn(name = "cod_produto") })
 	public Set<Produto> getProdutos() {
 		return produtos;
