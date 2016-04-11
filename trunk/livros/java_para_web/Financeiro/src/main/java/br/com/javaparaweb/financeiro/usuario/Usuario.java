@@ -58,6 +58,7 @@ public class Usuario implements Serializable {
 		this.email = email;
 	}
 
+	// unico
 	@NaturalId
 	public String getLogin() {
 		return login;
