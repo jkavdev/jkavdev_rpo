@@ -2,7 +2,7 @@ package br.com.javaparaweb.financeiro.usuario;
 
 import java.util.List;
 
-public interface UsuarioDAO {
+public interface UsuarioDao {
 	
 	public void salvar(Usuario usuario);
 	public void atualizar(Usuario usuario);
