@@ -8,8 +8,8 @@
                          http://www.springframework.org/schema/security/spring-security.xsd">
 
 	<http auto-config="true">
-		<intercept-url pattern="*/admin/**" access="ROLE_ADMINISTRADOR" />
-		<intercept-url pattern="*/restrito/**" access="ROLE_USUARIO" />
+		<intercept-url pattern="/admin/**" access="ROLE_ADMINISTRADOR" />
+		<intercept-url pattern="/restrito/**" access="ROLE_USUARIO" />
 		
 		<form-login
 			login-page="/publico/login.xhtml"

@@ -12,7 +12,9 @@
 <h:body>
 	<h1>Gerenciador Financeiro Pessoal</h1>
 		
-		Usuário logado - #{resquest.remoteUser}
+	Usuário logado - #{resquest.remoteUser}
+	
+	<br />
 		
 	<h:form>
 		<sec:ifAnyGranted roles="ROLE_ADMINISTRADOR">
@@ -20,8 +22,8 @@
 				<h:graphicImage library="images" name="administrativo16.png" />
 			</h:commandLink>
 		</sec:ifAnyGranted>
-		
-		<a 
+
+		<a
 			onclick="document.location='#{request.contextPath}/j_spring_security_logout'" title="Sair"> 
 			<h:graphicImage library="images" name="logout16.png" />
 		</a>
