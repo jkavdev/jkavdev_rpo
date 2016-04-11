@@ -4,7 +4,7 @@ import java.util.List;
 import br.com.javaparaweb.financeiro.util.DAOFactory;
 
 public class UsuarioRN {
-	private UsuarioDAO usuarioDAO;
+	private UsuarioDao usuarioDAO;
 
 	public UsuarioRN() {
 		this.usuarioDAO = DAOFactory.criarUsuarioDAO();

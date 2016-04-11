@@ -4,7 +4,7 @@ import br.com.javaparaweb.financeiro.usuario.*;
 
 public class DAOFactory {
 
-	public static UsuarioDAO criarUsuarioDAO() {
+	public static UsuarioDao criarUsuarioDAO() {
 		// cria implementacao do dao
 		UsuarioDaoHibernate usuarioDaoHibernate = new UsuarioDaoHibernate();
 		// seta a sessao atual do hibernate
