@@ -12,10 +12,10 @@
 		<intercept-url pattern="*/restrito/**" access="ROLE_USUARIO" />
 		
 		<form-login
-			login-page="/publico/login.jsf"
+			login-page="/publico/login.xhtml"
 			always-use-default-target="true"
-			default-target-url="/restrito/principal.jsf"
-			authentication-failure-url="/publico/login.jsf?login_error=1"/>
+			default-target-url="/restrito/principal.xhtml"
+			authentication-failure-url="/publico/login.xhtml?login_error=1"/>
 		
 		<logout />
 		<remember-me />
