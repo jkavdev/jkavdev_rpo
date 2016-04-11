@@ -7,7 +7,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import br.com.javaparaweb.financeiro.util.HibernateUtil;
 
-@WebFilter(urlPatterns = { "*.jsf" })
+@WebFilter(urlPatterns = { "*.xhtml" })
 public class ConexaoHibernateFilter implements Filter {
 	private SessionFactory sf;
 
@@ -15,8 +15,7 @@ public class ConexaoHibernateFilter implements Filter {
 		this.sf = HibernateUtil.getSessionFactory();
 	}
 
-	public void doFilter(ServletRequest servletRequest,
-			ServletResponse servletResponse, FilterChain chain)
+	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain)
 			throws ServletException {
 
 		Session currentSession = this.sf.getCurrentSession();

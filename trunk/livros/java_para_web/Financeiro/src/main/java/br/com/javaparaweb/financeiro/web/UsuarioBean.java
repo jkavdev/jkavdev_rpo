@@ -52,10 +52,11 @@ public class UsuarioBean {
 	}
 
 	public String ativar() {
-		if (this.usuario.isAtivo())
+		if (this.usuario.isAtivo()) {
 			this.usuario.setAtivo(false);
-		else
+		} else {
 			this.usuario.setAtivo(true);
+		}
 
 		UsuarioRN usuarioRN = new UsuarioRN();
 		usuarioRN.salvar(this.usuario);
@@ -69,7 +70,7 @@ public class UsuarioBean {
 		}
 		return this.lista;
 	}
-	
+
 	public String atribuiPermissao(Usuario usuario, String permissao) {
 		this.usuario = usuario;
 		java.util.Set<String> permissoes = this.usuario.getPermissao();
@@ -80,7 +81,6 @@ public class UsuarioBean {
 		}
 		return null;
 	}
-
 
 	public Usuario getUsuario() {
 		return usuario;
