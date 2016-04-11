@@ -45,6 +45,7 @@
 				<h:commandLink action="#{usuarioBean.editar}">
 					<h:graphicImage library="imagens" name="editar16.png"
 						style="border:0" />
+					<!-- informa que o destino ao alterar sera a pagina principal -->
 					<f:setPropertyActionListener target="#{usuarioBean.usuario}"
 						value="#{usuario}" />
 					<f:setPropertyActionListener target="#{usuarioBean.destinoSalvar}"

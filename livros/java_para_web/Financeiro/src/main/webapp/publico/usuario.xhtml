@@ -8,8 +8,10 @@
 </h:head>
 <h:body>
 	<h1>Cadastro de Usuários</h1>
-	<h:form id="cadastro">
+	<h:form id="frm_cadastro">
 		<h:messages />
+
+		<!-- dados quando o registro for editado -->
 		<h:inputHidden value="#{usuarioBean.usuario.codigo}" />
 		<h:inputHidden value="#{usuarioBean.usuario.ativo}" />
 		<h:inputHidden value="#{usuarioBean.destinoSalvar}" />

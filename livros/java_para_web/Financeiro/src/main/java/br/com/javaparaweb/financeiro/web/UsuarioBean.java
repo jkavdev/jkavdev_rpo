@@ -16,6 +16,8 @@ public class UsuarioBean {
 	private String destinoSalvar;
 
 	public String novo() {
+		// quando for um novo usuario, destinoSalvar vai para usuario cadastrado
+		// com sucesso
 		this.destinoSalvar = "usuariosucesso";
 		this.usuario = new Usuario();
 		this.usuario.setAtivo(true);
@@ -23,6 +25,8 @@ public class UsuarioBean {
 	}
 
 	public String editar() {
+		// pega a senha do usuario que esta vindo do formulario e seta em
+		// confirmarSenha
 		this.confirmarSenha = this.usuario.getSenha();
 		return "/publico/usuario";
 	}
@@ -47,11 +51,14 @@ public class UsuarioBean {
 	public String excluir() {
 		UsuarioRN usuarioRN = new UsuarioRN();
 		usuarioRN.excluir(this.usuario);
+		// forca o carregamento da lista
 		this.lista = null;
+		// refresh para mesma pagina
 		return null;
 	}
 
 	public String ativar() {
+		// ativa usuario
 		if (this.usuario.isAtivo()) {
 			this.usuario.setAtivo(false);
 		} else {
@@ -60,10 +67,12 @@ public class UsuarioBean {
 
 		UsuarioRN usuarioRN = new UsuarioRN();
 		usuarioRN.salvar(this.usuario);
+		// refresh para mesma pagina
 		return null;
 	}
 
 	public List<Usuario> getLista() {
+		// verifica se a lista ja existe
 		if (this.lista == null) {
 			UsuarioRN usuarioRN = new UsuarioRN();
 			this.lista = usuarioRN.listar();

@@ -6,28 +6,25 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.SessionFactory;
 
 public class HibernateUtil {
-	private static final SessionFactory sessionFactory = buildSessionFactory();
+	private static final SessionFactory FACTORY = buildSessionFactory();
 
 	private static SessionFactory buildSessionFactory() {
 		try {
-			Configuration cfg = new Configuration();
-			cfg.configure("hibernate.cfg.xml");
-			
+			Configuration configuration = new Configuration();
+			configuration.configure("META-INF/hibernate.cfg.xml");
+
 			StandardServiceRegistryBuilder registradorServico = new StandardServiceRegistryBuilder();
-			registradorServico.applySettings(cfg.getProperties());
+			registradorServico.applySettings(configuration.getProperties());
 			StandardServiceRegistry servico = registradorServico.build();
 
-			return cfg.buildSessionFactory(servico);
-
+			return configuration.buildSessionFactory(servico);
 		} catch (Throwable e) {
-			System.out
-					.println("Criação inicial do objeto SessionFactory falhou. Erro: "
-							+ e);
+			System.out.println("Erro SessionFactory: " + e);
 			throw new ExceptionInInitializerError(e);
 		}
 	}
 
 	public static SessionFactory getSessionFactory() {
-		return sessionFactory;
+		return FACTORY;
 	}
 }

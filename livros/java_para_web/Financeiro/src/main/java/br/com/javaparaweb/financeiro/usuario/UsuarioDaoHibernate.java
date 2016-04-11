@@ -5,7 +5,7 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-public class UsuarioDAOHibernate implements UsuarioDAO {
+public class UsuarioDaoHibernate implements UsuarioDAO {
 	private Session session;
 
 	public void setSession(Session session) {
