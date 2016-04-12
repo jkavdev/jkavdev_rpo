@@ -1,25 +1,25 @@
 package br.com.jkavdev.financeiro.util;
 
-public class RNException extends Exception {
+public class ServiceException extends Exception {
 	
 	private static final long serialVersionUID = 1L;
 
-	public RNException() {
+	public ServiceException() {
 	}
 
-	public RNException(String message) {
+	public ServiceException(String message) {
 		super(message);
 	}
 
-	public RNException(Throwable cause) {
+	public ServiceException(Throwable cause) {
 		super(cause);
 	}
 
-	public RNException(String message, Throwable cause) {
+	public ServiceException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
-	public RNException(String message, Throwable cause,
+	public ServiceException(String message, Throwable cause,
 			boolean enableSuppression, boolean writableStackTrace) {
 		super(message, cause, enableSuppression, writableStackTrace);
 	}

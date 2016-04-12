@@ -1,25 +1,25 @@
 package br.com.jkavdev.financeiro.util;
 
-public class DAOException extends Exception {
+public class DaoException extends Exception {
 
 	private static final long serialVersionUID = 1L;
 
-	public DAOException() {
+	public DaoException() {
 	}
 
-	public DAOException(String message) {
+	public DaoException(String message) {
 		super(message);
 	}
 
-	public DAOException(Throwable cause) {
+	public DaoException(Throwable cause) {
 		super(cause);
 	}
 
-	public DAOException(String message, Throwable cause) {
+	public DaoException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
-	public DAOException(String message, Throwable cause,
+	public DaoException(String message, Throwable cause,
 			boolean enableSuppression, boolean writableStackTrace) {
 		super(message, cause, enableSuppression, writableStackTrace);
 	}

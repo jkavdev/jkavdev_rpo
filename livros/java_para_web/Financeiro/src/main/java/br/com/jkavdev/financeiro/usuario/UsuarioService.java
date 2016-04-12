@@ -2,13 +2,14 @@ package br.com.jkavdev.financeiro.usuario;
 
 import java.util.List;
 
-import br.com.jkavdev.financeiro.util.DAOFactory;
+import br.com.jkavdev.financeiro.util.DaoFactory;
 
 public class UsuarioService {
+	
 	private UsuarioDao usuarioDAO;
 
 	public UsuarioService() {
-		this.usuarioDAO = DAOFactory.criarUsuarioDAO();
+		this.usuarioDAO = DaoFactory.criarUsuarioDAO();
 	}
 
 	public Usuario carregar(Integer codigo) {
