@@ -25,6 +25,7 @@
 		<property name="c3p0.idle_test_period">3000</property>
 				
 		<mapping class="br.com.jkavdev.financeiro.usuario.Usuario"/>
+		<mapping class="br.com.jkavdev.financeiro.conta.Conta"/>
 
 	</session-factory>
 </hibernate-configuration>
