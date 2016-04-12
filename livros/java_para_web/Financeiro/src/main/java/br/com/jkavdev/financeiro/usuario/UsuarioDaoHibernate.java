@@ -20,10 +20,10 @@ public class UsuarioDaoHibernate implements UsuarioDao {
 
 	@Override
 	public void atualizar(Usuario usuario) {
-		if (usuario.getPermissao() == null || usuario.getPermissao().size() == 0) {
-			Usuario usuarioPermissao = this.carregar(usuario.getCodigo());
-			usuario.setPermissao(usuarioPermissao.getPermissao());
-			this.session.evict(usuarioPermissao);
+		if (usuario.getPermissao() == null || usuario.getPermissao().size() == 0) {	//caso a lista de permissao do usuario esteja vazia
+			Usuario usuarioPermissao = this.carregar(usuario.getCodigo());			//caregara do banco
+			usuario.setPermissao(usuarioPermissao.getPermissao());					//setara no objeto a ser salvo
+			this.session.evict(usuarioPermissao);									//tirao o usuarioPermissao do contexto de persistencia
 		}
 		this.session.update(usuario);
 	}

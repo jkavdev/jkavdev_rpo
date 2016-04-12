@@ -109,13 +109,14 @@ public class Usuario implements Serializable {
 		this.ativo = ativo;
 	}
 
+	//informamos qual a classe a ser carregada no set, no caso String
 	@ElementCollection(targetClass = String.class)
 	@JoinTable(
-			name = "usuario_permissao", 
-			uniqueConstraints = {@UniqueConstraint(columnNames = { "usuario", "permissao" }) }, 
-			joinColumns = @JoinColumn(name = "usuario"))
-	@Column(name = "permissao", length = 50)
-	public Set<String> getPermissao() {
+			name = "usuario_permissao", 														//informa qual sera o nome da tabela do relacionamento 
+			uniqueConstraints = {@UniqueConstraint(columnNames = { "usuario", "permissao" }) }, //criara um indice unico entre os atributos usuario e permissao  
+			joinColumns = @JoinColumn(name = "usuario")) 										//informa qual a coluna de ligacao entre as tabelas
+	@Column(name = "permissao", length = 50) 													//informa o nome da coluna permissao
+	public Set<String> getPermissao() { 														//armazenaremos num set, pois nao sera admitido usuario com permissao repetidos
 		return permissao;
 	}
 
