@@ -65,6 +65,7 @@ public class Conta implements Serializable {
 		this.dataCadastro = dataCadastro;
 	}
 
+	@Column(name="saldo_inicial")
 	public float getSaldoInicial() {
 		return saldoInicial;
 	}

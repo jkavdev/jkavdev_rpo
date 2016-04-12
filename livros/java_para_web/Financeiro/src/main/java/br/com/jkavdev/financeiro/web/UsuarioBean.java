@@ -8,6 +8,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
+import br.com.jkavdev.financeiro.conta.Conta;
+import br.com.jkavdev.financeiro.conta.ContaService;
 import br.com.jkavdev.financeiro.usuario.Usuario;
 import br.com.jkavdev.financeiro.usuario.UsuarioService;
 
@@ -19,6 +21,7 @@ public class UsuarioBean {
 	private String confirmarSenha;
 	private List<Usuario> lista;
 	private String destinoSalvar;
+	private Conta conta = new Conta();
 
 	public String novo() {
 		// quando for um novo usuario, destinoSalvar vai para usuario cadastrado
@@ -48,6 +51,13 @@ public class UsuarioBean {
 
 		UsuarioService usuarioService = new UsuarioService();
 		usuarioService.salvar(this.usuario);
+		
+		if(this.conta.getDescricao() != null){					//salva apenas se existir preencher conta
+			this.conta.setUsuario(this.usuario);				//atribui a conta ao usuario
+			this.conta.setFavorita(true);						//atribui a conta como favorita
+			ContaService contaService = new ContaService();
+			contaService.salvar(this.conta);					//salva conta
+		}
 
 		return this.destinoSalvar;
 	}
@@ -117,6 +127,14 @@ public class UsuarioBean {
 
 	public void setDestinoSalvar(String destinoSalvar) {
 		this.destinoSalvar = destinoSalvar;
+	}
+	
+	public Conta getConta() {
+		return conta;
+	}
+	
+	public void setConta(Conta conta) {
+		this.conta = conta;
 	}
 
 }
