@@ -1,4 +1,4 @@
-package br.com.javaparaweb.financeiro.usuario;
+package br.com.jkavdev.financeiro.usuario;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -26,7 +26,7 @@ public class Usuario implements Serializable {
 	private String email;
 	private String login;
 	private String senha;
-	private Date nascimento;
+	private Date dataNascimento;
 	private String celular;
 	private Set<String> permissao = new HashSet<String>();
 	private String idioma;
@@ -76,12 +76,13 @@ public class Usuario implements Serializable {
 		this.senha = senha;
 	}
 
-	public Date getNascimento() {
-		return nascimento;
+	@Column(name = "data_nascimento")
+	public Date getDataNascimento() {
+		return dataNascimento;
 	}
 
-	public void setNascimento(Date nascimento) {
-		this.nascimento = nascimento;
+	public void setDataNascimento(Date dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
 
 	public String getCelular() {
@@ -111,7 +112,7 @@ public class Usuario implements Serializable {
 	@ElementCollection(targetClass = String.class)
 	@JoinTable(
 			name = "usuario_permissao", 
-			uniqueConstraints = { @UniqueConstraint(columnNames = { "usuario", "permissao" }) }, 
+			uniqueConstraints = {@UniqueConstraint(columnNames = { "usuario", "permissao" }) }, 
 			joinColumns = @JoinColumn(name = "usuario"))
 	@Column(name = "permissao", length = 50)
 	public Set<String> getPermissao() {

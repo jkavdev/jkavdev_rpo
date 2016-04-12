@@ -1,4 +1,4 @@
-package br.com.javaparaweb.financeiro.web.filter;
+package br.com.jkavdev.financeiro.web.filter;
 
 import java.io.IOException;
 
@@ -14,7 +14,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-import br.com.javaparaweb.financeiro.util.HibernateUtil;
+import br.com.jkavdev.financeiro.util.HibernateUtil;
 
 //indicando qual tipo de requisicao este filter ira interceptar
 @WebFilter("*.xhtml")

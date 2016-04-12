@@ -1,4 +1,4 @@
-package br.com.javaparaweb.financeiro.util;
+package br.com.jkavdev.financeiro.util;
 
 public class RNException extends Exception {
 	
