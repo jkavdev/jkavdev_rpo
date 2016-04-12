@@ -1,4 +1,4 @@
-package br.com.javaparaweb.financeiro.usuario;
+package br.com.jkavdev.financeiro.usuario;
 
 import java.util.List;
 

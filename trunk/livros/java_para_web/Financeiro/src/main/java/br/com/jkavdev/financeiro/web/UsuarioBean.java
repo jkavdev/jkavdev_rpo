@@ -1,15 +1,20 @@
-package br.com.javaparaweb.financeiro.web;
+package br.com.jkavdev.financeiro.web;
 
-import javax.faces.bean.*;
-import br.com.javaparaweb.financeiro.usuario.Usuario;
-import javax.faces.context.FacesContext;
-import javax.faces.application.FacesMessage;
-import br.com.javaparaweb.financeiro.usuario.UsuarioRN;
 import java.util.List;
+import java.util.Set;
+
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
+
+import br.com.jkavdev.financeiro.usuario.Usuario;
+import br.com.jkavdev.financeiro.usuario.UsuarioService;
 
 @ManagedBean(name = "usuarioBean")
 @RequestScoped
 public class UsuarioBean {
+
 	private Usuario usuario = new Usuario();
 	private String confirmarSenha;
 	private List<Usuario> lista;
@@ -36,21 +41,20 @@ public class UsuarioBean {
 
 		String senha = this.usuario.getSenha();
 		if (!senha.equals(this.confirmarSenha)) {
-			FacesMessage facesMessage = new FacesMessage(
-					"A senha n„o foi confirmada corretamente");
+			FacesMessage facesMessage = new FacesMessage("A senha n√£o foi confirmada corretamente");
 			context.addMessage(null, facesMessage);
 			return null;
 		}
 
-		UsuarioRN usuarioRN = new UsuarioRN();
-		usuarioRN.salvar(this.usuario);
+		UsuarioService usuarioService = new UsuarioService();
+		usuarioService.salvar(this.usuario);
 
 		return this.destinoSalvar;
 	}
 
 	public String excluir() {
-		UsuarioRN usuarioRN = new UsuarioRN();
-		usuarioRN.excluir(this.usuario);
+		UsuarioService usuarioService = new UsuarioService();
+		usuarioService.excluir(this.usuario);
 		// forca o carregamento da lista
 		this.lista = null;
 		// refresh para mesma pagina
@@ -65,8 +69,8 @@ public class UsuarioBean {
 			this.usuario.setAtivo(true);
 		}
 
-		UsuarioRN usuarioRN = new UsuarioRN();
-		usuarioRN.salvar(this.usuario);
+		UsuarioService usuarioService = new UsuarioService();
+		usuarioService.salvar(this.usuario);
 		// refresh para mesma pagina
 		return null;
 	}
@@ -74,15 +78,15 @@ public class UsuarioBean {
 	public List<Usuario> getLista() {
 		// verifica se a lista ja existe
 		if (this.lista == null) {
-			UsuarioRN usuarioRN = new UsuarioRN();
-			this.lista = usuarioRN.listar();
+			UsuarioService usuarioService = new UsuarioService();
+			this.lista = usuarioService.listar();
 		}
 		return this.lista;
 	}
 
 	public String atribuiPermissao(Usuario usuario, String permissao) {
 		this.usuario = usuario;
-		java.util.Set<String> permissoes = this.usuario.getPermissao();
+		Set<String> permissoes = this.usuario.getPermissao();
 		if (permissoes.contains(permissao)) {
 			permissoes.remove(permissao);
 		} else {

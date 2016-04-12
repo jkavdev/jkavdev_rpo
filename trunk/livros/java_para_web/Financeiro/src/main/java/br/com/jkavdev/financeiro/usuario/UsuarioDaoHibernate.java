@@ -1,4 +1,4 @@
-package br.com.javaparaweb.financeiro.usuario;
+package br.com.jkavdev.financeiro.usuario;
 
 import java.util.List;
 
@@ -20,8 +20,7 @@ public class UsuarioDaoHibernate implements UsuarioDao {
 
 	@Override
 	public void atualizar(Usuario usuario) {
-		if (usuario.getPermissao() == null
-				|| usuario.getPermissao().size() == 0) {
+		if (usuario.getPermissao() == null || usuario.getPermissao().size() == 0) {
 			Usuario usuarioPermissao = this.carregar(usuario.getCodigo());
 			usuario.setPermissao(usuarioPermissao.getPermissao());
 			this.session.evict(usuarioPermissao);

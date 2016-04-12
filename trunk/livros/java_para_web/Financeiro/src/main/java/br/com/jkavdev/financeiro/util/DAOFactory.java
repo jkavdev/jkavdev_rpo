@@ -1,6 +1,7 @@
-package br.com.javaparaweb.financeiro.util;
+package br.com.jkavdev.financeiro.util;
 
-import br.com.javaparaweb.financeiro.usuario.*;
+import br.com.jkavdev.financeiro.usuario.UsuarioDao;
+import br.com.jkavdev.financeiro.usuario.UsuarioDaoHibernate;
 
 public class DAOFactory {
 

@@ -1,4 +1,4 @@
-package br.com.javaparaweb.financeiro.util;
+package br.com.jkavdev.financeiro.util;
 
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -11,7 +11,7 @@ public class HibernateUtil {
 	private static SessionFactory buildSessionFactory() {
 		try {
 			Configuration configuration = new Configuration();
-			configuration.configure("META-INF/hibernate.cfg.xml");
+			configuration.configure("hibernate.cfg.xml");
 
 			StandardServiceRegistryBuilder registradorServico = new StandardServiceRegistryBuilder();
 			registradorServico.applySettings(configuration.getProperties());
