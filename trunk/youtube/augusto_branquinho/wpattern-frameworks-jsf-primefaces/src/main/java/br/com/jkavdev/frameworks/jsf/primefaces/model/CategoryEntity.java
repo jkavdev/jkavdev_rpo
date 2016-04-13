@@ -1,7 +1,16 @@
 package br.com.jkavdev.frameworks.jsf.primefaces.model;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import br.com.jkavdev.frameworks.jsf.primefaces.model.utils.BaseEntities;
 
+@Entity
+@Table(name = "categories")
+//overrind o atributo id, para categeoryID
+@AttributeOverride(name = "id", column = @Column(name = "categoryID"))
 public class CategoryEntity extends BaseEntities<Long> {
 
 	private static final long serialVersionUID = 1L;
