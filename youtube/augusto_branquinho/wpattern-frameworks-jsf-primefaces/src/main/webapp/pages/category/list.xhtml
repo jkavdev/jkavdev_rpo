@@ -13,10 +13,11 @@
 
 		<p:panel id="categoryPanel" header="#{labels.category}">
 			<h:form id="categoryForm">
-				<p:commandButton widgetVar="addButton" value="#{labels.button_add}" action="/pages/category/addEdit.faces" ajax="false" />					
+				<p:commandButton widgetVar="addButton" value="#{labels.button_add}" action="/pages/category/addEdit.faces" ajax="false" 
+					actionListener="categoryAddEditBean.add"/>					
 				<p:commandButton widgetVar="deleteButton" value="#{labels.button_delete}" update="categoryDataTable" />					
 				<p:commandButton widgetVar="updateButton" value="#{labels.button_update}"
-					action="/pages/category/AddEdit.faces" actionListener="#{categoryAddEditMB.update}" />
+					action="/pages/category/AddEdit.faces" actionListener="categoryAddEditBean.update"/>
 
 				<p:dataTable id="categoryDataTable" widgetVar="dataTable"
 					var="category" loadginMessage="#{labels.category_load}"
