@@ -33,6 +33,11 @@ public class CategoryBean extends BaseBeans {
 		categories.add(new CategoryEntity(10L, "Category 10", "Category 10", null));
 		categories.add(new CategoryEntity(11L, "Category 11", "Category 11", null));
 		categories.add(new CategoryEntity(12L, "Category 12", "Category 12", null));
+		categories.add(new CategoryEntity(13L, "Category 8", "Category 8", null));
+		categories.add(new CategoryEntity(14L, "Category 9", "Category 9", null));
+		categories.add(new CategoryEntity(15L, "Category 10", "Category 10", null));
+		categories.add(new CategoryEntity(16L, "Category 11", "Category 11", null));
+		categories.add(new CategoryEntity(17L, "Category 12", "Category 12", null));
 	}
 
 	public List<CategoryEntity> getCategories() {
