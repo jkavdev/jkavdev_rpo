@@ -10,15 +10,16 @@
 
 	<!-- fazendo com que o jsf reconheca o arquivo properties -->
 	<application>
-		<!-- base-name - recebe o local do arquivo separado por ',' -->
+		<!-- base-name - recebe o local do arquivo separado por '.' -->
 		<!-- var - como podera ser acessado pelo jsf -->
 		<resource-bundle>
 			<base-name>resources.labels</base-name>
 			<var>labels</var>
 		</resource-bundle>
+		<!-- idiomas suportados -->
 		<locale-config>
-			<default-locale>pt</default-locale>
-			<supported-locale>en</supported-locale>
+			<default-locale>en</default-locale>
+			<supported-locale>pt</supported-locale>
 		</locale-config>
 	</application>
 
