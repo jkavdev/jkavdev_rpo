@@ -10,6 +10,6 @@
    		http://www.springframework.org/schema/data/jpa/spring-jpa-1.3.xsd">
 
 	<!-- base para todas a nomenclaturas de packages -->
-	<context:component-scan base-package="org.wpattern.frameworks.jsf.primefaces" />
+	<context:component-scan base-package="br.com.jkavdev.frameworks.jsf.primefaces" />
 
 </beans>
