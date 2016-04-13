@@ -48,4 +48,8 @@ public class CategoryBean extends BaseBeans {
 		this.categories = categories;
 	}
 
+	public void unselecteCategory() {
+		
+	}
+
 }

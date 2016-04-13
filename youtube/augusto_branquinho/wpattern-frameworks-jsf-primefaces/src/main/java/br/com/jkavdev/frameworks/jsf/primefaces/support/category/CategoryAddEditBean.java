@@ -22,10 +22,17 @@ public class CategoryAddEditBean extends BaseBeans {
 	// contexto do primefaces
 	@Inject
 	private FacesContext context;
+	@Inject
+	private CategoryBean categoryBean;
 	private CategoryEntity category;
 	private String title;
 
+	public CategoryAddEditBean() {
+		this.category = new CategoryEntity();
+	}
+
 	public void add() {
+		this.title = this.getResourceProperty("labels", "category_add");
 		this.title = this.getResourceProperty("labels", "category_add");
 	}
 
@@ -33,10 +40,29 @@ public class CategoryAddEditBean extends BaseBeans {
 		this.title = this.getResourceProperty("labels", "category_update");
 	}
 
+	public void save() {
+		if (this.category != null) {
+			if (this.category.getId() == null) {
+				category.setId(this.categoryBean.getCategories().size() + 1L);
+				this.categoryBean.getCategories().add(category);
+			} else {
+				for (int i = 0; i < categoryBean.getCategories().size(); i++) {
+					if (this.categoryBean.getCategories().get(i).getId() == this.category.getId()) {
+						this.categoryBean.getCategories().set(i, category);
+					}
+				}
+			}
+		}
+	}
+
+	public void cancel() {
+		this.categoryBean.unselecteCategory();
+	}
+
 	private String getResourceProperty(String resource, String label) {
 		Application application = this.context.getApplication();
 		ResourceBundle bundle = application.getResourceBundle(this.context, resource);
-		
+
 		return bundle.getString(label);
 	}
 
