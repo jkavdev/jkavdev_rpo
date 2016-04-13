@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS jsf_primefaces;
+DROP DATABASE IF EXISTS db_branquinho_jsf_primefaces;
 
-CREATE DATABASE IF NOT EXISTS jsf_primefaces;
+CREATE DATABASE IF NOT EXISTS db_branquinho_jsf_primefaces;
 
 USE jsf_primefaces;
 
