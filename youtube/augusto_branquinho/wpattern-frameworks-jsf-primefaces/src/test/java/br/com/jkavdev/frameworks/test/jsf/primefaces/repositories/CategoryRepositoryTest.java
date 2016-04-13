@@ -21,11 +21,8 @@ public class CategoryRepositoryTest extends AbstractDatabaseTest {
 
 	@Test
 	public void testCategoryRepository() {
-
 		List<CategoryEntity> categories = categoryRepository.findAll();
-
 		LOG.info(categories);
-
 	}
 
 }
