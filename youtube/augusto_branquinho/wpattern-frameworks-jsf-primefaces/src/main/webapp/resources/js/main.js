@@ -12,6 +12,6 @@ function enableButtons() {
 
 /*desabilitando botoes*/
 function unselectRows() {
-	disableButton();
+	disableButtons();
 	dataTable.unselectAllRows();
 }
