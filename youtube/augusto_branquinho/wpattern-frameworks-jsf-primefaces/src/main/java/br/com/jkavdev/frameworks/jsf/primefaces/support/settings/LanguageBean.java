@@ -6,6 +6,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.inject.Named;
@@ -24,12 +25,12 @@ public class LanguageBean implements Serializable {
 
 	// informa o idioma da pagina
 	private String localeCode;
-	//idiomas padroes do sistema
+	// idiomas padroes do sistema
 	private static Map<String, Locale> countries;
-	
-	static{
-		//instanciando e carregando idiomas
-		countries = new LinkedHashMap<>();
+
+	static {
+		// instanciando e carregando idiomas
+		countries = new LinkedHashMap<String, Locale>();
 		countries.put("English", new Locale("en"));
 		countries.put("Português", new Locale("pt"));
 	}
@@ -37,15 +38,16 @@ public class LanguageBean implements Serializable {
 	public LanguageBean() {
 	}
 
+	public static Map<String, Locale> countries() {
+		return countries;
+	}
+
 	public String getLocaleCode() {
-
-		if (	//se o locale for nulo, ainda nao verificamos o idioma atual
-				(this.localeCode == null) 
-				&& (FacesContext.getCurrentInstance().getViewRoot() != null)
-				&& (FacesContext.getCurrentInstance().getViewRoot().getLocale() != null)) {
-
-			//atribui as configuracoes de idioma do usuario para o localecode
-			this.localeCode = FacesContext.getCurrentInstance().getViewRoot().getLocale().getLanguage();
+		// se o locale for nulo, ainda nao verificamos o idioma atual
+		UIViewRoot viewRoot = FacesContext.getCurrentInstance().getViewRoot();
+		if ((this.localeCode == null) && (viewRoot != null) && (viewRoot.getLocale() != null)) {
+			// atribui as configuracoes de idioma do usuario para o localecode
+			this.localeCode = viewRoot.getLocale().getLanguage();
 		}
 
 		return this.localeCode;
@@ -54,20 +56,16 @@ public class LanguageBean implements Serializable {
 	public void setLocaleCode(String localeCode) {
 		this.localeCode = localeCode;
 	}
-	
-	public void localeCodeChanged(AjaxBehaviorEvent event){
-		//recebe as informacoes do idioma selecionado no combobox
-		String newLocaleValue = ((SelectOneMenu) event.getSource()).getValue() + "";
-		
-		for(Entry<String, Locale> entry : countries.entrySet()){
-			if(entry.getValue().toString().equals(newLocaleValue)){
+
+	public void localeCodeChanged(AjaxBehaviorEvent e) {
+		// recebe as informacoes do idioma selecionado no combobox
+		String newLocaleValue = ((SelectOneMenu) e.getSource()).getValue() + "";
+
+		for (Entry<String, Locale> entry : countries.entrySet()) {
+			if (entry.getValue().toString().equals(newLocaleValue)) {
 				FacesContext.getCurrentInstance().getViewRoot().setLocale((Locale) entry.getValue());
 			}
 		}
-	}
-	
-	public static Map<String, Locale> countries() {
-		return countries;
 	}
 
 }

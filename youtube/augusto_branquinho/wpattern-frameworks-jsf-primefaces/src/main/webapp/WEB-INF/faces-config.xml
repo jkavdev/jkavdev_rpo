@@ -18,8 +18,8 @@
 		</resource-bundle>
 		<!-- idiomas suportados -->
 		<locale-config>
-			<default-locale>en</default-locale>
-			<supported-locale>pt</supported-locale>
+			<default-locale>pt</default-locale>
+			<supported-locale>en</supported-locale>
 		</locale-config>
 	</application>
 
