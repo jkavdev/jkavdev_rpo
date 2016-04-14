@@ -18,7 +18,9 @@
 
 <!-- acessando atributo que contem o idioma da pagina -->
 <f:view locale="languageBean.localeCode">
-	<h:body>
+
+	<!-- disabilitando botoes -->
+	<h:body onload="disableButtons();">
 		<p:layout fullPage="true">
 			<!-- cabecalho -->
 			<!-- layoutUnit - indicamos qual sera a posicao do componente -->

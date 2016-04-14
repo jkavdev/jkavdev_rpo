@@ -1,14 +1,17 @@
 package br.com.jkavdev.frameworks.jsf.primefaces.support.category;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.apache.log4j.Logger;
+import org.primefaces.event.SelectEvent;
 import org.springframework.context.annotation.Scope;
 import org.springframework.web.context.WebApplicationContext;
 
 import br.com.jkavdev.frameworks.jsf.primefaces.model.CategoryEntity;
+import br.com.jkavdev.frameworks.jsf.primefaces.model.repositories.ICategoryRepository;
 import br.com.jkavdev.frameworks.jsf.primefaces.model.utils.BaseBeans;
 
 @Scope(value = WebApplicationContext.SCOPE_SESSION)
@@ -16,28 +19,47 @@ import br.com.jkavdev.frameworks.jsf.primefaces.model.utils.BaseBeans;
 public class CategoryBean extends BaseBeans {
 
 	private static final long serialVersionUID = 1L;
+	private Logger logger = Logger.getLogger(getClass());
 
 	private List<CategoryEntity> categories;
+	@Inject
+	private ICategoryRepository categoryRepository;
+	private CategoryEntity categorySelected;
+	private Long id;
+
+	public CategoryBean() {
+	}
 
 	public void onLoad() {
-		categories = new ArrayList<>();
-		categories.add(new CategoryEntity(1L, "Category 1", "Category 1", null));
-		categories.add(new CategoryEntity(2L, "Category 2", "Category 2", null));
-		categories.add(new CategoryEntity(3L, "Category 3", "Category 3", null));
-		categories.add(new CategoryEntity(4L, "Category 4", "Category 4", null));
-		categories.add(new CategoryEntity(5L, "Category 5", "Category 5", null));
-		categories.add(new CategoryEntity(6L, "Category 6", "Category 6", null));
-		categories.add(new CategoryEntity(7L, "Category 7", "Category 7", null));
-		categories.add(new CategoryEntity(8L, "Category 8", "Category 8", null));
-		categories.add(new CategoryEntity(9L, "Category 9", "Category 9", null));
-		categories.add(new CategoryEntity(10L, "Category 10", "Category 10", null));
-		categories.add(new CategoryEntity(11L, "Category 11", "Category 11", null));
-		categories.add(new CategoryEntity(12L, "Category 12", "Category 12", null));
-		categories.add(new CategoryEntity(13L, "Category 8", "Category 8", null));
-		categories.add(new CategoryEntity(14L, "Category 9", "Category 9", null));
-		categories.add(new CategoryEntity(15L, "Category 10", "Category 10", null));
-		categories.add(new CategoryEntity(16L, "Category 11", "Category 11", null));
-		categories.add(new CategoryEntity(17L, "Category 12", "Category 12", null));
+		categories = categoryRepository.findAll();
+	}
+
+	public void unselecteCategory() {
+
+	}
+
+	public void delete() {
+		if (this.categorySelected != null) {
+			this.categoryRepository.delete(this.categorySelected.getId());
+		}
+	}
+
+	public void selectCategory(SelectEvent event) {
+		try {
+			if (event.getObject() != null) {
+				this.categorySelected = (CategoryEntity) event.getObject();
+			} else {
+				this.unselectCategory();
+			}
+		} catch (Exception e) {
+			this.unselectCategory();
+
+			logger.error(e.getMessage(), e);
+		}
+	}
+
+	public void unselectCategory() {
+		this.categorySelected = null;
 	}
 
 	public List<CategoryEntity> getCategories() {
@@ -48,8 +70,20 @@ public class CategoryBean extends BaseBeans {
 		this.categories = categories;
 	}
 
-	public void unselecteCategory() {
-		
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public CategoryEntity getCategorySelected() {
+		return categorySelected;
+	}
+
+	public void setCategorySelected(CategoryEntity categorySelected) {
+		this.categorySelected = categorySelected;
 	}
 
 }

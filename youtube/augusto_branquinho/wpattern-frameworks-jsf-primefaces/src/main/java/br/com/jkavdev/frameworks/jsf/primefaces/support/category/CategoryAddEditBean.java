@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.web.context.WebApplicationContext;
 
 import br.com.jkavdev.frameworks.jsf.primefaces.model.CategoryEntity;
+import br.com.jkavdev.frameworks.jsf.primefaces.model.repositories.ICategoryRepository;
 import br.com.jkavdev.frameworks.jsf.primefaces.model.utils.BaseBeans;
 
 @Scope(value = WebApplicationContext.SCOPE_REQUEST)
@@ -24,6 +25,8 @@ public class CategoryAddEditBean extends BaseBeans {
 	private FacesContext context;
 	@Inject
 	private CategoryBean categoryBean;
+	@Inject
+	private ICategoryRepository categoryRepository;
 	private CategoryEntity category;
 	private String title;
 
@@ -43,14 +46,12 @@ public class CategoryAddEditBean extends BaseBeans {
 	public void save() {
 		if (this.category != null) {
 			if (this.category.getId() == null) {
-				category.setId(this.categoryBean.getCategories().size() + 1L);
-				this.categoryBean.getCategories().add(category);
+				//add
+				this.categoryRepository.save(this.category);
 			} else {
-				for (int i = 0; i < categoryBean.getCategories().size(); i++) {
-					if (this.categoryBean.getCategories().get(i).getId() == this.category.getId()) {
-						this.categoryBean.getCategories().set(i, category);
-					}
-				}
+				//update
+				//o spring reconhece quando a entidade tem ou nao um id
+				this.categoryRepository.save(this.category);
 			}
 		}
 	}

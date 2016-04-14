@@ -15,7 +15,7 @@
 			<h:form id="categoryForm">
 				<p:commandButton widgetVar="addButton" value="#{labels.button_add}" action="/pages/category/addEdit.faces" ajax="false" 
 					actionListener="categoryAddEditBean.add"/>					
-				<p:commandButton widgetVar="deleteButton" value="#{labels.button_delete}" update="categoryDataTable" />					
+				<p:commandButton widgetVar="deleteButton" value="#{labels.button_delete}" update="categoryDataTable" action="categoryBean.delete" />					
 				<p:commandButton widgetVar="updateButton" value="#{labels.button_update}"
 					action="/pages/category/AddEdit.faces" actionListener="categoryAddEditBean.update"/>
 
@@ -24,6 +24,13 @@
 					value="#{categoryBean.categories}" paginator="true" rows="10"
 					paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
 					rowsPerPageTemplate="5, 10, 20" rowKey="#{category.id}" selectionMode="single">
+					
+					<p:ajax event="rowSelect" listener="#{categoryBean.selectCategory}"
+						oncomplete="enableButtons();" />
+					<p:ajax event="page" listener="#{categoryBean.unselectCategory}"
+						oncomplete="unselectRows();" />
+					<p:ajax event="rowUnselect" listener="#{categoryBean.unselectCategory}"
+						oncomplete="disableButtons();" />
 					
 					<p:column>
 						<f:facet name="header">
