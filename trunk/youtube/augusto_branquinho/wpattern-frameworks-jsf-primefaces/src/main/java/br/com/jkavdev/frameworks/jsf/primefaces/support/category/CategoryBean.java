@@ -34,10 +34,6 @@ public class CategoryBean extends BaseBeans {
 		categories = categoryRepository.findAll();
 	}
 
-	public void unselecteCategory() {
-
-	}
-
 	public void delete() {
 		if (this.categorySelected != null) {
 			this.categoryRepository.delete(this.categorySelected.getId());

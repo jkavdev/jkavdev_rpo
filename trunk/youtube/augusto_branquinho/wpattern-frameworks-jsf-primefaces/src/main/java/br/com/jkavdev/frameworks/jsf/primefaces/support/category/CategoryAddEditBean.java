@@ -36,28 +36,29 @@ public class CategoryAddEditBean extends BaseBeans {
 
 	public void add() {
 		this.title = this.getResourceProperty("labels", "category_add");
-		this.title = this.getResourceProperty("labels", "category_add");
 	}
 
 	public void update() {
 		this.title = this.getResourceProperty("labels", "category_update");
+		this.category = this.categoryBean.getCategorySelected();
 	}
 
 	public void save() {
 		if (this.category != null) {
 			if (this.category.getId() == null) {
-				//add
+				//o spring reconhece quando a entidade tem ou nao um id
+				
+				//add ou
 				this.categoryRepository.save(this.category);
 			} else {
-				//update
-				//o spring reconhece quando a entidade tem ou nao um id
+				//update				
 				this.categoryRepository.save(this.category);
 			}
 		}
 	}
 
 	public void cancel() {
-		this.categoryBean.unselecteCategory();
+		this.categoryBean.unselectCategory();
 	}
 
 	private String getResourceProperty(String resource, String label) {

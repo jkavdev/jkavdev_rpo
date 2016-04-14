@@ -9,11 +9,12 @@
 
 	<ui:define name="content">
 		<h:form>
-			<h:inputHidden value="#{categoryAddEditMB.category.id}" />
+			<!-- informacao para saber se salvaremos ou atualizaremos a categoria -->
+			<h:inputHidden value="#{categoryAddEditBean.category.id}" />
 
 			<p:panelGrid columns="2">
 				<f:facet name="header">
-					<p:outputLabel value="#{categoryAddEditBean.title}" />
+					<p:outputLabel value="#{categoryAddEditBean.title} - Label" />
 				</f:facet>
 
 				<p:outputLabel value="#{labels.category_name}: " />
