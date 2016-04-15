@@ -18,6 +18,8 @@
 					
 					<p:submenu label="#{labels.menu_settings}">
 						<p:menuitem value="#{labels.menu_language}" url="/pages/settings/language.faces" ajax="false" icon="ui-icon-wrench" />
+						<!-- para fazer o logut apenas chamamos o j_spring_security_logout para fazer o logout do sistema -->
+						<p:menuitem value="#{labels.logout}" url="/j_spring_security_logout" ajax="false" icon="ui-icon-wrench" />
 					</p:submenu>
 				</p:panelMenu>
 			</h:form>
