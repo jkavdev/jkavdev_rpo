@@ -20,6 +20,15 @@
 				<p:outputLabel value="#{labels.user_name}: " />
 				<p:inputText value="#{userAddEditBean.user.name}" />
 				
+				<p:outputLabel value="#{labels.user_login}: " />
+				<p:inputText value="#{userAddEditBean.user.username}" />
+				
+				<p:outputLabel value="#{labels.user_password}: " />
+				<p:inputText value="#{userAddEditBean.user.password}" />
+				
+				<p:outputLabel value="#{labels.user_role}: " />
+				<p:inputText value="#{userAddEditBean.user.role}" />
+				
 				<f:facet name="footer">
 					<p:row>
 						<p:outputPanel style="width: 100%; text-align:center" layout="block">
