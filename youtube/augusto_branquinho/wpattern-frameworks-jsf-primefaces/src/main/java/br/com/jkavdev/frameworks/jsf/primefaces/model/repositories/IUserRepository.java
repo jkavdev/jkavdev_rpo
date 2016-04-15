@@ -6,4 +6,6 @@ import br.com.jkavdev.frameworks.jsf.primefaces.model.UserEntity;
 
 public interface IUserRepository extends JpaRepository<UserEntity, Long> {
 
+	public UserEntity findByUsernameAndPassword(String username, String password);
+
 }

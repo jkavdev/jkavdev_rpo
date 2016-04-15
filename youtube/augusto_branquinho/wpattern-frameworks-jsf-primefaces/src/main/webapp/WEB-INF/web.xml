@@ -6,7 +6,7 @@
 
 	<!-- DEFAULT PAGE -->
 	<welcome-file-list>
-		<welcome-file>index.xhtml</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
 
 	<!-- TIMEOUT TO SESSION EXPIRE -->
@@ -20,6 +20,7 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
 			classpath:ctx-wpattern-frameworks-jsf-primefaces.xml
+			classpath:ctx-wpattern-frameworks-jsf-primefaces-spring-security.xml
 		</param-value>
 	</context-param>
 
@@ -55,5 +56,30 @@
 		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>*.faces</url-pattern>
 	</servlet-mapping>
+	
+	<!-- SECURITY CONSTRAINT (BLOCK ACCESS OF CODE FROM XHTML) -->
+	<security-constraint>
+		<display-name>block-access-xhtml</display-name>
+		<web-resource-collection>
+			<web-resource-name>xhtml files</web-resource-name>
+			<url-pattern>*.xhtml</url-pattern>
+		</web-resource-collection>
+		<auth-constraint />
+	</security-constraint>
+	
+	<!-- SPRING SECURITY FILTER -->
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+
+	<!-- intercepta todas as requisicoes, para verificar se quem esta requisitando  -->
+	<!-- tem as devidas permissoes para tal acesso -->
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>FORWARD</dispatcher>
+        <dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
 
 </web-app>
