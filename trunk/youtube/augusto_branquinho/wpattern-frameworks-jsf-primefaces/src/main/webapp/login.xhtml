@@ -16,6 +16,31 @@
 			<p:dialog header="#{labels.login_go}" id="dialog" minWidth="400" width="400" modal="true" closable="false"
 				position="center" showEffect="slide" draggable="true" resizable="false" visible="true">
 				
+				<form name="login" action="j_spring_security_check" method="post">
+					<p:panelGrid columns="2">
+						<p:outputLabel for="j_username" value="#{labels.login_username} *:" />
+						<p:inputText id="j_username" required="true" />
+						
+						<p:outputLabel for="j_password" value="#{labels.login_password} *:" />
+						<p:password id="j_password" required="true" />
+						
+						<f:facet name="footer">
+							<p:row>
+							
+								<!-- tratamento de erro -->
+								<c:if test="${param.erro == 'true'}">
+									<h:outputText value="#{labels.login_invalid}" style="color:red font-size:small" /><br /><br />
+								</c:if>
+																
+								<p:outputPanel style="width:100%; text-align:center" layout="block">
+									<input name="submit" type="submit" value="#{labels.login_action_go}"/>
+								</p:outputPanel>
+							</p:row>
+						</f:facet>
+						
+					</p:panelGrid>
+				</form>
+				
 			</p:dialog>
 		</div>
 	</h:body>
