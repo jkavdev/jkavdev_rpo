@@ -14,7 +14,7 @@ import br.com.jkavdev.frameworks.jsf.primefaces.model.ProductEntity;
 import br.com.jkavdev.frameworks.jsf.primefaces.model.repositories.IProductRepository;
 import br.com.jkavdev.frameworks.jsf.primefaces.model.utils.BaseBeans;
 
-@Scope(value = WebApplicationContext.SCOPE_SESSION)
+@Scope(value = WebApplicationContext.SCOPE_REQUEST)
 @Named(value = "productAddEditBean")
 public class ProductAddEditBean extends BaseBeans {
 
