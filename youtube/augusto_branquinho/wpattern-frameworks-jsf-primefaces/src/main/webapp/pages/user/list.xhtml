@@ -32,6 +32,10 @@
 					rowsPerPageTemplate="5,10,20" rowKey="#{user.id}"
 					selectionMode="single">
 					
+					<p:ajax event="rowSelect" listener="#{userBean.selectUser}" oncomplete="enableButtons();" />
+					<p:ajax event="page" listener="#{UserBean.unselectUser}" oncomplete="unselectRows();" />
+					<p:ajax event="rowUnselect" listener="#{userBean.unselectUser}" oncomplete="disableButtons();" />
+					
 					<p:column>
 						<f:facet name="header">
 							<h:outputText value="#{labels.user_id}" />
