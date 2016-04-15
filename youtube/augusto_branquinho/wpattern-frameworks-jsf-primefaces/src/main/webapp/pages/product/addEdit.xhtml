@@ -14,14 +14,20 @@
 
 			<p:panelGrid columns="2">
 				<f:facet name="header">
-					<p:outputLabel value="#{productAddEditBean.title} - Label" />
+					<p:outputLabel value="#{productAddEditBean.title}" />
 				</f:facet>
 
 				<p:outputLabel value="#{labels.product_name}: " />
 				<p:inputText value="#{productAddEditBean.product.productName}" />
+				
+				<p:outputLabel value="#{labels.category}: " />
+				<p:inputText value="#{productAddEditBean.product.categoryId}" />
 
 				<p:outputLabel value="#{labels.product_quantityPerUnit}: " />
 				<p:inputText value="#{productAddEditBean.product.quantityPerUnit}" />
+				
+				<p:outputLabel value="#{labels.product_unitPrice}: " />
+				<p:inputText value="#{productAddEditBean.product.unitPrice}" />
 				
 				<p:outputLabel value="#{labels.product_unitsInStock}: " />
 				<p:inputText value="#{productAddEditBean.product.unitsInStock}" />
@@ -32,8 +38,8 @@
 				<p:outputLabel value="#{labels.product_reorderLevel}: " />
 				<p:inputText value="#{productAddEditBean.product.reorderLevel}" />
 				
-				<p:outputLabel value="#{labels.product_discontinued}: " />
-				<p:inputText value="#{productAddEditBean.product.discontinued}" />
+				<p:outputLabel value="#{labels.product_discontinued}: " />		
+				<p:selectBooleanCheckbox value="#{productAddEditBean.product.discontinued}"/>
 				
 				<f:facet name="footer">
 					<p:row>
