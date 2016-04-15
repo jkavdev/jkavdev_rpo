@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" 
+	template="../main.xhtml">
+
+	<ui:define name="content">
+		<f:view>
+			<f:event listener="#{productBean.onLoad}" type="preRenderView"></f:event>
+		</f:view>
+
+		<p:panel id="productPanel" header="#{labels.product}">
+			<h:form id="productForm">
+			
+			<p:commandButton widgetVar="addButton" value="#{labels.button_add}"
+					action="/pages/product/addEdit.faces" ajax="false"
+					actionListener="#{productAddEditBean.add}" />
+				<p:commandButton widgetVar="deleteButton"
+					value="#{labels.button_delete}" action="#{productBean.delete}"
+					update="productDataTable" oncomplete="unselectRows();"  />
+				<p:commandButton widgetVar="updateButton"
+					value="#{labels.button_update}" update="productDataTable"
+					action="/pages/product/addEdit.faces"
+					actionListener="#{productAddEditBean.update}" />
+
+				<p:dataTable id="productDataTable" widgetVar="dataTable"
+					var="product" loadingMessage="#{labels.product_load}"
+					value="#{productBean.products}" paginator="true" rows="10"
+					paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					rowsPerPageTemplate="5,10,20" rowKey="#{product.id}"
+					selectionMode="single">
+					
+					<p:ajax event="rowSelect" listener="#{productBean.selectProduct}" oncomplete="enableButtons();" />
+					<p:ajax event="page" listener="#{productBean.unselectProduct}" oncomplete="unselectRows();" />
+					<p:ajax event="rowUnselect" listener="#{productBean.unselectProduct}" oncomplete="disableButtons();" />
+					
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="#{labels.product_id}" />
+						</f:facet>
+						<h:outputText value="#{product.id}" />
+					</p:column>
+					
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="#{labels.product_name}" />
+						</f:facet>
+						<h:outputText value="#{product.productName}" />
+					</p:column>
+					
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="#{labels.product_quantityPerUnit}" />
+						</f:facet>
+						<h:outputText value="#{product.quantityPerUnit}" />
+					</p:column>
+					
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="#{labels.product_unitsInStock}" />
+						</f:facet>
+						<h:outputText value="#{product.unitsInStock}" />
+					</p:column>
+					
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="#{labels.product_unitsOnOrder}" />
+						</f:facet>
+						<h:outputText value="#{product.unitsOnOrder}" />
+					</p:column>
+					
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="#{labels.product_reorderLevel}" />
+						</f:facet>
+						<h:outputText value="#{product.reorderLevel}" />
+					</p:column>
+					
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="#{labels.product_discontinued}" />
+						</f:facet>
+						<h:outputText value="#{product.discontinued}" />
+					</p:column>
+				</p:dataTable>
+			</h:form>
+		</p:panel>
+	</ui:define>
+
+</ui:composition>
