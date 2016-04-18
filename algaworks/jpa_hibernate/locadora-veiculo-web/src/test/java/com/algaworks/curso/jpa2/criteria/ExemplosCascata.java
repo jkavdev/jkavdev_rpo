@@ -1,5 +1,7 @@
 package com.algaworks.curso.jpa2.criteria;
 
+import java.util.ArrayList;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -9,6 +11,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import com.algaworks.curso.jpa2.modelo.Acessorio;
 import com.algaworks.curso.jpa2.modelo.Carro;
 import com.algaworks.curso.jpa2.modelo.Categoria;
 import com.algaworks.curso.jpa2.modelo.ModeloCarro;
@@ -46,6 +49,32 @@ public class ExemplosCascata {
 		modeloCarro.setDescricao("Ferrari S2");
 		
 		carro.setModelo(modeloCarro);
+		
+		this.manager.getTransaction().begin();
+		this.manager.persist(carro);
+		this.manager.getTransaction().commit();
+
+	}
+	
+	@Test
+	public void exemploCadastroCarroEAcessorios() {
+		
+		Carro carro = new Carro();
+		carro.setCor("Vermelho");
+		carro.setPlaca("AAS-2221");
+		
+		ArrayList<Acessorio> acessorios = new ArrayList<>();
+		Acessorio acessorio = new Acessorio();
+		acessorio.setDescricao("Conexao WIFI");
+		
+		acessorios.add(acessorio);
+		
+		acessorio = new Acessorio();
+		acessorio.setDescricao("Rodas Cromadas");
+		
+		acessorios.add(acessorio);
+		
+		carro.setAcessorios(acessorios);
 		
 		this.manager.getTransaction().begin();
 		this.manager.persist(carro);
