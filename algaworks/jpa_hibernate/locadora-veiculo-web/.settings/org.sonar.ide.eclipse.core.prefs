@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+extraProperties=sonar.dynamicAnalysis\=reuseReports\r\nsonar.language\=java\r\nsonar.core.codeCoveragePlugin\=jacoco\r\nsonar.jacoco.itReportPath\=C\:\\Users\\jhonatan.viana\\workspace\\locadora-veiculo-web/target/jacoco-it.exec\r\nsonar.jdbc.username\=sonar\r\nsonar.jacoco.reportPath\=C\:\\Users\\jhonatan.viana\\workspace\\locadora-veiculo-web/target/jacoco.exec\r\nsonar.host.url\=http\://localhost\:9000/sonar\r\nsonar.jdbc.password\=sonar\r\nsonar.jdbc.url\=jdbc\:h2\:tcp\://localhost\:9092/sonar
+projectKey=com.algaworks\:locadora-veiculo-web
+serverUrl=http\://localhost\:9000
+version=2

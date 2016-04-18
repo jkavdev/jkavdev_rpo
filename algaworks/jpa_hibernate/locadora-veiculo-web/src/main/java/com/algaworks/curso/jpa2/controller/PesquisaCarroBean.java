@@ -22,7 +22,7 @@ public class PesquisaCarroBean implements Serializable {
 
 	@Inject
 	private CarroDAO carroDAO;
-	
+
 	private Carro carroSelecionado;
 	private Carro carroSelecionadoParaExcluir;
 	private List<Carro> carros;
@@ -30,22 +30,29 @@ public class PesquisaCarroBean implements Serializable {
 
 	@PostConstruct
 	public void init() {
-//		carros = carroDAO.buscarTodos();
+		// carros = carroDAO.buscarTodos();
 		lazyCarros = new LazyCarroDataModel(carroDAO);
 	}
 
+	public List<Carro> getCarros() {
+		return carros;
+	}
+
 	public void excluir() {
+
 		try {
 			carroDAO.excluir(carroSelecionadoParaExcluir);
-			carros.remove(carroSelecionadoParaExcluir);
+//			this.carros.remove(carroSelecionadoParaExcluir);
 			FacesUtil.addSuccessMessage("Carro " + carroSelecionadoParaExcluir.getPlaca() + " excluido com sucesso");
 		} catch (NegocioException e) {
 			FacesUtil.addErrorMessage(e.getMessage());
 		}
+
 	}
-	
-	public void buscarCarroComAcessorios(){
-		carroSelecionado = carroDAO.buscarCarroComAcessorios(carroSelecionado.getCodigo());
+
+	public void buscarCarroComAcessorios() {
+		carroSelecionado = carroDAO.buscarCarroComAcessorios(carroSelecionado
+				.getCodigo());
 	}
 
 	public Carro getCarroSelecionado() {
@@ -62,10 +69,6 @@ public class PesquisaCarroBean implements Serializable {
 
 	public void setCarroSelecionadoParaExcluir(Carro carroSelecionadoParaExcluir) {
 		this.carroSelecionadoParaExcluir = carroSelecionadoParaExcluir;
-	}
-
-	public List<Carro> getCarros() {
-		return carros;
 	}
 
 	public void setCarros(List<Carro> carros) {
