@@ -117,7 +117,7 @@ public class Carro {
 	//apenas quando solicitado
 	//para isso usaremos lazy
 	//padrao paro manytomany
-	@ManyToMany(fetch=FetchType.LAZY)
+	@ManyToMany(fetch=FetchType.LAZY, cascade=CascadeType.PERSIST)
 	@JoinTable(name = "carro_acessorio", // nome da tabela no banco
 	joinColumns = @JoinColumn(name = "codigo_carro") , // nome da coluna da
 														// entidade carro
