@@ -23,7 +23,9 @@ import org.junit.Test;
 
 import com.algaworks.curso.jpa2.modelo.Aluguel;
 import com.algaworks.curso.jpa2.modelo.Carro;
+import com.algaworks.curso.jpa2.modelo.Carro_;
 import com.algaworks.curso.jpa2.modelo.ModeloCarro;
+import com.algaworks.curso.jpa2.modelo.ModeloCarro_;
 
 public class ExemplosCriteria {
 
@@ -223,6 +225,25 @@ public class ExemplosCriteria {
 			System.out.println(c.getPlaca() + " - " + c.getValorDiaria());
 		}
 		
+	}
+	
+	@Test
+	public void exemploMetamodel() {
+		CriteriaBuilder criteriaBuilder = manager.getCriteriaBuilder();
+		CriteriaQuery<Carro> criteriaQuery = criteriaBuilder.createQuery(Carro.class);
+
+		Root<Carro> carro = criteriaQuery.from(Carro.class);
+		
+		Join<Carro, ModeloCarro> modelo = (Join) carro.fetch(Carro_.modelo);
+
+		criteriaQuery.where(criteriaBuilder.equal(modelo.get(ModeloCarro_.descricao), "Fiat Siena"));
+
+		TypedQuery<Carro> query = manager.createQuery(criteriaQuery);
+		List<Carro> carros = query.getResultList();
+
+		for (Carro c : carros) {
+			System.out.println(c.getPlaca() + " - " + c.getModelo().getDescricao());
+		}
 	}
 
 }
