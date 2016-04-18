@@ -28,7 +28,7 @@ import javax.persistence.TemporalType;
 
 //usando uma lista de querys
 @NamedQueries({
-	@NamedQuery(name="Carro.buscarTodos", query="select c from Carro c"),
+	@NamedQuery(name="Carro.buscarTodos", query="select c from Carro c inner join fetch c.modelo"),	//inner join fetch c.modelo - indicara que quando carro for recuperado do banco, modelo tambem sera 
 	@NamedQuery(name="Carro.buscarCarroComAcessorios", query="select c from Carro c JOIN c.acessorios a where c.codigo = :codigo")
 })
 
@@ -89,7 +89,7 @@ public class Carro {
 		this.valorDiaria = valorDiaria;
 	}
 
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "codigo_modelo")
 	public ModeloCarro getModelo() {
 		return modelo;

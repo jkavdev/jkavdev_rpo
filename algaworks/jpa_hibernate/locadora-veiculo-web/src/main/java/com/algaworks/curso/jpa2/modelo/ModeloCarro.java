@@ -3,6 +3,7 @@ package com.algaworks.curso.jpa2.modelo;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -35,7 +36,7 @@ public class ModeloCarro {
 		this.descricao = descricao;
 	}
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)		//informando para nao trazer o fabricante quando o modelo for retornado do banco
 	@JoinColumn(name = "codigo_fabricante") // fara que com que o campo na
 											// tabela modelocarro
 	public Fabricante getFabricante() { // seja o espeficado na anotacao

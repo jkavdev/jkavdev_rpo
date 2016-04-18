@@ -10,6 +10,7 @@ import javax.persistence.Tuple;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Join;
 import javax.persistence.criteria.Order;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
@@ -21,6 +22,7 @@ import org.junit.Test;
 
 import com.algaworks.curso.jpa2.modelo.Aluguel;
 import com.algaworks.curso.jpa2.modelo.Carro;
+import com.algaworks.curso.jpa2.modelo.ModeloCarro;
 
 public class ExemplosCriteria {
 
@@ -157,6 +159,31 @@ public class ExemplosCriteria {
 		
 		for (Carro carro2 : carros) {
 			System.out.println(carro2.getPlaca() + " - " + carro2.getValorDiaria());
+		}
+	}
+	
+	@Test
+	public void exemploJoinEFecth(){
+		CriteriaBuilder criteriaBuilder = manager.getCriteriaBuilder();
+		CriteriaQuery<Carro> criteriaQuery = criteriaBuilder.createQuery(Carro.class);
+		
+		Root<Carro> carro = criteriaQuery.from(Carro.class);
+		//informando ao criteria para trazer o modelo, junto com o
+		//carro
+//		Join<Carro, ModeloCarro> modelo = (Join) carro.fetch("modelo");
+		//podemos usar o join, mas ele nao traz o modelo
+		//tendo que o jpa fazer todas as querys para trazelos
+		//podemos usar o join, para trazer carros com uma condicao baseada no modelo
+		Join<Carro, ModeloCarro> modelo = (Join) carro.join("modelo");
+		
+		//trazendo apenas os carros com modelo Fiat Siena
+		criteriaQuery.where(criteriaBuilder.equal(modelo.get("descricao"), "Fiat Siena"));
+		
+		TypedQuery<Carro> query = manager.createQuery(criteriaQuery);
+		List<Carro> carros = query.getResultList();
+		
+		for (Carro c : carros) {
+			System.out.println(c.getPlaca() + " - " + c.getModelo().getDescricao());
 		}
 	}
 	
