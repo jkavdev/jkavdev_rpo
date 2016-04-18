@@ -22,7 +22,9 @@ public class PesquisaCarroBean implements Serializable {
 
 	@Inject
 	private CarroDAO carroDAO;
+	
 	private Carro carroSelecionado;
+	private Carro carroSelecionadoParaExcluir;
 	private List<Carro> carros;
 	private LazyCarroDataModel lazyCarros;
 
@@ -34,9 +36,9 @@ public class PesquisaCarroBean implements Serializable {
 
 	public void excluir() {
 		try {
-			carroDAO.excluir(carroSelecionado);
-			carros.remove(carroSelecionado);
-			FacesUtil.addSuccessMessage("Carro " + carroSelecionado.getPlaca() + " excluido com sucesso");
+			carroDAO.excluir(carroSelecionadoParaExcluir);
+			carros.remove(carroSelecionadoParaExcluir);
+			FacesUtil.addSuccessMessage("Carro " + carroSelecionadoParaExcluir.getPlaca() + " excluido com sucesso");
 		} catch (NegocioException e) {
 			FacesUtil.addErrorMessage(e.getMessage());
 		}
@@ -52,6 +54,14 @@ public class PesquisaCarroBean implements Serializable {
 
 	public void setCarroSelecionado(Carro carroSelecionado) {
 		this.carroSelecionado = carroSelecionado;
+	}
+
+	public Carro getCarroSelecionadoParaExcluir() {
+		return carroSelecionadoParaExcluir;
+	}
+
+	public void setCarroSelecionadoParaExcluir(Carro carroSelecionadoParaExcluir) {
+		this.carroSelecionadoParaExcluir = carroSelecionadoParaExcluir;
 	}
 
 	public List<Carro> getCarros() {
