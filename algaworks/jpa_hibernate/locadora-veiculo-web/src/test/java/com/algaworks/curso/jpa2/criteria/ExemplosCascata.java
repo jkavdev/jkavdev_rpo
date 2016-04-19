@@ -94,5 +94,18 @@ public class ExemplosCascata {
 		this.manager.remove(carro);
 		this.manager.getTransaction().commit();
 	}
+	
+	@Test
+	public void exclusaoDeObjetosOrfaos(){
+		Carro carro = this.manager.find(Carro.class, 6L);
+		
+		this.manager.getTransaction().begin();
+		//apagando o primeiro aluguel da lista
+		//neste caso nao estamos apagando o aluguel do banco e sim da lista
+		//para que o aluguem seja removido, precisamos marcar no relacionamento
+		//entre carro e aluguem para remover objetos orfaos
+		carro.getAlugueis().remove(0);
+		this.manager.getTransaction().commit();
+	}
 
 }
