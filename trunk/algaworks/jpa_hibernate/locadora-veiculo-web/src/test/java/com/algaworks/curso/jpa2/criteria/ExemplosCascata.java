@@ -81,5 +81,18 @@ public class ExemplosCascata {
 		this.manager.getTransaction().commit();
 
 	}
+	
+	@Test
+	public void exclusaoEmCascata(){
+		Carro carro = this.manager.find(Carro.class, 4L);
+		
+		this.manager.getTransaction().begin();
+		//deste jeito quando carro for removido, sera lancada uma excecao
+		//pois carro tem uma chave estrangeira em alguel
+		//no qual nao podemos alterar ou excluir sem uma configuracao devida
+		//para isso podemos usar o cascadeType.remove
+		this.manager.remove(carro);
+		this.manager.getTransaction().commit();
+	}
 
 }

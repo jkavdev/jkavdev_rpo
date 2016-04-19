@@ -34,25 +34,18 @@ public class PesquisaCarroBean implements Serializable {
 		lazyCarros = new LazyCarroDataModel(carroDAO);
 	}
 
-	public List<Carro> getCarros() {
-		return carros;
-	}
-
 	public void excluir() {
-
 		try {
 			carroDAO.excluir(carroSelecionadoParaExcluir);
-//			this.carros.remove(carroSelecionadoParaExcluir);
+			// this.carros.remove(carroSelecionadoParaExcluir);
 			FacesUtil.addSuccessMessage("Carro " + carroSelecionadoParaExcluir.getPlaca() + " excluido com sucesso");
 		} catch (NegocioException e) {
 			FacesUtil.addErrorMessage(e.getMessage());
 		}
-
 	}
 
 	public void buscarCarroComAcessorios() {
-		carroSelecionado = carroDAO.buscarCarroComAcessorios(carroSelecionado
-				.getCodigo());
+		carroSelecionado = carroDAO.buscarCarroComAcessorios(carroSelecionado.getCodigo());
 	}
 
 	public Carro getCarroSelecionado() {
@@ -69,6 +62,10 @@ public class PesquisaCarroBean implements Serializable {
 
 	public void setCarroSelecionadoParaExcluir(Carro carroSelecionadoParaExcluir) {
 		this.carroSelecionadoParaExcluir = carroSelecionadoParaExcluir;
+	}
+
+	public List<Carro> getCarros() {
+		return carros;
 	}
 
 	public void setCarros(List<Carro> carros) {

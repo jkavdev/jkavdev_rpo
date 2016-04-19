@@ -1,6 +1,6 @@
-drop database db_locadora;
-create database db_locadora;
-use db_locadora;
+drop database db_algaworks_jpa_locadora;
+create database db_algaworks_jpa_locadora;
+use db_algaworks_jpa_locadora;
 
 show tables;
 
