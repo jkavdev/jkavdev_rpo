@@ -8,6 +8,8 @@ import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.primefaces.model.UploadedFile;
+
 import com.algaworks.curso.jpa2.dao.AcessorioDAO;
 import com.algaworks.curso.jpa2.dao.ModeloCarroDAO;
 import com.algaworks.curso.jpa2.modelo.Acessorio;
@@ -33,8 +35,14 @@ public class CadastroCarroBean implements Serializable {
 	private List<Acessorio> acessorios;
 	private List<ModeloCarro> modelosCarro;
 
-	public void salvar() {
+	private UploadedFile uploadedFile;
+
+	public void salvar() {		
 		try {
+			System.out.println(">>>>>>>>>>>>> Uploaded File	: " + uploadedFile);
+			if(this.uploadedFile != null){
+				this.carro.setFoto(this.uploadedFile.getContents());
+			}
 			cadastroCarroService.salvar(carro);
 			FacesUtil.addSuccessMessage("Carro " + carro.getPlaca() + " salvo com sucesso!");
 		} catch (NegocioException e) {
@@ -78,6 +86,14 @@ public class CadastroCarroBean implements Serializable {
 
 	public void setModelosCarro(List<ModeloCarro> modelosCarro) {
 		this.modelosCarro = modelosCarro;
+	}
+
+	public UploadedFile getUploadedFile() {
+		return uploadedFile;
+	}
+
+	public void setUploadedFile(UploadedFile uploadedFile) {
+		this.uploadedFile = uploadedFile;
 	}
 
 }

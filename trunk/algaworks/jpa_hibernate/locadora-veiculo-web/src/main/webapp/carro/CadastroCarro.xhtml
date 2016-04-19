@@ -45,7 +45,11 @@
 			    <p:inputText id="cor" size="20" maxlength="20" value="#{cadastroCarroBean.carro.cor}"/>
 			    		
 			    <p:outputLabel value="Valor diária" for="valorDiaria"/>
-			    <p:inputText id="valorDiaria" size="20" maxlength="20" value="#{cadastroCarroBean.carro.valorDiaria}"/>			    
+			    <p:inputText id="valorDiaria" size="20" maxlength="20" value="#{cadastroCarroBean.carro.valorDiaria}"/>
+			    
+			    <p:outputLabel value="Foto" for="foto"/>
+			    <p:fileUpload id="foto" value="#{cadastroCarroBean.uploadedFile}" mode="simple"/>
+			    			    
 			    <p:outputLabel value="Acessórios" for="acessorios"/>
 				<p:selectManyCheckbox id="acessorios" styleClass="many-checkbox" value="#{cadastroCarroBean.carro.acessorios}" converter="acessorioConverter" >
 					<f:attribute name="collectionType" value="java.util.ArrayList" />				
