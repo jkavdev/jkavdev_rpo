@@ -4,6 +4,7 @@ import javax.persistence.Embedded;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "tab_veiculo")
@@ -41,7 +42,7 @@ public class Veiculo {
 		this.modelo = modelo;
 	}
 
-	//indicando que os atributos desta classe serao embutidos nesta entidade
+	// indicando que os atributos desta classe serao embutidos nesta entidade
 	@Embedded
 	public Proprietario getProprietario() {
 		return proprietario;
@@ -49,6 +50,12 @@ public class Veiculo {
 
 	public void setProprietario(Proprietario proprietario) {
 		this.proprietario = proprietario;
+	}
+
+	//informando que este atributo nao sera persistido
+	@Transient
+	public String getDescricao() {
+		return "Placa: " + getCodigo().getPlaca() + " Fabricante: " + getFabricante() + " Modelo: " + getModelo();
 	}
 
 	@Override
