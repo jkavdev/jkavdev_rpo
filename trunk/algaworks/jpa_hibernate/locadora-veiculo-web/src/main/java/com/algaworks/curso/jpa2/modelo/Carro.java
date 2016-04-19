@@ -133,7 +133,9 @@ public class Carro {
 	}
 
 //	@OneToMany(mappedBy="carro", cascade=CascadeType.REMOVE) informando que quando o carro for removido, aluguem tambem sera removido
-	@OneToMany(mappedBy="carro") //informando que o relacionamento ja foi realizado 
+//	@OneToMany(mappedBy="carro") //informando que o relacionamento ja foi realizado
+	//marcando com persiste, pois sera nessa fase que ocorrera a remocao do objeto orfao
+	@OneToMany(mappedBy = "carro", cascade= CascadeType.PERSIST, orphanRemoval = true)	//remover orfaos marcado
 	public List<Aluguel> getAlugueis() {	//atraves do atributo carro de aluguel
 		return alugueis;
 	}
