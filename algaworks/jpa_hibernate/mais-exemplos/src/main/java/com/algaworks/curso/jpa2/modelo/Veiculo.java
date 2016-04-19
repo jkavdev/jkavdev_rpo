@@ -1,5 +1,6 @@
 package com.algaworks.curso.jpa2.modelo;
 
+import javax.persistence.Embedded;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -11,9 +12,10 @@ public class Veiculo {
 	private VeiculoId codigo;
 	private String fabricante;
 	private String modelo;
+	private Proprietario proprietario;
 
-	//indicando que o id da entidade sera provido por outra classe
-	//no caso um id embutido
+	// indicando que o id da entidade sera provido por outra classe
+	// no caso um id embutido
 	@EmbeddedId
 	public VeiculoId getCodigo() {
 		return codigo;
@@ -37,6 +39,16 @@ public class Veiculo {
 
 	public void setModelo(String modelo) {
 		this.modelo = modelo;
+	}
+
+	//indicando que os atributos desta classe serao embutidos nesta entidade
+	@Embedded
+	public Proprietario getProprietario() {
+		return proprietario;
+	}
+
+	public void setProprietario(Proprietario proprietario) {
+		this.proprietario = proprietario;
 	}
 
 	@Override
