@@ -132,6 +132,7 @@ public class Carro {
 		this.acessorios = acessorios;
 	}
 
+//	@OneToMany(mappedBy="carro", cascade=CascadeType.REMOVE) informando que quando o carro for removido, aluguem tambem sera removido
 	@OneToMany(mappedBy="carro") //informando que o relacionamento ja foi realizado 
 	public List<Aluguel> getAlugueis() {	//atraves do atributo carro de aluguel
 		return alugueis;
