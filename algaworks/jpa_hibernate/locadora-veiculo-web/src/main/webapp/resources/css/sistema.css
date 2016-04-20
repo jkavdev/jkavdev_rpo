@@ -1,9 +1,9 @@
 @charset "utf-8";
-
+/*
 .ui-widget{
 	font-size: 90% !important;	
 }
-
+*/
 .ui-panelmenu .ui-panelmenu-header a{
 	color: black;
 }

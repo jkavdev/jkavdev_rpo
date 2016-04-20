@@ -39,7 +39,7 @@ public class CadastroCarroBean implements Serializable {
 
 	public void salvar() {		
 		try {
-			System.out.println(">>>>>>>>>>>>> Uploaded File	: " + uploadedFile);
+			//inserindo a imagem, pega o seu conteudo e seta em fotos do carro
 			if(this.uploadedFile != null){
 				this.carro.setFoto(this.uploadedFile.getContents());
 			}
