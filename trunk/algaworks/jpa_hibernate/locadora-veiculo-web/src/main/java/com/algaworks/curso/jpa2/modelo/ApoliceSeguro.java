@@ -10,7 +10,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "apolice_seguro")
+//schema - usado mais no oracle, qual tem que se indicar o schema a ser trabalhado
+//catalog - a mesma coisa
+//como se fosse um dono das tabelas
+@Table(name = "apolice_seguro", schema="locadora")
 public class ApoliceSeguro {
 
 	private Long codigo;
