@@ -14,7 +14,7 @@ import org.junit.Test;
 
 import com.algaworks.curso.jpa2.modelo.Carro;
 
-public class ExemploProblemaNMaisUm {
+public class ExemploCachePrimeiroNivel {
 
 	private static EntityManagerFactory factory;
 	private EntityManager manager;
@@ -35,16 +35,23 @@ public class ExemploProblemaNMaisUm {
 	}
 
 	@Test
-	public void problema() {
-		
-//		TypedQuery<Carro> query = manager.createQuery("from Carro c", Carro.class);//traria os resultados do modelo mas farias varios select para tal
-		//trazendo os dados do carro e do modelo apenas em uma consulta
-		TypedQuery<Carro> query = manager.createQuery("from Carro c join fetch c.modelo", Carro.class);
+	public void cache() {
+
+		TypedQuery<Carro> query = manager.createQuery("from Carro c", Carro.class);
 		List<Carro> carros = query.getResultList();
 
 		for (Carro carro : carros) {
-			System.out.println(carro.getPlaca() + " - " + carro.getModelo().getDescricao());
+			System.out.println(carro.getCodigo() + " - " + carro.getPlaca());
 		}
+		
+		manager.close();
+		//agora obrigo o manager a fazer uma nova consulta pois ele foi criado denovo
+		manager = factory.createEntityManager();
+		
+		System.out.println("--------------------------------------");
+		//nesta caso o jpa usara a consulta que esta em cache, pois o manager ainda esta aberto
+		Carro carro = manager.find(Carro.class, 5L);
+		System.out.println(carro.getCodigo() + " - " + carro.getPlaca());
 
 	}
 
