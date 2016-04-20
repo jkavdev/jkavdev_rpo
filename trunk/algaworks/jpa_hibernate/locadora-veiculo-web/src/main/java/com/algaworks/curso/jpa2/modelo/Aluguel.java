@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -36,7 +37,7 @@ public class Aluguel {
 		this.codigo = codigo;
 	}
 
-	@JoinColumn(name = "valor_total")
+	@Column(name = "valor_total")
 	public BigDecimal getValorTotal() {
 		return valorTotal;
 	}
@@ -76,7 +77,11 @@ public class Aluguel {
 
 	// sera gravado apenas a data no banco
 	@Temporal(TemporalType.DATE)
-	@JoinColumn(name = "data_pedido")
+	@Column(name = "data_pedido", 
+		nullable = false,	//campo nao aceita null 
+		unique = false, 	//torna campo unico
+		insertable = true, 	//nao pode inserir 
+		updatable = true)	//nao pode alterar
 	public Calendar getDataPedido() {
 		return dataPedido;
 	}
@@ -87,7 +92,7 @@ public class Aluguel {
 
 	// sera gravado data e hora no banco
 	@Temporal(TemporalType.TIMESTAMP)
-	@JoinColumn(name = "data_entrega")
+	@Column(name = "data_entrega")
 	public Date getDataEntrega() {
 		return dataEntrega;
 	}
@@ -97,7 +102,7 @@ public class Aluguel {
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@JoinColumn(name = "data_devolucao")
+	@Column(name = "data_devolucao")
 	public Date getDataDevolucao() {
 		return dataDevolucao;
 	}
