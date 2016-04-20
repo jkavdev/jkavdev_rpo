@@ -160,6 +160,16 @@
 			<artifactId>weld-servlet</artifactId>
 			<version>1.1.10.Final</version>
 			<scope>compile</scope>
+<!-- 			<exclusions> -->
+<!-- 				<exclusion> -->
+<!-- 					<groupId>org.slf4j</groupId> -->
+<!-- 					<artifactId>slf4j-log4j12</artifactId> -->
+<!-- 				</exclusion> -->
+<!-- 				<exclusion> -->
+<!-- 					<groupId>log4j</groupId> -->
+<!-- 					<artifactId>log4j</artifactId> -->
+<!-- 				</exclusion> -->
+<!-- 			</exclusions> -->
 		</dependency>
 
 		<!-- OmniFaces (utilitários para JSF) -->
@@ -206,7 +216,7 @@
 			<artifactId>hibernate-jpamodelgen</artifactId>
 			<version>1.3.0.Final</version>
 		</dependency>
-		
+
 		<!-- File Upload -->
 		<dependency>
 			<groupId>commons-fileupload</groupId>
@@ -214,12 +224,42 @@
 			<version>1.3</version>
 			<scope>compile</scope>
 		</dependency>
-		
+
 		<!-- PRIMEFACES ALL THEMES -->
 		<dependency>
 			<groupId>org.primefaces.themes</groupId>
 			<artifactId>all-themes</artifactId>
 			<version>1.0.10</version>
+		</dependency>
+
+		<!-- DBUnit -->
+		<dependency>
+			<groupId>org.dbunit</groupId>
+			<artifactId>dbunit</artifactId>
+			<version>2.4.9</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Necessário para o DBUnit -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.5.6</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.5.6</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- jIntegrity -->
+		<dependency>
+			<groupId>com.jintegrity</groupId>
+			<artifactId>jintegrity</artifactId>
+			<version>0.1.2</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
