@@ -1,4 +1,4 @@
-package br.com.jkavdev.hibernate.database.utils;
+package br.com.jkavdev.hibernate.database.interfaces;
 
 import java.io.Serializable;
 import java.util.List;
