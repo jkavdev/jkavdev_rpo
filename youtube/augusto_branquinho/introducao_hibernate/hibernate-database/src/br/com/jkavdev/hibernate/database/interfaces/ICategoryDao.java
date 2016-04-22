@@ -1,5 +1,7 @@
 package br.com.jkavdev.hibernate.database.interfaces;
 
-public interface ICategoryDao {
+import br.com.jkavdev.hibernate.database.daos.CategoryDao;
+
+public interface ICategoryDao extends IGenericDao<CategoryDao, Long> {
 
 }
