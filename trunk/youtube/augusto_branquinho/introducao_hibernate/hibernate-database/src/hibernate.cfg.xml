@@ -16,6 +16,9 @@
 
 		<property name="hibernate.show_sql">true</property>
 		<property name="hibernate.format_sql">true</property>
+		
+		<mapping class="br.com.jkavdev.hibernate.database.entities.ProductEntity"/>
+		<mapping class="br.com.jkavdev.hibernate.database.entities.CategoryEntity"/>
 
 	</session-factory>
 </hibernate-configuration>
