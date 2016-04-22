@@ -36,7 +36,9 @@ public class DaoFactory implements IDaoFactory {
 	// recebe uma classe concreta do dao
 	private GenericDao<?, ?> instantiateDao(Class<?> daoClass) {
 		try {
+			// instancia o dao
 			GenericDao<?, ?> dao = (GenericDao<?, ?>) daoClass.newInstance();
+			// associa a sessao atual ao dao
 			dao.setSession(getCurrentSession());
 
 			return dao;
@@ -46,7 +48,7 @@ public class DaoFactory implements IDaoFactory {
 		}
 	}
 
-	//retorna sessao atual atrelada ao dao
+	// retorna sessao atual atrelada ao dao
 	private Session getCurrentSession() {
 		return null;
 	}

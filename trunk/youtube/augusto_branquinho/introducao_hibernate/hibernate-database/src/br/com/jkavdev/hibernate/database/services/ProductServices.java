@@ -2,10 +2,20 @@ package br.com.jkavdev.hibernate.database.services;
 
 import java.util.List;
 
+import br.com.jkavdev.hibernate.database.interfaces.IDaoFactory;
+import br.com.jkavdev.hibernate.database.interfaces.IProductDao;
 import br.com.jkavdev.hibernate.utils.database.beans.ProductBean;
 import br.com.jkavdev.hibernate.utils.database.interfaces.IProductServices;
 
 public class ProductServices implements IProductServices {
+
+	// como pode haver varios daos usamos o fatory que podemos usar qualquer dao
+	//usaremos apenas o dao que necessitamos
+	private final IProductDao productDao;
+
+	public ProductServices(IDaoFactory daoFactory) {
+		this.productDao = daoFactory.getProductDao();
+	}
 
 	@Override
 	public ProductBean findById(Long id) {
