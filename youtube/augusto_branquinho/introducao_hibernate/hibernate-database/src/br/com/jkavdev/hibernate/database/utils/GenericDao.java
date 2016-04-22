@@ -7,7 +7,10 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.criterion.Criterion;
+
+import br.com.jkavdev.hibernate.database.interfaces.IGenericDao;
 
 //classe que recebe genericos
 //recebe uma classe, entidade do banco
@@ -38,31 +41,63 @@ public abstract class GenericDao<T, ID extends Serializable> implements IGeneric
 	}
 
 	// encontrar um elementro pelo id
+	@SuppressWarnings("unchecked")
 	@Override
 	public T findById(ID id) {
-		return null;
+		return (T) getSession().load(getPersistentClass(), id);
 	}
 
 	// lista todos os registros
 	@Override
 	public List<T> findAll() {
-		return null;
+		// usando findbycriteria, sem argumentros, criterios
+		// no qual retornara todos os registro do tipo passado no metodo
+		// sem fazer nenhum filtro
+		return findByCriteria();
+	}
+
+	// metodo que retornar registro de acordo criterios
+	// podendo ser um, varios ou nenhum criterio
+	@SuppressWarnings({ "unchecked" })
+	private List<T> findByCriteria(Criterion... criterion) {
+		// no caso usaremos sempre os criterios da classe persistente
+		// qual tipo sera retornado
+		Criteria criteria = getSession().createCriteria(getPersistentClass());
+
+		// adicionando os criterios passados a minha consulta
+		for (Criterion criterios : criterion) {
+			criteria.add(criterios);
+		}
+
+		return criteria.list();
 	}
 
 	// salva um registro
+	@SuppressWarnings("unchecked")
 	@Override
 	public ID save(T entity) {
-		return null;
+		// abrindo sessao no banco para salvar registro
+		Transaction transaction = getSession().beginTransaction();
+		// retornando a chave do objeto salvo
+		Serializable id = getSession().save(entity);
+		transaction.commit();
+		return (ID) id;
 	}
 
 	// atualiza registro
 	@Override
 	public void update(T entity) {
+		Transaction transaction = getSession().beginTransaction();
+		getSession().update(entity);
+		transaction.commit();
 	}
 
 	// deleta registro
 	@Override
 	public void delete(T entity) {
+		Transaction transaction = getSession().beginTransaction();
+		getSession().delete(entity);
+		transaction.commit();
 	}
 
 	public void setSession(Session session) {
@@ -82,21 +117,6 @@ public abstract class GenericDao<T, ID extends Serializable> implements IGeneric
 
 	private Class<T> getPersistentClass() {
 		return this.persistentClass;
-	}
-
-	// metodo que retornar registro de acordo criterios
-	// podendo ser um, varios ou nenhum criterio
-	@SuppressWarnings({ "unchecked", "unused" })
-	private List<T> findByCriteria(Criterion... criterion) {
-		// no caso usaremos sempre os criterios da classe persistente
-		Criteria criteria = getSession().createCriteria(getPersistentClass());
-
-		// adicionando os criterios passados a minha consulta
-		for (Criterion criterios : criterion) {
-			criteria.add(criterios);
-		}
-
-		return criteria.list();
 	}
 
 }
