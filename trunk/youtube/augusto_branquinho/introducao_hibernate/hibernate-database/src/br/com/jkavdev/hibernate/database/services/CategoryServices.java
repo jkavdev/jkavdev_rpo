@@ -4,6 +4,7 @@ import java.util.List;
 
 import br.com.jkavdev.hibernate.database.interfaces.ICategoryDao;
 import br.com.jkavdev.hibernate.database.interfaces.IDaoFactory;
+import br.com.jkavdev.hibernate.database.utils.ParserDatabase;
 import br.com.jkavdev.hibernate.utils.database.beans.CategoryBean;
 import br.com.jkavdev.hibernate.utils.database.interfaces.ICategoryServices;
 
@@ -17,32 +18,27 @@ public class CategoryServices implements ICategoryServices {
 
 	@Override
 	public CategoryBean findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return ParserDatabase.parserEntityToBean(this.categoryDao.findById(id));
 	}
 
 	@Override
 	public List<CategoryBean> findAllcategories() {
-		// TODO Auto-generated method stub
-		return null;
+		return ParserDatabase.parseCategoryEntitiesToBeans(this.categoryDao.findAll());
 	}
 
 	@Override
 	public Long insert(CategoryBean category) {
-		// TODO Auto-generated method stub
-		return null;
+		return this.categoryDao.save(ParserDatabase.parserBeanToEntity(category));
 	}
 
 	@Override
 	public void update(CategoryBean category) {
-		// TODO Auto-generated method stub
-
+		this.categoryDao.update(ParserDatabase.parserBeanToEntity(category));
 	}
 
 	@Override
 	public void delete(CategoryBean category) {
-		// TODO Auto-generated method stub
-
+		this.categoryDao.delete(ParserDatabase.parserBeanToEntity(category));
 	}
 
 }
