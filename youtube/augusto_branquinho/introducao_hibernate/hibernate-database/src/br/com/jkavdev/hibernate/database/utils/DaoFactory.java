@@ -50,7 +50,7 @@ public class DaoFactory implements IDaoFactory {
 
 	// retorna sessao atual atrelada ao dao
 	private Session getCurrentSession() {
-		return null;
+		return HibernateUtility.getSession();
 	}
 
 }

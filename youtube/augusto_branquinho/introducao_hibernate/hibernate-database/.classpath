@@ -25,7 +25,7 @@
 	<classpathentry kind="lib" path="C:/Users/JKAVDEV/workspace/hibernate-utils/libs/mysql-connector-java-5.1.38.jar"/>
 	<classpathentry kind="lib" path="C:/Users/JKAVDEV/workspace/hibernate-utils/libs/slf4j-api-1.7.6.jar"/>
 	<classpathentry kind="lib" path="C:/Users/JKAVDEV/workspace/hibernate-utils/libs/slf4j-log4j12-1.7.6.jar"/>
-	<classpathentry kind="lib" path="C:/Users/JKAVDEV/workspace/hibernate-utils/libs/junit-4.12.jar"/>
+	<classpathentry kind="lib" path="C:/Users/JKAVDEV/workspace/hibernate-utils/libs/junit-4.12.jar" sourcepath="C:/Users/JKAVDEV/.m2/repository/junit/junit/4.12/junit-4.12-sources.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/hibernate-utils"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

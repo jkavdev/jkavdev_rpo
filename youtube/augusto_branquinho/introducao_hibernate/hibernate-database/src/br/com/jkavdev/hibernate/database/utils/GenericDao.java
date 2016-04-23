@@ -56,22 +56,6 @@ public abstract class GenericDao<T, ID extends Serializable> implements IGeneric
 		return findByCriteria();
 	}
 
-	// metodo que retornar registro de acordo criterios
-	// podendo ser um, varios ou nenhum criterio
-	@SuppressWarnings({ "unchecked" })
-	private List<T> findByCriteria(Criterion... criterion) {
-		// no caso usaremos sempre os criterios da classe persistente
-		// qual tipo sera retornado
-		Criteria criteria = getSession().createCriteria(getPersistentClass());
-
-		// adicionando os criterios passados a minha consulta
-		for (Criterion criterios : criterion) {
-			criteria.add(criterios);
-		}
-
-		return criteria.list();
-	}
-
 	// salva um registro
 	@SuppressWarnings("unchecked")
 	@Override
@@ -119,4 +103,20 @@ public abstract class GenericDao<T, ID extends Serializable> implements IGeneric
 		return this.persistentClass;
 	}
 
+	// metodo que retornar registro de acordo criterios
+	// podendo ser um, varios ou nenhum criterio
+	@SuppressWarnings({ "unchecked" })
+	private List<T> findByCriteria(Criterion... criterion) {
+		// no caso usaremos sempre os criterios da classe persistente
+		// qual tipo sera retornado
+		Criteria criteria = getSession().createCriteria(getPersistentClass());
+
+		// adicionando os criterios passados a minha consulta
+		for (Criterion criterios : criterion) {
+			criteria.add(criterios);
+		}
+
+		return criteria.list();
+	}
+	
 }
