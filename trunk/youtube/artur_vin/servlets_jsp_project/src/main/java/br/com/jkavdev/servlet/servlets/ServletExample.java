@@ -13,16 +13,28 @@ import javax.servlet.http.HttpServletResponse;
 public class ServletExample extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		PrintWriter writer = response.getWriter();
-		
-		//recebendo parametros do formulario
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		// chamando minha pagina jsp, no caso o formulario
+		// caso os campos do formularios forem vazios
+		if (request.getParameter("firstname") == null || request.getParameter("lastname") == null) {
+			getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+			// atualizara a pagina
+			return;
+		}
+
+		// recebendo parametros do formulario
+		//caso os campos nao forem passados, nao chegara nesta parte
 		String firstName = request.getParameter("firstname");
 		String lastName = request.getParameter("lastname");
-		
-		writer.println("Hello : " + firstName + " " + lastName);
-		
+
+		request.setAttribute("firstname", firstName);
+		request.setAttribute("lastname", lastName);
+
+		//chamando saida
+		getServletContext().getRequestDispatcher("/output.jsp").forward(request, response);
+
 	}
 
 }
