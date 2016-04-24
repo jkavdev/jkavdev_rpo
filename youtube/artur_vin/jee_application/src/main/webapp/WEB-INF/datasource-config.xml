@@ -10,18 +10,20 @@
 <!-- 	<context:property-placeholder location="classpath:datasource.properties" /> -->
 
 	<!-- dados do banco -->
-	<!-- <bean id="dataSource" class="oracle.jdbc.pool.OracleDataSource" destroy-method="close"> -->
-	<!-- <property name="connectionCachingEnabled" value="true" /> -->
-	<!-- <property name="URL" value="${url}" /> -->
-	<!-- <property name="user" value="${user}" /> -->
-	<!-- <property name="password" value="${password}" /> -->
-	<!-- </bean> -->
-	<bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/db_victor_jee_app" />
-		<property name="username" value="jkavdev" />
-		<property name="password" value="123456" />
+	<!-- oracle -->
+	<bean id="dataSource" class="oracle.jdbc.pool.OracleDataSource" destroy-method="close">
+		<property name="connectionCachingEnabled" value="true" />
+		<property name="URL" value="jdbc:oracle:thin:@localhost:1521:XE" />
+		<property name="user" value="u_jee_app" />
+		<property name="password" value="password" />
 	</bean>
+	<!-- mysql -->
+<!-- 	<bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> -->
+<!-- 		<property name="driverClassName" value="com.mysql.jdbc.Driver" /> -->
+<!-- 		<property name="url" value="jdbc:mysql://localhost:3306/db_victor_jee_app" /> -->
+<!-- 		<property name="username" value="jkavdev" /> -->
+<!-- 		<property name="password" value="123456" /> -->
+<!-- 	</bean> -->
 
 
 	<!-- dados sobre vendor -->
