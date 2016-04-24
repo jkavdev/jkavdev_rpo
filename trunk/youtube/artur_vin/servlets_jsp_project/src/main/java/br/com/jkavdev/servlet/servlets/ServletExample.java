@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/hello")
+@WebServlet("/servletexample")
 public class ServletExample extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -17,7 +17,11 @@ public class ServletExample extends HttpServlet {
 		
 		PrintWriter writer = response.getWriter();
 		
-		writer.println("Hello");
+		//recebendo parametros do formulario
+		String firstName = request.getParameter("firstname");
+		String lastName = request.getParameter("lastname");
+		
+		writer.println("Hello : " + firstName + " " + lastName);
 		
 	}
 
