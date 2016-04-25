@@ -1,6 +1,9 @@
 package br.com.jkavdev.mysql.world.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import br.com.jkavdev.mysql.world.entities.util.BaseEntity;
@@ -40,6 +43,8 @@ public class City extends BaseEntity<Long> {
 		this.name = name;
 	}
 
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="country_id")
 	public Country getCountry() {
 		return country;
 	}
