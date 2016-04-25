@@ -10,6 +10,10 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import br.com.jkavdev.mysql.world.entities.City;
+import br.com.jkavdev.mysql.world.entities.Continent;
+import br.com.jkavdev.mysql.world.entities.Country;
+
 public class JpaTest {
 
 	private final Logger logger = Logger.getLogger(this.getClass());
@@ -36,6 +40,35 @@ public class JpaTest {
 		this.manager = factory.createEntityManager();
 
 		logger.warn("Conectado");
+	}
+	
+	@Test
+	public void insertCity(){
+		City city = new City();
+		city.setName("Brasilia");
+		city.setPopulation(15425);
+		city.setDestrict("Cidade");
+		
+		Country country = new Country();
+		country.setName("Brasil");
+		country.setContinent(Continent.SOUTHAMERICA);
+		
+		city.setCountry(country);
+		
+		this.manager.getTransaction().begin();
+		this.manager.persist(country);
+		this.manager.persist(city);
+		
+		city = new City();
+		city.setName("Goias");
+		city.setPopulation(15425);
+		city.setDestrict("Cidade");
+		city.setCountry(country);
+		
+		this.manager.persist(city);
+		this.manager.getTransaction().commit();
+		
+		
 	}
 
 }

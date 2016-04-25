@@ -3,6 +3,8 @@ package br.com.jkavdev.mysql.world.entities;
 import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
 import br.com.jkavdev.mysql.world.entities.util.BaseEntity;
@@ -41,6 +43,7 @@ public class Country extends BaseEntity<Long> {
 		return continent;
 	}
 
+	@Enumerated(EnumType.STRING)
 	public void setContinent(Continent continent) {
 		this.continent = continent;
 	}
