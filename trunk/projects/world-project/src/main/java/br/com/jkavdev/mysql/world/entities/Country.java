@@ -1,7 +1,5 @@
 package br.com.jkavdev.mysql.world.entities;
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -11,7 +9,6 @@ import br.com.jkavdev.mysql.world.entities.util.BaseEntity;
 
 @Entity
 @Table(name = "country")
-@AttributeOverride(name = "id", column = @Column(name = "code"))
 public class Country extends BaseEntity<Long> {
 
 	private static final long serialVersionUID = 1L;
@@ -30,6 +27,9 @@ public class Country extends BaseEntity<Long> {
 	private String headOfState;
 	private Integer capital;
 	private String code2;
+
+	public Country() {
+	}
 
 	public String getName() {
 		return name;

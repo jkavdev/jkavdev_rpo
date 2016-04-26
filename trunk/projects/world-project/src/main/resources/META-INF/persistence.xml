@@ -5,9 +5,7 @@
 	version="2.1">
 
 	<persistence-unit name="worldPU" transaction-type="RESOURCE_LOCAL">
-		<!-- indicando o hibernate como implementacao -->
-		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		
+
 		<!-- configuracoes do banco -->
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
@@ -18,7 +16,7 @@
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.show_sql" value="true" />
-			<property name="hibernate.format_sql" value="true" />			
+			<property name="hibernate.format_sql" value="true" />
 		</properties>
 	</persistence-unit>
 

@@ -1,293 +1,418 @@
-2016-04-25 17:43:27,366 [main] DEBUG org.jboss.logging:38 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
-2016-04-25 17:43:27,826 [main] DEBUG org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl:124 - Incoming config yielded no classloaders; adding standard SE ones
-2016-04-25 17:43:28,169 [main] DEBUG org.hibernate.jpa.HibernatePersistenceProvider:87 - Located and parsed 1 persistence units; checking each
-2016-04-25 17:43:28,169 [main] DEBUG org.hibernate.jpa.HibernatePersistenceProvider:95 - Checking persistence-unit [name=worldPU, explicit-provider=org.hibernate.ejb.HibernatePersistence] against incoming persistence unit name [worldPU]
-2016-04-25 17:43:28,169 [main] DEBUG org.hibernate.jpa.boot.spi.ProviderChecker:89 - Persistence-unit [worldPU] requested PersistenceProvider [org.hibernate.ejb.HibernatePersistence]
-2016-04-25 17:43:28,216 [main] DEBUG org.hibernate.jpa.internal.util.LogHelper:102 - PersistenceUnitInfo [
-	name: worldPU
-	persistence provider classname: org.hibernate.ejb.HibernatePersistence
-	classloader: null
-	excludeUnlistedClasses: false
-	JTA datasource: null
-	Non JTA datasource: null
-	Transaction type: RESOURCE_LOCAL
-	PU root URL: file:/C:/Users/jhonatan.viana/workspace/world-project/target/classes/
-	Shared Cache Mode: null
-	Validation Mode: null
-	Jar files URLs []
-	Managed classes names []
-	Mapping files names []
-	Properties [
-		javax.persistence.jdbc.driver: com.mysql.jdbc.Driver
-		javax.persistence.jdbc.password: 123456
-		javax.persistence.jdbc.url: jdbc:mysql://localhost:3306/db_mysql_world
-		hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-		hibernate.show_sql: true
-		hibernate.hbm2ddl.auto: update
-		hibernate.format_sql: true
-		javax.persistence.jdbc.user: jkavdev]
-2016-04-25 17:43:28,247 [main] DEBUG org.hibernate.integrator.internal.IntegratorServiceImpl:46 - Adding Integrator [org.hibernate.cfg.beanvalidation.BeanValidationIntegrator].
-2016-04-25 17:43:28,263 [main] DEBUG org.hibernate.integrator.internal.IntegratorServiceImpl:46 - Adding Integrator [org.hibernate.secure.spi.JaccIntegrator].
-2016-04-25 17:43:28,263 [main] DEBUG org.hibernate.integrator.internal.IntegratorServiceImpl:46 - Adding Integrator [org.hibernate.cache.internal.CollectionCacheInvalidator].
-2016-04-25 17:43:28,263 [main] DEBUG org.hibernate.integrator.internal.IntegratorServiceImpl:46 - Adding Integrator [org.hibernate.jpa.event.spi.JpaIntegrator].
-2016-04-25 17:43:29,207 [main]  INFO org.hibernate.Version:37 - HHH000412: Hibernate Core {5.1.0.Final}
-2016-04-25 17:43:29,219 [main]  INFO org.hibernate.cfg.Environment:213 - HHH000206: hibernate.properties not found
-2016-04-25 17:43:29,224 [main]  INFO org.hibernate.cfg.Environment:317 - HHH000021: Bytecode provider name : javassist
-2016-04-25 17:43:29,498 [main] DEBUG org.hibernate.service.spi.ServiceBinding:68 - Overriding existing service binding [org.hibernate.secure.spi.JaccService]
-2016-04-25 17:43:31,217 [main] DEBUG org.hibernate.cache.internal.RegionFactoryInitiator:88 - Cache region factory : org.hibernate.cache.internal.NoCachingRegionFactory
-2016-04-25 17:43:31,269 [main]  INFO org.hibernate.annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
-2016-04-25 17:43:34,253 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration boolean -> org.hibernate.type.BooleanType@4d49af10
-2016-04-25 17:43:34,267 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration boolean -> org.hibernate.type.BooleanType@4d49af10
-2016-04-25 17:43:34,267 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration java.lang.Boolean -> org.hibernate.type.BooleanType@4d49af10
-2016-04-25 17:43:34,283 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration numeric_boolean -> org.hibernate.type.NumericBooleanType@351d0846
-2016-04-25 17:43:34,283 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration true_false -> org.hibernate.type.TrueFalseType@1dd92fe2
-2016-04-25 17:43:34,283 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration yes_no -> org.hibernate.type.YesNoType@1b68b9a4
-2016-04-25 17:43:34,283 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration byte -> org.hibernate.type.ByteType@2b4a2ec7
-2016-04-25 17:43:34,283 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration byte -> org.hibernate.type.ByteType@2b4a2ec7
-2016-04-25 17:43:34,283 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration java.lang.Byte -> org.hibernate.type.ByteType@2b4a2ec7
-2016-04-25 17:43:34,299 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration character -> org.hibernate.type.CharacterType@c8e4bb0
-2016-04-25 17:43:34,299 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration char -> org.hibernate.type.CharacterType@c8e4bb0
-2016-04-25 17:43:34,299 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration java.lang.Character -> org.hibernate.type.CharacterType@c8e4bb0
-2016-04-25 17:43:34,299 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration short -> org.hibernate.type.ShortType@770c2e6b
-2016-04-25 17:43:34,299 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration short -> org.hibernate.type.ShortType@770c2e6b
-2016-04-25 17:43:34,299 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration java.lang.Short -> org.hibernate.type.ShortType@770c2e6b
-2016-04-25 17:43:34,299 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration integer -> org.hibernate.type.IntegerType@448ff1a8
-2016-04-25 17:43:34,299 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration int -> org.hibernate.type.IntegerType@448ff1a8
-2016-04-25 17:43:34,299 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration java.lang.Integer -> org.hibernate.type.IntegerType@448ff1a8
-2016-04-25 17:43:34,330 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration long -> org.hibernate.type.LongType@145eaa29
-2016-04-25 17:43:34,330 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration long -> org.hibernate.type.LongType@145eaa29
-2016-04-25 17:43:34,330 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration java.lang.Long -> org.hibernate.type.LongType@145eaa29
-2016-04-25 17:43:34,346 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration float -> org.hibernate.type.FloatType@667a738
-2016-04-25 17:43:34,346 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration float -> org.hibernate.type.FloatType@667a738
-2016-04-25 17:43:34,346 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration java.lang.Float -> org.hibernate.type.FloatType@667a738
-2016-04-25 17:43:34,361 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration double -> org.hibernate.type.DoubleType@275710fc
-2016-04-25 17:43:34,361 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration double -> org.hibernate.type.DoubleType@275710fc
-2016-04-25 17:43:34,361 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration java.lang.Double -> org.hibernate.type.DoubleType@275710fc
-2016-04-25 17:43:34,424 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration big_decimal -> org.hibernate.type.BigDecimalType@4ae3c1cd
-2016-04-25 17:43:34,440 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration java.math.BigDecimal -> org.hibernate.type.BigDecimalType@4ae3c1cd
-2016-04-25 17:43:34,455 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration big_integer -> org.hibernate.type.BigIntegerType@45f45fa1
-2016-04-25 17:43:34,455 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration java.math.BigInteger -> org.hibernate.type.BigIntegerType@45f45fa1
-2016-04-25 17:43:34,455 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration string -> org.hibernate.type.StringType@8e0379d
-2016-04-25 17:43:34,455 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration java.lang.String -> org.hibernate.type.StringType@8e0379d
-2016-04-25 17:43:34,455 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration nstring -> org.hibernate.type.StringNVarcharType@40e6dfe1
-2016-04-25 17:43:34,471 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration ncharacter -> org.hibernate.type.CharacterNCharType@123f1134
-2016-04-25 17:43:34,471 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration url -> org.hibernate.type.UrlType@25b485ba
-2016-04-25 17:43:34,471 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration java.net.URL -> org.hibernate.type.UrlType@25b485ba
-2016-04-25 17:43:34,471 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration date -> org.hibernate.type.DateType@240237d2
-2016-04-25 17:43:34,471 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration java.sql.Date -> org.hibernate.type.DateType@240237d2
-2016-04-25 17:43:34,471 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration time -> org.hibernate.type.TimeType@548a102f
-2016-04-25 17:43:34,471 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration java.sql.Time -> org.hibernate.type.TimeType@548a102f
-2016-04-25 17:43:34,471 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration timestamp -> org.hibernate.type.TimestampType@780cb77
-2016-04-25 17:43:34,471 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration java.sql.Timestamp -> org.hibernate.type.TimestampType@780cb77
-2016-04-25 17:43:34,471 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration java.util.Date -> org.hibernate.type.TimestampType@780cb77
-2016-04-25 17:43:34,486 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration dbtimestamp -> org.hibernate.type.DbTimestampType@161b062a
-2016-04-25 17:43:34,486 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration calendar -> org.hibernate.type.CalendarType@14ec4505
-2016-04-25 17:43:34,486 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration java.util.Calendar -> org.hibernate.type.CalendarType@14ec4505
-2016-04-25 17:43:34,486 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration java.util.GregorianCalendar -> org.hibernate.type.CalendarType@14ec4505
-2016-04-25 17:43:34,486 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration calendar_date -> org.hibernate.type.CalendarDateType@3ee0fea4
-2016-04-25 17:43:34,486 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration locale -> org.hibernate.type.LocaleType@7920ba90
-2016-04-25 17:43:34,486 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration java.util.Locale -> org.hibernate.type.LocaleType@7920ba90
-2016-04-25 17:43:34,502 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration currency -> org.hibernate.type.CurrencyType@3d299e3
-2016-04-25 17:43:34,502 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration java.util.Currency -> org.hibernate.type.CurrencyType@3d299e3
-2016-04-25 17:43:34,502 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration timezone -> org.hibernate.type.TimeZoneType@6646153
-2016-04-25 17:43:34,502 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration java.util.TimeZone -> org.hibernate.type.TimeZoneType@6646153
-2016-04-25 17:43:34,502 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration class -> org.hibernate.type.ClassType@657c8ad9
-2016-04-25 17:43:34,502 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration java.lang.Class -> org.hibernate.type.ClassType@657c8ad9
-2016-04-25 17:43:34,518 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration uuid-binary -> org.hibernate.type.UUIDBinaryType@3c153a1
-2016-04-25 17:43:34,518 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration java.util.UUID -> org.hibernate.type.UUIDBinaryType@3c153a1
-2016-04-25 17:43:34,518 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration uuid-char -> org.hibernate.type.UUIDCharType@3e3047e6
-2016-04-25 17:43:34,518 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration binary -> org.hibernate.type.BinaryType@7c417213
-2016-04-25 17:43:34,518 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration byte[] -> org.hibernate.type.BinaryType@7c417213
-2016-04-25 17:43:34,518 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration [B -> org.hibernate.type.BinaryType@7c417213
-2016-04-25 17:43:34,518 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration wrapper-binary -> org.hibernate.type.WrapperBinaryType@60611244
-2016-04-25 17:43:34,518 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration Byte[] -> org.hibernate.type.WrapperBinaryType@60611244
-2016-04-25 17:43:34,518 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration [Ljava.lang.Byte; -> org.hibernate.type.WrapperBinaryType@60611244
-2016-04-25 17:43:34,533 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration image -> org.hibernate.type.ImageType@1a0dcaa
-2016-04-25 17:43:34,533 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration characters -> org.hibernate.type.CharArrayType@11dc3715
-2016-04-25 17:43:34,533 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration char[] -> org.hibernate.type.CharArrayType@11dc3715
-2016-04-25 17:43:34,533 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration [C -> org.hibernate.type.CharArrayType@11dc3715
-2016-04-25 17:43:34,533 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration wrapper-characters -> org.hibernate.type.CharacterArrayType@79ca92b9
-2016-04-25 17:43:34,533 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration [Ljava.lang.Character; -> org.hibernate.type.CharacterArrayType@79ca92b9
-2016-04-25 17:43:34,533 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration Character[] -> org.hibernate.type.CharacterArrayType@79ca92b9
-2016-04-25 17:43:34,533 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration text -> org.hibernate.type.TextType@7fc229ab
-2016-04-25 17:43:34,533 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration ntext -> org.hibernate.type.NTextType@add0edd
-2016-04-25 17:43:34,549 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration blob -> org.hibernate.type.BlobType@23986957
-2016-04-25 17:43:34,549 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration java.sql.Blob -> org.hibernate.type.BlobType@23986957
-2016-04-25 17:43:34,549 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration materialized_blob -> org.hibernate.type.MaterializedBlobType@7d3a22a9
-2016-04-25 17:43:34,565 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration clob -> org.hibernate.type.ClobType@222114ba
-2016-04-25 17:43:34,565 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration java.sql.Clob -> org.hibernate.type.ClobType@222114ba
-2016-04-25 17:43:34,580 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration nclob -> org.hibernate.type.NClobType@147ed70f
-2016-04-25 17:43:34,580 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration java.sql.NClob -> org.hibernate.type.NClobType@147ed70f
-2016-04-25 17:43:34,580 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration materialized_clob -> org.hibernate.type.MaterializedClobType@15b204a1
-2016-04-25 17:43:34,580 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration materialized_nclob -> org.hibernate.type.MaterializedNClobType@6ce139a4
-2016-04-25 17:43:34,580 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration serializable -> org.hibernate.type.SerializableType@33afa13b
-2016-04-25 17:43:34,580 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration object -> org.hibernate.type.ObjectType@43301423
-2016-04-25 17:43:34,580 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration java.lang.Object -> org.hibernate.type.ObjectType@43301423
-2016-04-25 17:43:34,580 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration imm_date -> org.hibernate.type.AdaptedImmutableType@4e91d63f
-2016-04-25 17:43:34,580 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration imm_time -> org.hibernate.type.AdaptedImmutableType@d4342c2
-2016-04-25 17:43:34,580 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration imm_timestamp -> org.hibernate.type.AdaptedImmutableType@2bbf180e
-2016-04-25 17:43:34,580 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration imm_dbtimestamp -> org.hibernate.type.AdaptedImmutableType@163e4e87
-2016-04-25 17:43:34,580 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration imm_calendar -> org.hibernate.type.AdaptedImmutableType@56de5251
-2016-04-25 17:43:34,596 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration imm_calendar_date -> org.hibernate.type.AdaptedImmutableType@419c5f1a
-2016-04-25 17:43:34,596 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration imm_binary -> org.hibernate.type.AdaptedImmutableType@12b0404f
-2016-04-25 17:43:34,596 [main] DEBUG org.hibernate.type.BasicTypeRegistry:135 - Adding type registration imm_serializable -> org.hibernate.type.AdaptedImmutableType@769e7ee8
-2016-04-25 17:43:34,627 [main]  WARN org.hibernate.orm.connections:71 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2016-04-25 17:43:34,698 [main]  INFO org.hibernate.orm.connections:127 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/db_mysql_world]
-2016-04-25 17:43:34,698 [main]  INFO org.hibernate.orm.connections:133 - HHH10001001: Connection properties: {user=jkavdev, password=123456}
-2016-04-25 17:43:34,699 [main]  INFO org.hibernate.orm.connections:141 - HHH10001003: Autocommit mode: false
-2016-04-25 17:43:34,699 [main] DEBUG org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl:384 - Initializing Connection pool with 1 Connections
-2016-04-25 17:43:34,699 [main]  INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl:39 - HHH000115: Hibernate connection pool size: 20 (min=1)
-2016-04-25 17:43:35,247 [main] DEBUG org.hibernate.jpa.HibernatePersistenceProvider:65 - Unable to build entity manager factory
-org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:244)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:208)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:189)
-	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:51)
-	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:94)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:217)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:189)
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.handleTypes(MetadataBuildingProcess.java:352)
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:111)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:848)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:876)
-	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:58)
-	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:55)
-	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:39)
-	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:21)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
-	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
-Caused by: org.hibernate.exception.JDBCConnectionException: Error calling Driver#connect
-	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator$1$1.convert(BasicConnectionCreator.java:105)
-	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:123)
-	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:41)
-	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:58)
-	at org.hibernate.engine.jdbc.connections.internal.PooledConnections.addConnections(PooledConnections.java:106)
-	at org.hibernate.engine.jdbc.connections.internal.PooledConnections.<init>(PooledConnections.java:40)
-	at org.hibernate.engine.jdbc.connections.internal.PooledConnections.<init>(PooledConnections.java:19)
-	at org.hibernate.engine.jdbc.connections.internal.PooledConnections$Builder.build(PooledConnections.java:138)
-	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildPool(DriverManagerConnectionProviderImpl.java:110)
-	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure(DriverManagerConnectionProviderImpl.java:74)
-	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:94)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:217)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:189)
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:145)
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:66)
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
-	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:88)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:234)
-	... 29 more
-Caused by: java.sql.SQLException: The server time zone value 'Hora oficial do Brasil' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:695)
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:663)
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:653)
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:638)
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:606)
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:624)
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:620)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:68)
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:1683)
-	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:656)
-	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:349)
-	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:221)
-	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:38)
-	... 44 more
-Caused by: com.mysql.cj.core.exceptions.InvalidConnectionAttributeException: The server time zone value 'Hora oficial do Brasil' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at com.mysql.cj.core.exceptions.ExceptionFactory.createException(ExceptionFactory.java:54)
-	at com.mysql.cj.core.exceptions.ExceptionFactory.createException(ExceptionFactory.java:73)
-	at com.mysql.cj.jdbc.util.TimeUtil.getCanonicalTimezone(TimeUtil.java:118)
-	at com.mysql.cj.mysqla.MysqlaSession.configureTimezone(MysqlaSession.java:308)
-	at com.mysql.cj.jdbc.ConnectionImpl.initializePropsFromServer(ConnectionImpl.java:2474)
-	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:1817)
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:1673)
-	... 48 more
-2016-04-25 17:43:58,869 [main]  INFO org.hibernate.jpa.internal.util.LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+2016-04-25 21:08:33,648 [main]  INFO org.hibernate.jpa.internal.util.LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
 	name: worldPU
 	...]
-2016-04-25 17:43:59,274 [main]  INFO org.hibernate.Version:37 - HHH000412: Hibernate Core {5.1.0.Final}
-2016-04-25 17:43:59,274 [main]  INFO org.hibernate.cfg.Environment:213 - HHH000206: hibernate.properties not found
-2016-04-25 17:43:59,274 [main]  INFO org.hibernate.cfg.Environment:317 - HHH000021: Bytecode provider name : javassist
-2016-04-25 17:43:59,431 [main]  INFO org.hibernate.annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
-2016-04-25 17:44:00,133 [main]  WARN org.hibernate.orm.connections:71 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2016-04-25 17:44:00,151 [main]  INFO org.hibernate.orm.connections:127 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/db_mysql_world]
-2016-04-25 17:44:00,152 [main]  INFO org.hibernate.orm.connections:136 - HHH10001001: Connection properties: {user=jkavdev, password=****}
-2016-04-25 17:44:00,152 [main]  INFO org.hibernate.orm.connections:141 - HHH10001003: Autocommit mode: false
-2016-04-25 17:44:00,152 [main]  INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl:39 - HHH000115: Hibernate connection pool size: 20 (min=1)
-2016-04-25 17:44:35,988 [main]  INFO org.hibernate.jpa.internal.util.LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+2016-04-25 21:08:33,733 [main]  INFO org.hibernate.Version:37 - HHH000412: Hibernate Core {5.1.0.Final}
+2016-04-25 21:08:33,733 [main]  INFO org.hibernate.cfg.Environment:213 - HHH000206: hibernate.properties not found
+2016-04-25 21:08:33,733 [main]  INFO org.hibernate.cfg.Environment:317 - HHH000021: Bytecode provider name : javassist
+2016-04-25 21:08:33,849 [main]  INFO org.hibernate.annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-04-25 21:08:34,091 [main]  WARN org.hibernate.orm.connections:71 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-04-25 21:08:34,122 [main]  INFO org.hibernate.orm.connections:127 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/db_mysql_world]
+2016-04-25 21:08:34,124 [main]  INFO org.hibernate.orm.connections:136 - HHH10001001: Connection properties: {user=jkavdev, password=****}
+2016-04-25 21:08:34,124 [main]  INFO org.hibernate.orm.connections:141 - HHH10001003: Autocommit mode: false
+2016-04-25 21:08:34,128 [main]  INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl:39 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2016-04-25 21:10:12,216 [main]  INFO org.hibernate.jpa.internal.util.LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
 	name: worldPU
 	...]
-2016-04-25 17:44:36,248 [main]  INFO org.hibernate.Version:37 - HHH000412: Hibernate Core {5.1.0.Final}
-2016-04-25 17:44:36,248 [main]  INFO org.hibernate.cfg.Environment:213 - HHH000206: hibernate.properties not found
-2016-04-25 17:44:36,248 [main]  INFO org.hibernate.cfg.Environment:317 - HHH000021: Bytecode provider name : javassist
-2016-04-25 17:44:36,388 [main]  INFO org.hibernate.annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
-2016-04-25 17:44:37,110 [main]  WARN org.hibernate.orm.connections:71 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2016-04-25 17:44:37,144 [main]  INFO org.hibernate.orm.connections:127 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/db_mysql_world]
-2016-04-25 17:44:37,145 [main]  INFO org.hibernate.orm.connections:136 - HHH10001001: Connection properties: {user=jkavdev, password=****}
-2016-04-25 17:44:37,145 [main]  INFO org.hibernate.orm.connections:141 - HHH10001003: Autocommit mode: false
-2016-04-25 17:44:37,145 [main]  INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl:39 - HHH000115: Hibernate connection pool size: 20 (min=1)
-2016-04-25 17:45:14,764 [main]  INFO org.hibernate.jpa.internal.util.LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+2016-04-25 21:10:12,455 [main]  INFO org.hibernate.Version:37 - HHH000412: Hibernate Core {5.1.0.Final}
+2016-04-25 21:10:12,457 [main]  INFO org.hibernate.cfg.Environment:213 - HHH000206: hibernate.properties not found
+2016-04-25 21:10:12,459 [main]  INFO org.hibernate.cfg.Environment:317 - HHH000021: Bytecode provider name : javassist
+2016-04-25 21:10:12,508 [main]  INFO org.hibernate.annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-04-25 21:10:12,695 [main]  WARN org.hibernate.orm.connections:71 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-04-25 21:10:12,704 [main]  INFO org.hibernate.orm.connections:127 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/db_mysql_world]
+2016-04-25 21:10:12,706 [main]  INFO org.hibernate.orm.connections:136 - HHH10001001: Connection properties: {user=jkavdev, password=****}
+2016-04-25 21:10:12,706 [main]  INFO org.hibernate.orm.connections:141 - HHH10001003: Autocommit mode: false
+2016-04-25 21:10:12,710 [main]  INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl:39 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2016-04-25 21:11:03,116 [main]  INFO org.hibernate.jpa.internal.util.LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
 	name: worldPU
 	...]
-2016-04-25 17:45:15,053 [main]  INFO org.hibernate.Version:37 - HHH000412: Hibernate Core {5.1.0.Final}
-2016-04-25 17:45:15,053 [main]  INFO org.hibernate.cfg.Environment:213 - HHH000206: hibernate.properties not found
-2016-04-25 17:45:15,069 [main]  INFO org.hibernate.cfg.Environment:317 - HHH000021: Bytecode provider name : javassist
-2016-04-25 17:45:15,194 [main]  INFO org.hibernate.annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
-2016-04-25 17:45:15,772 [main]  WARN org.hibernate.orm.connections:71 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2016-04-25 17:45:15,783 [main]  INFO org.hibernate.orm.connections:127 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/db_mysql_world]
-2016-04-25 17:45:15,793 [main]  INFO org.hibernate.orm.connections:136 - HHH10001001: Connection properties: {user=jkavdev, password=****}
-2016-04-25 17:45:15,794 [main]  INFO org.hibernate.orm.connections:141 - HHH10001003: Autocommit mode: false
-2016-04-25 17:45:15,794 [main]  INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl:39 - HHH000115: Hibernate connection pool size: 20 (min=1)
-2016-04-25 17:46:27,201 [main]  INFO org.hibernate.jpa.internal.util.LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+2016-04-25 21:11:03,216 [main]  INFO org.hibernate.Version:37 - HHH000412: Hibernate Core {5.1.0.Final}
+2016-04-25 21:11:03,216 [main]  INFO org.hibernate.cfg.Environment:213 - HHH000206: hibernate.properties not found
+2016-04-25 21:11:03,262 [main]  INFO org.hibernate.cfg.Environment:317 - HHH000021: Bytecode provider name : javassist
+2016-04-25 21:11:03,381 [main]  INFO org.hibernate.annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-04-25 21:11:03,565 [main]  WARN org.hibernate.orm.connections:71 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-04-25 21:11:03,577 [main]  INFO org.hibernate.orm.connections:127 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/db_mysql_world]
+2016-04-25 21:11:03,577 [main]  INFO org.hibernate.orm.connections:136 - HHH10001001: Connection properties: {user=jkavdev, password=****}
+2016-04-25 21:11:03,577 [main]  INFO org.hibernate.orm.connections:141 - HHH10001003: Autocommit mode: false
+2016-04-25 21:11:03,577 [main]  INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl:39 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2016-04-25 21:11:03,895 [main]  INFO org.hibernate.dialect.Dialect:156 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2016-04-25 21:11:04,452 [main]  INFO org.hibernate.validator.internal.util.Version:30 - HV000001: Hibernate Validator 5.2.4.Final
+2016-04-25 21:11:04,605 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.City
+javax.validation.ValidationException: HV000183: Unable to load 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
+	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.createValidator(ValidatorFactoryImpl.java:339)
+	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.getValidator(ValidatorFactoryImpl.java:256)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyDDL(TypeSafeActivator.java:207)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyRelationalConstraints(TypeSafeActivator.java:191)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyRelationalConstraints(TypeSafeActivator.java:150)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.activate(TypeSafeActivator.java:98)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.hibernate.cfg.beanvalidation.BeanValidationIntegrator.integrate(BeanValidationIntegrator.java:132)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:276)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:465)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:881)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:58)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:55)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:39)
+	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:25)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+2016-04-25 21:11:04,635 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.CountryLanguage
+javax.validation.ValidationException: HV000183: Unable to load 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
+	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.createValidator(ValidatorFactoryImpl.java:339)
+	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.getValidator(ValidatorFactoryImpl.java:256)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyDDL(TypeSafeActivator.java:207)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyRelationalConstraints(TypeSafeActivator.java:191)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyRelationalConstraints(TypeSafeActivator.java:150)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.activate(TypeSafeActivator.java:98)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.hibernate.cfg.beanvalidation.BeanValidationIntegrator.integrate(BeanValidationIntegrator.java:132)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:276)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:465)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:881)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:58)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:55)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:39)
+	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:25)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+2016-04-25 21:11:04,635 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.Country
+javax.validation.ValidationException: HV000183: Unable to load 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
+	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.createValidator(ValidatorFactoryImpl.java:339)
+	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.getValidator(ValidatorFactoryImpl.java:256)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyDDL(TypeSafeActivator.java:207)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyRelationalConstraints(TypeSafeActivator.java:191)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyRelationalConstraints(TypeSafeActivator.java:150)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.activate(TypeSafeActivator.java:98)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.hibernate.cfg.beanvalidation.BeanValidationIntegrator.integrate(BeanValidationIntegrator.java:132)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:276)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:465)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:881)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:58)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:55)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:39)
+	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:25)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+2016-04-25 21:11:05,110 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: city
+2016-04-25 21:11:05,116 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: city
+2016-04-25 21:11:05,537 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: country
+2016-04-25 21:11:05,537 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: country
+2016-04-25 21:11:05,738 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: country_language
+2016-04-25 21:11:05,747 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: country_language
+2016-04-25 21:11:06,001 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: hibernate_sequence
+2016-04-25 21:11:06,001 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: hibernate_sequence
+2016-04-25 21:11:06,640 [main]  INFO br.com.jkavdev.tests.jpa.JpaTest:42 - Conectado
+2016-04-25 21:17:07,744 [main]  INFO org.hibernate.jpa.internal.util.LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
 	name: worldPU
 	...]
-2016-04-25 17:46:27,477 [main]  INFO org.hibernate.Version:37 - HHH000412: Hibernate Core {5.1.0.Final}
-2016-04-25 17:46:27,477 [main]  INFO org.hibernate.cfg.Environment:213 - HHH000206: hibernate.properties not found
-2016-04-25 17:46:27,493 [main]  INFO org.hibernate.cfg.Environment:317 - HHH000021: Bytecode provider name : javassist
-2016-04-25 17:46:27,725 [main]  INFO org.hibernate.annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
-2016-04-25 17:46:28,163 [main]  WARN org.hibernate.orm.connections:71 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2016-04-25 17:46:28,178 [main]  INFO org.hibernate.orm.connections:127 - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/db_mysql_world]
-2016-04-25 17:46:28,178 [main]  INFO org.hibernate.orm.connections:136 - HHH10001001: Connection properties: {user=jkavdev, password=****}
-2016-04-25 17:46:28,178 [main]  INFO org.hibernate.orm.connections:141 - HHH10001003: Autocommit mode: false
-2016-04-25 17:46:28,194 [main]  INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl:39 - HHH000115: Hibernate connection pool size: 20 (min=1)
-2016-04-25 17:48:09,211 [main]  INFO org.hibernate.jpa.internal.util.LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+2016-04-25 21:17:07,844 [main]  INFO org.hibernate.Version:37 - HHH000412: Hibernate Core {5.1.0.Final}
+2016-04-25 21:17:07,844 [main]  INFO org.hibernate.cfg.Environment:213 - HHH000206: hibernate.properties not found
+2016-04-25 21:17:07,860 [main]  INFO org.hibernate.cfg.Environment:317 - HHH000021: Bytecode provider name : javassist
+2016-04-25 21:17:07,960 [main]  INFO org.hibernate.annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-04-25 21:17:08,192 [main]  WARN org.hibernate.orm.connections:71 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-04-25 21:17:08,198 [main]  INFO org.hibernate.orm.connections:127 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/db_mysql_world]
+2016-04-25 21:17:08,198 [main]  INFO org.hibernate.orm.connections:136 - HHH10001001: Connection properties: {user=jkavdev, password=****}
+2016-04-25 21:17:08,198 [main]  INFO org.hibernate.orm.connections:141 - HHH10001003: Autocommit mode: false
+2016-04-25 21:17:08,198 [main]  INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl:39 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2016-04-25 21:17:08,503 [main]  INFO org.hibernate.dialect.Dialect:156 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2016-04-25 21:17:08,956 [main]  INFO org.hibernate.validator.internal.util.Version:30 - HV000001: Hibernate Validator 5.2.4.Final
+2016-04-25 21:17:09,019 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.City
+javax.validation.ValidationException: HV000183: Unable to load 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
+	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.createValidator(ValidatorFactoryImpl.java:339)
+	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.getValidator(ValidatorFactoryImpl.java:256)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyDDL(TypeSafeActivator.java:207)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyRelationalConstraints(TypeSafeActivator.java:191)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyRelationalConstraints(TypeSafeActivator.java:150)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.activate(TypeSafeActivator.java:98)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.hibernate.cfg.beanvalidation.BeanValidationIntegrator.integrate(BeanValidationIntegrator.java:132)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:276)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:465)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:881)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:58)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:55)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:39)
+	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:25)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+2016-04-25 21:17:09,035 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.CountryLanguage
+javax.validation.ValidationException: HV000183: Unable to load 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
+	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.createValidator(ValidatorFactoryImpl.java:339)
+	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.getValidator(ValidatorFactoryImpl.java:256)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyDDL(TypeSafeActivator.java:207)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyRelationalConstraints(TypeSafeActivator.java:191)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyRelationalConstraints(TypeSafeActivator.java:150)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.activate(TypeSafeActivator.java:98)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.hibernate.cfg.beanvalidation.BeanValidationIntegrator.integrate(BeanValidationIntegrator.java:132)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:276)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:465)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:881)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:58)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:55)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:39)
+	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:25)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+2016-04-25 21:17:09,035 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.Country
+javax.validation.ValidationException: HV000183: Unable to load 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
+	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.createValidator(ValidatorFactoryImpl.java:339)
+	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.getValidator(ValidatorFactoryImpl.java:256)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyDDL(TypeSafeActivator.java:207)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyRelationalConstraints(TypeSafeActivator.java:191)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyRelationalConstraints(TypeSafeActivator.java:150)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.activate(TypeSafeActivator.java:98)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.hibernate.cfg.beanvalidation.BeanValidationIntegrator.integrate(BeanValidationIntegrator.java:132)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:276)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:465)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:881)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:58)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:55)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:39)
+	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:25)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+2016-04-25 21:17:09,575 [main]  INFO br.com.jkavdev.tests.jpa.JpaTest:42 - Conectado
+2016-04-25 21:18:24,867 [main]  INFO org.hibernate.jpa.internal.util.LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
 	name: worldPU
 	...]
-2016-04-25 17:48:09,568 [main]  INFO org.hibernate.Version:37 - HHH000412: Hibernate Core {5.1.0.Final}
-2016-04-25 17:48:09,583 [main]  INFO org.hibernate.cfg.Environment:213 - HHH000206: hibernate.properties not found
-2016-04-25 17:48:09,583 [main]  INFO org.hibernate.cfg.Environment:317 - HHH000021: Bytecode provider name : javassist
-2016-04-25 17:48:09,724 [main]  INFO org.hibernate.annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
-2016-04-25 17:48:10,099 [main]  WARN org.hibernate.orm.connections:71 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2016-04-25 17:49:32,499 [main]  INFO org.hibernate.jpa.internal.util.LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+2016-04-25 21:18:24,983 [main]  INFO org.hibernate.Version:37 - HHH000412: Hibernate Core {5.1.0.Final}
+2016-04-25 21:18:24,983 [main]  INFO org.hibernate.cfg.Environment:213 - HHH000206: hibernate.properties not found
+2016-04-25 21:18:24,983 [main]  INFO org.hibernate.cfg.Environment:317 - HHH000021: Bytecode provider name : javassist
+2016-04-25 21:18:25,021 [main]  INFO org.hibernate.annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-04-25 21:18:25,221 [main]  WARN org.hibernate.orm.connections:71 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-04-25 21:18:25,221 [main]  INFO org.hibernate.orm.connections:127 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/db_mysql_world]
+2016-04-25 21:18:25,221 [main]  INFO org.hibernate.orm.connections:136 - HHH10001001: Connection properties: {user=jkavdev, password=****}
+2016-04-25 21:18:25,221 [main]  INFO org.hibernate.orm.connections:141 - HHH10001003: Autocommit mode: false
+2016-04-25 21:18:25,221 [main]  INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl:39 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2016-04-25 21:18:25,542 [main]  INFO org.hibernate.dialect.Dialect:156 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2016-04-25 21:18:26,005 [main]  INFO org.hibernate.validator.internal.util.Version:30 - HV000001: Hibernate Validator 5.2.4.Final
+2016-04-25 21:18:26,074 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.City
+javax.validation.ValidationException: HV000183: Unable to load 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
+	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.createValidator(ValidatorFactoryImpl.java:339)
+	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.getValidator(ValidatorFactoryImpl.java:256)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyDDL(TypeSafeActivator.java:207)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyRelationalConstraints(TypeSafeActivator.java:191)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyRelationalConstraints(TypeSafeActivator.java:150)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.activate(TypeSafeActivator.java:98)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.hibernate.cfg.beanvalidation.BeanValidationIntegrator.integrate(BeanValidationIntegrator.java:132)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:276)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:465)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:881)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:58)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:55)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:39)
+	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:25)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+2016-04-25 21:18:26,074 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.CountryLanguage
+javax.validation.ValidationException: HV000183: Unable to load 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
+	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.createValidator(ValidatorFactoryImpl.java:339)
+	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.getValidator(ValidatorFactoryImpl.java:256)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyDDL(TypeSafeActivator.java:207)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyRelationalConstraints(TypeSafeActivator.java:191)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyRelationalConstraints(TypeSafeActivator.java:150)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.activate(TypeSafeActivator.java:98)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.hibernate.cfg.beanvalidation.BeanValidationIntegrator.integrate(BeanValidationIntegrator.java:132)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:276)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:465)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:881)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:58)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:55)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:39)
+	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:25)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+2016-04-25 21:18:26,090 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.Country
+javax.validation.ValidationException: HV000183: Unable to load 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
+	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.createValidator(ValidatorFactoryImpl.java:339)
+	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.getValidator(ValidatorFactoryImpl.java:256)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyDDL(TypeSafeActivator.java:207)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyRelationalConstraints(TypeSafeActivator.java:191)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyRelationalConstraints(TypeSafeActivator.java:150)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.activate(TypeSafeActivator.java:98)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.hibernate.cfg.beanvalidation.BeanValidationIntegrator.integrate(BeanValidationIntegrator.java:132)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:276)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:465)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:881)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:58)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:55)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:39)
+	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:25)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+2016-04-25 21:18:26,375 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: city
+2016-04-25 21:18:26,390 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: city
+2016-04-25 21:18:26,622 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: country
+2016-04-25 21:18:26,624 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: country
+2016-04-25 21:18:26,844 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: country_language
+2016-04-25 21:18:26,844 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: country_language
+2016-04-25 21:18:27,045 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: hibernate_sequence
+2016-04-25 21:18:27,045 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: hibernate_sequence
+2016-04-25 21:18:27,508 [main]  INFO br.com.jkavdev.tests.jpa.JpaTest:42 - Conectado
+2016-04-25 21:24:49,866 [main]  INFO org.hibernate.jpa.internal.util.LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
 	name: worldPU
 	...]
-2016-04-25 17:49:32,907 [main]  INFO org.hibernate.Version:37 - HHH000412: Hibernate Core {5.1.0.Final}
-2016-04-25 17:49:32,923 [main]  INFO org.hibernate.cfg.Environment:213 - HHH000206: hibernate.properties not found
-2016-04-25 17:49:32,923 [main]  INFO org.hibernate.cfg.Environment:317 - HHH000021: Bytecode provider name : javassist
-2016-04-25 17:49:33,064 [main]  INFO org.hibernate.annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
-2016-04-25 17:49:33,398 [main]  WARN org.hibernate.orm.connections:71 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2016-04-25 17:49:33,429 [main]  INFO org.hibernate.orm.connections:127 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/db_mysql_world]
-2016-04-25 17:49:33,429 [main]  INFO org.hibernate.orm.connections:136 - HHH10001001: Connection properties: {user=jkavdev, password=****}
-2016-04-25 17:49:33,429 [main]  INFO org.hibernate.orm.connections:141 - HHH10001003: Autocommit mode: false
-2016-04-25 17:49:33,429 [main]  INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl:39 - HHH000115: Hibernate connection pool size: 20 (min=1)
-2016-04-25 17:49:34,086 [main]  INFO org.hibernate.dialect.Dialect:156 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2016-04-25 17:49:35,314 [main]  INFO org.hibernate.validator.internal.util.Version:30 - HV000001: Hibernate Validator 5.2.4.Final
-2016-04-25 17:49:35,542 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.City
+2016-04-25 21:24:49,951 [main]  INFO org.hibernate.Version:37 - HHH000412: Hibernate Core {5.1.0.Final}
+2016-04-25 21:24:49,951 [main]  INFO org.hibernate.cfg.Environment:213 - HHH000206: hibernate.properties not found
+2016-04-25 21:24:49,951 [main]  INFO org.hibernate.cfg.Environment:317 - HHH000021: Bytecode provider name : javassist
+2016-04-25 21:24:50,089 [main]  INFO org.hibernate.annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-04-25 21:24:50,311 [main]  WARN org.hibernate.orm.connections:71 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-04-25 21:24:50,319 [main]  INFO org.hibernate.orm.connections:127 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/db_mysql_world]
+2016-04-25 21:24:50,321 [main]  INFO org.hibernate.orm.connections:136 - HHH10001001: Connection properties: {user=jkavdev, password=****}
+2016-04-25 21:24:50,321 [main]  INFO org.hibernate.orm.connections:141 - HHH10001003: Autocommit mode: false
+2016-04-25 21:24:50,325 [main]  INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl:39 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2016-04-25 21:24:50,636 [main]  INFO org.hibernate.dialect.Dialect:156 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2016-04-25 21:24:51,120 [main]  INFO org.hibernate.validator.internal.util.Version:30 - HV000001: Hibernate Validator 5.2.4.Final
+2016-04-25 21:24:51,168 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.City
 javax.validation.ValidationException: HV000183: Unable to load 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
 	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.createValidator(ValidatorFactoryImpl.java:339)
 	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.getValidator(ValidatorFactoryImpl.java:256)
@@ -306,7 +431,7 @@ javax.validation.ValidationException: HV000183: Unable to load 'javax.el.Express
 	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:58)
 	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:55)
 	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:39)
-	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:21)
+	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:26)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -316,13 +441,13 @@ javax.validation.ValidationException: HV000183: Unable to load 'javax.el.Express
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
 	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
 	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
 	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
-2016-04-25 17:49:35,558 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.Country
+2016-04-25 21:24:51,184 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.CountryLanguage
 javax.validation.ValidationException: HV000183: Unable to load 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
 	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.createValidator(ValidatorFactoryImpl.java:339)
 	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.getValidator(ValidatorFactoryImpl.java:256)
@@ -341,7 +466,7 @@ javax.validation.ValidationException: HV000183: Unable to load 'javax.el.Express
 	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:58)
 	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:55)
 	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:39)
-	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:21)
+	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:26)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -351,34 +476,74 @@ javax.validation.ValidationException: HV000183: Unable to load 'javax.el.Express
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
 	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
 	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
 	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
-2016-04-25 17:49:36,198 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: city
-2016-04-25 17:49:36,198 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: city
-2016-04-25 17:49:36,917 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: Country
-2016-04-25 17:49:36,922 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: Country
-2016-04-25 17:49:37,886 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: hibernate_sequence
-2016-04-25 17:49:37,901 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: hibernate_sequence
-2016-04-25 17:49:40,716 [main]  WARN br.com.jkavdev.tests.jpa.JpaTest:39 - Conectado
-2016-04-25 17:51:51,536 [main]  INFO org.hibernate.jpa.internal.util.LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+2016-04-25 21:24:51,184 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.Country
+javax.validation.ValidationException: HV000183: Unable to load 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
+	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.createValidator(ValidatorFactoryImpl.java:339)
+	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.getValidator(ValidatorFactoryImpl.java:256)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyDDL(TypeSafeActivator.java:207)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyRelationalConstraints(TypeSafeActivator.java:191)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyRelationalConstraints(TypeSafeActivator.java:150)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.activate(TypeSafeActivator.java:98)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.hibernate.cfg.beanvalidation.BeanValidationIntegrator.integrate(BeanValidationIntegrator.java:132)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:276)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:465)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:881)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:58)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:55)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:39)
+	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:26)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+2016-04-25 21:24:51,488 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: city
+2016-04-25 21:24:51,492 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: city
+2016-04-25 21:24:51,720 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: country
+2016-04-25 21:24:51,720 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: country
+2016-04-25 21:24:51,921 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: country_language
+2016-04-25 21:24:51,921 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: country_language
+2016-04-25 21:24:52,137 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: hibernate_sequence
+2016-04-25 21:24:52,137 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: hibernate_sequence
+2016-04-25 21:24:52,606 [main]  INFO br.com.jkavdev.tests.jpa.JpaTest:27 - Factory Criado
+2016-04-25 21:24:52,775 [main]  INFO br.com.jkavdev.tests.jpa.JpaTest:34 - Manager Criado
+2016-04-25 21:24:52,775 [main]  INFO br.com.jkavdev.tests.jpa.JpaTest:48 - Conectado
+2016-04-25 21:24:52,775 [main]  INFO br.com.jkavdev.tests.jpa.JpaTest:41 - Manager Fechado
+2016-04-25 21:53:25,220 [main]  INFO org.hibernate.jpa.internal.util.LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
 	name: worldPU
 	...]
-2016-04-25 17:51:51,874 [main]  INFO org.hibernate.Version:37 - HHH000412: Hibernate Core {5.1.0.Final}
-2016-04-25 17:51:51,890 [main]  INFO org.hibernate.cfg.Environment:213 - HHH000206: hibernate.properties not found
-2016-04-25 17:51:51,890 [main]  INFO org.hibernate.cfg.Environment:317 - HHH000021: Bytecode provider name : javassist
-2016-04-25 17:51:52,034 [main]  INFO org.hibernate.annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
-2016-04-25 17:51:52,596 [main]  WARN org.hibernate.orm.connections:71 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2016-04-25 17:51:52,612 [main]  INFO org.hibernate.orm.connections:127 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/db_mysql_world]
-2016-04-25 17:51:52,612 [main]  INFO org.hibernate.orm.connections:136 - HHH10001001: Connection properties: {user=jkavdev, password=****}
-2016-04-25 17:51:52,612 [main]  INFO org.hibernate.orm.connections:141 - HHH10001003: Autocommit mode: false
-2016-04-25 17:51:52,628 [main]  INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl:39 - HHH000115: Hibernate connection pool size: 20 (min=1)
-2016-04-25 17:51:53,240 [main]  INFO org.hibernate.dialect.Dialect:156 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2016-04-25 17:51:54,125 [main]  INFO org.hibernate.validator.internal.util.Version:30 - HV000001: Hibernate Validator 5.2.4.Final
-2016-04-25 17:51:54,258 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.City
+2016-04-25 21:53:25,513 [main]  INFO org.hibernate.Version:37 - HHH000412: Hibernate Core {5.1.0.Final}
+2016-04-25 21:53:25,515 [main]  INFO org.hibernate.cfg.Environment:213 - HHH000206: hibernate.properties not found
+2016-04-25 21:53:25,517 [main]  INFO org.hibernate.cfg.Environment:317 - HHH000021: Bytecode provider name : javassist
+2016-04-25 21:53:25,656 [main]  INFO org.hibernate.annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-04-25 21:53:25,982 [main]  WARN org.hibernate.orm.connections:71 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-04-25 21:53:26,008 [main]  INFO org.hibernate.orm.connections:127 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/db_mysql_world]
+2016-04-25 21:53:26,010 [main]  INFO org.hibernate.orm.connections:136 - HHH10001001: Connection properties: {user=jkavdev, password=****}
+2016-04-25 21:53:26,010 [main]  INFO org.hibernate.orm.connections:141 - HHH10001003: Autocommit mode: false
+2016-04-25 21:53:26,014 [main]  INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl:39 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2016-04-25 21:53:26,462 [main]  INFO org.hibernate.dialect.Dialect:156 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2016-04-25 21:53:27,077 [main]  INFO org.hibernate.validator.internal.util.Version:30 - HV000001: Hibernate Validator 5.2.4.Final
+2016-04-25 21:53:27,232 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.City
 javax.validation.ValidationException: HV000183: Unable to load 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
 	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.createValidator(ValidatorFactoryImpl.java:339)
 	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.getValidator(ValidatorFactoryImpl.java:256)
@@ -397,7 +562,7 @@ javax.validation.ValidationException: HV000183: Unable to load 'javax.el.Express
 	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:58)
 	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:55)
 	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:39)
-	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:21)
+	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:25)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -407,13 +572,13 @@ javax.validation.ValidationException: HV000183: Unable to load 'javax.el.Express
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
 	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
 	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
 	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
-2016-04-25 17:51:54,258 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.Country
+2016-04-25 21:53:27,235 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.CountryLanguage
 javax.validation.ValidationException: HV000183: Unable to load 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
 	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.createValidator(ValidatorFactoryImpl.java:339)
 	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.getValidator(ValidatorFactoryImpl.java:256)
@@ -432,7 +597,7 @@ javax.validation.ValidationException: HV000183: Unable to load 'javax.el.Express
 	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:58)
 	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:55)
 	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:39)
-	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:21)
+	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:25)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -442,28 +607,70 @@ javax.validation.ValidationException: HV000183: Unable to load 'javax.el.Express
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
 	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
 	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
 	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
-2016-04-25 17:51:55,258 [main]  WARN br.com.jkavdev.tests.jpa.JpaTest:39 - Conectado
-2016-04-25 18:07:10,478 [main]  INFO org.hibernate.jpa.internal.util.LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+2016-04-25 21:53:27,238 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.Country
+javax.validation.ValidationException: HV000183: Unable to load 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
+	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.createValidator(ValidatorFactoryImpl.java:339)
+	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.getValidator(ValidatorFactoryImpl.java:256)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyDDL(TypeSafeActivator.java:207)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyRelationalConstraints(TypeSafeActivator.java:191)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyRelationalConstraints(TypeSafeActivator.java:150)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.activate(TypeSafeActivator.java:98)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.hibernate.cfg.beanvalidation.BeanValidationIntegrator.integrate(BeanValidationIntegrator.java:132)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:276)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:465)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:881)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:58)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:55)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:39)
+	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:25)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+2016-04-25 21:53:27,587 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: city
+2016-04-25 21:53:27,590 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: city
+2016-04-25 21:53:27,870 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: country
+2016-04-25 21:53:27,871 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: country
+2016-04-25 21:53:28,091 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: country_language
+2016-04-25 21:53:28,092 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: country_language
+2016-04-25 21:53:28,317 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: hibernate_sequence
+2016-04-25 21:53:28,320 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: hibernate_sequence
+2016-04-25 21:55:43,624 [main]  INFO org.hibernate.jpa.internal.util.LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
 	name: worldPU
 	...]
-2016-04-25 18:07:10,782 [main]  INFO org.hibernate.Version:37 - HHH000412: Hibernate Core {5.1.0.Final}
-2016-04-25 18:07:10,797 [main]  INFO org.hibernate.cfg.Environment:213 - HHH000206: hibernate.properties not found
-2016-04-25 18:07:10,797 [main]  INFO org.hibernate.cfg.Environment:317 - HHH000021: Bytecode provider name : javassist
-2016-04-25 18:07:10,891 [main]  INFO org.hibernate.annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
-2016-04-25 18:07:11,266 [main]  WARN org.hibernate.orm.connections:71 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2016-04-25 18:07:11,266 [main]  INFO org.hibernate.orm.connections:127 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/db_mysql_world]
-2016-04-25 18:07:11,266 [main]  INFO org.hibernate.orm.connections:136 - HHH10001001: Connection properties: {user=jkavdev, password=****}
-2016-04-25 18:07:11,266 [main]  INFO org.hibernate.orm.connections:141 - HHH10001003: Autocommit mode: false
-2016-04-25 18:07:11,282 [main]  INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl:39 - HHH000115: Hibernate connection pool size: 20 (min=1)
-2016-04-25 18:07:11,751 [main]  INFO org.hibernate.dialect.Dialect:156 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2016-04-25 18:07:12,736 [main]  INFO org.hibernate.validator.internal.util.Version:30 - HV000001: Hibernate Validator 5.2.4.Final
-2016-04-25 18:07:12,876 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.City
+2016-04-25 21:55:43,739 [main]  INFO org.hibernate.Version:37 - HHH000412: Hibernate Core {5.1.0.Final}
+2016-04-25 21:55:43,739 [main]  INFO org.hibernate.cfg.Environment:213 - HHH000206: hibernate.properties not found
+2016-04-25 21:55:43,739 [main]  INFO org.hibernate.cfg.Environment:317 - HHH000021: Bytecode provider name : javassist
+2016-04-25 21:55:43,839 [main]  INFO org.hibernate.annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-04-25 21:55:44,104 [main]  WARN org.hibernate.orm.connections:71 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-04-25 21:55:44,118 [main]  INFO org.hibernate.orm.connections:127 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/db_mysql_world]
+2016-04-25 21:55:44,119 [main]  INFO org.hibernate.orm.connections:136 - HHH10001001: Connection properties: {user=jkavdev, password=****}
+2016-04-25 21:55:44,119 [main]  INFO org.hibernate.orm.connections:141 - HHH10001003: Autocommit mode: false
+2016-04-25 21:55:44,123 [main]  INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl:39 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2016-04-25 21:55:44,429 [main]  INFO org.hibernate.dialect.Dialect:156 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2016-04-25 21:55:44,881 [main]  INFO org.hibernate.validator.internal.util.Version:30 - HV000001: Hibernate Validator 5.2.4.Final
+2016-04-25 21:55:44,928 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.City
 javax.validation.ValidationException: HV000183: Unable to load 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
 	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.createValidator(ValidatorFactoryImpl.java:339)
 	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.getValidator(ValidatorFactoryImpl.java:256)
@@ -482,7 +689,7 @@ javax.validation.ValidationException: HV000183: Unable to load 'javax.el.Express
 	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:58)
 	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:55)
 	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:39)
-	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:21)
+	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:25)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -492,13 +699,13 @@ javax.validation.ValidationException: HV000183: Unable to load 'javax.el.Express
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
 	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
 	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
 	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
-2016-04-25 18:07:12,890 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.CountryLanguage
+2016-04-25 21:55:44,950 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.CountryLanguage
 javax.validation.ValidationException: HV000183: Unable to load 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
 	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.createValidator(ValidatorFactoryImpl.java:339)
 	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.getValidator(ValidatorFactoryImpl.java:256)
@@ -517,7 +724,7 @@ javax.validation.ValidationException: HV000183: Unable to load 'javax.el.Express
 	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:58)
 	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:55)
 	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:39)
-	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:21)
+	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:25)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -527,13 +734,13 @@ javax.validation.ValidationException: HV000183: Unable to load 'javax.el.Express
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
 	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
 	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
 	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
-2016-04-25 18:07:12,906 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.Country
+2016-04-25 21:55:44,966 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.Country
 javax.validation.ValidationException: HV000183: Unable to load 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
 	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.createValidator(ValidatorFactoryImpl.java:339)
 	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.getValidator(ValidatorFactoryImpl.java:256)
@@ -552,7 +759,7 @@ javax.validation.ValidationException: HV000183: Unable to load 'javax.el.Express
 	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:58)
 	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:55)
 	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:39)
-	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:21)
+	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:25)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -562,30 +769,27 @@ javax.validation.ValidationException: HV000183: Unable to load 'javax.el.Express
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
 	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
 	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
 	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
-2016-04-25 18:07:19,567 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: country_language
-2016-04-25 18:07:19,567 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: country_language
-2016-04-25 18:07:20,207 [main]  WARN br.com.jkavdev.tests.jpa.JpaTest:38 - Conectado
-2016-04-25 18:13:34,121 [main]  INFO org.hibernate.jpa.internal.util.LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+2016-04-25 21:57:30,192 [main]  INFO org.hibernate.jpa.internal.util.LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
 	name: worldPU
 	...]
-2016-04-25 18:13:34,366 [main]  INFO org.hibernate.Version:37 - HHH000412: Hibernate Core {5.1.0.Final}
-2016-04-25 18:13:34,366 [main]  INFO org.hibernate.cfg.Environment:213 - HHH000206: hibernate.properties not found
-2016-04-25 18:13:34,366 [main]  INFO org.hibernate.cfg.Environment:317 - HHH000021: Bytecode provider name : javassist
-2016-04-25 18:13:34,501 [main]  INFO org.hibernate.annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
-2016-04-25 18:13:34,985 [main]  WARN org.hibernate.orm.connections:71 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2016-04-25 18:13:35,001 [main]  INFO org.hibernate.orm.connections:127 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/db_mysql_world]
-2016-04-25 18:13:35,001 [main]  INFO org.hibernate.orm.connections:136 - HHH10001001: Connection properties: {user=jkavdev, password=****}
-2016-04-25 18:13:35,001 [main]  INFO org.hibernate.orm.connections:141 - HHH10001003: Autocommit mode: false
-2016-04-25 18:13:35,017 [main]  INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl:39 - HHH000115: Hibernate connection pool size: 20 (min=1)
-2016-04-25 18:13:35,485 [main]  INFO org.hibernate.dialect.Dialect:156 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2016-04-25 18:13:36,601 [main]  INFO org.hibernate.validator.internal.util.Version:30 - HV000001: Hibernate Validator 5.2.4.Final
-2016-04-25 18:13:36,740 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.City
+2016-04-25 21:57:30,292 [main]  INFO org.hibernate.Version:37 - HHH000412: Hibernate Core {5.1.0.Final}
+2016-04-25 21:57:30,292 [main]  INFO org.hibernate.cfg.Environment:213 - HHH000206: hibernate.properties not found
+2016-04-25 21:57:30,292 [main]  INFO org.hibernate.cfg.Environment:317 - HHH000021: Bytecode provider name : javassist
+2016-04-25 21:57:30,377 [main]  INFO org.hibernate.annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-04-25 21:57:30,613 [main]  WARN org.hibernate.orm.connections:71 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-04-25 21:57:30,623 [main]  INFO org.hibernate.orm.connections:127 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/db_mysql_world]
+2016-04-25 21:57:30,624 [main]  INFO org.hibernate.orm.connections:136 - HHH10001001: Connection properties: {user=jkavdev, password=****}
+2016-04-25 21:57:30,625 [main]  INFO org.hibernate.orm.connections:141 - HHH10001003: Autocommit mode: false
+2016-04-25 21:57:30,628 [main]  INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl:39 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2016-04-25 21:57:30,922 [main]  INFO org.hibernate.dialect.Dialect:156 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2016-04-25 21:57:31,384 [main]  INFO org.hibernate.validator.internal.util.Version:30 - HV000001: Hibernate Validator 5.2.4.Final
+2016-04-25 21:57:31,448 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.City
 javax.validation.ValidationException: HV000183: Unable to load 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
 	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.createValidator(ValidatorFactoryImpl.java:339)
 	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.getValidator(ValidatorFactoryImpl.java:256)
@@ -604,7 +808,7 @@ javax.validation.ValidationException: HV000183: Unable to load 'javax.el.Express
 	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:58)
 	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:55)
 	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:39)
-	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:21)
+	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:25)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -614,13 +818,13 @@ javax.validation.ValidationException: HV000183: Unable to load 'javax.el.Express
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
 	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
 	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
 	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
-2016-04-25 18:13:36,756 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.CountryLanguage
+2016-04-25 21:57:31,464 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.CountryLanguage
 javax.validation.ValidationException: HV000183: Unable to load 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
 	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.createValidator(ValidatorFactoryImpl.java:339)
 	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.getValidator(ValidatorFactoryImpl.java:256)
@@ -639,7 +843,7 @@ javax.validation.ValidationException: HV000183: Unable to load 'javax.el.Express
 	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:58)
 	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:55)
 	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:39)
-	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:21)
+	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:25)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -649,13 +853,13 @@ javax.validation.ValidationException: HV000183: Unable to load 'javax.el.Express
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
 	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
 	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
 	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
-2016-04-25 18:13:36,771 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.Country
+2016-04-25 21:57:31,464 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.Country
 javax.validation.ValidationException: HV000183: Unable to load 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
 	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.createValidator(ValidatorFactoryImpl.java:339)
 	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.getValidator(ValidatorFactoryImpl.java:256)
@@ -674,7 +878,7 @@ javax.validation.ValidationException: HV000183: Unable to load 'javax.el.Express
 	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:58)
 	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:55)
 	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:39)
-	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:21)
+	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:25)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -684,36 +888,27 @@ javax.validation.ValidationException: HV000183: Unable to load 'javax.el.Express
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
 	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
 	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
 	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
-2016-04-25 18:13:37,302 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: city
-2016-04-25 18:13:37,302 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: city
-2016-04-25 18:13:37,530 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: country
-2016-04-25 18:13:37,530 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: country
-2016-04-25 18:13:37,733 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: country_language
-2016-04-25 18:13:37,744 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: country_language
-2016-04-25 18:13:37,947 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: hibernate_sequence
-2016-04-25 18:13:37,947 [main]  INFO org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: hibernate_sequence
-2016-04-25 18:13:38,684 [main]  WARN br.com.jkavdev.tests.jpa.JpaTest:38 - Conectado
-2016-04-25 18:15:06,609 [main]  INFO org.hibernate.jpa.internal.util.LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+2016-04-25 22:00:04,855 [main]  INFO org.hibernate.jpa.internal.util.LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
 	name: worldPU
 	...]
-2016-04-25 18:15:06,926 [main]  INFO org.hibernate.Version:37 - HHH000412: Hibernate Core {5.1.0.Final}
-2016-04-25 18:15:06,942 [main]  INFO org.hibernate.cfg.Environment:213 - HHH000206: hibernate.properties not found
-2016-04-25 18:15:06,942 [main]  INFO org.hibernate.cfg.Environment:317 - HHH000021: Bytecode provider name : javassist
-2016-04-25 18:15:07,067 [main]  INFO org.hibernate.annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
-2016-04-25 18:15:07,473 [main]  WARN org.hibernate.orm.connections:71 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2016-04-25 18:15:07,488 [main]  INFO org.hibernate.orm.connections:127 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/db_mysql_world]
-2016-04-25 18:15:07,488 [main]  INFO org.hibernate.orm.connections:136 - HHH10001001: Connection properties: {user=jkavdev, password=****}
-2016-04-25 18:15:07,488 [main]  INFO org.hibernate.orm.connections:141 - HHH10001003: Autocommit mode: false
-2016-04-25 18:15:07,488 [main]  INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl:39 - HHH000115: Hibernate connection pool size: 20 (min=1)
-2016-04-25 18:15:08,034 [main]  INFO org.hibernate.dialect.Dialect:156 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2016-04-25 18:15:09,087 [main]  INFO org.hibernate.validator.internal.util.Version:30 - HV000001: Hibernate Validator 5.2.4.Final
-2016-04-25 18:15:09,208 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.City
+2016-04-25 22:00:05,023 [main]  INFO org.hibernate.Version:37 - HHH000412: Hibernate Core {5.1.0.Final}
+2016-04-25 22:00:05,023 [main]  INFO org.hibernate.cfg.Environment:213 - HHH000206: hibernate.properties not found
+2016-04-25 22:00:05,023 [main]  INFO org.hibernate.cfg.Environment:317 - HHH000021: Bytecode provider name : javassist
+2016-04-25 22:00:05,093 [main]  INFO org.hibernate.annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-04-25 22:00:05,321 [main]  WARN org.hibernate.orm.connections:71 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-04-25 22:00:05,328 [main]  INFO org.hibernate.orm.connections:127 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/db_mysql_world]
+2016-04-25 22:00:05,329 [main]  INFO org.hibernate.orm.connections:136 - HHH10001001: Connection properties: {user=jkavdev, password=****}
+2016-04-25 22:00:05,330 [main]  INFO org.hibernate.orm.connections:141 - HHH10001003: Autocommit mode: false
+2016-04-25 22:00:05,338 [main]  INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl:39 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2016-04-25 22:00:05,671 [main]  INFO org.hibernate.dialect.Dialect:156 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2016-04-25 22:00:06,204 [main]  INFO org.hibernate.validator.internal.util.Version:30 - HV000001: Hibernate Validator 5.2.4.Final
+2016-04-25 22:00:06,282 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.City
 javax.validation.ValidationException: HV000183: Unable to load 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
 	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.createValidator(ValidatorFactoryImpl.java:339)
 	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.getValidator(ValidatorFactoryImpl.java:256)
@@ -732,7 +927,7 @@ javax.validation.ValidationException: HV000183: Unable to load 'javax.el.Express
 	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:58)
 	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:55)
 	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:39)
-	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:21)
+	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:26)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -742,13 +937,13 @@ javax.validation.ValidationException: HV000183: Unable to load 'javax.el.Express
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
 	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
 	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
 	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
-2016-04-25 18:15:09,208 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.CountryLanguage
+2016-04-25 22:00:06,282 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.CountryLanguage
 javax.validation.ValidationException: HV000183: Unable to load 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
 	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.createValidator(ValidatorFactoryImpl.java:339)
 	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.getValidator(ValidatorFactoryImpl.java:256)
@@ -767,7 +962,7 @@ javax.validation.ValidationException: HV000183: Unable to load 'javax.el.Express
 	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:58)
 	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:55)
 	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:39)
-	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:21)
+	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:26)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -777,13 +972,13 @@ javax.validation.ValidationException: HV000183: Unable to load 'javax.el.Express
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
 	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
 	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
 	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
-2016-04-25 18:15:09,224 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.Country
+2016-04-25 22:00:06,301 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.Country
 javax.validation.ValidationException: HV000183: Unable to load 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
 	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.createValidator(ValidatorFactoryImpl.java:339)
 	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.getValidator(ValidatorFactoryImpl.java:256)
@@ -802,7 +997,7 @@ javax.validation.ValidationException: HV000183: Unable to load 'javax.el.Express
 	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:58)
 	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:55)
 	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:39)
-	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:21)
+	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:26)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -812,179 +1007,31 @@ javax.validation.ValidationException: HV000183: Unable to load 'javax.el.Express
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
 	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
 	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
 	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
-2016-04-25 18:15:11,410 [main]  WARN br.com.jkavdev.tests.jpa.JpaTest:38 - Conectado
-2016-04-25 18:16:20,579 [main]  INFO org.hibernate.jpa.internal.util.LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+2016-04-25 22:05:16,861 [main]  INFO org.hibernate.jpa.internal.util.LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
 	name: worldPU
 	...]
-2016-04-25 18:16:20,884 [main]  INFO org.hibernate.Version:37 - HHH000412: Hibernate Core {5.1.0.Final}
-2016-04-25 18:16:20,884 [main]  INFO org.hibernate.cfg.Environment:213 - HHH000206: hibernate.properties not found
-2016-04-25 18:16:20,884 [main]  INFO org.hibernate.cfg.Environment:317 - HHH000021: Bytecode provider name : javassist
-2016-04-25 18:16:21,025 [main]  INFO org.hibernate.annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
-2016-04-25 18:16:22,119 [main]  WARN org.hibernate.orm.connections:71 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2016-04-25 18:16:22,127 [main]  INFO org.hibernate.orm.connections:127 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/db_mysql_world]
-2016-04-25 18:16:22,127 [main]  INFO org.hibernate.orm.connections:136 - HHH10001001: Connection properties: {user=jkavdev, password=****}
-2016-04-25 18:16:22,127 [main]  INFO org.hibernate.orm.connections:141 - HHH10001003: Autocommit mode: false
-2016-04-25 18:16:22,143 [main]  INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl:39 - HHH000115: Hibernate connection pool size: 20 (min=1)
-2016-04-25 18:16:22,648 [main]  INFO org.hibernate.dialect.Dialect:156 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2016-04-25 18:16:23,749 [main]  INFO org.hibernate.validator.internal.util.Version:30 - HV000001: Hibernate Validator 5.2.4.Final
-2016-04-25 18:16:23,878 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.City
-javax.validation.ValidationException: HV000183: Unable to load 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
-	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.createValidator(ValidatorFactoryImpl.java:339)
-	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.getValidator(ValidatorFactoryImpl.java:256)
-	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyDDL(TypeSafeActivator.java:207)
-	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyRelationalConstraints(TypeSafeActivator.java:191)
-	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyRelationalConstraints(TypeSafeActivator.java:150)
-	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.activate(TypeSafeActivator.java:98)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.hibernate.cfg.beanvalidation.BeanValidationIntegrator.integrate(BeanValidationIntegrator.java:132)
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:276)
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:465)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:881)
-	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:58)
-	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:55)
-	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:39)
-	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:21)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
-	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
-2016-04-25 18:16:23,878 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.CountryLanguage
-javax.validation.ValidationException: HV000183: Unable to load 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
-	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.createValidator(ValidatorFactoryImpl.java:339)
-	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.getValidator(ValidatorFactoryImpl.java:256)
-	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyDDL(TypeSafeActivator.java:207)
-	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyRelationalConstraints(TypeSafeActivator.java:191)
-	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyRelationalConstraints(TypeSafeActivator.java:150)
-	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.activate(TypeSafeActivator.java:98)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.hibernate.cfg.beanvalidation.BeanValidationIntegrator.integrate(BeanValidationIntegrator.java:132)
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:276)
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:465)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:881)
-	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:58)
-	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:55)
-	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:39)
-	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:21)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
-	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
-2016-04-25 18:16:23,894 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.Country
-javax.validation.ValidationException: HV000183: Unable to load 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
-	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.createValidator(ValidatorFactoryImpl.java:339)
-	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.getValidator(ValidatorFactoryImpl.java:256)
-	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyDDL(TypeSafeActivator.java:207)
-	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyRelationalConstraints(TypeSafeActivator.java:191)
-	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyRelationalConstraints(TypeSafeActivator.java:150)
-	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.activate(TypeSafeActivator.java:98)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.hibernate.cfg.beanvalidation.BeanValidationIntegrator.integrate(BeanValidationIntegrator.java:132)
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:276)
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:465)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:881)
-	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:58)
-	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:55)
-	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:39)
-	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:21)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
-	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
-2016-04-25 18:16:25,225 [main]  WARN br.com.jkavdev.tests.jpa.JpaTest:38 - Conectado
-2016-04-25 18:20:36,311 [main]  INFO org.hibernate.jpa.internal.util.LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+2016-04-25 22:05:16,961 [main]  INFO org.hibernate.Version:37 - HHH000412: Hibernate Core {5.1.0.Final}
+2016-04-25 22:05:16,961 [main]  INFO org.hibernate.cfg.Environment:213 - HHH000206: hibernate.properties not found
+2016-04-25 22:05:16,961 [main]  INFO org.hibernate.cfg.Environment:317 - HHH000021: Bytecode provider name : javassist
+2016-04-25 22:05:17,077 [main]  INFO org.hibernate.annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-04-25 22:05:17,276 [main]  WARN org.hibernate.orm.connections:71 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-04-25 22:05:17,292 [main]  INFO org.hibernate.orm.connections:127 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/db_mysql_world]
+2016-04-25 22:05:17,292 [main]  INFO org.hibernate.orm.connections:136 - HHH10001001: Connection properties: {user=jkavdev, password=****}
+2016-04-25 22:05:17,292 [main]  INFO org.hibernate.orm.connections:141 - HHH10001003: Autocommit mode: false
+2016-04-25 22:05:17,292 [main]  INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl:39 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2016-04-25 22:05:17,618 [main]  INFO org.hibernate.dialect.Dialect:156 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2016-04-25 22:05:18,077 [main]  INFO org.hibernate.validator.internal.util.Version:30 - HV000001: Hibernate Validator 5.2.4.Final
+2016-04-25 22:07:27,445 [main]  INFO org.hibernate.jpa.internal.util.LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
 	name: worldPU
 	...]
-2016-04-25 18:20:36,667 [main]  INFO org.hibernate.Version:37 - HHH000412: Hibernate Core {5.1.0.Final}
-2016-04-25 18:20:36,682 [main]  INFO org.hibernate.cfg.Environment:213 - HHH000206: hibernate.properties not found
-2016-04-25 18:20:36,682 [main]  INFO org.hibernate.cfg.Environment:317 - HHH000021: Bytecode provider name : javassist
-2016-04-25 18:20:36,823 [main]  INFO org.hibernate.annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
-2016-04-25 18:20:37,229 [main]  WARN org.hibernate.orm.connections:71 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2016-04-25 18:20:37,229 [main]  INFO org.hibernate.orm.connections:127 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/db_mysql_world]
-2016-04-25 18:20:37,229 [main]  INFO org.hibernate.orm.connections:136 - HHH10001001: Connection properties: {user=jkavdev, password=****}
-2016-04-25 18:20:37,229 [main]  INFO org.hibernate.orm.connections:141 - HHH10001003: Autocommit mode: false
-2016-04-25 18:20:37,245 [main]  INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl:39 - HHH000115: Hibernate connection pool size: 20 (min=1)
-2016-04-25 18:20:37,766 [main]  INFO org.hibernate.dialect.Dialect:156 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2016-04-25 18:20:38,804 [main]  INFO org.hibernate.validator.internal.util.Version:30 - HV000001: Hibernate Validator 5.2.4.Final
-2016-04-25 18:20:38,946 [main]  WARN org.hibernate.cfg.beanvalidation.TypeSafeActivator:194 - HHH000274: Unable to apply constraints on DDL for br.com.jkavdev.mysql.world.entities.City
-javax.validation.ValidationException: HV000183: Unable to load 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
-	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.createValidator(ValidatorFactoryImpl.java:339)
-	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.getValidator(ValidatorFactoryImpl.java:256)
-	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyDDL(TypeSafeActivator.java:207)
-	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyRelationalConstraints(TypeSafeActivator.java:191)
-	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyRelationalConstraints(TypeSafeActivator.java:150)
-	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.activate(TypeSafeActivator.java:98)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.hibernate.cfg.beanvalidation.BeanValidationIntegrator.integrate(BeanValidationIntegrator.java:132)
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:276)
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:465)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:881)
-	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:58)
-	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:55)
-	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:39)
-	at br.com.jkavdev.tests.jpa.JpaTest.init(JpaTest.java:21)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
-	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+2016-04-25 22:07:27,545 [main]  INFO org.hibernate.Version:37 - HHH000412: Hibernate Core {5.1.0.Final}
+2016-04-25 22:07:27,545 [main]  INFO org.hibernate.cfg.Environment:213 - HHH000206: hibernate.properties not found
+2016-04-25 22:07:27,562 [main]  INFO org.hibernate.cfg.Environment:317 - HHH000021: Bytecode provider name : javassist
+2016-04-25 22:07:27,598 [main]  INFO org.hibernate.annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-04-25 22:07:27,848 [main]  WARN org.hibernate.orm.connections:71 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)

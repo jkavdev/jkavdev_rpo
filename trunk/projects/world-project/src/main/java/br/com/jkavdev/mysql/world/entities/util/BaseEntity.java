@@ -9,13 +9,13 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 
 //classe base para todas as entidades do banco
 
-public abstract class BaseEntity<PK extends Serializable> extends
-		AbstractPersistable<PK> implements Serializable {
+public abstract class BaseEntity<PK extends Serializable> 
+	extends AbstractPersistable<PK>
+	implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
+	
 	@Override
-	// primary key do bean
 	public void setId(PK id) {
 		super.setId(id);
 	}
@@ -23,8 +23,7 @@ public abstract class BaseEntity<PK extends Serializable> extends
 	@Override
 	// usando classe utilitaria do commons para imprimir o objetos em linhas
 	public String toString() {
-		return ToStringBuilder.reflectionToString(this,
-				ToStringStyle.MULTI_LINE_STYLE);
+		return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
 	}
 
 	@Override
