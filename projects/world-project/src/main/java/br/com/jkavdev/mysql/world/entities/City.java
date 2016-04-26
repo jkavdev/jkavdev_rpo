@@ -15,19 +15,14 @@ public class City extends BaseEntity<Long> {
 	private static final long serialVersionUID = 1L;
 
 	private String name;
-	private Country country;
+	private Country countryCode;
 	private String destrict;
 	private Integer population;
 
-	public City(Long id, String name, Country country, String destrict, Integer population) {
-		this(name, country, destrict, population);
-		this.setId(id);
-	}
-
-	public City(String name, Country country, String destrict, Integer population) {
+	public City(String name, Country countryCode, String destrict, Integer population) {
 		this();
 		this.name = name;
-		this.country = country;
+		this.countryCode = countryCode;
 		this.destrict = destrict;
 		this.population = population;
 	}
@@ -44,13 +39,13 @@ public class City extends BaseEntity<Long> {
 	}
 
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="country_id")
-	public Country getCountry() {
-		return country;
+	@JoinColumn(name = "country_code")
+	public Country getCountryCode() {
+		return countryCode;
 	}
 
-	public void setCountry(Country country) {
-		this.country = country;
+	public void setCountryCode(Country countryCode) {
+		this.countryCode = countryCode;
 	}
 
 	public String getDestrict() {
