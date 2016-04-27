@@ -2,23 +2,34 @@ package br.com.jkavdev.mysql.world.entities.util;
 
 import java.io.Serializable;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-import org.springframework.data.jpa.domain.AbstractPersistable;
 
 //classe base para todas as entidades do banco
 
-public abstract class BaseEntity<PK extends Serializable> 
-	extends AbstractPersistable<PK>
-	implements Serializable {
+//recebe o tipo da chave primaria
+@MappedSuperclass
+public abstract class BaseEntity<PK extends Serializable> implements Serializable {
+
+	private PK id;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	public PK getId() {
+		return id;
+	}
+
+	public void setId(PK id) {
+		this.id = id;
+	}
 
 	private static final long serialVersionUID = 1L;
-	
-	@Override
-	public void setId(PK id) {
-		super.setId(id);
-	}
 
 	@Override
 	// usando classe utilitaria do commons para imprimir o objetos em linhas
@@ -27,7 +38,7 @@ public abstract class BaseEntity<PK extends Serializable>
 	}
 
 	@Override
-	// usando classe utilitaria do commons para comparar os objetos passados
+	// comparacao dos objetos passados, valor por valor
 	public boolean equals(Object obj) {
 		return EqualsBuilder.reflectionEquals(this, obj);
 	}

@@ -1,6 +1,7 @@
 package br.com.jkavdev.mysql.world.entities;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -15,14 +16,14 @@ public class City extends BaseEntity<Long> {
 	private static final long serialVersionUID = 1L;
 
 	private String name;
-	private Country countryCode;
+	private Country country;
 	private String destrict;
 	private Integer population;
 
-	public City(String name, Country countryCode, String destrict, Integer population) {
+	public City(String name, Country country, String destrict, Integer population) {
 		this();
 		this.name = name;
-		this.countryCode = countryCode;
+		this.country = country;
 		this.destrict = destrict;
 		this.population = population;
 	}
@@ -30,6 +31,7 @@ public class City extends BaseEntity<Long> {
 	public City() {
 	}
 
+	@Column(nullable = false, length = 35)
 	public String getName() {
 		return name;
 	}
@@ -38,16 +40,17 @@ public class City extends BaseEntity<Long> {
 		this.name = name;
 	}
 
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "country_code")
-	public Country getCountryCode() {
-		return countryCode;
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "country_code", nullable = false)
+	public Country getCountry() {
+		return country;
 	}
 
-	public void setCountryCode(Country countryCode) {
-		this.countryCode = countryCode;
+	public void setCountry(Country country) {
+		this.country = country;
 	}
 
+	@Column(nullable = false, length = 20)
 	public String getDestrict() {
 		return destrict;
 	}
@@ -56,6 +59,7 @@ public class City extends BaseEntity<Long> {
 		this.destrict = destrict;
 	}
 
+	@Column(nullable = false, length = 11)
 	public Integer getPopulation() {
 		return population;
 	}
