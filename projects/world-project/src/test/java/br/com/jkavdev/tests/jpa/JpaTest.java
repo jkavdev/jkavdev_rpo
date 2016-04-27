@@ -5,10 +5,14 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import org.apache.log4j.Logger;
+import org.hibernate.id.SequenceGenerator;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import br.com.jkavdev.mysql.world.entities.Continent;
+import br.com.jkavdev.mysql.world.entities.Country;
 
 public class JpaTest {
 
@@ -36,6 +40,29 @@ public class JpaTest {
 		this.manager = factory.createEntityManager();
 
 		logger.info("Conectado");
+	}
+	
+	@SuppressWarnings("deprecation")
+	@Test
+	public void insertCountry(){
+		Country brazil = new Country();
+		brazil.setName("Brazil");
+		brazil.setPopulation(555554);
+		brazil.setCapital(1);
+		brazil.setId("555");
+		brazil.setCode2("55");
+		brazil.setContinent(Continent.SOUTHAMERICA);
+		brazil.setGNP(52f);
+		brazil.setGNPOId(51f);
+		brazil.setGovernmentForm("Estadual");
+		brazil.setHeadOfState("Governadores");
+		brazil.setIndepYear(1500);
+		brazil.setLifeExpectancy(88f);
+		brazil.setLocalName("Nao sei");
+		brazil.setRegion("Sul");
+		brazil.setSurfaceArea(1555545f);
+		
+		this.manager.merge(brazil);
 	}
 
 }

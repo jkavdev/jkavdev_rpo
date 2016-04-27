@@ -5,6 +5,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
+import br.com.jkavdev.mysql.world.entities.City;
 import br.com.jkavdev.mysql.world.entities.Continent;
 import br.com.jkavdev.mysql.world.entities.Country;
 
@@ -20,22 +21,22 @@ public class TesteInsereCity {
 
 		transaction.begin();
 
-		Country brazil = new Country();
-		brazil.setName("Brazil");
-		brazil.setPopulation(555554);
-		brazil.setCapital(1);
-		brazil.setId("55");
-		brazil.setCode2("55");
-		brazil.setContinent(Continent.SOUTHAMERICA);
-		brazil.setGNP(52f);
-		brazil.setGNPOId(51f);
-		brazil.setGovernmentForm("Estadual");
-		brazil.setHeadOfState("Governadores");
-		brazil.setIndepYear(1500);
-		brazil.setLifeExpectancy(88f);
-		brazil.setLocalName("Nao sei");
-		brazil.setRegion("Sul");
-		brazil.setSurfaceArea(1555545f);
+//		Country brazil = new Country();
+//		brazil.setName("Brazil");
+//		brazil.setPopulation(555554);
+//		brazil.setCapital(1);
+//		brazil.setId("555");
+//		brazil.setCode2("55");
+//		brazil.setContinent(Continent.SOUTHAMERICA);
+//		brazil.setGNP(52f);
+//		brazil.setGNPOId(51f);
+//		brazil.setGovernmentForm("Estadual");
+//		brazil.setHeadOfState("Governadores");
+//		brazil.setIndepYear(1500);
+//		brazil.setLifeExpectancy(88f);
+//		brazil.setLocalName("Nao sei");
+//		brazil.setRegion("Sul");
+//		brazil.setSurfaceArea(1555545f);
 		
 //		Country mexico = new Country();
 //		mexico.setName("Mexico");
@@ -54,10 +55,10 @@ public class TesteInsereCity {
 //		mexico.setRegion("Sul");
 //		mexico.setSurfaceArea(1555545f);
 
-//		City brasilia = new City();
-//		brasilia.setName("Brasilia");
-//		brasilia.setPopulation(155542);
-//		brasilia.setDestrict("centro-oeste");
+		City brasilia = new City();
+		brasilia.setName("Brasilia");
+		brasilia.setPopulation(155542);
+		brasilia.setDestrict("centro-oeste");
 //		brasilia.setCountry(brazil);
 		
 //		City goiais = new City();
@@ -67,8 +68,8 @@ public class TesteInsereCity {
 //		goiais.setCountry(mexico);
 		
 //		manager.persist(mexico);
-		manager.persist(brazil);
-//		manager.persist(brasilia);
+//		manager.persist(brazil);
+		manager.persist(brasilia);
 //		manager.persist(goiais);
 
 		transaction.commit();
