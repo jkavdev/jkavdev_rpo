@@ -1,5 +1,7 @@
 package br.com.jkavdev.mysql.world.entities;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -9,7 +11,8 @@ import br.com.jkavdev.mysql.world.entities.util.BaseEntity;
 
 @Entity
 @Table(name = "country")
-public class Country extends BaseEntity<Long> {
+@AttributeOverride(name = "id", column = @Column(name = "code", length = 3))
+public class Country extends BaseEntity<String> {
 
 	private static final long serialVersionUID = 1L;
 
@@ -31,6 +34,7 @@ public class Country extends BaseEntity<Long> {
 	public Country() {
 	}
 
+	@Column(nullable = false, length = 52)
 	public String getName() {
 		return name;
 	}
@@ -39,15 +43,17 @@ public class Country extends BaseEntity<Long> {
 		this.name = name;
 	}
 
+	@Enumerated(EnumType.STRING)
+	@Column(nullable = false)
 	public Continent getContinent() {
 		return continent;
 	}
 
-	@Enumerated(EnumType.STRING)
 	public void setContinent(Continent continent) {
 		this.continent = continent;
 	}
 
+	@Column(nullable = false, length = 26)
 	public String getRegion() {
 		return region;
 	}
@@ -56,6 +62,7 @@ public class Country extends BaseEntity<Long> {
 		this.region = region;
 	}
 
+	@Column(name = "surface_area", nullable = false, precision = 10, scale = 2)
 	public Float getSurfaceArea() {
 		return surfaceArea;
 	}
@@ -64,6 +71,7 @@ public class Country extends BaseEntity<Long> {
 		this.surfaceArea = surfaceArea;
 	}
 
+	@Column(name = "indepence_year", nullable = false, length = 6)
 	public Integer getIndepYear() {
 		return IndepYear;
 	}
@@ -72,6 +80,7 @@ public class Country extends BaseEntity<Long> {
 		IndepYear = indepYear;
 	}
 
+	@Column(nullable = false, length = 11)
 	public Integer getPopulation() {
 		return population;
 	}
@@ -80,6 +89,7 @@ public class Country extends BaseEntity<Long> {
 		this.population = population;
 	}
 
+	@Column(name = "life_expectancy", nullable = false, precision = 3, scale = 1)
 	public Float getLifeExpectancy() {
 		return lifeExpectancy;
 	}
@@ -88,6 +98,7 @@ public class Country extends BaseEntity<Long> {
 		this.lifeExpectancy = lifeExpectancy;
 	}
 
+	@Column(nullable = false, precision = 10, scale = 2)
 	public Float getGNP() {
 		return GNP;
 	}
@@ -96,6 +107,7 @@ public class Country extends BaseEntity<Long> {
 		GNP = gNP;
 	}
 
+	@Column(nullable = false, precision = 10, scale = 2)
 	public Float getGNPOId() {
 		return GNPOId;
 	}
@@ -104,6 +116,7 @@ public class Country extends BaseEntity<Long> {
 		GNPOId = gNPOId;
 	}
 
+	@Column(name = "local_name", nullable = false, length = 45)
 	public String getLocalName() {
 		return localName;
 	}
@@ -112,6 +125,7 @@ public class Country extends BaseEntity<Long> {
 		this.localName = localName;
 	}
 
+	@Column(name = "government_form", nullable = false, length = 45)
 	public String getGovernmentForm() {
 		return governmentForm;
 	}
@@ -120,6 +134,7 @@ public class Country extends BaseEntity<Long> {
 		this.governmentForm = governmentForm;
 	}
 
+	@Column(name = "head_of_state", nullable = false, length = 60)
 	public String getHeadOfState() {
 		return headOfState;
 	}
@@ -128,6 +143,7 @@ public class Country extends BaseEntity<Long> {
 		this.headOfState = headOfState;
 	}
 
+	@Column(nullable = false, length = 11)
 	public Integer getCapital() {
 		return capital;
 	}
@@ -136,6 +152,7 @@ public class Country extends BaseEntity<Long> {
 		this.capital = capital;
 	}
 
+	@Column(nullable = false, length = 2)
 	public String getCode2() {
 		return code2;
 	}
