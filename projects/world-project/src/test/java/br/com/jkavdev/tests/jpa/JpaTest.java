@@ -42,14 +42,13 @@ public class JpaTest {
 		logger.info("Conectado");
 	}
 	
-	@SuppressWarnings("deprecation")
 	@Test
 	public void insertCountry(){
 		Country brazil = new Country();
 		brazil.setName("Brazil");
 		brazil.setPopulation(555554);
 		brazil.setCapital(1);
-		brazil.setId("555");
+		brazil.setCode("555");
 		brazil.setCode2("55");
 		brazil.setContinent(Continent.SOUTHAMERICA);
 		brazil.setGNP(52f);
