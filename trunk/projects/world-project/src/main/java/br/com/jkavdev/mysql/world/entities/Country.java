@@ -1,6 +1,5 @@
 package br.com.jkavdev.mysql.world.entities;
 
-import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -11,11 +10,11 @@ import br.com.jkavdev.mysql.world.entities.util.BaseEntity;
 
 @Entity
 @Table(name = "country")
-@AttributeOverride(name = "id", column = @Column(name = "code", length = 3))
-public class Country extends BaseEntity<String> {
+public class Country extends BaseEntity<Long> {
 
 	private static final long serialVersionUID = 1L;
 
+	private String code;
 	private String name;
 	private Continent continent;
 	private String region;
@@ -34,7 +33,16 @@ public class Country extends BaseEntity<String> {
 	public Country() {
 	}
 
-	@Column(nullable = false, length = 52)
+	@Column(length = 3, unique = true)
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	@Column(length = 52)
 	public String getName() {
 		return name;
 	}
@@ -44,7 +52,7 @@ public class Country extends BaseEntity<String> {
 	}
 
 	@Enumerated(EnumType.STRING)
-	@Column(nullable = false)
+	@Column( )
 	public Continent getContinent() {
 		return continent;
 	}
@@ -53,7 +61,7 @@ public class Country extends BaseEntity<String> {
 		this.continent = continent;
 	}
 
-	@Column(nullable = false, length = 26)
+	@Column(length = 26)
 	public String getRegion() {
 		return region;
 	}
@@ -62,7 +70,7 @@ public class Country extends BaseEntity<String> {
 		this.region = region;
 	}
 
-	@Column(name = "surface_area", nullable = false, precision = 10, scale = 2)
+	@Column(name = "surface_area", precision = 10, scale = 2)
 	public Float getSurfaceArea() {
 		return surfaceArea;
 	}
@@ -71,7 +79,7 @@ public class Country extends BaseEntity<String> {
 		this.surfaceArea = surfaceArea;
 	}
 
-	@Column(name = "indepence_year", nullable = false, length = 6)
+	@Column(name = "indepence_year", length = 6)
 	public Integer getIndepYear() {
 		return IndepYear;
 	}
@@ -80,7 +88,7 @@ public class Country extends BaseEntity<String> {
 		IndepYear = indepYear;
 	}
 
-	@Column(nullable = false, length = 11)
+	@Column(length = 11)
 	public Integer getPopulation() {
 		return population;
 	}
@@ -89,7 +97,7 @@ public class Country extends BaseEntity<String> {
 		this.population = population;
 	}
 
-	@Column(name = "life_expectancy", nullable = false, precision = 3, scale = 1)
+	@Column(name = "life_expectancy", precision = 3, scale = 1)
 	public Float getLifeExpectancy() {
 		return lifeExpectancy;
 	}
@@ -98,7 +106,7 @@ public class Country extends BaseEntity<String> {
 		this.lifeExpectancy = lifeExpectancy;
 	}
 
-	@Column(nullable = false, precision = 10, scale = 2)
+	@Column(precision = 10, scale = 2)
 	public Float getGNP() {
 		return GNP;
 	}
@@ -107,7 +115,7 @@ public class Country extends BaseEntity<String> {
 		GNP = gNP;
 	}
 
-	@Column(nullable = false, precision = 10, scale = 2)
+	@Column(precision = 10, scale = 2)
 	public Float getGNPOId() {
 		return GNPOId;
 	}
@@ -116,7 +124,7 @@ public class Country extends BaseEntity<String> {
 		GNPOId = gNPOId;
 	}
 
-	@Column(name = "local_name", nullable = false, length = 45)
+	@Column(name = "local_name", length = 45)
 	public String getLocalName() {
 		return localName;
 	}
@@ -125,7 +133,7 @@ public class Country extends BaseEntity<String> {
 		this.localName = localName;
 	}
 
-	@Column(name = "government_form", nullable = false, length = 45)
+	@Column(name = "government_form", length = 45)
 	public String getGovernmentForm() {
 		return governmentForm;
 	}
@@ -134,7 +142,7 @@ public class Country extends BaseEntity<String> {
 		this.governmentForm = governmentForm;
 	}
 
-	@Column(name = "head_of_state", nullable = false, length = 60)
+	@Column(name = "head_of_state", length = 60)
 	public String getHeadOfState() {
 		return headOfState;
 	}
@@ -143,7 +151,7 @@ public class Country extends BaseEntity<String> {
 		this.headOfState = headOfState;
 	}
 
-	@Column(nullable = false, length = 11)
+	@Column(length = 11)
 	public Integer getCapital() {
 		return capital;
 	}
@@ -152,7 +160,7 @@ public class Country extends BaseEntity<String> {
 		this.capital = capital;
 	}
 
-	@Column(nullable = false, length = 2)
+	@Column(length = 2)
 	public String getCode2() {
 		return code2;
 	}

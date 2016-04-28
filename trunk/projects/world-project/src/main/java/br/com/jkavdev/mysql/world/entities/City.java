@@ -41,7 +41,7 @@ public class City extends BaseEntity<Long> {
 	}
 
 	@ManyToOne(cascade = CascadeType.PERSIST)
-	@JoinColumn(name = "country_code", nullable = false)
+	@JoinColumn(name = "country_code")
 	public Country getCountry() {
 		return country;
 	}

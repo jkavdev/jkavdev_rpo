@@ -10,25 +10,25 @@ public class LanguagePK implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private String country;
+	private String String;
 	private String language;
 
-	public LanguagePK(String country, String language) {
+	public LanguagePK(String String, String language) {
 		this();
-		this.country = country;
+		this.String = String;
 		this.language = language;
 	}
 
 	public LanguagePK() {
 	}
 
-	@Column(name = "country_code", length = 3)
-	public String getCountry() {
-		return country;
+	@Column(name = "country_code")
+	public String getString() {
+		return String;
 	}
 
-	public void setCountry(String country) {
-		this.country = country;
+	public void setString(String String) {
+		this.String = String;
 	}
 
 	@Column(length = 30)
@@ -44,7 +44,7 @@ public class LanguagePK implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((country == null) ? 0 : country.hashCode());
+		result = prime * result + ((String == null) ? 0 : String.hashCode());
 		result = prime * result
 				+ ((language == null) ? 0 : language.hashCode());
 		return result;
@@ -59,10 +59,10 @@ public class LanguagePK implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		LanguagePK other = (LanguagePK) obj;
-		if (country == null) {
-			if (other.country != null)
+		if (String == null) {
+			if (other.String != null)
 				return false;
-		} else if (!country.equals(other.country))
+		} else if (!String.equals(other.String))
 			return false;
 		if (language == null) {
 			if (other.language != null)
