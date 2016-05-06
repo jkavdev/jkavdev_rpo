@@ -6,7 +6,22 @@
 
 	<http auto-config="true">
 		<intercept-url pattern="/**" access="ROLE_USER" />
+	
+		<!-- login-page - indica qual sera a pagina de login -->	
+		<!-- senao especificado o spring-security o redirecionara para spring_security_login -->
+		<!-- login-processing-url - informando onde estara o formulario de login -->
+		<!-- username and password-parameter - indica qual sera os dados para acesso  -->
+		<!-- authentication-failure-url - indica para qual pagina o security caso ocorra erro -->
+		<form-login login-page="/login/form"
+			login-processing-url="/login"
+			username-parameter="username"
+			password-parameter="password"
+			authentication-failure-url="/login/form?error"/>
+			
+		<!-- habilitando logout -->
+		<logout logout-url="/logout" logout-success-url="/login/form?logout"/>
 	</http>
+	
 	<authentication-manager>
 		<authentication-provider>
 			<user-service>
