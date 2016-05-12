@@ -53,12 +53,14 @@ CREATE TABLE order(
 );
 
 --campos com valores padrao
-CREATE TABLE order(
-	coupon varchar(10) default "nodicount",
+--order palavra reservada
+CREATE TABLE request(
+	coupon varchar(10) default 'nodiscount',
 	customer_id integer default null,
-	datetime datetime default current_timestamp,
+	date_time datetime default current_timestamp,
 	fulfilled boolean not null default 0
 );
+ 
 
 
 
