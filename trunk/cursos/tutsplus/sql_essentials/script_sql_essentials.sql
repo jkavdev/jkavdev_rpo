@@ -33,5 +33,12 @@ INSERT INTO investigations(days_to_solve, title, detective) VALUES
 	(8, "Murderer of Chong", "Bradd Stone"),
 	(4, "Killing New York People", "Michael Douglas");
 
+--listando todos os registros de uma tabela
+SELECT * FROM investigations;
+--selecionando quais colunas para retornar
+SELECT title, detective FROM investigations;
+SELECT detective FROM investigations;
+SELECT days_to_solve, title FROM investigations;
+
 
 
