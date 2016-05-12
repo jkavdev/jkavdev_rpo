@@ -5,7 +5,7 @@
 --nao pode ser nula
 --e atribuida quando inserido algum registro
 CREATE TABLE detectives(
-	id int not null auto_increment
+	id int not null auto_increment,
 	name varchar(100),
 	phone_number varchar(10),
 	certificationDate date,
