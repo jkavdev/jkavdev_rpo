@@ -69,9 +69,15 @@ SELECT * FROM criminals;
 
 
 --retornara registros repetidos, 
---como as tabelas sao diferentes, o sql fara uma busca de um registro eum tabela para cada registro da outra tabela
+--o sql fara uma busca de um registro eum tabela para cada registro da outra tabela
 SELECT * 
 	FROM cases, detectives;
+
+--solucao, matando o produto cartesiano
+--infomando um atributo que ligue as duas tabelas	
+SELECT * 
+	FROM cases, detectives
+	where cases.detective_id = detectives.id;
 
 SELECT * 
 	FROM cases 
@@ -128,3 +134,5 @@ SELECT first_name, last_name, sum(hours_to_solve)
 		ON criminals.id = criminal_id 
 		WHERE hours_to_solve > 90
 	GROUP BY first_name;
+
+--cross join menos performance que o inner join
