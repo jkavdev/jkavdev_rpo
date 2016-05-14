@@ -2,6 +2,9 @@ package br.com.jkavdev.fj21.spring.modelo;
 
 import java.util.Calendar;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class Tarefa {
 
 	private Long id;
@@ -17,6 +20,10 @@ public class Tarefa {
 		this.id = id;
 	}
 
+	// @NotNull(message = "A descricao deve ser preenchida")
+	// @Size(min = 5, message = "Descricao deve ter pelo menos 5 caracteres")
+	@NotNull(message = "{tarefa.descricao.vazia}")
+	@Size(min = 5, message = "{tarefa.descricao.pequena}")
 	public String getDescricao() {
 		return descricao;
 	}
