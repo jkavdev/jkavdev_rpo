@@ -34,3 +34,14 @@ WITH (
 );
 ALTER TABLE public.user_details
   OWNER TO postgres;
+
+--nova tabela criada  
+  CREATE TABLE public.user_details
+(
+  user_id integer NOT NULL,
+  address character varying(255),
+  description text,
+  joineddate date,
+  user_name character varying(255),
+  CONSTRAINT user_details_pkey PRIMARY KEY (user_id)
+)
