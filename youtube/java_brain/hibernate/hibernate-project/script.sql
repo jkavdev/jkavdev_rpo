@@ -44,4 +44,18 @@ ALTER TABLE public.user_details
   joineddate date,
   user_name character varying(255),
   CONSTRAINT user_details_pkey PRIMARY KEY (user_id)
-)
+);
+
+CREATE TABLE public.user_details
+(
+  user_id integer NOT NULL,
+  city character varying(255),
+  pincode character varying(255),
+  state character varying(255),
+  street character varying(255),
+  description text,
+  joineddate date,
+  user_name character varying(255),
+  CONSTRAINT user_details_pkey PRIMARY KEY (user_id)
+);
+
