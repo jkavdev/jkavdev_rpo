@@ -16,3 +16,5 @@ WITH (
 );
 ALTER TABLE public.userdetails
   OWNER TO postgres;
+
+select * from userdetails;
