@@ -23,13 +23,21 @@ public class HibernateTest2 {
 		user1.setUserName("Lucas");
 		user1.setJoinedDate(new Date());
 		
-		Address address = new Address();
-		address.setCity("Planaltina");
-		address.setPincode("73754012");
-		address.setStreet("Qr 21 Casa 15");
-		address.setState("Goiais");
+		Address homeAddress = new Address();
+		homeAddress.setCity("Planaltina");
+		homeAddress.setPincode("73754012");
+		homeAddress.setStreet("Qr 21 Casa 15");
+		homeAddress.setState("Goiais");
 		
-		user.setAddress(address);
+		Address officeAddress = new Address();
+		officeAddress.setCity("Planaltina");
+		officeAddress.setPincode("73754012");
+		officeAddress.setStreet("Qr 25 Casa 55");
+		officeAddress.setState("Goiais");
+		
+		user.setHomeAddress(homeAddress);
+		user.setOfficeAddress(officeAddress);
+		
 
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
