@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
@@ -28,6 +29,7 @@ public class UserDetails {
 	private String description;
 
 	@Id
+	@GeneratedValue
 	@Column(name = "user_id")
 	public int getUserId() {
 		return userId;
@@ -42,7 +44,8 @@ public class UserDetails {
 	//anotacao padrao que indica que este atributo tem que ser persistido
 	@Basic
 	public String getUserName() {
-		return userName + " valor do getter";
+//		return userName + " valor do getter";
+		return userName;
 	}
 
 	public void setUserName(String userName) {
