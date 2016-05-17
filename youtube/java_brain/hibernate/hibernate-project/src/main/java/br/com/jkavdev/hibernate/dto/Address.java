@@ -1,5 +1,6 @@
 package br.com.jkavdev.hibernate.dto;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 //informando que esta classe pode ser embutida
@@ -11,6 +12,7 @@ public class Address {
 	private String state;
 	private String pincode;
 
+	@Column(name = "street_name")
 	public String getStreet() {
 		return street;
 	}
@@ -19,6 +21,7 @@ public class Address {
 		this.street = street;
 	}
 
+	@Column(name = "city_name")
 	public String getCity() {
 		return city;
 	}
@@ -27,6 +30,7 @@ public class Address {
 		this.city = city;
 	}
 
+	@Column(name = "state_name")
 	public String getState() {
 		return state;
 	}
@@ -35,6 +39,7 @@ public class Address {
 		this.state = state;
 	}
 
+	@Column(name = "pin_code")
 	public String getPincode() {
 		return pincode;
 	}

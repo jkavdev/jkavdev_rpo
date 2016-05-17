@@ -2,6 +2,8 @@ package br.com.jkavdev.hibernate.dto;
 
 import java.util.Date;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
@@ -27,7 +29,8 @@ public class UserDetails {
 	private String userName;
 	private Date joinedDate;
 	private String description;
-	private Address address;
+	private Address homeAddress;
+	private Address officeAddress;
 
 	@Id
 	@GeneratedValue
@@ -72,14 +75,37 @@ public class UserDetails {
 		this.description = description;
 	}
 
-	//dados desta classe sendo embutidos nesta entidade
+	// dados desta classe sendo embutidos nesta entidade
 	@Embedded
-	public Address getAddress() {
-		return address;
+	public Address getHomeAddress() {
+		return homeAddress;
 	}
 
-	public void setAddress(Address address) {
-		this.address = address;
+	public void setHomeAddress(Address homeAddress) {
+		this.homeAddress = homeAddress;
+	}
+
+	@Embedded
+	@AttributeOverrides({
+		@AttributeOverride(
+				name="street", 
+				column=@Column(name="home_street_name")),
+		@AttributeOverride(
+				name="city", 
+				column=@Column(name="home_city_name")),
+		@AttributeOverride(
+				name="state", 
+				column=@Column(name="home_state_name")),
+		@AttributeOverride(
+				name="pincode", 
+				column=@Column(name="home_pin_code")),
+	})
+	public Address getOfficeAddress() {
+		return officeAddress;
+	}
+
+	public void setOfficeAddress(Address officeAddress) {
+		this.officeAddress = officeAddress;
 	}
 
 }
