@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -25,8 +26,8 @@ public class UserDetails {
 	private int userId;
 	private String userName;
 	private Date joinedDate;
-	private String address;
 	private String description;
+	private Address address;
 
 	@Id
 	@GeneratedValue
@@ -41,10 +42,10 @@ public class UserDetails {
 
 	// apesar de informarmos o nome, o hibernate busca o valor do get
 	@Column(name = "user_name")
-	//anotacao padrao que indica que este atributo tem que ser persistido
+	// anotacao padrao que indica que este atributo tem que ser persistido
 	@Basic
 	public String getUserName() {
-//		return userName + " valor do getter";
+		// return userName + " valor do getter";
 		return userName;
 	}
 
@@ -61,15 +62,7 @@ public class UserDetails {
 		this.joinedDate = joinedDate;
 	}
 
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	//para objetos grandes
+	// para objetos grandes
 	@Lob
 	public String getDescription() {
 		return description;
@@ -77,6 +70,16 @@ public class UserDetails {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	//dados desta classe sendo embutidos nesta entidade
+	@Embedded
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 }
