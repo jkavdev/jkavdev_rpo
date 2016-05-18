@@ -24,17 +24,50 @@
 			<h:outputLabel value="Esqueci minha senha!" />
 		</div>
 		-->
-		<div class="perfil" style="float: right;">
-			<button class="perfilbtn">
-				<h:graphicImage library="imagens" name="perfil_icon.png"
-					styleClass="imagem_perfil" />
-			</button>
-			<div class="perfil-conteudo">
-				<a href="#">Perfil</a> <a href="#">Cadernos</a> <a href="#">Simulados
-					Realizados</a> <a href="#">Sair</a>
+		<!-- 
+		<div id="menu_superior">
+			<div id="bloco">
+				<a class="waves-effect waves-light btn" id="botao" href="home.xhtml">Simulados</a>
+			</div>
+			<div id="bloco">
+				<div class="perfil" style="float: right;">
+					<div id="icone_perfil">
+						<button class="perfilbtn">
+							<h:graphicImage library="imagens" name="perfil_icon.png"
+								styleClass="imagem_perfil" />
+						</button>
+						<div class="perfil-conteudo">
+							<a href="#">Perfil</a> <a href="#">Cadernos</a> <a href="#">Simulados
+								Realizados</a> <a href="#">Sair</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		 -->
+
+		<div id="menu-topo">
+			<div id="bloco">
+				<a class="waves-effect waves-light btn" id="botao" href="home.xhtml">Simulados</a>
+			</div>
+
+			<div id="bloco">
+				<div class="perfil" style="float: right;">
+					<div id="icone_perfil">
+						<button class="perfilbtn">
+							<h:graphicImage library="imagens" name="perfil_icon.png"
+								styleClass="imagem_perfil" />
+						</button>
+						<div class="perfil-conteudo">
+							<a href="#">Perfil</a> <a href="#">Cadernos</a> <a href="#">Simulados
+								Realizados</a> <a href="#">Sair</a>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
+
 	<div id="conteudo">
 		<ui:insert name="corpo" />
 	</div>

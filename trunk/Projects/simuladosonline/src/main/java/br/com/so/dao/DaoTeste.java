@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import br.com.so.modelo.Area;
 import br.com.so.modelo.Cargo;
 import br.com.so.modelo.Instituicao;
 import br.com.so.modelo.Prova;
@@ -22,8 +23,9 @@ public class DaoTeste implements Serializable {
 		instituicoes.put("INSS", "INSS");
 		instituicoes.put("RECEITA FEDERAL", "RECEITA FEDERAL");
 
-		Cargo cargo = new Cargo("ADMINISTRATIVO");
+		Cargo cargo = new Cargo("SECRETARIO");
 		Cargo cargo2 = new Cargo("SEGURANÇA");
+		Area area = new Area("ADMINISTRATIVA");
 
 		List<Cargo> cargos = new ArrayList<>();
 		cargos.add(cargo);
@@ -31,11 +33,11 @@ public class DaoTeste implements Serializable {
 
 		Instituicao inst = new Instituicao();
 		inst.setNome("INSS");
-		inst.setCargos(cargos);
 
 		Prova prova = new Prova();
 		prova.setInstituicao(inst);
-		prova.setCargo(cargo);
+		prova.setCargo(cargo2);
+		prova.setArea(area);
 		prova.setNivel("MEDIO");
 		prova.setBanca("CESPE");
 		prova.setData("15/05/2016");

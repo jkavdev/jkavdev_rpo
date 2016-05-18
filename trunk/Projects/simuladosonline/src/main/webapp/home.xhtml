@@ -9,10 +9,6 @@
 <ui:composition template="WEB-INF/templates/_template.xhtml">
 
 	<ui:define name="corpo">
-		<div id="botoes-superior" align="center">
-			<a class="waves-effect waves-light btn" id="botao">Questões</a> <a
-				class="waves-effect waves-light btn" id="botao">Simulados</a>
-		</div>
 		<h:form>
 			<p:growl id="msgs" showDetail="true" styleClass="growl-estilo" />
 
@@ -30,10 +26,19 @@
 					<p:outputLabel for="cargo" value="Cargo: " />
 					<p:selectOneMenu id="cargo" value="#{simuladoBean.cargo}"
 						styleClass="select-item">
-						<p:ajax listener="#{simuladoBean.mudaCargo}" update="banca" />
+						<p:ajax listener="#{simuladoBean.mudaCargo}" update="area" />
 						<f:selectItem itemLabel="Selecione um Cargo" itemValue=""
 							noSelectionOption="true" />
 						<f:selectItems value="#{simuladoBean.cargos}" />
+					</p:selectOneMenu>
+
+					<p:outputLabel for="area" value="Area: " />
+					<p:selectOneMenu id="area" value="#{simuladoBean.area}"
+						styleClass="select-item">
+						<p:ajax listener="#{simuladoBean.mudaArea}" update="banca" />
+						<f:selectItem itemLabel="Selecione uma Area" itemValue=""
+							noSelectionOption="true" />
+						<f:selectItems value="#{simuladoBean.areas}" />
 					</p:selectOneMenu>
 
 					<p:outputLabel for="banca" value="Banca: " />
@@ -56,9 +61,8 @@
 				</h:panelGrid>
 				<p:separator />
 
-				<p:commandButton value="Enviar" update="msgs"
-					actionListener="#{dropdownView.displayLocation}"
-					icon="ui-icon-check" />
+				<p:commandButton value="Iniciar"
+					actionListener="#{dropdownView.displayLocation}" styleClass="botao" />
 			</p:panel>
 		</h:form>
 

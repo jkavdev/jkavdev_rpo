@@ -26,18 +26,34 @@ public class SimuladoBean implements Serializable {
 	private String cargo;
 	private String data;
 	private String nivel;
+	private String area;
+
 	private List<Prova> provas;
 	private Map<String, String> instituicoes;
+
 	private List<String> bancas;
 	private List<String> datas;
 	private List<String> cargos;
 	private List<String> niveis;
+	private List<String> areas;
 
 	private DaoTeste dao = new DaoTeste();
 
 	@PostConstruct
 	public void init() {
 		instituicoes = dao.getInstituicoes();
+	}
+
+	public String getArea() {
+		return area;
+	}
+
+	public void setArea(String area) {
+		this.area = area;
+	}
+
+	public List<String> getAreas() {
+		return areas;
 	}
 
 	public List<String> getCargos() {
@@ -118,6 +134,10 @@ public class SimuladoBean implements Serializable {
 	}
 
 	public void mudaBanca() {
+
+	}
+
+	public void mudaArea() {
 
 	}
 

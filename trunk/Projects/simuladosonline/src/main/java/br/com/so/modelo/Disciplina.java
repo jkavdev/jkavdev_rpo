@@ -1,9 +1,6 @@
 package br.com.so.modelo;
 
-import java.io.Serializable;
-import java.util.List;
-
-public class Instituicao implements Serializable {
+public class Disciplina {
 
 	private String nome;
 

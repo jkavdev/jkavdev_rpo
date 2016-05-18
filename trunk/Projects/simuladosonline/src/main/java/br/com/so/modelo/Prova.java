@@ -1,6 +1,7 @@
 package br.com.so.modelo;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Prova implements Serializable {
 
@@ -8,7 +9,25 @@ public class Prova implements Serializable {
 	private String data;
 	private Instituicao instituicao;
 	private String banca;
+	private Area Area;
+	private List<Questao> questoes;
 	private Cargo cargo;
+
+	public List<Questao> getQuestoes() {
+		return questoes;
+	}
+
+	public void setQuestoes(List<Questao> questoes) {
+		this.questoes = questoes;
+	}
+
+	public Area getArea() {
+		return Area;
+	}
+
+	public void setArea(Area area) {
+		Area = area;
+	}
 
 	public Cargo getCargo() {
 		return cargo;
