@@ -20,6 +20,7 @@
 		
 		<mapping class="br.com.jkavdev.hibernate.dto.UserDetails"/>
 		<mapping class="br.com.jkavdev.hibernate.dto.UserDetails2"/>
+		<mapping class="br.com.jkavdev.hibernate.dto.UserDetails3"/>
 		
 	</session-factory>
 </hibernate-configuration>

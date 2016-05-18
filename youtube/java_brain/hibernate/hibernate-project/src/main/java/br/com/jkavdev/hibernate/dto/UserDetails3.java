@@ -1,8 +1,8 @@
 package br.com.jkavdev.hibernate.dto;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
@@ -16,15 +16,19 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.CollectionId;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
+
 @Entity
 @Table(name = "user_details")
-public class UserDetails2 {
+public class UserDetails3 {
 
 	private int userId;
 	private String userName;
 	private Date joinedDate;
 	private String description;
-	private Set<Address> listOfAddresses = new HashSet<>();
+	private Collection<Address> listOfAddresses = new ArrayList<>();
 
 	@Id
 	@GeneratedValue
@@ -65,15 +69,19 @@ public class UserDetails2 {
 	}
 
 	@ElementCollection
-	@JoinTable(name = "user_address"
-		, joinColumns = @JoinColumn(name = "user_id")
-
+	@JoinTable(name = "user_address", 
+		joinColumns = @JoinColumn(name = "user_id")
 	)
-	public Set<Address> getListOfAddresses() {
+	@GenericGenerator(name = "hilo-gen", strategy = "increment")
+	@CollectionId(columns = 
+		{ @Column(name = "address_id")}, 
+		generator = "hilo-gen", 
+		type = @Type(type = "long"))
+	public Collection<Address> getListOfAddresses() {
 		return listOfAddresses;
 	}
 
-	public void setListOfAddresses(Set<Address> listOfAddresses) {
+	public void setListOfAddresses(Collection<Address> listOfAddresses) {
 		this.listOfAddresses = listOfAddresses;
 	}
 
