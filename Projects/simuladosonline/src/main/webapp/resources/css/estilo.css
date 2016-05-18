@@ -10,7 +10,7 @@ ul.menu, .menu li, .menu a {
 }
 
 #logo {
-	height: 3em;
+	height: 1.5em;
 	z-index: 2;
 }
 
@@ -215,11 +215,8 @@ ul.menu {
 	color: #1b5e20;
 }
 
-#logo {
-	z-index: 2;
-}
-
 #titulo-texto {
+	font-size: 2em;
 	z-index: 2;
 }
 
