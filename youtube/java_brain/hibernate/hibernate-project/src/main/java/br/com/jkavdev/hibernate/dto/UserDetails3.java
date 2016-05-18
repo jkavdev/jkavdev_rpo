@@ -7,6 +7,7 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -68,7 +69,7 @@ public class UserDetails3 {
 		this.description = description;
 	}
 
-	@ElementCollection
+	@ElementCollection(fetch=FetchType.EAGER)
 	@JoinTable(name = "user_address", 
 		joinColumns = @JoinColumn(name = "user_id")
 	)
