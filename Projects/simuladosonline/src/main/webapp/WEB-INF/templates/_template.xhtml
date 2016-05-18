@@ -7,49 +7,29 @@
 <h:head>
 	<title>Simulados Online</title>
 	<h:outputStylesheet library="css" name="estilo.css" />
+	<h:outputStylesheet library="css" name="responsivo.css" />
 	<h:outputStylesheet library="materialize/css" name="materialize.css" />
 </h:head>
 <h:body>
 	<div id="cabecalho">
-		<h:outputText value="Simulados Online" styleClass="titulo" />
-		<!--  
-		<div id="menuLogin">
-			<h:form>
-				<h:outputLabel for="login" value="Login:" />
-				<h:inputText id="login" />
-				<h:outputLabel for="senha" value="Senha:" />
-				<h:inputText id="senha" />
-				<h:commandButton value="Logar" />
-			</h:form>
-			<h:outputLabel value="Esqueci minha senha!" />
+
+		<div class="titulo">
+			<h:graphicImage library="imagens" name="logo.png" id="logo" />
+			<a id="titulo-texto" href="home.xhtml">Simulados Online</a>
 		</div>
-		-->
-		<!-- 
-		<div id="menu_superior">
-			<div id="bloco">
-				<a class="waves-effect waves-light btn" id="botao" href="home.xhtml">Simulados</a>
-			</div>
-			<div id="bloco">
-				<div class="perfil" style="float: right;">
-					<div id="icone_perfil">
-						<button class="perfilbtn">
-							<h:graphicImage library="imagens" name="perfil_icon.png"
-								styleClass="imagem_perfil" />
-						</button>
-						<div class="perfil-conteudo">
-							<a href="#">Perfil</a> <a href="#">Cadernos</a> <a href="#">Simulados
-								Realizados</a> <a href="#">Sair</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		 -->
 
 		<div id="menu-topo">
-			<div id="bloco">
-				<a class="waves-effect waves-light btn" id="botao" href="home.xhtml">Simulados</a>
-			</div>
+
+			<!-- 			<div id="menuLogin"> -->
+			<!-- 				<h:form> -->
+			<!-- 					<h:outputLabel for="login" value="Login:" /> -->
+			<!-- 					<h:inputText id="login" /> -->
+			<!-- 					<h:outputLabel for="senha" value="Senha:" /> -->
+			<!-- 					<h:inputText id="senha" /> -->
+			<!-- 					<h:commandButton value="Logar" /> -->
+			<!-- 				</h:form> -->
+			<!-- 				<h:outputLabel value="Esqueci minha senha!" /> -->
+			<!-- 			</div> -->
 
 			<div id="bloco">
 				<div class="perfil" style="float: right;">
@@ -64,6 +44,9 @@
 						</div>
 					</div>
 				</div>
+			</div>
+			<div id="bloco">
+				<a class="waves-effect waves-light btn" id="botao" href="home.xhtml">Simulados</a>
 			</div>
 		</div>
 	</div>
