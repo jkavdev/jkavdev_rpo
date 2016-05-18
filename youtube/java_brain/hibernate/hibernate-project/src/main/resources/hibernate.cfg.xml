@@ -19,6 +19,7 @@
 		<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
 		
 		<mapping class="br.com.jkavdev.hibernate.dto.UserDetails"/>
+		<mapping class="br.com.jkavdev.hibernate.dto.UserDetails2"/>
 		
 	</session-factory>
 </hibernate-configuration>
