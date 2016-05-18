@@ -38,9 +38,9 @@ public class DaoTeste implements Serializable {
 		prova.setInstituicao(inst);
 		prova.setCargo(cargo2);
 		prova.setArea(area);
-		prova.setNivel("MEDIO");
-		prova.setBanca("CESPE");
-		prova.setData("15/05/2016");
+//		prova.setNivel("MEDIO");
+//		prova.setBanca("CESPE");
+//		prova.setData("15/05/2016");
 
 		List<Prova> provas = new ArrayList<>();
 		provas.add(prova);

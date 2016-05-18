@@ -1,34 +1,55 @@
 package br.com.so.modelo;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Calendar;
 
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
 public class Prova implements Serializable {
 
-	private String nivel;
-	private String data;
+	private static final long serialVersionUID = 1L;
+
+	private Long id;
+	private Calendar data;
 	private Instituicao instituicao;
-	private String banca;
 	private Area Area;
-	private List<Questao> questoes;
 	private Cargo cargo;
+	private Banca banca;
+	private Nivel nivel;
 
-	public List<Questao> getQuestoes() {
-		return questoes;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	public Long getId() {
+		return id;
 	}
 
-	public void setQuestoes(List<Questao> questoes) {
-		this.questoes = questoes;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
+	@OneToOne
+	@JoinColumn(name = "area_id")
 	public Area getArea() {
 		return Area;
 	}
-
+		
 	public void setArea(Area area) {
 		Area = area;
 	}
 
+	@OneToOne
+	@JoinColumn(name = "cargo_id")
 	public Cargo getCargo() {
 		return cargo;
 	}
@@ -37,30 +58,36 @@ public class Prova implements Serializable {
 		this.cargo = cargo;
 	}
 
-	public String getBanca() {
-		return banca;
-	}
-
-	public void setBanca(String banca) {
-		this.banca = banca;
-	}
-
-	public String getNivel() {
+	@Enumerated(EnumType.STRING)
+	public Nivel getNivel() {
 		return nivel;
 	}
 
-	public void setNivel(String nivel) {
+	public void setNivel(Nivel nivel) {
 		this.nivel = nivel;
 	}
 
-	public String getData() {
+	@Temporal(TemporalType.DATE)
+	public Calendar getData() {
 		return data;
 	}
 
-	public void setData(String data) {
+	public void setData(Calendar data) {
 		this.data = data;
 	}
 
+	@OneToOne
+	@JoinColumn(name = "banca_id")
+	public Banca getBanca() {
+		return banca;
+	}
+
+	public void setBanca(Banca banca) {
+		this.banca = banca;
+	}
+
+	@ManyToOne
+	@JoinColumn(name = "intituicao_id")
 	public Instituicao getInstituicao() {
 		return instituicao;
 	}
