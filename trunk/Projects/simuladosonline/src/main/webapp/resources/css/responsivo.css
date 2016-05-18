@@ -4,4 +4,7 @@
 	.titulo #titulo-texto {
 		display: none;
 	}
+	#rodape {
+		display: none;
+	}
 }
