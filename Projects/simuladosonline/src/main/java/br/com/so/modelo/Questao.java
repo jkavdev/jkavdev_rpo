@@ -1,37 +1,25 @@
 package br.com.so.modelo;
 
+import java.util.List;
+
 public class Questao {
 
 	private long id;
-	private Pergunta pergunta;
-	private String resposta;
-	private String disciplina;
-	private Prova prova;
-	private String banca;
+	private List<Pergunta> pergunta;
+	private boolean resposta;
+	private Disciplina disciplina;
 	private int tipo;
 
-	public String getBanca() {
-		return banca;
-	}
-
-	public void setBanca(String banca) {
-		this.banca = banca;
-	}
-
-	public String getDisciplina() {
+	public Disciplina getDisciplina() {
 		return disciplina;
 	}
 
-	public void setDisciplina(String disciplina) {
+	public void setDisciplina(Disciplina disciplina) {
 		this.disciplina = disciplina;
 	}
 
-	public Prova getProva() {
-		return prova;
-	}
-
-	public void setProva(Prova prova) {
-		this.prova = prova;
+	public void setPergunta(List<Pergunta> pergunta) {
+		this.pergunta = pergunta;
 	}
 
 	public int getTipo() {
@@ -42,14 +30,6 @@ public class Questao {
 		this.tipo = tipo;
 	}
 
-	public String getMateria() {
-		return disciplina;
-	}
-
-	public void setMateria(String materia) {
-		this.disciplina = materia;
-	}
-
 	public long getId() {
 		return id;
 	}
@@ -58,19 +38,11 @@ public class Questao {
 		this.id = id;
 	}
 
-	public Pergunta getPergunta() {
-		return pergunta;
-	}
-
-	public void setPergunta(Pergunta pergunta) {
-		this.pergunta = pergunta;
-	}
-
-	public String getResposta() {
+	public boolean getResposta() {
 		return resposta;
 	}
 
-	public void setResposta(String resposta) {
+	public void setResposta(boolean resposta) {
 		this.resposta = resposta;
 	}
 

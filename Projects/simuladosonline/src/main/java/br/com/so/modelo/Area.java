@@ -1,11 +1,12 @@
 package br.com.so.modelo;
 
-import java.io.Serializable;
-import java.util.List;
-
-public class Instituicao implements Serializable {
+public class Area {
 
 	private String nome;
+
+	public Area(String area) {
+		this.nome = area;
+	}
 
 	public String getNome() {
 		return nome;
