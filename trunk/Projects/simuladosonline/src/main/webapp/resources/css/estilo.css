@@ -9,17 +9,26 @@ ul.menu, .menu li, .menu a {
 	list-style: none;
 }
 
+#logo {
+	height: 3em;
+	z-index: 2;
+}
+
 #menu-topo {
 	position: absolute;
 	right: 2em;
 	top: 1em;
-	width: 50%;
+	z-index: 1;
 }
 
 #bloco {
 	display: inline-block;
 	float: right;
 	margin-right: 3px;
+}
+
+#bloco #botao {
+	margin-right: 1em;
 }
 
 ul.menu ul {
@@ -188,15 +197,30 @@ ul.menu {
 }
 
 #cabecalho {
-	background-color: #b9f6ca;
+	background: repeating-linear-gradient(45deg, transparent, transparent 10px, #c8e6c9
+		10px, #c8e6c9 20px), linear-gradient(to bottom, #b9f6ca, #c8e6c9);
 	width: 100%;
 	height: 4rem;
 	border-bottom: 1px solid black;
+	width: 100%;
 }
 
 .titulo {
 	margin-left: 10%;
-	font-size: 2.5em;
+	z-index: 2;
+}
+
+.titulo a {
+	font-size: 2em;
+	color: #1b5e20;
+}
+
+#logo {
+	z-index: 2;
+}
+
+#titulo-texto {
+	z-index: 2;
 }
 
 .share_imagem {
@@ -215,16 +239,12 @@ ul.menu {
 
 .perfilbtn {
 	background: transparent;
-	padding: 16px;
-	border: none;
 	cursor: pointer;
 	border: none;
 }
 
 .perfil {
-	margin-right: 50px;
-	position: absolute;
-	right: 0;
+	position: relative;
 	z-index: 999;
 	right: 0;
 }
