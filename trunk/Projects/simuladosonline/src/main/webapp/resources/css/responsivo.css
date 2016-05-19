@@ -7,4 +7,20 @@
 	#rodape {
 		display: none;
 	}
+	.menu li {
+		float: left;
+		width: 100%;
+		border-bottom: 2px dotted #dcdcdc;
+		position: relative;
+	}
+	.menu li:hover>ul.submenu-1 {
+		display: block;
+		left: 50%;
+		border: 1px solid black;
+		position: absolute;
+		top: 0;
+		border-bottom: 1px solid black;
+		border-radius: 0 0 5px 5px;
+		z-index: 999;
+	}
 }
