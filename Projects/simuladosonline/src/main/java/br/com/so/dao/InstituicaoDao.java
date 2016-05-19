@@ -15,10 +15,9 @@ public class InstituicaoDao {
 
 	public void adiciona(Instituicao instituicao) {
 		System.out.println("Nome: " + instituicao.getNome());
-		if (this.manager == null)
-			return;
-		
-			this.manager.persist(instituicao);
+		this.manager.getTransaction().begin();
+		this.manager.persist(instituicao);
+		this.manager.getTransaction().commit();
 	}
 
 	public void remove(Instituicao instituicao) {
