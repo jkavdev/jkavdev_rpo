@@ -14,8 +14,11 @@ public class InstituicaoDao {
 	private EntityManager manager;
 
 	public void adiciona(Instituicao instituicao) {
-		System.out.println("Nome: " + instituicao.getNome());		
-		this.manager.persist(instituicao);
+		System.out.println("Nome: " + instituicao.getNome());
+		if (this.manager == null)
+			return;
+		
+			this.manager.persist(instituicao);
 	}
 
 	public void remove(Instituicao instituicao) {
