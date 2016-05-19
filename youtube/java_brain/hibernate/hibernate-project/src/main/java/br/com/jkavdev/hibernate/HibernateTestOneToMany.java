@@ -27,9 +27,9 @@ public class HibernateTestOneToMany {
 		user.getVehicles().add(vehicle2);
 		user1.getVehicles().add(vehicle2);
 
-		vehicle.setSer(user);
-		vehicle.setSer(user1);
-		vehicle2.setSer(user1);
+		vehicle.setUser(user);
+		vehicle.setUser(user1);
+		vehicle2.setUser(user1);
 
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
