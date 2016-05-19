@@ -22,6 +22,7 @@
 		<mapping class="br.com.jkavdev.hibernate.dto.UserDetails2"/>
 		<mapping class="br.com.jkavdev.hibernate.dto.UserDetails3"/>
 		<mapping class="br.com.jkavdev.hibernate.dto.UserOneToOne"/>
+		<mapping class="br.com.jkavdev.hibernate.dto.UserOneToMany"/>
 		<mapping class="br.com.jkavdev.hibernate.dto.Vehicle"/>
 		
 	</session-factory>
