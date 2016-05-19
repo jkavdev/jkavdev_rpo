@@ -34,8 +34,8 @@ ul.menu, .menu li, .menu a {
 ul.menu ul {
 	position: absolute;
 	display: none;
-	background-color: #fafafa;
 	box-shadow: 3px 3px 2px #e0e0e0;
+	background-color: #fafafa;
 }
 
 /* Configurações nivel 1*/
