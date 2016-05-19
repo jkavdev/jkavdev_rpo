@@ -2,9 +2,9 @@ package br.com.so.bean;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -13,9 +13,7 @@ import javax.faces.context.FacesContext;
 
 import br.com.so.dao.DaoTeste;
 import br.com.so.modelo.Cargo;
-import br.com.so.modelo.Instituicao;
 import br.com.so.modelo.Prova;
-import br.com.so.modelo.Questao;
 
 @ManagedBean
 @ViewScoped
