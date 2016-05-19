@@ -3,6 +3,7 @@ package br.com.jkavdev.hibernate.dto;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -10,7 +11,7 @@ public class Vehicle {
 
 	private int vehicleId;
 	private String vehicleName;
-	private UserOneToMany ser;
+	private UserOneToMany user;
 
 	@Id
 	@GeneratedValue
@@ -31,12 +32,13 @@ public class Vehicle {
 	}
 
 	@ManyToOne
-	public UserOneToMany getSer() {
-		return ser;
+	@JoinColumn(name = "user_id")
+	public UserOneToMany getUser() {
+		return user;
 	}
 
-	public void setSer(UserOneToMany ser) {
-		this.ser = ser;
+	public void setUser(UserOneToMany user) {
+		this.user = user;
 	}
 
 }
