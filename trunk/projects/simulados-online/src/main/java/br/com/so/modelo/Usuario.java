@@ -1,5 +1,7 @@
 package br.com.so.modelo;
 
+import java.util.List;
+
 public class Usuario {
 
 	private long id;
@@ -10,12 +12,12 @@ public class Usuario {
 	private String ocupacao;
 	private String endereco;
 	private String email;
-	private int tipoConta;
-	
-	//Informacoes externas
+	private List<String> permissao;
+
+	// Informacoes externas
 	private Caderno caderno;
 	private InformacoesEstudo informacoes;
-	
+
 	public String getTelefone() {
 		return telefone;
 	}
@@ -64,14 +66,6 @@ public class Usuario {
 		this.informacoes = informacoes;
 	}
 
-	public int getTipoConta() {
-		return tipoConta;
-	}
-
-	public void setTipoConta(int tipoConta) {
-		this.tipoConta = tipoConta;
-	}
-
 	public String getNome() {
 		return nome;
 	}
@@ -102,6 +96,14 @@ public class Usuario {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public List<String> getPermissao() {
+		return permissao;
+	}
+
+	public void setPermissao(List<String> permissao) {
+		this.permissao = permissao;
 	}
 
 }
