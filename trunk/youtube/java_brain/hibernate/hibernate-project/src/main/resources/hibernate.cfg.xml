@@ -14,16 +14,18 @@
 		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 		<property name="hibernate.hbm2ddl.auto">create</property>
 		<property name="hibernate.show_sql">true</property>
-		<property name="hibernate.format_sql">true</property>
+<!-- 		<property name="hibernate.format_sql">true</property> -->
 
 		<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
 		
-		<mapping class="br.com.jkavdev.hibernate.dto.UserDetails"/>
-		<mapping class="br.com.jkavdev.hibernate.dto.UserDetails2"/>
-		<mapping class="br.com.jkavdev.hibernate.dto.UserDetails3"/>
-		<mapping class="br.com.jkavdev.hibernate.dto.UserOneToOne"/>
-		<mapping class="br.com.jkavdev.hibernate.dto.UserOneToMany"/>
-		<mapping class="br.com.jkavdev.hibernate.dto.Vehicle"/>
+<!-- 		<mapping class="br.com.jkavdev.hibernate.dto.UserDetails"/> -->
+<!-- 		<mapping class="br.com.jkavdev.hibernate.dto.UserDetails2"/> -->
+<!-- 		<mapping class="br.com.jkavdev.hibernate.dto.UserDetails3"/> -->
+<!-- 		<mapping class="br.com.jkavdev.hibernate.dto.UserOneToOne"/> -->
+<!-- 		<mapping class="br.com.jkavdev.hibernate.dto.UserOneToMany"/> -->
+<!-- 		<mapping class="br.com.jkavdev.hibernate.dto.Vehicle"/> -->
+		<mapping class="br.com.jkavdev.hibernate.dto.UserManyToMany"/>
+		<mapping class="br.com.jkavdev.hibernate.dto.VehicleManyToMany"/>
 		
 	</session-factory>
 </hibernate-configuration>
