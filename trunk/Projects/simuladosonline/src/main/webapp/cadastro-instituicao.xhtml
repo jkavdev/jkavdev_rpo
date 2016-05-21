@@ -8,6 +8,18 @@
 
 <ui:composition template="WEB-INF/templates/_template.xhtml">
 	<ui:define name="corpo">
-
+		<ui:include src="WEB-INF/templates/_menu-admin.xhtml"></ui:include>
+		<p:separator></p:separator>
+		<h:form>
+			<p:growl id="msgs" showDetail="true" styleClass="growl-estilo" />
+			<p:panel header="Cadastrar Instituição" styleClass="painel-simulado">
+				<h:panelGrid columns="2" cellpadding="5">
+					<p:outputLabel value="Nome da Instituição:" for="nome" />
+					<p:inputText value="#{instituicaoBean.instituicao.nome}" id="nome" />
+				</h:panelGrid>
+			</p:panel>
+		</h:form>
 	</ui:define>
 </ui:composition>
+
+</html>
