@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pm="http://primefaces.org/mobile"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="WEB-INF/templates/_template.xhtml">
+
+	<ui:define name="corpo">
+		<h:form>
+			<p:growl id="msgs" showDetail="true" styleClass="growl-estilo" />
+
+			<p:panel header="Selecione um Simulado" styleClass="painel-simulado">
+				<h:panelGrid columns="2" cellpadding="5">
+					<p:outputLabel for="instituicao" value="Instituição: " />
+					<p:selectOneMenu id="instituicao"
+						value="#{simuladoBean.instituicao}" styleClass="select-item">
+						<p:ajax listener="#{simuladoBean.mudaInstituicao}" update="cargo" />
+						<f:selectItem itemLabel="Selecione a Instituição" itemValue=""
+							noSelectionOption="true" />
+						<f:selectItems value="#{simuladoBean.instituicoes}" />
+					</p:selectOneMenu>
+
+					<p:outputLabel for="cargo" value="Cargo: " />
+					<p:selectOneMenu id="cargo" value="#{simuladoBean.cargo}"
+						styleClass="select-item">
+						<p:ajax listener="#{simuladoBean.mudaCargo}" update="area" />
+						<f:selectItem itemLabel="Selecione um Cargo" itemValue=""
+							noSelectionOption="true" />
+						<f:selectItems value="#{simuladoBean.cargos}" />
+					</p:selectOneMenu>
+
+					<p:outputLabel for="area" value="Area: " />
+					<p:selectOneMenu id="area" value="#{simuladoBean.area}"
+						styleClass="select-item">
+						<p:ajax listener="#{simuladoBean.mudaArea}" update="banca" />
+						<f:selectItem itemLabel="Selecione uma Area" itemValue=""
+							noSelectionOption="true" />
+						<f:selectItems value="#{simuladoBean.areas}" />
+					</p:selectOneMenu>
+
+					<p:outputLabel for="banca" value="Banca: " />
+					<p:selectOneMenu id="banca" value="#{simuladoBean.banca}"
+						styleClass="select-item">
+						<p:ajax listener="#{simuladoBean.mudaBanca}" update="nivel" />
+						<f:selectItem itemLabel="Selecione a Banca" itemValue=""
+							noSelectionOption="true" />
+						<f:selectItems value="#{simuladoBean.bancas}" />
+					</p:selectOneMenu>
+
+					<p:outputLabel for="nivel" value="Nivel: " />
+					<p:selectOneMenu id="nivel" value="#{simuladoBean.nivel}"
+						styleClass="select-item">
+						<f:selectItem itemLabel="Selecione o Nivel" itemValue=""
+							noSelectionOption="true" />
+						<f:selectItems value="#{simuladoBean.niveis}" />
+					</p:selectOneMenu>
+
+				</h:panelGrid>
+				<p:separator />
+
+				<p:commandButton value="Iniciar"
+					actionListener="#{simuladoBean.displayLocation}" styleClass="botao" />
+			</p:panel>
+		</h:form>
+
+	</ui:define>
+</ui:composition>
+
+</html>
