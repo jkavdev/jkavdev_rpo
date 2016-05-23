@@ -15,8 +15,10 @@
 			<p:panel header="Cadastrar Instituição" styleClass="painel-simulado">
 				<h:panelGrid columns="2" cellpadding="5">
 					<p:outputLabel value="Nome da Instituição:" for="nome" />
-					<p:inputText value="#{instituicaoBean.instituicao.nome}" id="nome" />
+					<p:inputText value="#{cadastroInstituicaoBean.instituicao.nome}" id="nome" />
 				</h:panelGrid>
+				
+				<h:commandButton action="#{cadastroInstituicaoBean.salvar}" value="Salvar" />
 			</p:panel>
 		</h:form>
 	</ui:define>
