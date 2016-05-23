@@ -20,10 +20,10 @@ public class InstituicaoDao {
 		String sql = "select i from Instituicao i where i.nome = :nome ";
 		List lista = this.manager.createQuery(sql).setParameter("nome", instituicao.getNome().toUpperCase())
 				.getResultList();
-		if (lista.isEmpty() || lista == null) {
-			return true;
+		if (lista.isEmpty()) {
+			return false;
 		}
-		return false;
+		return true;
 	}
 
 }
