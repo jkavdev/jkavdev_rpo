@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import br.com.simulados.dao.InstituicaoDao;
 import br.com.simulados.modelo.Instituicao;
 
 public class InsertTest {
@@ -41,6 +42,17 @@ public class InsertTest {
 		manager.persist(instituicao);
 		manager.getTransaction().commit();
 
+		System.out.println(instituicao.getNome() + " inserido");
+	}
+	
+	@Test
+	public void insertInstituicaoDao(){
+		Instituicao instituicao = new Instituicao();
+		instituicao.setNome("INSS");
+		
+		InstituicaoDao instituicaoDao = new InstituicaoDao();
+		instituicaoDao.salvar(instituicao);
+		
 		System.out.println(instituicao.getNome() + " inserido");
 	}
 
