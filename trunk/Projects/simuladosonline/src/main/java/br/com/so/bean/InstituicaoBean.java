@@ -2,18 +2,22 @@ package br.com.so.bean;
 
 import java.io.Serializable;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
 
 import br.com.so.dao.InstituicaoDao;
 import br.com.so.modelo.Instituicao;
 
-@ManagedBean
+@Named
 @RequestScoped
 public class InstituicaoBean implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+
 	private Instituicao instituicao = new Instituicao();
-	private InstituicaoDao instituicaoDao = new InstituicaoDao();
+	@Inject
+	private InstituicaoDao instituicaoDao;
 
 	public Instituicao getInstituicao() {
 		return instituicao;
@@ -24,10 +28,12 @@ public class InstituicaoBean implements Serializable {
 	}
 
 	public void salvar() {
-		if (!instituicaoDao.existe(instituicao)) {
-			instituicaoDao.salvar(instituicao);
-		} else {
+		if (instituicaoDao != null) {
+			if (!instituicaoDao.existe(instituicao)) {
+				instituicaoDao.salvar(instituicao);
+			} else {
 
+			}
 		}
 	}
 

@@ -2,13 +2,15 @@ package br.com.so.dao;
 
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import br.com.so.modelo.Instituicao;
 
 public class InstituicaoDao {
 
-	private EntityManager manager = JpaUtil.createEntityManager();
+	@Inject
+	private EntityManager manager;
 
 	public void salvar(Instituicao instituicao) {
 		this.manager.getTransaction().begin();
@@ -18,7 +20,8 @@ public class InstituicaoDao {
 
 	public boolean existe(Instituicao instituicao) {
 		String sql = "select i from Instituicao i where i.nome = :nome ";
-		List lista = this.manager.createQuery(sql).setParameter("nome", instituicao.getNome().toUpperCase())
+		List lista = this.manager.createQuery(sql)
+				.setParameter("nome", instituicao.getNome().toUpperCase())
 				.getResultList();
 		if (lista.isEmpty()) {
 			return false;
