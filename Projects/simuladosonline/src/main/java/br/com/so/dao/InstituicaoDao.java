@@ -6,6 +6,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import br.com.so.modelo.Instituicao;
+import br.com.so.modelo.Prova;
 
 public class InstituicaoDao {
 
@@ -27,6 +28,11 @@ public class InstituicaoDao {
 			return false;
 		}
 		return true;
+	}
+
+	public List<Instituicao> buscarTodos() {
+		return this.manager.createQuery("from Instituicao", Instituicao.class)
+				.getResultList();
 	}
 
 }
