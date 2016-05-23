@@ -11,7 +11,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
-import br.com.so.dao.DaoTeste;
 import br.com.so.modelo.Cargo;
 import br.com.so.modelo.Prova;
 
@@ -35,11 +34,9 @@ public class SimuladoBean implements Serializable {
 	private List<String> niveis;
 	private List<String> areas;
 
-	private DaoTeste dao = new DaoTeste();
-
 	@PostConstruct
 	public void init() {
-		instituicoes = dao.getInstituicoes();
+
 	}
 
 	public String getArea() {
@@ -115,16 +112,7 @@ public class SimuladoBean implements Serializable {
 	}
 
 	public void mudaInstituicao() {
-		if (instituicao != null && !instituicao.equals("")) {
-			provas = dao.getProvas(instituicao);
-			List<Cargo> listaCargos = dao.getCargosByInstituicao(instituicao);
-			this.cargos = new ArrayList<>();
-			for (Cargo c : listaCargos) {
-				this.cargos.add(c.getNomeCargo());
-			}
-		} else {
-			this.cargos = new ArrayList<>();
-		}
+
 	}
 
 	public void mudaCargo() {
