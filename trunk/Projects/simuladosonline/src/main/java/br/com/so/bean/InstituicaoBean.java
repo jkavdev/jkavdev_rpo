@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
+import br.com.so.dao.InstituicaoDao;
 import br.com.so.modelo.Instituicao;
 
 @ManagedBean
@@ -12,6 +13,7 @@ import br.com.so.modelo.Instituicao;
 public class InstituicaoBean implements Serializable {
 
 	private Instituicao instituicao = new Instituicao();
+	private InstituicaoDao instituicaoDao = new InstituicaoDao();
 
 	public Instituicao getInstituicao() {
 		return instituicao;
@@ -21,8 +23,12 @@ public class InstituicaoBean implements Serializable {
 		this.instituicao = instituicao;
 	}
 
-	public void cadastrar() {
-		System.out.println("Nome:");
+	public void salvar() {
+		if (!instituicaoDao.existe(instituicao)) {
+			instituicaoDao.salvar(instituicao);
+		} else {
+
+		}
 	}
 
 }

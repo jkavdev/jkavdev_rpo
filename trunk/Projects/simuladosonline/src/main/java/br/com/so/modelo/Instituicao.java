@@ -33,7 +33,7 @@ public class Instituicao implements Serializable {
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+		this.nome = nome.toUpperCase();
 	}
 
 	@OneToMany(mappedBy = "instituicao")
