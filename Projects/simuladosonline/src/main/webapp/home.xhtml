@@ -15,12 +15,13 @@
 				<h:panelGrid columns="2" cellpadding="5">
 					<p:outputLabel for="instituicao" value="Instituicao: " />
 					<p:selectOneMenu id="instituicao"
-						value="#{simuladoBean.instituicao}" style="width:150px">
+						value="#{simuladoBean.instituicao.id}" style="width:150px">
 						<p:ajax listener="#{simuladoBean.onInstituicaoClick}"
 							update="cargo" />
 						<f:selectItem itemLabel="Selecione a Instituição" itemValue=""
 							noSelectionOption="true" />
-						<f:selectItems value="#{simuladoBean.instituicoes}" />
+						<f:selectItems value="#{simuladoBean.instituicoes}" var="i"
+							itemLabel="#{i.nome}" itemValue="#{i}" />
 					</p:selectOneMenu>
 
 					<p:outputLabel for="cargo" value="Cargo: " />
@@ -28,7 +29,8 @@
 						style="width:150px">
 						<f:selectItem itemLabel="Selecione o Cargo" itemValue=""
 							noSelectionOption="true" />
-						<f:selectItems value="#{simuladoBean.cargos}" />
+						<f:selectItems value="#{simuladoBean.cargos}" var="c"
+							itemLabel="#{c.nomeCargo}" itemValue="#{c}" />
 					</p:selectOneMenu>
 				</h:panelGrid>
 
