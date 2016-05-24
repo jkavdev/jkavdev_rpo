@@ -23,7 +23,8 @@ public class InstituicaoDao {
 
 	public boolean existe(Instituicao instituicao) {
 		String sql = "select i from Instituicao i where i.nome = :nome ";
-		List lista = this.manager.createQuery(sql).setParameter("nome", instituicao.getNome().toUpperCase())
+		List lista = this.manager.createQuery(sql)
+				.setParameter("nome", instituicao.getNome().toUpperCase())
 				.getResultList();
 		if (lista.isEmpty()) {
 			return false;
@@ -32,7 +33,12 @@ public class InstituicaoDao {
 	}
 
 	public List<Instituicao> buscarTodos() {
-		return this.manager.createQuery("from Instituicao", Instituicao.class).getResultList();
+		return this.manager.createQuery("from Instituicao", Instituicao.class)
+				.getResultList();
+	}
+
+	public Instituicao buscarPorId(Long codigo) {
+		return this.manager.find(Instituicao.class, codigo);
 	}
 
 }

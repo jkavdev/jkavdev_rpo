@@ -41,6 +41,7 @@ public class SimuladoBean implements Serializable {
 
 	public void onInstituicaoClick() {
 		System.out.println("ID:" + instituicao.getId());
+		System.out.println("ID:" + instituicao.getNome());
 		provas = provaDao.provasPorInstituicao(instituicao);
 		System.out.println(provas.size());
 		cargos = new ArrayList<>();
