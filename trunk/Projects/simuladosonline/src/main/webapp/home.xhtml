@@ -15,7 +15,7 @@
 				<h:panelGrid columns="2" cellpadding="5">
 					<p:outputLabel for="instituicao" value="Instituicao: " />
 					<p:selectOneMenu id="instituicao"
-						value="#{simuladoBean.instituicao.id}" style="width:150px">
+						value="#{simuladoBean.instituicao}" style="width:150px">
 						<p:ajax listener="#{simuladoBean.onInstituicaoClick}"
 							update="cargo" />
 						<f:selectItem itemLabel="Selecione a Instituição" itemValue=""

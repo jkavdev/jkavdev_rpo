@@ -18,7 +18,7 @@ public class ProvaDao {
 	public List<Prova> provasPorInstituicao(Instituicao instituicao) {
 		String sql = "select p from Prova p where p.instituicao = :instituicao";
 
-		return this.manager.createQuery(sql, Prova.class).setParameter("instituicao", instituicao.getId())
+		return this.manager.createQuery(sql, Prova.class).setParameter("instituicao", instituicao)
 				.getResultList();
 	}
 
