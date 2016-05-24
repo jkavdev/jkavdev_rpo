@@ -88,7 +88,7 @@ public class InsertTest {
 		Prova prova = new Prova();
 		prova.setData(Calendar.getInstance());
 		prova.setNivel(Nivel.MEDIO);
-		// prova.setArea(area);
+		prova.setArea(area);
 		prova.setBanca(banca);
 		prova.setCargo(cargo);
 		prova.setInstituicao(instituicao);
