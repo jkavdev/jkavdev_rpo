@@ -57,12 +57,13 @@ public class SimuladoBean implements Serializable {
 		areas = null;
 		bancas = null;
 		niveis = null;
+		cargo = null;
 		area = null;
 		banca = null;
 		nivel = null;
+		cargos = new ArrayList<>();
 		if (instituicao.getNome() != "") {
 			provas = provaDao.provasPorInstituicao(instituicao);
-			cargos = new ArrayList<>();
 			for (Prova p : provas) {
 				cargos.add(p.getCargo().getNomeCargo());
 			}
@@ -105,6 +106,7 @@ public class SimuladoBean implements Serializable {
 			if (areas.isEmpty()) {
 				onAreaClick();
 				RequestContext.getCurrentInstance().update("banca");
+				area = "";
 			}
 		} else {
 			FacesContext.getCurrentInstance().addMessage(null,
