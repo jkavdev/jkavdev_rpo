@@ -1,6 +1,10 @@
 package br.com.jkavdev.primefaces.service;
 
-public class CalculadoraPreco {
+import java.io.Serializable;
+
+public class CalculadoraPreco implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	public double calcularPreco(int quantidade, double precoUnitario) {
 		return quantidade * precoUnitario;
