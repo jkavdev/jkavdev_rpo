@@ -191,8 +191,10 @@ public class SimuladoBean implements Serializable {
 	}
 
 	public void iniciar() {
-		System.out.println("Iniciou");
-		System.out.println("Provas restantes: " + provasAux.size());
+		System.out.println("Provas: " + provasFinal.size());
+		for (Prova p : provasFinal) {
+			System.out.println("IDS: " + p.getId());
+		}
 	}
 
 	public String getCargo() {
