@@ -196,6 +196,38 @@ ul.menu {
 	margin-top: 10px;
 }
 
+.ui-panel .ui-panel-titlebar {
+	background-color: #d50000;
+	color: white;
+	text-shadow: 0em 0em 0em #000;
+	line-height: 1.5;
+	font-family: Roboto, sans-serif;
+	font-weight: normal;
+}
+
+.ui-selectonemenu .ui-selectonemenu-trigger {
+	border-bottom-style: none;
+	border-right-style: none;
+	border-top-style: none;
+	cursor: pointer;
+	height: 100%;
+	padding: 0 3px;
+	position: absolute;
+	background-color: #d50000;
+	top: 0;
+	width: 35px !important;
+	right: 0;
+}
+
+.ui-button-text-only .ui-button-text {
+	background-color: #d50000;
+	color: white;
+	text-shadow: 0em 0em 0em #000;
+	line-height: 1.5;
+	font-family: Roboto, sans-serif;
+	font-weight: normal;
+}
+
 #cabecalho {
 	background: repeating-linear-gradient(45deg, transparent, transparent 10px, #c8e6c9
 		10px, #c8e6c9 20px), linear-gradient(to bottom, #b9f6ca, #c8e6c9);
