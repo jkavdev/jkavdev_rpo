@@ -6,6 +6,16 @@ public class Contact {
 	private String name;
 	private Long addressId;
 
+	public Contact() {
+		super();
+	}
+
+	public Contact(String name, Long addressId) {
+		this();
+		this.name = name;
+		this.addressId = addressId;
+	}
+
 	public Long getId() {
 		return id;
 	}

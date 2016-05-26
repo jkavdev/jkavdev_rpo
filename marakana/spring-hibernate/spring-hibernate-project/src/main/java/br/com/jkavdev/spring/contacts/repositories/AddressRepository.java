@@ -1,4 +1,4 @@
-package br.com.jkavdev.spring.repositories;
+package br.com.jkavdev.spring.contacts.repositories;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
