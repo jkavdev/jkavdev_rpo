@@ -1,5 +1,13 @@
 @CHARSET "UTF-8";
 
+.caderno {
+	border-top: 3px dashed black;
+	border-bottom: 3px dashed black;
+	border-right: 3px dashed black;
+	border-left: 10px dotted black;
+	height: 500px;
+}
+
 /*Configurações Padrões*/
 ul.menu, .menu li, .menu a {
 	margin: 0;
@@ -71,12 +79,13 @@ ul.menu {
 	top: 45px;
 	left: 0;
 	padding: 5px;
-	width: 200px;
+	width: auto;
 	border-radius: 0 0 5px 5px;
+	z-index: 999;
 }
 
 .menu ul.submenu-1 a {
-	width: 160px;
+	width: 12em;
 	padding: 0 20px;
 	border-radius: 5px;
 }

@@ -3,6 +3,8 @@ package br.com.so.bean;
 import java.io.Serializable;
 
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -32,7 +34,8 @@ public class InstituicaoBean implements Serializable {
 			if (!instituicaoDao.existe(instituicao)) {
 				instituicaoDao.salvar(instituicao);
 			} else {
-
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,
+						"ALERTA! ", "Instituição já cadastrada no sistema!"));
 			}
 		}
 	}
