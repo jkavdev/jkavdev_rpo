@@ -6,8 +6,8 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
-import br.com.jkavdev.spring.contacts.entities.Address;
 import br.com.jkavdev.spring.contacts.repositories.AddressRepository;
+import br.com.jkavdev.spring.contacts.repositories.ContactRepository;
 
 @WebListener
 public class Setup implements ServletContextListener {
@@ -23,12 +23,13 @@ public class Setup implements ServletContextListener {
 		// Init
 
 		try {
-			AddressRepository addressRepository = new AddressRepository();
-			addressRepository.init();
+			new AddressRepository().init();
+			new ContactRepository().init();
 
-			Address address = new Address("150 West Tasman Dr.", "San Jose", "CA", "95134");
-			
-			addressRepository.create(address);
+			// Address address = new Address("150 West Tasman Dr.", "San Jose",
+			// "CA", "95134");
+
+			// addressRepository.create(address);
 
 		} catch (SQLException e) {
 			e.printStackTrace();
