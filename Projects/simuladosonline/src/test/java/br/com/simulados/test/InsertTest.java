@@ -41,7 +41,7 @@ public class InsertTest {
 	@Test
 	public void insereInstituicao() {
 		Instituicao instituicao = new Instituicao();
-		instituicao.setNome("CESPE");
+		instituicao.setNome("Policia Federal");
 
 		manager.getTransaction().begin();
 		manager.persist(instituicao);
@@ -61,7 +61,7 @@ public class InsertTest {
 	@Test
 	public void insereArea() {
 		Area area = new Area();
-		area.setNome("Perito Administrativo");
+		area.setNome("Perito Criminal");
 
 		manager.getTransaction().begin();
 		manager.persist(area);
@@ -81,13 +81,13 @@ public class InsertTest {
 	@Test
 	public void insereProva() {
 		Banca banca = manager.find(Banca.class, 1L);
-		Area area = manager.find(Area.class, 1L);
+		Area area = manager.find(Area.class, 3L);
 		Cargo cargo = manager.find(Cargo.class, 1L);
-		Instituicao instituicao = manager.find(Instituicao.class, 1L);
+		Instituicao instituicao = manager.find(Instituicao.class, 3L);
 
 		Prova prova = new Prova();
 		prova.setData(Calendar.getInstance());
-		prova.setNivel(Nivel.MEDIO);
+		// prova.setNivel(Nivel.MEDIO);
 		prova.setArea(area);
 		prova.setBanca(banca);
 		prova.setCargo(cargo);

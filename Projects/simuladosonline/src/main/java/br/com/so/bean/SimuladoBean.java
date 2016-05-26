@@ -178,10 +178,11 @@ public class SimuladoBean implements Serializable {
 	public void onNivelClick() {
 		if (nivel != "") {
 			provasFinal = new ArrayList<>();
-			provasFinal.addAll(provasAux);
-			for (Prova p : provasFinal) {
-				if (!p.getNivel().toString().equals(nivel)) {
-					provasFinal.remove(p);
+			for (Prova p : provasAux) {
+				if (p.getNivel() != null) {
+					if (p.getNivel().toString().equalsIgnoreCase(nivel)) {
+						provasFinal.add(p);
+					}
 				}
 			}
 		} else {
