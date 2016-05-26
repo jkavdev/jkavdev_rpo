@@ -14,4 +14,9 @@
 		<res-auth>Container</res-auth>
 	</resource-ref>
 
+	<servlet-mapping>
+		<servlet-name>jsp</servlet-name>
+		<url-pattern>/jsp/*</url-pattern>
+	</servlet-mapping>
+
 </web-app>
