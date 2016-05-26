@@ -1,10 +1,10 @@
 @CHARSET "UTF-8";
 
 .caderno {
-	border-top: 3px dashed black;
-	border-bottom: 3px dashed black;
-	border-right: 3px dashed black;
-	border-left: 10px dotted black;
+	border-top: 5px dashed #dcdcdc;
+	border-bottom: 5px dashed #dcdcdc;
+	border-right: 5px dashed #dcdcdc;
+	border-left: 2em dotted #dcdcdc;
 	height: 500px;
 	background-image: url("#{resource['imagens/folha.png']}");
 	background-repeat: no-repeat;
