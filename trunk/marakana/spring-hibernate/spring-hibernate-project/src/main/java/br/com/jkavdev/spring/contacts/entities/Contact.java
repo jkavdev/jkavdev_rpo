@@ -1,4 +1,4 @@
-package br.com.jkavdev.spring.contacts;
+package br.com.jkavdev.spring.contacts.entities;
 
 public class Contact {
 
