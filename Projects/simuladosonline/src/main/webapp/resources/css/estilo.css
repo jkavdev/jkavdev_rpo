@@ -6,6 +6,17 @@
 	border-right: 3px dashed black;
 	border-left: 10px dotted black;
 	height: 500px;
+	background-image: url("#{resource['imagens/folha.png']}");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+#caderno-folha {
+	color: white;
+	font-size: 1.5em;
+	margin-left: 2em;
+	background-image: url("#{resource['imagens/folha.jpg']}");
+	text-align: left;
 }
 
 /*Configurações Padrões*/
