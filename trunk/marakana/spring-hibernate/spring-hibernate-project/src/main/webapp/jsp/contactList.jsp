@@ -13,5 +13,7 @@
 			<li><a href="???">${contact.name}</a></li>
 		</c:forEach>
 	</ul>
+	
+	<a href="contact?add">Add a new contact</a>
 </body>
 </html>
