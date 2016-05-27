@@ -17,9 +17,10 @@ public class HelloServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		String name = req.getParameter("name");
+		//recebendo uma lista de parametros pela url, e separando-as por '|'
+		String[] names = req.getParameter("names").split("\\|");
 		
-		req.setAttribute("name", name);
+		req.setAttribute("names", names);
 		
 		RequestDispatcher view = req.getRequestDispatcher("jsp/hello.jsp");
 		view.forward(req, resp);
