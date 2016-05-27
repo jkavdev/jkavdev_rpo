@@ -1,21 +1,17 @@
 @CHARSET "UTF-8";
 
 .caderno {
-	border-top: 5px dashed #dcdcdc;
-	border-bottom: 5px dashed #dcdcdc;
-	border-right: 5px dashed #dcdcdc;
-	border-left: 2em dotted #dcdcdc;
-	height: 500px;
-	background-image: url("#{resource['imagens/folha.png']}");
-	background-repeat: no-repeat;
+	border-left: 0.6em dotted #dcdcdc;
 	background-size: 100% 100%;
+	background: repeating-linear-gradient(0deg, #fafafa, #fafafa 1px, #fff 1px, #fff 1em
+		);
+	height: 500px;
 }
 
 #caderno-folha {
-	color: white;
+	color: black;
 	font-size: 1.5em;
 	margin-left: 2em;
-	background-image: url("#{resource['imagens/folha.jpg']}");
 	text-align: left;
 }
 

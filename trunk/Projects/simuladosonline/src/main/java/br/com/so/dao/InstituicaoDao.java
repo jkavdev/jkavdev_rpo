@@ -18,7 +18,7 @@ public class InstituicaoDao {
 	private EntityManager manager;
 
 	public void salvar(Instituicao instituicao) {
-		if (instituicao != null || instituicao.getNome().equals("") || instituicao.getNome().isEmpty()) {
+		if (instituicao == null || instituicao.getNome().equals("") || instituicao.getNome().isEmpty()) {
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage(FacesMessage.SEVERITY_WARN, "Alerta! ", "Todos os campos devem ser preenchidos!"));
 		} else {
