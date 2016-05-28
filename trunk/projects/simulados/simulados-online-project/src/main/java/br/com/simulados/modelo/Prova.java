@@ -2,6 +2,7 @@ package br.com.simulados.modelo;
 
 import java.util.Calendar;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -55,6 +56,7 @@ public class Prova extends PersistenceObject<Long> {
 	}
 
 	@Temporal(TemporalType.DATE)
+	@Column(name = "data_prova")
 	public Calendar getData() {
 		return data;
 	}
@@ -74,7 +76,7 @@ public class Prova extends PersistenceObject<Long> {
 	}
 
 	@ManyToOne
-	@JoinColumn(name = "intituicao_id")
+	@JoinColumn(name = "instituicao_id")
 	public Instituicao getInstituicao() {
 		return instituicao;
 	}
