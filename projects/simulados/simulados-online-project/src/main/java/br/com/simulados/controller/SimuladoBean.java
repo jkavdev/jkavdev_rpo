@@ -1,43 +1,53 @@
 package br.com.simulados.controller;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
+
+import br.com.simulados.dao.IInstituicaoDao;
+import br.com.simulados.dao.IProvaDao;
+import br.com.simulados.modelo.Instituicao;
+import br.com.simulados.modelo.Prova;
 
 @Named
 @ViewScoped
 public class SimuladoBean implements Serializable {
 
-//	@Inject
-//	private Instituicao instituicao;
-//	private String cargo;
-//	private String area;
-//	private String banca;
-//	private String nivel;
-//
-//	private List<Instituicao> instituicoes;
-//	private List<String> cargos;
-//	private List<String> areas;
-//	private List<String> bancas;
-//	private List<String> niveis;
-//
-//	private List<Prova> provas;
-//	private List<Prova> provasFinal;
-//	private List<Prova> provasAux;
-//
-//	@Inject
-//	private InstituicaoDao instituicaoDao;
-//	@Inject
-//	private ProvaDao provaDao;
-//
-//	@PostConstruct
-//	public void init() {
-//		if (instituicoes == null) {
-//			instituicoes = instituicaoDao.buscarTodos();
-//		}
-//	}
-//
+	private static final long serialVersionUID = 1L;
+
+	@Inject
+	private Instituicao instituicao;
+	@Inject
+	private IInstituicaoDao instituicaoDao;
+	@Inject
+	private IProvaDao provaDao;
+
+	private String cargo;
+	private String area;
+	private String banca;
+	private String nivel;
+
+	private List<Instituicao> instituicoes;
+	private List<String> cargos;
+	private List<String> areas;
+	private List<String> bancas;
+	private List<String> niveis;
+
+	private List<Prova> provas;
+	private List<Prova> provasFinal;
+	private List<Prova> provasAux;
+
+	@PostConstruct
+	public void init() {
+		if (instituicoes == null) {
+			instituicoes = instituicaoDao.buscarTodos();
+		}
+	}
+
 //	public void onInstituicaoClick() {
 //		areas = null;
 //		bancas = null;
@@ -53,8 +63,7 @@ public class SimuladoBean implements Serializable {
 //				cargos.add(p.getCargo().getNomeCargo());
 //			}
 //		} else {
-//			FacesContext.getCurrentInstance().addMessage(null,
-//					new FacesMessage(FacesMessage.SEVERITY_WARN, "Alerta! ", "Instituição deve ser selecionada!"));
+//			FacesUtil.addErrorMessage("Instituição deve ser selecionada!");
 //		}
 //	}
 //
@@ -94,8 +103,7 @@ public class SimuladoBean implements Serializable {
 //				area = "";
 //			}
 //		} else {
-//			FacesContext.getCurrentInstance().addMessage(null,
-//					new FacesMessage(FacesMessage.SEVERITY_WARN, "Alerta! ", "Cargo deve ser selecionado!"));
+//			FacesUtil.addErrorMessage("Cargo deve ser selecionado!");
 //		}
 //	}
 //
@@ -109,55 +117,54 @@ public class SimuladoBean implements Serializable {
 //				if (p.getArea() != null && p.getArea().getNome() != null && !p.getArea().getNome().equals(area)) {
 //					provasAux.remove(p);
 //				}
-////				if (provasAux != null && provasAux.contains(p)) {
-////					if (p.getBanca() != null && p.getBanca().getNome() != null) {
-////						if (!bancas.isEmpty()) {
-////							if (!bancas.contains(p.getBanca().getNome())) {
-////								bancas.add(p.getBanca().getNome());
-////							}
-////						} else {
-////							bancas.add(p.getBanca().getNome());
-////						}
-////					}
-////				}
-////			} else {
-////				if (p.getBanca() != null && p.getBanca().getNome() != null) {
-////					if (!bancas.isEmpty()) {
-////						if (!bancas.contains(p.getBanca().getNome())) {
-////							bancas.add(p.getBanca().getNome());
-////						}
-////					} else {
-////						bancas.add(p.getBanca().getNome());
-////					}
-////				}
+//				if (provasAux != null && provasAux.contains(p)) {
+//					if (p.getBanca() != null && p.getBanca().getNome() != null) {
+//						if (!bancas.isEmpty()) {
+//							if (!bancas.contains(p.getBanca().getNome())) {
+//								bancas.add(p.getBanca().getNome());
+//							}
+//						} else {
+//							bancas.add(p.getBanca().getNome());
+//						}
+//					}
+//				}
+//			} else {
+//				if (p.getBanca() != null && p.getBanca().getNome() != null) {
+//					if (!bancas.isEmpty()) {
+//						if (!bancas.contains(p.getBanca().getNome())) {
+//							bancas.add(p.getBanca().getNome());
+//						}
+//					} else {
+//						bancas.add(p.getBanca().getNome());
+//					}
+//				}
 //			}
 //		}
 //	}
 //
 //	public void onBancaClick() {
-////		nivel = null;
-////		niveis = new ArrayList<>();
-////		if (banca != "") {
-////			for (Prova p : provasAux) {
-////				if (p.getBanca() != null && p.getBanca().getNome() != null && !p.getBanca().getNome().equals(banca)) {
-////					provasAux.remove(p);
-////				}
-////				if (provasAux != null && provasAux.contains(p)) {
-////					if (p.getNivel() != null) {
-////						if (!niveis.isEmpty()) {
-////							if (!niveis.contains(p.getNivel().toString())) {
-////								niveis.add(p.getNivel().toString());
-////							}
-////						} else {
-////							niveis.add(p.getNivel().toString());
-////						}
-////					}
-////				}
-////			}
-////		} else {
-////			FacesContext.getCurrentInstance().addMessage(null,
-////					new FacesMessage(FacesMessage.SEVERITY_WARN, "Alerta! ", "Banca deve ser selecionada!"));
-////		}
+//		nivel = null;
+//		niveis = new ArrayList<>();
+//		if (banca != "") {
+//			for (Prova p : provasAux) {
+//				if (p.getBanca() != null && p.getBanca().getNome() != null && !p.getBanca().getNome().equals(banca)) {
+//					provasAux.remove(p);
+//				}
+//				if (provasAux != null && provasAux.contains(p)) {
+//					if (p.getNivel() != null) {
+//						if (!niveis.isEmpty()) {
+//							if (!niveis.contains(p.getNivel().toString())) {
+//								niveis.add(p.getNivel().toString());
+//							}
+//						} else {
+//							niveis.add(p.getNivel().toString());
+//						}
+//					}
+//				}
+//			}
+//		} else {
+//			FacesUtil.addErrorMessage("Banca deve ser selecionada!");
+//		}
 //	}
 //
 //	public void onNivelClick() {
@@ -171,76 +178,75 @@ public class SimuladoBean implements Serializable {
 //				}
 //			}
 //		} else {
-//			FacesContext.getCurrentInstance().addMessage(null,
-//					new FacesMessage(FacesMessage.SEVERITY_WARN, "Alerta! ", "Nivel deve ser selecionado!"));
+//			FacesUtil.addErrorMessage("Nivel deve ser selecionado!");
 //		}
 //	}
-//
-//	public void iniciar() {
-//		System.out.println("Provas: " + provasFinal.size());
-//		for (Prova p : provasFinal) {
-//			System.out.println("IDS: " + p.getId());
-//		}
-//	}
-//
-//	public String getCargo() {
-//		return cargo;
-//	}
-//
-//	public void setCargo(String cargo) {
-//		this.cargo = cargo;
-//	}
-//
-//	public Instituicao getInstituicao() {
-//		return instituicao;
-//	}
-//
-//	public void setInstituicao(Instituicao instituicao) {
-//		this.instituicao = instituicao;
-//	}
-//
-//	public List<Instituicao> getInstituicoes() {
-//		return instituicoes;
-//	}
-//
-//	public List<String> getCargos() {
-//		return cargos;
-//	}
-//
-//	public List<String> getAreas() {
-//		return areas;
-//	}
-//
-//	public String getArea() {
-//		return area;
-//	}
-//
-//	public void setArea(String area) {
-//		this.area = area;
-//	}
-//
-//	public String getBanca() {
-//		return banca;
-//	}
-//
-//	public void setBanca(String banca) {
-//		this.banca = banca;
-//	}
-//
-//	public String getNivel() {
-//		return nivel;
-//	}
-//
-//	public void setNivel(String nivel) {
-//		this.nivel = nivel;
-//	}
-//
-//	public List<String> getBancas() {
-//		return bancas;
-//	}
-//
-//	public List<String> getNiveis() {
-//		return niveis;
-//	}
+
+	public void iniciar() {
+		System.out.println("Provas: " + provasFinal.size());
+		for (Prova p : provasFinal) {
+			System.out.println("IDS: " + p.getId());
+		}
+	}
+
+	public String getCargo() {
+		return cargo;
+	}
+
+	public void setCargo(String cargo) {
+		this.cargo = cargo;
+	}
+
+	public Instituicao getInstituicao() {
+		return instituicao;
+	}
+
+	public void setInstituicao(Instituicao instituicao) {
+		this.instituicao = instituicao;
+	}
+
+	public List<Instituicao> getInstituicoes() {
+		return instituicoes;
+	}
+
+	public List<String> getCargos() {
+		return cargos;
+	}
+
+	public List<String> getAreas() {
+		return areas;
+	}
+
+	public String getArea() {
+		return area;
+	}
+
+	public void setArea(String area) {
+		this.area = area;
+	}
+
+	public String getBanca() {
+		return banca;
+	}
+
+	public void setBanca(String banca) {
+		this.banca = banca;
+	}
+
+	public String getNivel() {
+		return nivel;
+	}
+
+	public void setNivel(String nivel) {
+		this.nivel = nivel;
+	}
+
+	public List<String> getBancas() {
+		return bancas;
+	}
+
+	public List<String> getNiveis() {
+		return niveis;
+	}
 
 }
