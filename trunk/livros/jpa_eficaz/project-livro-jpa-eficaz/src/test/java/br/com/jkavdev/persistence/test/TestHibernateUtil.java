@@ -11,7 +11,8 @@ import br.com.jkavdev.persistence.util.jpa.JpaUtil;
 
 public class TestHibernateUtil {
 
-//	private EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpaPostgresPU");
+	// private EntityManagerFactory factory =
+	// Persistence.createEntityManagerFactory("jpaPostgresPU");
 	private EntityManager manager;
 
 	@Before
@@ -26,12 +27,32 @@ public class TestHibernateUtil {
 
 	@Test
 	public void testInsertEntityManager() {
-		
+
 		Estacionamento estacionamento = new Estacionamento();
-		
+
 		this.manager.getTransaction().begin();
 		this.manager.persist(estacionamento);
 		this.manager.getTransaction().commit();
+	}
+
+	@Test
+	public void testInsertEntityManagerTry() {
+
+		Estacionamento estacionamento = new Estacionamento();
+		try {
+			this.manager.getTransaction().begin();
+			this.manager.persist(estacionamento);
+			this.manager.getTransaction().commit();
+		} catch (Exception e) {
+			if (this.manager.isOpen()) {
+				this.manager.getTransaction().rollback();
+			}
+			e.printStackTrace();
+		} finally {
+			if (this.manager.isOpen()) {
+				this.manager.close();
+			}
+		}
 	}
 
 }
