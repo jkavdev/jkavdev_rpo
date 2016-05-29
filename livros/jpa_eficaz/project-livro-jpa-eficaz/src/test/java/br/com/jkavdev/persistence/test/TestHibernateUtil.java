@@ -1,27 +1,28 @@
 package br.com.jkavdev.persistence.test;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import br.com.jkavdev.persistence.model.Estacionamento;
+import br.com.jkavdev.persistence.util.jpa.JpaUtil;
 
 public class TestHibernateUtil {
 
-	private EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpaPostgresPU");
-	private EntityManager manager = factory.createEntityManager();
+//	private EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpaPostgresPU");
+	private EntityManager manager;
 
-//	@Before
-//	public void setUp() {
-//		this.manager = JpaUtil.geEntityManager();
-//	}
-//
-//	@After
-//	public void tearDown() {
-//		JpaUtil.close();
-//	}
+	@Before
+	public void setUp() {
+		this.manager = JpaUtil.geEntityManager();
+	}
+
+	@After
+	public void tearDown() {
+		JpaUtil.close();
+	}
 
 	@Test
 	public void testInsertEntityManager() {

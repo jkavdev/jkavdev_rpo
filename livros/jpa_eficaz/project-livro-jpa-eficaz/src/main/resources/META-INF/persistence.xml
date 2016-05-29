@@ -4,12 +4,12 @@
              http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
 	version="2.1">
 
-	<persistence-unit name="jpaPostgresPU" transaction-type="RESOURCE_LOCAL">
+	<persistence-unit name="jpaPostgresPU"
+		transaction-type="RESOURCE_LOCAL">
 
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 
-		<class>br.com.jkavdev.persistence.model.Estacionamento</class>
-		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<!-- <exclude-unlisted-classes>true</exclude-unlisted-classes> -->
 		<!-- <mapping-file>entities/entityMapping.xml</mapping-file> -->
 
 		<properties>
@@ -25,17 +25,11 @@
 
 	</persistence-unit>
 
-	<persistence-unit name="jpaMysqlPU" transaction-type="RESOURCE_LOCAL">
+	<persistence-unit name="jpaMysqlPU" transaction-type="JTA">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<jta-data-source>java:comp/env/jdbc/jpaDS</jta-data-source>
 		<properties>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/db_jpa" />
-			<property name="javax.persistence.jdbc.user" value="jkavdev" />
-			<property name="javax.persistence.jdbc.password" value="123456" />
-			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
-			<property name="hibernate.hbm2ddl.auto" value="create" />
-			<property name="hibernate.show_sql" value="true" />
 		</properties>
 	</persistence-unit>
 
