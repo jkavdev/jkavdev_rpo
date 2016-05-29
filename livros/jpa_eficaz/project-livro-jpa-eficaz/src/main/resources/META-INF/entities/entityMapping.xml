@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm 
+        http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+    version="1.0">
+
+		<entity class="br.com.jkavdev.persistence.mode.Box" />
+		<entity class="br.com.jkavdev.persistence.mode.Cargo" />
+		<entity class="br.com.jkavdev.persistence.mode.Cliente" />
+		<entity class="br.com.jkavdev.persistence.mode.Dependente" />
+		<entity class="br.com.jkavdev.persistence.mode.Estacionamento" />
+		<entity class="br.com.jkavdev.persistence.mode.Funcionario" />
+		<entity class="br.com.jkavdev.persistence.mode.Login" />
+		<entity class="br.com.jkavdev.persistence.mode.Veiculo" />
+
+		</entity-mappings>
