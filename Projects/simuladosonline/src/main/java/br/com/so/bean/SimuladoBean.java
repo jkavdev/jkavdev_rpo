@@ -13,12 +13,13 @@ import javax.inject.Named;
 
 import org.primefaces.context.RequestContext;
 
-import br.com.so.dao.InstituicaoDao;
-import br.com.so.dao.ProvaDao;
+import br.com.so.dao.interfacesDao.IInstituicaoDao;
+import br.com.so.dao.interfacesDao.IProvaDao;
 import br.com.so.modelo.Area;
 import br.com.so.modelo.Cargo;
 import br.com.so.modelo.Instituicao;
 import br.com.so.modelo.Prova;
+import br.com.so.util.jsf.FacesUtil;
 
 @Named
 @ViewScoped
@@ -42,9 +43,9 @@ public class SimuladoBean implements Serializable {
 	private List<Prova> provasAux;
 
 	@Inject
-	private InstituicaoDao instituicaoDao;
+	private IInstituicaoDao instituicaoDao;
 	@Inject
-	private ProvaDao provaDao;
+	private IProvaDao provaDao;
 
 	@PostConstruct
 	public void init() {
@@ -62,14 +63,13 @@ public class SimuladoBean implements Serializable {
 		banca = null;
 		nivel = null;
 		cargos = new ArrayList<>();
-		if (instituicao.getNome() != "") {
+		if (instituicao != null && instituicao.getNome() != null) {
 			provas = provaDao.provasPorInstituicao(instituicao);
 			for (Prova p : provas) {
 				cargos.add(p.getCargo().getNomeCargo());
 			}
 		} else {
-			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_WARN, "Alerta! ", "Instituição deve ser selecionada!"));
+			FacesUtil.addWarnMessage("Instituição deve ser selecionada!");
 		}
 	}
 

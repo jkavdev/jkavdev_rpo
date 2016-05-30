@@ -1,21 +1,21 @@
-package br.com.simulados.converter;
+package br.com.so.converter;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
-import br.com.simulados.util.CDIServiceLocator;
-import br.com.so.dao.InstituicaoDao;
+import br.com.so.dao.hibernate.HibernateInstituicaoDao;
 import br.com.so.modelo.Instituicao;
+import br.com.so.util.cdi.CDIServiceLocator;
 
 @FacesConverter(forClass = Instituicao.class)
 public class InstituicaoConverter implements Converter {
 
-	private InstituicaoDao instituicaoDao;
+	private HibernateInstituicaoDao instituicaoDao;
 
 	public InstituicaoConverter() {
-		instituicaoDao = CDIServiceLocator.getBean(InstituicaoDao.class);
+		instituicaoDao = CDIServiceLocator.getBean(HibernateInstituicaoDao.class);
 	}
 
 	@Override

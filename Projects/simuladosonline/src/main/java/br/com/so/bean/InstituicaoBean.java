@@ -2,14 +2,14 @@ package br.com.so.bean;
 
 import java.io.Serializable;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import br.com.so.dao.InstituicaoDao;
+import br.com.so.dao.interfacesDao.IInstituicaoDao;
 import br.com.so.modelo.Instituicao;
+import br.com.so.util.jsf.FacesUtil;
 
 @Named
 @RequestScoped
@@ -17,9 +17,25 @@ public class InstituicaoBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private Instituicao instituicao = new Instituicao();
 	@Inject
-	private InstituicaoDao instituicaoDao;
+	IInstituicaoDao instituicaoDao;
+	private Instituicao instituicao;
+
+	@PostConstruct
+	public void init() {
+
+	}
+
+	public void salvar() {
+		if (instituicao != null && instituicao.getNome() != null && !instituicao.getNome().trim().equals("")) {
+			if (!instituicaoDao.existe(instituicao)) {
+				instituicaoDao.salvar(instituicao);
+				FacesUtil.addSuccessMessage("Instituição salva com Sucesso!");
+			}
+		} else {
+			FacesUtil.addWarnMessage("Todos os Campos devem ser Preenchidos!");
+		}
+	}
 
 	public Instituicao getInstituicao() {
 		return instituicao;
@@ -27,17 +43,6 @@ public class InstituicaoBean implements Serializable {
 
 	public void setInstituicao(Instituicao instituicao) {
 		this.instituicao = instituicao;
-	}
-
-	public void salvar() {
-		if (instituicaoDao != null) {
-			if (!instituicaoDao.existe(instituicao)) {
-				instituicaoDao.salvar(instituicao);
-			} else {
-				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,
-						"ALERTA! ", "Instituição já cadastrada no sistema!"));
-			}
-		}
 	}
 
 }
