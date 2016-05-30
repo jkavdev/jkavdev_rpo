@@ -4,13 +4,13 @@
              http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
 	version="2.1">
 
-	<persistence-unit name="jpaPostgresPU"
-		transaction-type="RESOURCE_LOCAL">
+	<persistence-unit name="jpaPostgresPU" transaction-type="RESOURCE_LOCAL">
 
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 
-		<!-- <exclude-unlisted-classes>true</exclude-unlisted-classes> -->
-		<!-- <mapping-file>entities/entityMapping.xml</mapping-file> -->
+		<mapping-file>META-INF/entities/entityMapping.xml</mapping-file>
+
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/db_jpa" />
