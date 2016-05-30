@@ -18,7 +18,8 @@ public class InstituicaoBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Inject
-	IInstituicaoDao instituicaoDao;
+	private IInstituicaoDao instituicaoDao;
+	@Inject
 	private Instituicao instituicao;
 
 	public void salvar() {
