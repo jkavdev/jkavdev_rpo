@@ -7,7 +7,6 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
-@FacesConverter
 public class SimpleEntityConverter implements Converter {
 
 	public Object getAsObject(FacesContext ctx, UIComponent component, String value) {
