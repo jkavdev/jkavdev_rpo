@@ -1,4 +1,4 @@
-package br.com.simulados.util;
+package br.com.so.util.cdi;
 
 import java.io.Serializable;
 

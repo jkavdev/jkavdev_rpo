@@ -10,13 +10,12 @@
 	<ui:define name="corpo">
 		<br />
 		<ui:include src="WEB-INF/templates/_menu-admin.xhtml"></ui:include>
-		<br />
-		<br />
+		<p:separator></p:separator>
 		<p:messages id="messages" showDetail="true" autoUpdate="true"
 			closable="true" />
+		<p:separator></p:separator>
 		<h:form>
 			<p:growl id="msgs" showDetail="true" styleClass="growl-estilo" />
-			<br />
 			<p:panel header="Cadastrar Instituição" styleClass="painel-simulado">
 				<h:panelGrid columns="2" cellpadding="5">
 					<p:outputLabel value="Nome da Instituição:" for="nome" />
