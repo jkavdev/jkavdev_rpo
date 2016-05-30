@@ -1,5 +1,6 @@
 package br.com.jkavdev.persistence.test;
 
+import java.math.BigDecimal;
 import java.util.Calendar;
 
 import javax.persistence.EntityManager;
@@ -8,11 +9,18 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import br.com.jkavdev.persistence.model.Employee;
 import br.com.jkavdev.persistence.model.id.Book;
 import br.com.jkavdev.persistence.model.id.Country;
 import br.com.jkavdev.persistence.model.id.Guest;
 import br.com.jkavdev.persistence.model.id.Hotel;
 import br.com.jkavdev.persistence.model.id.HotelRooms;
+import br.com.jkavdev.persistence.model.id.composite.Album;
+import br.com.jkavdev.persistence.model.id.composite.AlbumIdClass;
+import br.com.jkavdev.persistence.model.id.composite.Department;
+import br.com.jkavdev.persistence.model.id.composite.DepartmentId;
+import br.com.jkavdev.persistence.model.id.composite.Project;
+import br.com.jkavdev.persistence.model.id.composite.UniquePk;
 import br.com.jkavdev.persistence.util.jpa.JpaUtil;
 
 public class TestHibernateUtil {
@@ -127,6 +135,61 @@ public class TestHibernateUtil {
 		this.manager.getTransaction().begin();
 		this.manager.persist(book);
 		this.manager.persist(book1);
+		this.manager.getTransaction().commit();
+	}
+	
+	@Test
+	public void testIdClass() {
+		Album album = new Album();
+		album.setPrice(BigDecimal.valueOf(15f));
+		
+		AlbumIdClass id = new AlbumIdClass("Sucesso ao Terro", 125);
+		
+		album.setSecTime(id.getSecTime());
+		album.setTitle(id.getTitle());
+
+		this.manager.getTransaction().begin();
+		this.manager.persist(album);
+		this.manager.getTransaction().commit();
+	}
+	
+	@Test
+	public void testEmbbedId() {
+		Employee manager = new Employee();
+		manager.setNome("Jhonatan");
+		
+		Department department = new Department();
+		department.setManager(manager);
+		
+		DepartmentId id = new DepartmentId("UAT", "Unidade Ambiente Teconologico");
+		
+		department.setId(id);
+
+		this.manager.getTransaction().begin();
+		this.manager.persist(department);
+		this.manager.getTransaction().commit();
+	}
+	
+	@Test
+	public void testComplexEmbbedId() {
+		Project project = new Project();
+		project.setDescription("Contrução do Maracana");
+		project.setEndDate(Calendar.getInstance());
+		project.setStartDate(Calendar.getInstance());
+		project.setSpent(BigDecimal.valueOf(1566654f));
+		
+		Employee manager = new Employee();
+		manager.setNome("Jhonatan");
+		
+		UniquePk id = new UniquePk();
+		id.setHashCode("12321231564654");
+		id.setRegistDate(Calendar.getInstance().getTime());
+		
+		project.setManager(manager);
+		project.setId(id);
+
+		this.manager.getTransaction().begin();
+		this.manager.persist(project);
 		this.manager.getTransaction().commit();
 	}
 
