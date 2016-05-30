@@ -14,13 +14,22 @@
 
 	<!-- Geracao de IDs -->
 	<!-- identity -->
-	<entity class="br.com.jkavdev.persistence.model.id.Book" />
+	<!-- <entity class="br.com.jkavdev.persistence.model.id.Book" /> -->
 	<!-- identity -->
 	<!-- <entity class="br.com.jkavdev.persistence.model.id.Country" /> -->
 	<!-- <entity class="br.com.jkavdev.persistence.model.id.HotelRooms" /> -->
 	<!-- identity -->
-<!-- 	<entity class="br.com.jkavdev.persistence.model.id.Guest" /> -->
+	<!-- <entity class="br.com.jkavdev.persistence.model.id.Guest" /> -->
 	<!-- identity -->
-<!-- 	<entity class="br.com.jkavdev.persistence.model.id.Hotel" /> -->
+	<!-- <entity class="br.com.jkavdev.persistence.model.id.Hotel" /> -->
+
+	<!-- Composite Ids -->
+	<!-- IdClass -->
+	<!-- <entity class="br.com.jkavdev.persistence.model.id.composite.Album" /> -->
+	<!-- @EmbeddedId -->
+<!-- 	<entity class="br.com.jkavdev.persistence.model.id.composite.Department" /> -->
+<!-- 	<entity class="br.com.jkavdev.persistence.model.Employee" /> -->
+	<entity class="br.com.jkavdev.persistence.model.id.composite.Project" />
+	<entity class="br.com.jkavdev.persistence.model.id.composite.UniquePk" />
 
 </entity-mappings>
