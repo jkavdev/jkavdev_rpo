@@ -6,7 +6,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.jkavdev.persistence.model.Estacionamento;
 import br.com.jkavdev.persistence.util.jpa.JpaUtil;
 
 public class TestHibernateUtil {
@@ -28,20 +27,20 @@ public class TestHibernateUtil {
 	@Test
 	public void testInsertEntityManager() {
 
-		Estacionamento estacionamento = new Estacionamento();
+		// Estacionamento estacionamento = new Estacionamento();
 
 		this.manager.getTransaction().begin();
-		this.manager.persist(estacionamento);
+		// this.manager.persist(estacionamento);
 		this.manager.getTransaction().commit();
 	}
 
 	@Test
 	public void testInsertEntityManagerTry() {
 
-		Estacionamento estacionamento = new Estacionamento();
+		// Estacionamento estacionamento = new Estacionamento();
 		try {
 			this.manager.getTransaction().begin();
-			this.manager.persist(estacionamento);
+			// this.manager.persist(estacionamento);
 			this.manager.getTransaction().commit();
 		} catch (Exception e) {
 			if (this.manager.isOpen()) {
@@ -53,6 +52,12 @@ public class TestHibernateUtil {
 				this.manager.close();
 			}
 		}
+	}
+
+	@Test
+	public void testEntityDetais() {
+		this.manager.getTransaction().begin();
+		this.manager.getTransaction().commit();
 	}
 
 }
