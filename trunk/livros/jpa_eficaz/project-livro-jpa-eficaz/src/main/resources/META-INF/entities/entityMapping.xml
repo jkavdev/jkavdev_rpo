@@ -1,16 +1,26 @@
-<entity-mappings
-	xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm"
+<entity-mappings xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm
       http://xmlns.jcp.org/xml/ns/persistence/orm_2_1.xsd"
 	version="2.1">
 
-	<entity class="br.com.jkavdev.persistence.model.Category" />
-	<entity class="br.com.jkavdev.persistence.model.Customer" />
-	<entity class="br.com.jkavdev.persistence.model.Employee" />
-	<entity class="br.com.jkavdev.persistence.model.OrderDetails" />
-	<entity class="br.com.jkavdev.persistence.model.Orders" />
-	<entity class="br.com.jkavdev.persistence.model.Product" />
-	<entity class="br.com.jkavdev.persistence.model.Supplier" />
+	<!-- <entity class="br.com.jkavdev.persistence.model.Category" /> -->
+	<!-- <entity class="br.com.jkavdev.persistence.model.Customer" /> -->
+	<!-- <entity class="br.com.jkavdev.persistence.model.Employee" /> -->
+	<!-- <entity class="br.com.jkavdev.persistence.model.OrderDetails" /> -->
+	<!-- <entity class="br.com.jkavdev.persistence.model.Orders" /> -->
+	<!-- <entity class="br.com.jkavdev.persistence.model.Product" /> -->
+	<!-- <entity class="br.com.jkavdev.persistence.model.Supplier" /> -->
+
+	<!-- Geracao de IDs -->
+	<!-- identity -->
+	<entity class="br.com.jkavdev.persistence.model.id.Book" />
+	<!-- identity -->
+	<!-- <entity class="br.com.jkavdev.persistence.model.id.Country" /> -->
+	<!-- <entity class="br.com.jkavdev.persistence.model.id.HotelRooms" /> -->
+	<!-- identity -->
+<!-- 	<entity class="br.com.jkavdev.persistence.model.id.Guest" /> -->
+	<!-- identity -->
+<!-- 	<entity class="br.com.jkavdev.persistence.model.id.Hotel" /> -->
 
 </entity-mappings>
