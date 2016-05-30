@@ -21,11 +21,6 @@ public class InstituicaoBean implements Serializable {
 	IInstituicaoDao instituicaoDao;
 	private Instituicao instituicao;
 
-	@PostConstruct
-	public void init() {
-
-	}
-
 	public void salvar() {
 		if (instituicao != null && instituicao.getNome() != null && !instituicao.getNome().trim().equals("")) {
 			if (!instituicaoDao.existe(instituicao)) {
