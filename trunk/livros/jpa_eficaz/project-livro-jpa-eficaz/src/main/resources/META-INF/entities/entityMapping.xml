@@ -29,7 +29,9 @@
 	<!-- @EmbeddedId -->
 <!-- 	<entity class="br.com.jkavdev.persistence.model.id.composite.Department" /> -->
 <!-- 	<entity class="br.com.jkavdev.persistence.model.Employee" /> -->
-	<entity class="br.com.jkavdev.persistence.model.id.composite.Project" />
+<!-- 	<entity class="br.com.jkavdev.persistence.model.id.composite.Project" /> -->
 	<entity class="br.com.jkavdev.persistence.model.id.composite.UniquePk" />
+	<entity class="br.com.jkavdev.persistence.model.id.composite.Music" />
+	<entity class="br.com.jkavdev.persistence.model.id.composite.Person" />
 
 </entity-mappings>
