@@ -1,14 +1,28 @@
 package br.com.jkavdev.facesmotors.model;
 
-public class Automovel {
+import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+public class Automovel implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	
 	private Long id;
 	private String modelo;
 	private Integer anoFabricacao;
 	private Integer anoModelo;
 	private String marca;;
 	private String observacoes;
+	
+	public Automovel() {
+	}
 
+	@Id
+	@GeneratedValue
 	public Long getId() {
 		return id;
 	}
