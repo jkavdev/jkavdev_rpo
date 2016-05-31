@@ -1,6 +1,6 @@
 @CHARSET "UTF-8";
 
-@media only screen and (max-width: 600px) {
+@media only screen and (min-width:260px) and (max-width: 600px) {
 	.titulo #titulo-texto {
 		display: none;
 	}
@@ -22,5 +22,16 @@
 		border-bottom: 1px solid black;
 		border-radius: 0 0 5px 5px;
 		z-index: 999;
+	}
+	#conteudo {
+		width: 100%;
+		margin-left: 0;
+	}
+}
+
+@media only screen and (max-width: 750px) {
+	.ui-selectonemenu-panel {
+		left: 0 !important;
+		width: 100%;
 	}
 }
