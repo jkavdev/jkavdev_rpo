@@ -17,7 +17,7 @@ public class HibernateInstituicaoDao extends HibernateGenericDao<Instituicao, Lo
 		String sql = "select i from Instituicao i where i.nome = :nome ";
 
 		@SuppressWarnings("unchecked")
-		List<Instituicao> lista = this.manager.createQuery(sql)
+		List<Instituicao> lista = this.getManager().createQuery(sql)
 				.setParameter("nome", instituicao.getNome().toUpperCase()).getResultList();
 
 		if (lista.isEmpty()) {

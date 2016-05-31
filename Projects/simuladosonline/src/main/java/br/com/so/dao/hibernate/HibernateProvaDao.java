@@ -15,7 +15,7 @@ public class HibernateProvaDao extends HibernateGenericDao<Prova, Long> implemen
 	public List<Prova> provasPorInstituicao(Instituicao instituicao) {
 		String sql = "select p from Prova p where p.instituicao = :instituicao";
 
-		return this.manager.createQuery(sql, Prova.class).setParameter("instituicao", instituicao).getResultList();
+		return this.getManager().createQuery(sql, Prova.class).setParameter("instituicao", instituicao).getResultList();
 	}
 
 }

@@ -62,6 +62,8 @@ public class ProvaBean implements Serializable {
 
 	public void cadastrar() {
 		System.out.println(prova.getInstituicao());
+		System.out.println(prova.getArea());
+		System.out.println(prova.getBanca());
 	}
 
 	public List<Instituicao> getInstituicoes() {
