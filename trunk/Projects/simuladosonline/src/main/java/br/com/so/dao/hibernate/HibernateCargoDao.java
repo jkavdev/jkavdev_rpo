@@ -17,7 +17,7 @@ public class HibernateCargoDao extends HibernateGenericDao<Cargo, Long> implemen
 		String sql = "select i from Cargo i where i.nomeCargo = :nome ";
 
 		@SuppressWarnings("unchecked")
-		List<Instituicao> lista = this.manager.createQuery(sql).setParameter("nome", cargo.getNomeCargo().toUpperCase())
+		List<Instituicao> lista = this.getManager().createQuery(sql).setParameter("nome", cargo.getNomeCargo().toUpperCase())
 				.getResultList();
 
 		if (lista.isEmpty()) {

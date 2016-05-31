@@ -17,7 +17,7 @@ public class HibernateAreaDao extends HibernateGenericDao<Area, Long> implements
 		String sql = "select i from Area i where i.nome = :nome ";
 
 		@SuppressWarnings("unchecked")
-		List<Instituicao> lista = this.manager.createQuery(sql).setParameter("nome", area.getNome().toUpperCase())
+		List<Instituicao> lista = this.getManager().createQuery(sql).setParameter("nome", area.getNome().toUpperCase())
 				.getResultList();
 
 		if (lista.isEmpty()) {

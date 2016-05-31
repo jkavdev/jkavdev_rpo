@@ -16,7 +16,7 @@ import br.com.so.util.jsf.FacesUtil;
 public class HibernateGenericDao<T, ID extends Serializable> implements GenericDao<T, ID> {
 
 	@Inject
-	EntityManager manager;
+	private EntityManager manager;
 	private Class<T> entidade;
 
 	@SuppressWarnings("unchecked")
@@ -59,6 +59,10 @@ public class HibernateGenericDao<T, ID extends Serializable> implements GenericD
 		Root<T> root = criteriaQuery.from(entidade);
 
 		return this.manager.createQuery(criteriaQuery).getResultList();
+	}
+	
+	public EntityManager getManager() {
+		return manager;
 	}
 
 }

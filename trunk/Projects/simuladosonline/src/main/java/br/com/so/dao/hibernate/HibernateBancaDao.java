@@ -17,7 +17,7 @@ public class HibernateBancaDao extends HibernateGenericDao<Banca, Long> implemen
 		String sql = "select i from Banca i where i.nome = :nome ";
 
 		@SuppressWarnings("unchecked")
-		List<Instituicao> lista = this.manager.createQuery(sql)
+		List<Instituicao> lista = this.getManager().createQuery(sql)
 				.setParameter("nome", banca.getNome().toUpperCase()).getResultList();
 
 		if (lista.isEmpty()) {
