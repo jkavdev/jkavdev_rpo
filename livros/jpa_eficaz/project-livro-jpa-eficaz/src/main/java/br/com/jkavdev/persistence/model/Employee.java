@@ -2,6 +2,7 @@ package br.com.jkavdev.persistence.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -39,7 +40,7 @@ public class Employee implements Serializable {
 		this.nome = nome;
 	}
 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "address_id")
 	public Address getAddress() {
 		return address;
