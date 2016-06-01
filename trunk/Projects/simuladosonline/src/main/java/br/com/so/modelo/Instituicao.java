@@ -16,6 +16,7 @@ public class Instituicao implements Serializable {
 
 	private Long id;
 	private String nome;
+	private String sigla;
 	private List<Prova> provas;
 
 	@Id
@@ -33,7 +34,12 @@ public class Instituicao implements Serializable {
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome.toUpperCase();
+		String n = nome;
+		if (n.length() > 20) {
+			n = n.substring(0, 20);
+			n = n + "[...]";
+		}
+		this.nome = n.toUpperCase();
 	}
 
 	@OneToMany(mappedBy = "instituicao")
@@ -43,6 +49,14 @@ public class Instituicao implements Serializable {
 
 	public void setProvas(List<Prova> provas) {
 		this.provas = provas;
+	}
+
+	public String getSigla() {
+		return sigla;
+	}
+
+	public void setSigla(String sigla) {
+		this.sigla = sigla;
 	}
 
 	@Override
