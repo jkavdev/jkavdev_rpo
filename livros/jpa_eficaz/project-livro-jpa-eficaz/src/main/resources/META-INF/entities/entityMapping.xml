@@ -39,8 +39,31 @@
 		/> -->
 	<!-- <entity class="br.com.jkavdev.persistence.model.id.composite.Person" 
 		/> -->
-		
-		<entity class="br.com.jkavdev.persistence.model.composite.Country" />
-		<entity class="br.com.jkavdev.persistence.model.composite.City" />
+
+	<!-- <entity class="br.com.jkavdev.persistence.model.composite.Country" 
+		/> -->
+	<!-- <entity class="br.com.jkavdev.persistence.model.composite.City" /> -->
+
+	<!-- Heranca -->
+	<!-- mappedSuperclass -->
+	<!-- <entity class="br.com.jkavdev.persistence.model.inherite.HumanResources" 
+		/> -->
+	<!-- Single table -->
+	<!-- <entity class="br.com.jkavdev.persistence.model.inherite.Person" /> -->
+	<!-- <entity class="br.com.jkavdev.persistence.model.inherite.JuridicalPerson" 
+		/> -->
+	<!-- <entity class="br.com.jkavdev.persistence.model.inherite.NaturalPerson" 
+		/> -->
+	<!-- Joined -->
+	<!-- <entity class="br.com.jkavdev.persistence.model.inherite.Pessoa" /> -->
+	<!-- <entity class="br.com.jkavdev.persistence.model.inherite.PessoaJuridica" 
+		/> -->
+	<!-- <entity class="br.com.jkavdev.persistence.model.inherite.PessoaFisica" -->
+	<!-- /> -->
+	<!-- table per class -->
+	<entity class="br.com.jkavdev.persistence.model.inherite.Vehicle" />
+	<entity class="br.com.jkavdev.persistence.model.inherite.Car" />
+	<entity class="br.com.jkavdev.persistence.model.inherite.Truck" />
+	<entity class="br.com.jkavdev.persistence.model.inherite.Bike" />
 
 </entity-mappings>
