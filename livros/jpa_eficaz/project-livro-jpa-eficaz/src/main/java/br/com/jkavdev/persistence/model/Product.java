@@ -129,7 +129,7 @@ public class Product implements Serializable {
 		this.discontinued = discontinued;
 	}
 
-	@OneToMany(mappedBy = "primaryKey.product", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "primaryKey.product", cascade = CascadeType.PERSIST)
 	public Set<OrderDetails> getOrderDetails() {
 		return orderDetails;
 	}

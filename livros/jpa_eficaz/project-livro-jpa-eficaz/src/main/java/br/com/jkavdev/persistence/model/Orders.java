@@ -176,7 +176,7 @@ public class Orders implements Serializable{
 	}
 
 	@OneToMany(mappedBy = "primaryKey.orders",
-			cascade = CascadeType.ALL)
+			cascade = CascadeType.PERSIST)
 	public Set<OrderDetails> getOrderDetails() {
 		return orderDetails;
 	}
