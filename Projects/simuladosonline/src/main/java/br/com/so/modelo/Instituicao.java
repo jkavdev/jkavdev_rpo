@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.NotFound;
+
 @Entity
 public class Instituicao implements Serializable {
 
@@ -34,12 +36,7 @@ public class Instituicao implements Serializable {
 	}
 
 	public void setNome(String nome) {
-		String n = nome;
-		if (n.length() > 20) {
-			n = n.substring(0, 20);
-			n = n + "[...]";
-		}
-		this.nome = n.toUpperCase();
+		this.nome = nome.toUpperCase();
 	}
 
 	@OneToMany(mappedBy = "instituicao")
