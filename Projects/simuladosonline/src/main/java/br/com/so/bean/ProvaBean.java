@@ -2,6 +2,7 @@ package br.com.so.bean;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
@@ -37,7 +38,7 @@ public class ProvaBean implements Serializable {
 	private List<Instituicao> instituicoes;
 	private List<Banca> bancas;
 	private List<Area> areas;
-	private List<String> niveis;
+	private List<Nivel> niveis;
 	private List<Cargo> cargos;
 
 	@Inject
@@ -57,9 +58,7 @@ public class ProvaBean implements Serializable {
 		cargos = cargoDao.buscarTodos();
 
 		niveis = new ArrayList<>();
-		for (Nivel nivel : Nivel.values()) {
-			niveis.add(nivel.toString());
-		}
+		niveis = Arrays.asList(Nivel.values());
 	}
 
 	public void cadastrar() {
@@ -97,7 +96,7 @@ public class ProvaBean implements Serializable {
 		return areas;
 	}
 
-	public List<String> getNiveis() {
+	public List<Nivel> getNiveis() {
 		return niveis;
 	}
 
