@@ -72,45 +72,45 @@
 	<!-- <entity class="br.com.jkavdev.persistence.model.embedded.User" /> -->
 
 	<!-- Entity Mapping -->
-	<!-- <entity class="br.com.jkavdev.persistence.model.Employee" /> -->
-	<!-- <entity class="br.com.jkavdev.persistence.model.Address" /> -->
+	<entity class="br.com.jkavdev.persistence.model.Employee" />
+	<entity class="br.com.jkavdev.persistence.model.Address" />
 	<!-- manyto many -->
-	<entity class="br.com.jkavdev.persistence.model.manytomany.User" />
-	<entity class="br.com.jkavdev.persistence.model.manytomany.Role" />
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	<!-- <entity class="br.com.jkavdev.persistence.model.manytomany.User" /> -->
+	<!-- <entity class="br.com.jkavdev.persistence.model.manytomany.Role" /> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </entity-mappings>
