@@ -32,6 +32,8 @@ public class SimuladoBean implements Serializable {
 	private String banca;
 	private String nivel;
 
+	private String areaVazia = "Nenhuma Área";
+
 	private List<Instituicao> instituicoes;
 	private List<String> cargos;
 	private List<String> areas;
@@ -81,8 +83,8 @@ public class SimuladoBean implements Serializable {
 		area = null;
 		provasAux = new ArrayList<>();
 		provasAux.addAll(provas);
-		areas = new ArrayList<String>();
-		if (cargo != "") {
+		areas = new ArrayList<>();
+		if (cargo != null && !cargo.equals("")) {
 			for (Prova p : provasAux) {
 				if (p.getCargo() != null && p.getCargo().getNomeCargo() != null
 						&& !p.getCargo().getNomeCargo().equals(cargo)) {
@@ -92,6 +94,7 @@ public class SimuladoBean implements Serializable {
 					provasAux.remove(p);
 				}
 				if (provasAux != null && provasAux.contains(p)) {
+					areas.add(areaVazia);
 					if (p.getArea() != null && p.getArea().getNome() != null) {
 						if (!areas.isEmpty()) {
 							if (!areas.contains(p.getArea().getNome())) {
@@ -103,14 +106,13 @@ public class SimuladoBean implements Serializable {
 					}
 				}
 			}
-			if (areas.isEmpty()) {
+			if (areas != null && areas.size() == 1) {
 				onAreaClick();
 				RequestContext.getCurrentInstance().update("banca");
-				area = "";
+				area = areaVazia;
 			}
 		} else {
-			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_WARN, "Alerta! ", "Cargo deve ser selecionado!"));
+			FacesUtil.addWarnMessage("Cargo deve ser Selecionado!");
 		}
 	}
 
@@ -118,31 +120,35 @@ public class SimuladoBean implements Serializable {
 		niveis = null;
 		nivel = null;
 		banca = null;
-		bancas = new ArrayList<>();
-		for (Prova p : provasAux) {
-			if (!areas.isEmpty() && area != "") {
-				if (p.getArea() != null && p.getArea().getNome() != null && !p.getArea().getNome().equals(area)) {
-					provasAux.remove(p);
-				}
-				if (provasAux != null && provasAux.contains(p)) {
-					if (p.getBanca() != null && p.getBanca().getNome() != null) {
-						if (!bancas.isEmpty()) {
-							if (!bancas.contains(p.getBanca().getNome())) {
+		if (area != "") {
+			bancas = new ArrayList<>();
+			for (Prova p : provasAux) {
+				if (areas != null && areas.size() > 1 && !area.equals(areaVazia)) {
+					if (p.getArea() != null && p.getArea().getNome() != null && !p.getArea().getNome().equals(area)) {
+						provasAux.remove(p);
+					}
+					if (provasAux != null && provasAux.contains(p)) {
+						if (p.getBanca() != null && p.getBanca().getNome() != null) {
+							if (!bancas.isEmpty()) {
+								if (!bancas.contains(p.getBanca().getNome())) {
+									bancas.add(p.getBanca().getNome());
+								}
+							} else {
 								bancas.add(p.getBanca().getNome());
 							}
-						} else {
-							bancas.add(p.getBanca().getNome());
 						}
 					}
-				}
-			} else {
-				if (p.getBanca() != null && p.getBanca().getNome() != null) {
-					if (!bancas.isEmpty()) {
-						if (!bancas.contains(p.getBanca().getNome())) {
-							bancas.add(p.getBanca().getNome());
+				} else {
+					if (provasAux != null && provasAux.contains(p)) {
+						if (p.getBanca() != null && p.getBanca().getNome() != null) {
+							if (!bancas.isEmpty()) {
+								if (!bancas.contains(p.getBanca().getNome())) {
+									bancas.add(p.getBanca().getNome());
+								}
+							} else {
+								bancas.add(p.getBanca().getNome());
+							}
 						}
-					} else {
-						bancas.add(p.getBanca().getNome());
 					}
 				}
 			}

@@ -26,7 +26,7 @@ public class Prova implements Serializable {
 	private Area Area;
 	private Cargo cargo;
 	private Banca banca;
-	private Nivel nivel;
+	private String nivel;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -58,12 +58,11 @@ public class Prova implements Serializable {
 		this.cargo = cargo;
 	}
 
-	@Enumerated(EnumType.STRING)
-	public Nivel getNivel() {
+	public String getNivel() {
 		return nivel;
 	}
 
-	public void setNivel(Nivel nivel) {
+	public void setNivel(String nivel) {
 		this.nivel = nivel;
 	}
 

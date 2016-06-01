@@ -42,8 +42,8 @@
 						converter="entityConverter" style="width:100%; ">
 						<f:selectItem itemLabel="Selecione a Area" itemValue=""
 							noSelectionOption="true" />
-						<f:selectItems value="#{provaBean.areas}" var="i"
-							itemLabel="#{i.nome}" itemValue="#{i}" />
+						<f:selectItems value="#{provaBean.areas}" var="a"
+							itemLabel="#{a.nome}" itemValue="#{a}" />
 					</p:selectOneMenu>
 
 					<p:outputLabel value="Banca: *" for="banca" />
@@ -57,7 +57,7 @@
 
 					<p:outputLabel value="Nivel: *" for="nivel" />
 					<p:selectOneMenu id="nivel" value="#{provaBean.prova.nivel}"
-						converter="entityConverter" style="width:100%;">
+						style="width:100%;">
 						<f:selectItem itemLabel="Selecione o Nivel" itemValue=""
 							noSelectionOption="true" />
 						<f:selectItems value="#{provaBean.niveis}" />

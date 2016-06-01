@@ -2,6 +2,7 @@ package br.com.so.bean;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -20,6 +21,8 @@ import br.com.so.modelo.Cargo;
 import br.com.so.modelo.Instituicao;
 import br.com.so.modelo.Nivel;
 import br.com.so.modelo.Prova;
+import br.com.so.util.DataUtil;
+import br.com.so.util.jsf.FacesUtil;
 
 @Named
 @RequestScoped
@@ -34,7 +37,7 @@ public class ProvaBean implements Serializable {
 	private List<Instituicao> instituicoes;
 	private List<Banca> bancas;
 	private List<Area> areas;
-	private List<Nivel> niveis;
+	private List<String> niveis;
 	private List<Cargo> cargos;
 
 	@Inject
@@ -48,7 +51,6 @@ public class ProvaBean implements Serializable {
 
 	@PostConstruct
 	public void init() {
-		System.out.println("Buscou!");
 		instituicoes = instituicaoDao.buscarTodos();
 		bancas = bancaDao.buscarTodos();
 		areas = areaDao.buscarTodos();
@@ -56,14 +58,31 @@ public class ProvaBean implements Serializable {
 
 		niveis = new ArrayList<>();
 		for (Nivel nivel : Nivel.values()) {
-			niveis.add(nivel);
+			niveis.add(nivel.toString());
 		}
 	}
 
 	public void cadastrar() {
-		System.out.println(prova.getInstituicao());
-		System.out.println(prova.getArea());
-		System.out.println(prova.getBanca());
+		boolean dataValida = false;
+		if (prova != null) {
+			if (data != null) {
+				dataValida = DataUtil.validaData(data);
+			}
+			if (dataValida) {
+				if (prova.getCargo() != null && prova.getArea() != null && prova.getBanca() != null
+						&& prova.getNivel() != null) {
+					Calendar d = Calendar.getInstance();
+					d.setTime(DataUtil.getDateByString(this.data));
+					prova.setData(d);
+					provaDao.salvar(prova);
+					FacesUtil.addSuccessMessage("Prova Cadastrada com Sucesso!");
+				} else {
+					FacesUtil.addWarnMessage("Todos os Campos devem ser Preenchidos!");
+				}
+			} else {
+				FacesUtil.addWarnMessage("Data Invalida!");
+			}
+		}
 	}
 
 	public List<Instituicao> getInstituicoes() {
@@ -78,7 +97,7 @@ public class ProvaBean implements Serializable {
 		return areas;
 	}
 
-	public List<Nivel> getNiveis() {
+	public List<String> getNiveis() {
 		return niveis;
 	}
 
