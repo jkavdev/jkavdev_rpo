@@ -18,8 +18,12 @@
 			<p:growl id="msgs" showDetail="true" styleClass="growl-estilo" />
 			<p:panel header="Cadastrar Instituição" styleClass="painel-simulado">
 				<h:panelGrid columns="2" cellpadding="5">
-					<p:outputLabel value="Nome da Instituição:" for="nome" />
+					<p:outputLabel value="Nome Completo da Instituição:" for="nome" />
 					<p:inputText value="#{instituicaoBean.instituicao.nome}" id="nome" />
+
+					<p:outputLabel value="Sigla da Instituição:" for="sigla" />
+					<p:inputText value="#{instituicaoBean.instituicao.sigla}"
+						id="sigla" />
 
 					<p:commandButton action="#{instituicaoBean.salvar}"
 						value="Cadastrar"></p:commandButton>

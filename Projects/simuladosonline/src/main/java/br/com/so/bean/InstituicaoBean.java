@@ -23,7 +23,8 @@ public class InstituicaoBean implements Serializable {
 	private Instituicao instituicao;
 
 	public void salvar() {
-		if (instituicao != null && instituicao.getNome() != null && !instituicao.getNome().trim().equals("")) {
+		if (instituicao != null && instituicao.getNome() != null && !instituicao.getNome().trim().equals("")
+				&& instituicao.getSigla() != null && !instituicao.getSigla().trim().equals("")) {
 			if (!instituicaoDao.existe(instituicao)) {
 				instituicaoDao.salvar(instituicao);
 				FacesUtil.addSuccessMessage("Instituição salva com Sucesso!");
