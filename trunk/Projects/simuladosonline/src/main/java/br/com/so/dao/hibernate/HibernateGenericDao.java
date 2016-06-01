@@ -57,10 +57,11 @@ public class HibernateGenericDao<T, ID extends Serializable> implements GenericD
 		CriteriaBuilder builder = this.manager.getCriteriaBuilder();
 		CriteriaQuery<T> criteriaQuery = builder.createQuery(entidade);
 		Root<T> root = criteriaQuery.from(entidade);
-
-		return this.manager.createQuery(criteriaQuery).getResultList();
+		List<T> resultList = this.manager.createQuery(criteriaQuery).getResultList();
+		this.manager.clear();
+		return resultList;
 	}
-	
+
 	public EntityManager getManager() {
 		return manager;
 	}

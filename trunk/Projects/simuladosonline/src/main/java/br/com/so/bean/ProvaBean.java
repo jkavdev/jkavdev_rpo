@@ -53,12 +53,24 @@ public class ProvaBean implements Serializable {
 	@PostConstruct
 	public void init() {
 		instituicoes = instituicaoDao.buscarTodos();
+		formataString(instituicoes);
 		bancas = bancaDao.buscarTodos();
 		areas = areaDao.buscarTodos();
 		cargos = cargoDao.buscarTodos();
 
 		niveis = new ArrayList<>();
 		niveis = Arrays.asList(Nivel.values());
+	}
+
+	private void formataString(List<Instituicao> inst) {
+		for (Instituicao i : inst) {
+			String texto = i.getSigla() + " - " + i.getNome();
+			if (texto.length() > 25) {
+				texto = texto.substring(0, 25);
+				texto = texto + "[Teste]";
+			}
+			i.setNome(texto);
+		}
 	}
 
 	public void cadastrar() {
