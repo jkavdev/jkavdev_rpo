@@ -61,9 +61,15 @@
 	<!-- <entity class="br.com.jkavdev.persistence.model.inherite.PessoaFisica" -->
 	<!-- /> -->
 	<!-- table per class -->
-	<entity class="br.com.jkavdev.persistence.model.inherite.Vehicle" />
-	<entity class="br.com.jkavdev.persistence.model.inherite.Car" />
-	<entity class="br.com.jkavdev.persistence.model.inherite.Truck" />
-	<entity class="br.com.jkavdev.persistence.model.inherite.Bike" />
+	<!-- <entity class="br.com.jkavdev.persistence.model.inherite.Vehicle" /> -->
+	<!-- <entity class="br.com.jkavdev.persistence.model.inherite.Car" /> -->
+	<!-- <entity class="br.com.jkavdev.persistence.model.inherite.Truck" /> -->
+	<!-- <entity class="br.com.jkavdev.persistence.model.inherite.Bike" /> -->
 
+	<!-- Embedded class -->
+<!-- 	<entity class="br.com.jkavdev.persistence.model.embedded.Person" /> -->
+	<!-- Enum -->
+	<entity class="br.com.jkavdev.persistence.model.embedded.User" />
+	
+	
 </entity-mappings>
