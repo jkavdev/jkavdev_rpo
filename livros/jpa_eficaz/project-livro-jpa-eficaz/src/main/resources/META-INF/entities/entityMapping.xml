@@ -67,9 +67,12 @@
 	<!-- <entity class="br.com.jkavdev.persistence.model.inherite.Bike" /> -->
 
 	<!-- Embedded class -->
-<!-- 	<entity class="br.com.jkavdev.persistence.model.embedded.Person" /> -->
+	<!-- <entity class="br.com.jkavdev.persistence.model.embedded.Person" /> -->
 	<!-- Enum -->
-	<entity class="br.com.jkavdev.persistence.model.embedded.User" />
-	
-	
+	<!-- <entity class="br.com.jkavdev.persistence.model.embedded.User" /> -->
+
+	<!-- Entity Mapping -->
+	<entity class="br.com.jkavdev.persistence.model.Employee" />
+	<entity class="br.com.jkavdev.persistence.model.Address" />
+
 </entity-mappings>

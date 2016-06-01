@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,18 +21,14 @@ public class Customer implements Serializable {
 	private String companyName;
 	private String contactName;
 	private String contactTitle;
-	private String address;
-	private String city;
-	private String region;
-	private String postCode;
-	private String country;
+	private Address address;
 	private String phone;
 	private String fax;
 	private List<Orders> orders;
 
 	@Id
 	@GeneratedValue
-	@Column(name="customer_id")
+	@Column(name = "customer_id")
 	public Long getId() {
 		return id;
 	}
@@ -67,45 +64,13 @@ public class Customer implements Serializable {
 		this.contactTitle = contactTitle;
 	}
 
-	public String getAddress() {
+	@OneToOne
+	public Address getAddress() {
 		return address;
 	}
 
-	public void setAddress(String address) {
+	public void setAddress(Address address) {
 		this.address = address;
-	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public String getRegion() {
-		return region;
-	}
-
-	public void setRegion(String region) {
-		this.region = region;
-	}
-
-	@Column(name = "post_code")
-	public String getPostCode() {
-		return postCode;
-	}
-
-	public void setPostCode(String postCode) {
-		this.postCode = postCode;
-	}
-
-	public String getCountry() {
-		return country;
-	}
-
-	public void setCountry(String country) {
-		this.country = country;
 	}
 
 	public String getPhone() {
@@ -124,6 +89,7 @@ public class Customer implements Serializable {
 		this.fax = fax;
 	}
 
+	// o relacionamento entre as entidades estara em orders
 	@OneToMany(mappedBy = "customer")
 	public List<Orders> getOrders() {
 		return orders;

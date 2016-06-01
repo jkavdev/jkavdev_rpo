@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,6 +18,7 @@ public class Employee implements Serializable {
 
 	private Long id;
 	private String nome;
+	private Address address;
 
 	@Id
 	@GeneratedValue
@@ -34,6 +37,16 @@ public class Employee implements Serializable {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	@OneToOne
+	@JoinColumn(name = "address_id")
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 }
