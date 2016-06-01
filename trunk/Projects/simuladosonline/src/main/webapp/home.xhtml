@@ -16,7 +16,7 @@
 			<p:panel header="Selecione um Simulado" style="text-align:center;">
 				<h:panelGrid columns="2" cellpadding="5">
 					<p:outputLabel for="instituicao" value="Instituicao: " />
-					<p:selectOneMenu id="instituicao"
+					<p:selectOneMenu id="instituicao" converter="entityConverter"
 						value="#{simuladoBean.instituicao}" style="width:100%; ">
 						<p:ajax listener="#{simuladoBean.onInstituicaoClick}"
 							update="cargo area banca nivel" />
