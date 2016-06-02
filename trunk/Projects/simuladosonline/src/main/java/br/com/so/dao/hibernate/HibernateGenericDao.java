@@ -29,7 +29,7 @@ public class HibernateGenericDao<T, ID extends Serializable> implements GenericD
 	public void salvar(T entidade) {
 		try {
 			this.manager.getTransaction().begin();
-			this.manager.merge(entidade);
+			this.manager.persist(entidade);
 			this.manager.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
