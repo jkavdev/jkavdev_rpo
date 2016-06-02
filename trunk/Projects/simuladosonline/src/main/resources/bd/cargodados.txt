@@ -1,0 +1,1205 @@
+List<String> lista = null;
+		try {
+			FileInputStream arquivo = new FileInputStream("cargodados.txt");
+			InputStreamReader reader = new InputStreamReader(arquivo);
+			BufferedReader br = new BufferedReader(reader);
+			String linha = br.readLine();
+			lista = new ArrayList<>();
+			while (linha != null) {
+				linha = linha.trim();
+				if (!lista.contains(linha)) {
+					lista.add(linha);
+				} else {
+					System.out.println("Contem: " + linha);
+				}
+				linha = br.readLine();
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+
+		if (lista != null && !lista.isEmpty()) {
+			manager.getTransaction().begin();
+			for (String nome : lista) {
+				Cargo c = new Cargo();
+				c.setNomeCargo(nome);
+				manager.persist(c);
+			}
+			manager.getTransaction().commit();
+		}
+		
+		//////////// -------------- /////////////
+
+
+
+Operador de Máquinas II - Moto niveladora
+Abatedor
+Adjunto de plenário e portaria
+Agente de transporte escolar
+Agente de cidadania
+Agente de Cidadania do Programa Pro cidadania
+Agente de combate às endemias
+Agente de controle de vetores e zoonoses
+Agente de limpeza pública
+Agente de obras públicas
+Agente de portaria
+Agente de proteção ambiental
+Agente de recuperação ambiental
+Agente de saúde ambiental
+Agente de segurança
+Agente de segurança patrimonial
+Agente de serviço administrativo
+Agente de serviços auxiliares
+Agente de serviços de higiene e alimentação
+Agente de serviços e obras públicas
+Agente de serviços especiais
+Agente de serviços funerários
+Agente de serviços gerais
+Agente de serviços públicos
+Agente de serviços urbanos
+Agente de vigilância em saúde
+Agente operacional de serviços diversos
+Ajudante administrativo
+Ajudante de batedor de pedra
+Ajudante de carpinteiro
+Ajudante de eletricista
+Ajudante de encanador
+Ajudante de pintor
+Ajudante de saneamento
+Ajudante de serviços
+Ajudante geral
+Ajudante geral de manutenção
+Apoio administrativo escolar
+Artífice
+Assistente de alunos
+Assistente de serviços gerais
+Assistente de turno
+Atendente de consultório dentário
+Atendente de Convênio
+Auxiliar de alimentação e nutrição
+Auxiliar de almoxarife
+Auxiliar de apoio em saúde
+Auxiliar de apoio escolar
+Auxiliar de câmara escura
+Auxiliar de caminhão coletor
+Auxiliar de cozinha
+Auxiliar de cuidadora
+Auxiliar de eletricista
+Auxiliar de limpeza urbana
+Auxiliar de manuntenção mecânica
+Auxiliar de manutenção de instalações
+Auxiliar de manutenção de veículos
+Auxiliar de manutenção e conservação
+Auxiliar de manutenção e reparos
+Auxiliar de maquinista
+Auxiliar de mecânico
+Auxiliar de necropsia
+Auxiliar de obras e serviços
+Auxiliar de obras e serviços públicos
+Auxiliar de obras e serviços urbanos
+Auxiliar de oficina
+Auxiliar de operação e manutenção
+Auxiliar de operador de caldeira
+Auxiliar de pedreiro
+Auxiliar de serviços administrativos
+Auxiliar de serviços da educação básica
+Auxiliar de serviços de saneamento
+Auxiliar de serviços diversos
+Auxiliar de serviços educacionais
+Auxiliar de serviços escolares
+Auxiliar de serviços gerais
+Auxiliar de Serviços Gerais da Casa Transitória
+Auxiliar de serviços gerais da educação
+Auxiliar de serviços internos e externos
+Auxiliar de servicos urbanos
+Auxiliar de topógrafo
+Auxiliar de veterinária e zootecnia
+Auxiliar de vibro acabadora
+Auxiliar de vigilância escolar
+Auxiliar em administração
+Auxiliar em escola
+Auxiliar em laboratório
+Auxiliar em saúde
+Auxiliar funerário
+Auxiliar legislativo
+Auxiliar operacional
+Balanceiro
+Batedor de pedra calceteiro
+Bombeiro hidráulico
+Bombeiro municipal
+Borracheiro
+Borracheiro e soldador
+Calceteiro
+Caldeireiro
+Camareira de teatro
+Cantineira
+Capturador de animais
+Carpinteiro
+Cenotécnico
+Chefe de turma
+Coletor
+Coletor de lixo
+Copeiro
+Costureira
+Coveiro
+Cozinheiro
+Cuidador de idosos
+Eletricista de automóveis
+Eletricista de autos
+Eletricista de veículos
+Encanador
+Encanador manilheiro
+Encarregado de almoxarifado
+Encarregado de manutenção e borracharia
+Faxineiro
+Fiscal de área azul
+Fiscal de limpeza
+Fiscal de turma
+Fotógrafo
+Funileiro
+Gari
+Guarda
+Guarda de patrimônio
+Guarda vigia
+Guarda-vidas
+Guardião
+Hialotécnico
+Hortelão
+Inspetor de alunos
+Instrutor de artes circenses
+Instrutor de artesanato
+Instrutor de balé clássico
+Instrutor de bordado
+Instrutor de canto coral
+Instrutor de canto popular
+Instrutor de capoeira
+Instrutor de confecção de brinquedos
+Instrutor de contação de histórias
+Instrutor de dança afrobrasileira
+Instrutor de dança de salão
+Instrutor de dança popular
+Instrutor de desenho e pintura
+Instrutor de fanfarra
+Instrutor de flauta doce
+Instrutor de fotografia e vídeo
+Instrutor de grafite
+Instrutor de jazz
+Instrutor de musicalização
+Instrutor de ofício
+Instrutor de percussão
+Instrutor de street dance
+Instrutor de tear mineiro e tear chileno
+Instrutor de teatro
+Instrutor de teclado
+Instrutor de trabalhos culturais
+Instrutor na construção de instrumentos musicais percussivos
+Instrutor xadrez
+Jardineiro
+Lanterneiro
+Lavadeira
+Locutor
+Magarefe
+Maqueiro
+Marceneiro
+Marinheiro
+Marinheiro regional de convés
+Marinheiro regional de máquinas
+Mecânico
+Mecânico de Manutenção
+Mecânico de máquinas pesadas
+Mecânico de veículos e máquinas
+Meio oficial de pavimentação
+Merendeira
+Mestre de obras
+Monitor de culinária
+Monitor de curso de corte e costura
+Monitor de esportes
+Monitor de recreação
+Monitor de transporte escolar
+Monitor de violão
+Monitor do estacionamento
+Monitor escolar I
+Monitora
+Montador / orquestra e palco
+Montador de eventos
+Motorista Carteira D
+Motorista de ônibus
+Oficial de administração
+Oficial de cozinha
+Oficial de cozinha e merenda
+Oficial de manutenção
+Operador de compactador de solo
+Operador de escavadeira hidráulica
+Operador de Máquina - Pá Carregadeira
+Operador de Máquina - Retroescavadeira
+Operador de Máquina Motoniveladora
+Operador de máquinas
+Operador de Máquinas - Patrol
+Operador de máquinas agrícolas
+Operador de máquinas leves
+Operador de máquinas pesadas
+Operador de motoniveladora
+Operador de motosserra
+Operador de patrol
+Operador de retroescavadeira
+Operador de roçadeira
+Operador de serra
+Operador de trator de esteira
+Operador de trator de pneu
+Operador de Usina
+Operador de vaca mecânica
+Operador de vibro acabadora
+Operador em estação de água
+Operador têxtil
+Operário
+Operário de serviços gerais
+Padioleiro
+Pavimentador
+Pedreiro
+Pedreiro carpinteiro
+Pintor
+Pintor de obras
+Pintor e lanterneiro de automóveis
+Podador
+Porteiro
+Rasteleito
+Recreador
+Reparador geral
+Salva-vidas
+Segundo condutor
+Segurança
+Sepultador
+Servente
+Servente escolar
+Servente/ limpeza
+Serviçal
+Serviço Braçal
+Serviços gerais
+Soldador
+Técnico em alimentação escolar
+Técnico em engenharia
+Técnico em transporte
+Trabalhador braçal
+Tratorista
+Vaqueiro
+Varredor de rua
+Vigia
+Vigilante
+Vigilante sanitário
+Zelador
+Zelador de patrimônio
+Zeladora
+Administrador de cemitério
+Agente administrativo
+Agente administrativo auxiliar
+Agente Administrativo da Educação
+Agente Administrativo Júnior
+Agente ambiental
+Agente comunitário de saúde
+Agente Comunitário de Saúde - ACS
+Agente da Terceira idade
+Agente de apoio administrativo
+Agente de cadastro
+Agente de cadastro imobiliário
+Agente de campo
+Agente de Combate Às Endemias - ACE
+Agente de comunicação social
+Agente de conservação
+Agente de consultório dentário
+Agente de controle de endemias
+Agente de controle de vetores
+Agente de cultura
+Agente de defesa civil
+Agente de educação
+Agente de educação infantil
+Agente de fiscalização de limpeza
+Agente de multimeios
+Agente de organização escolar
+Agente de ouvidoria
+Agente de pesquisas e mapeamento
+Agente de processamento de dados
+Agente de saneamento
+Agente de saúde pública
+Agente de serviços escolares
+Agente de suporte administrativo
+Agente de trânsito
+Agente de Trânsito Municipal
+Agente de transporte
+Agente de vendas
+Agente de vigilância sanitária
+Agente epidemiológico
+Agente operacional
+Agente patrimonial
+Agente penitenciário
+Agente sanitarista
+Agente social
+Agrimensor
+Almoxarife
+Almoxarife e patrimônio
+Analista técnico de contabilidade
+Analista técnico de controladoria interna
+Analista técnico de sistema
+Aprendiz
+Arquivista
+Artesão
+Assistente administrativo
+Assistente administrativo escolar
+Assistente administrativo operacional
+Assistente de compras
+Assistente de educação
+Assistente de educação infantil
+Assistente de farmácia
+Assistente de faturamento
+Assistente de gabinete odontológico
+Assistente de serviços de saúde
+Assistente de tecnologia da informação
+Assistente de tesouraria
+Assistente em administração
+Assistente escolar
+Assistente financeiro
+Assistente geral
+Assistente legislativo
+Assistente operacional de ar-condicionado
+Assistente parlamentar
+Assistente técnico administrativo
+Assistente técnico de operações
+Assistente técnico em informática
+Atendente
+Atendente administrativo
+Atendente de biblioteca
+Atendente de farmácia
+Atendente de fichário
+Atendente de telemarketing
+Auditor fiscal tributário municipal II
+Auxiliar administrativo
+Auxiliar autorizador de AIH
+Auxiliar de almoxarifado
+Auxiliar de análise de projetos
+Auxiliar de apoio áudio visual
+Auxiliar de biblioteca
+Auxiliar de cirurgião dentista
+Auxiliar de comunicação
+Auxiliar de consultório dentário
+Auxiliar de consultório odontológico
+Auxiliar de contabilidade
+Auxiliar de desenvolvimento escolar
+Auxiliar de desenvolvimento infantil
+Auxiliar de Desenvolvimento Infantil com Magistério
+Auxiliar de educação
+Auxiliar de Enfermagem
+Auxiliar de engenheiro
+Auxiliar de farmácia
+Auxiliar de informática
+Auxiliar de laboratório
+Auxiliar de magistério
+Auxiliar de odontologia
+Auxiliar de oficial administrativo
+Auxiliar de patrimônio
+Auxiliar de professor
+Auxiliar de secretaria
+Auxiliar de serviços internos
+Auxiliar de serviços médicos
+Auxiliar de técnico desportivo
+Auxiliar de tesouraria
+Auxiliar de topografia
+Auxiliar desportivo
+Auxiliar desportivo - vela
+Auxiliar em enfermagem
+Auxiliar em escritório
+Auxiliar em farmácia
+Auxiliar em radiologia
+Auxiliar em saúde bucal
+Auxiliar social
+Avaliador de imóveis
+Babá
+Bombeiro civil municipal
+Cadista
+Cadista – Desenhista
+Caixa
+Chefe da seção de contabilidade
+Chefe da seção de dívida ativa
+Cinegrafista editor de imagens
+Comandante de lancha
+Comandante de navio
+Conselheiro tutelar
+Contabilista
+Controlador de estoque
+Controlador de tráfego aéreo
+Coordenador de programação
+Coordenador de projetos de geração de renda
+Cuidador
+Cuidador social
+Cuidadora
+Desenhista
+Designer gráfico
+Diretor da divisão de recursos humanos
+Editor
+Editor de imagem
+Educador de creche
+Educador social
+Eletrotécnico
+Encarregado de Acompanhamento de Projetos
+Encarregado de compras
+Encarregado de serviços de manutenção
+Entrevistador Social – Programa Bolsa Família
+Escalante
+Escriturário
+Estágio
+Estágio / ensino médio
+Estágio / magistério
+Estágio / projeto esporte social
+Estágio / técnico em administração
+Estágio / técnico em alimentos
+Estágio / técnico em edificações
+Estágio / técnico em eletromecânica
+Estágio / técnico em eletrônica
+Estágio / técnico em eletrotécnica
+Estágio / técnico em informática
+Estágio / técnico em manutenção automotiva
+Estágio / técnico em refrigeração
+Executor administrativo
+Executor administrativo escolar
+Facilitador da formação técnica geral
+Facilitador de esportes
+Facilitador de oficina arte e cultura
+Faturista
+Fiscal
+Fiscal agropecuário
+Fiscal arrecadador
+Fiscal cadastrador
+Fiscal da receita municipal
+Fiscal de arrecadação
+Fiscal de comércio
+Fiscal de defesa do consumidor
+Fiscal de limpeza pública
+Fiscal de obras
+Fiscal de obras públicas e saneamento
+Fiscal de obras e posturas
+Fiscal de posturas
+Fiscal de rendas e tributos
+Fiscal de saúde pública
+Fiscal de serviços urbanos e ambiental
+Fiscal de transportes
+Fiscal de tributos
+Fiscal de tributos e postura
+Fiscal de tributos e serviços municipais
+Fiscal de vigilância sanitária
+Fiscal do meio ambiente
+Fiscal em alvará e habite-se
+Fiscal imobiliário
+Fiscal rodoviário
+Fiscal sanitário
+Fiscal sanitarista
+Fresador mecânico
+Gesseiro
+Guarda municipal
+Guarda-parque
+Guia
+Indicador
+Inspetor de saneamento
+Inspetor de segurança do legislativo
+Inspetor de segurança e administração penitenciária
+Inspetor escolar
+Instrumentador cirúrgico
+Instrutor de atividades
+Instrutor de banda marcial e fanfarra
+Instrutor de cavaquinho
+Instrutor de informática
+Instrutor de jiu-jitsu
+Instrutor de libras
+Instrutor de música
+Instrutor de oficina de xadrez
+Instrutor de saxofone
+Instrutor de violão
+Instrutor de yoga
+Instrutor surdo
+Interlocutor de libras
+Intérprete de libras
+Intérprete Educacional de Libras – Português
+Laboratorista
+Leitor de hidrômetro
+Maquinista
+Mensageiro
+Microscopista
+Monitor
+Monitor cultural
+Monitor de atletismo
+Monitor de costura
+Monitor de creche
+Monitor de dança
+Monitor de duathlon
+Monitor de educação infantil
+Monitor de futebol de areia
+Monitor de futebol de campo
+Monitor de futevôlei
+Monitor de futsal
+Monitor de handebol
+Monitor de inclusão digital
+Monitor de informática
+Monitor de laboratório de informática
+Monitor de música
+Monitor de oficina de artesanato
+Monitor de programas
+Monitor de projeto
+Monitor de projetos especiais
+Monitor de serviços socioeducativos
+Monitor de transportes
+Monitor de voleibol
+Monitor de voley de areia
+Monitor do PETI
+Monitor em creche
+Monitor escolar II
+Monitor escolar III
+Monitor esportivo
+Motorista
+Motorista de Veículos Pesados
+Motorista SAMU 192
+Nivelador
+Odontólogo Cirurgião Oral Menor
+Odontólogo estomatologista
+Odontólogo Odontopediatra
+Oficial administrativo
+Oficial judiciário
+Operador
+Operador de câmera
+Operador de câmera de cinema e TV
+Operador de computador
+Operador de controle-mestre
+Operador de ETA/ETE
+Operador de microcomputador
+Operador de microfone
+Operador de rádio
+Operador de raio X
+Operador de reprografia
+Operador de software
+Operador de som
+Operador de utilidades têxtil
+Operador PABX
+Orientador de Alunos
+Orientador de artes
+Orientador social
+Orientador Sócio educativo
+Ouvidor público
+Podólogo
+Pregoeiro
+Produtor executivo
+Professor de educação básica
+Professor de iniciação artística
+Professor II Ciências
+Professor II Educação Física
+Professor II Geografia
+Professor polivalente / magistério
+Programador
+Programador de computador
+Protético
+Radioperador
+Recepcionista e telefonista
+Recepcionista turístico
+Recreacionista
+Redator de atas
+Revisor de braille
+Roteirista de intervalos
+Secretaria de diretoria
+Secretário
+Secretário / conselho tutelar
+Secretário de unidade escolar
+Secretário executivo
+Secretário JSM
+Socorrista do samu
+Soldado
+Sonoplasta
+Supervisor fiscalização de trânsito
+Suporte técnico
+Técnico de laboratório de análises clínicas
+Técnico administrativo
+Técnico administrativo educacional
+Técnico agrícola
+Técnico agrimensor
+Técnico agropecuário
+Técnico ambiental
+Técnico audiovisual
+Técnico bancário
+Técnico de imobilização ortopédica
+Técnico de biblioteca
+Técnico de documentação parlamentar
+Técnico de Enfermagem
+Técnico de Enfermagem SAMU
+Técnico de finanças legislativo
+Técnico de fiscalização de meio ambiente
+Técnico de Informática
+Técnico de laboratório/topografia
+Técnico de luz e técnico de som
+Técnico de manutenção em informática Jr
+Técnico de multimeios didáticos
+Técnico de rede sênior
+Técnico de Saneamento
+Técnico de Segurança
+Técnico de som
+Técnico de tecnologia da informação
+Técnico de veterinário
+Técnico eletro eletrônico
+Técnico em patrimônio e frotas
+Técnico em vigilância sanitária
+Técnico em administração
+Técnico em administração legislativo
+Técnico em agrimensura
+Técnico em agropecuária
+Técnico em aparelho gessado
+Técnico em arquivo
+Técnico em artes gráficas
+Técnico em cadastro imobiliário
+Técnico em cartografia
+Tecnico em construcao hídrica
+Técnico em consultório dentário
+Técnico em contabilidade
+Técnico em controle interno
+Técnico em desenvolvimento de aplicações Jr (java)
+Técnico em desenvolvimento de aplicações Jr (php)
+Técnico em desenvolvimento infantil
+Técnico em edificações
+Técnico em educação
+Técnico em eletricidade
+Técnico em eletromecânica
+Técnico em eletrônica
+Técnico em eletrotécnica
+Técnico em enfermagem
+Técnico em engenharia e restauro
+Técnico em epidemiologia
+Técnico em estação retransmissora e repetidora de televisão
+Técnico em estradas
+Técnico em externas
+Técnico em farmácia
+Técnico em geologia
+Técnico em gesso ortopédico
+Técnico em gestão escolar
+Técnico em higiene dental
+Técnico em iluminação
+Técnico em iluminação cênica
+Técnico em informática
+Técnico em instrumentação
+Técnico em laboratório
+Técnico em laboratório / industrial
+Técnico em laboratório / química
+Técnico em laboratório de edificações
+Técnico em laboratório de eletrônica
+Técnico em laboratório de enfermagem
+Técnico em laboratório de fabricação mecânica
+Técnico em laboratório de física
+Técnico em laboratório de geologia
+Técnico em licitações e contratos
+Técnico em manutenção
+Técnico em manutencao de equipamentos médicos
+Técnico em mecânica
+Técnico em meio ambiente
+Técnico em metalurgia
+Técnico em microscopia
+Técnico em mineração
+Técnico em nutrição e dietética
+Técnico em patologia clínica
+Técnico em processamento de dados
+Técnico em prótese dentária
+Técnico em protético
+Técnico em química
+Técnico em radiologia
+Técnico em radioproteção
+Técnico em raio X
+Técnico em refrigeração
+Técnico em saneamento ambiental
+Técnico em saúde bucal
+Técnico em segurança do trabalho
+Técnico em serviço público
+Técnico em serviço social
+Técnico em tecnologia da informação
+Técnico em tomografia
+Técnico em topografia
+Técnico em topografia - agrimensura
+Técnico em turismo
+Técnico em zootecnia
+Técnico executivo
+Técnico judiciário
+Técnico legislativo
+Técnico orçamentário
+Técnico pecuário
+Tecnólogo em construção civil
+Tecnólogo em edificações
+Telefonista
+Telefonista auxiliar de regulação médica
+Tesoureiro
+Torneiro fresador
+Torneiro mecânico
+Tratador de água
+Visitador sanitário
+Vistoriador
+Web designer
+Acupunturista
+Administrador
+Administrador de educação infantil
+Administrador hospitalar
+Advogado
+Agente de orientação e fiscalização
+Agente desportivo
+Agente fiscal
+Analista / diligências
+Analista / inteligência
+Analista administrativo
+Analista ambiental
+Analista clínico
+Analista contábil
+Analista contábil júnior
+Analista de benefícios previdenciários
+Analista de comércio exterior
+Analista de comércio exterior júnior
+Analista de controle interno
+Analista de educação básica
+Analista de finanças
+Analista de finanças legislativo
+Analista de infraestrutura júnior
+Analista de infraestrutura júnior - ênfase em redes e segurança
+Analista de infraestrutura pleno
+Analista de licitacões
+Analista de logística júnior
+Analista de logística júnior - ênfase em PCP
+Analista de logística pleno
+Analista de mídias publicitárias e marketing
+Analista de pessoal
+Analista de planejamento e gestão júnior
+Analista de políticas culturais
+Analista de políticas de fomento ao desenvolvimento turístico
+Analista de políticas de proteção ao patrimônio histórico
+Analista de projetos e convênios
+Analista de recursos humanos
+Analista de recursos humanos júnior
+Analista de sistemas
+Analista de sistemas Jr
+Analista de sistemas júnior
+Analista de sistemas júnior - ênfase em negócio
+Analista de suporte e sistema
+Analista de suporte técnico Jr
+Analista de suprimentos júnior
+Analista de suprimentos pleno
+Analista de trânsito e transporte
+Analista de tributos
+Analista de vigilância epidemiológica
+Analista de vigilância-sanitária
+Analista em tecnologia da informação
+Analista fazendário
+Analista financeiro júnior
+Analista Financeiro Orçamentário Administrativo
+Analista judiciário
+Analista legislativo
+Analista municipal
+Analista programador de sistemas
+Antropólogo
+Apoiador institucional
+Arqueólogo
+Arquiteto
+Arquiteto e urbanista
+Arquivologista
+Assessor de comunicação
+Assessor de informática
+Assessor jurídico
+Assistente de coordenação
+Assistente de desenvolvimento infantil
+Assistente jurídico
+Assistente pedagógico
+Assistente social
+Assistente técnico
+Assistente técnico / ciências fisicas e biológicas
+Assistente técnico / contabilidade
+Assistente técnico / educação física
+Assistente técnico / geografia
+Assistente técnico / história
+Assistente técnico / informática
+Assistente técnico / inglês
+Assistente técnico / matemática
+Assistente técnico / português
+Assistente técnico em RH
+Assistente técnico pedagógico
+Auditor
+Auditor de controle interno
+Auditor fiscal
+Auditor fiscal e farmacêutico
+Auditor fiscal tributário municipal I
+Auxiliar administrativo legislativo
+Bacharel em direito
+Bibliotecário
+Bibliotecário
+Bibliotecário/ documentalista
+Biblioteconomista
+Bibliotecônomo
+Biólogo
+Biomédico
+Bioquímico
+Bioquímico
+Ciências Contábeis
+Ciências Econômicas
+Cientista social
+Cirurgião / cabeça e pescoço
+Cirurgião dentista - atendimento especial
+Cirurgião dentista - bucomaxilofacial
+Cirurgião dentista - endodontista
+Cirurgião dentista - estomatologista
+Cirurgião dentista - geral
+Cirurgião dentista / endodontia
+Cirurgião dentista / odontogeriatra
+Cirurgião dentista / odontopediatra
+Cirurgião dentista / periondontia
+Cirurgião dentista / prótese dentária
+Cirurgião dentista edodontista
+Cirurgião oncológico
+Cirurgião pediátrico
+Cirurgião torácico
+Cirurgião-dentista
+Comunicador social
+Conciliador
+Consultor contábil
+Consultor jurídico
+Consultor legislativo
+Contador
+Controlador interno
+Coordenador de oficinas
+Coordenador do CREAS
+Coordenador do projeto esporte social
+Coordenador pedagógico
+Cuidador educacional
+Defensor público
+Dentista
+Dentista clínico geral
+Diplomata
+Diretor de fotografia
+Documentalista
+Economista
+Educador em saúde
+Educador em saúde pública
+Educador físico
+Educador Físico – NASF
+Educador infantil
+Enfermeira
+Enfermeiro
+Enfermeiro do trabalho
+Enfermeiro SAMU
+Engenheiro / engenharia de soldagem
+Engenheiro agrimensor
+Engenheiro agrônomo
+Engenheiro ambiental
+Engenheiro civil
+Engenheiro clínico
+Engenheiro da computação
+Engenheiro de alimentos
+Engenheiro de automação e controle
+Engenheiro de manutenção
+Engenheiro de minas
+Engenheiro de produção
+Engenheiro de saneamento
+Engenheiro de tráfego
+Engenheiro de tráfego de transporte
+Engenheiro do trabalho
+Engenheiro eletricista
+Engenheiro eletrônico
+Engenheiro em pesca
+Engenheiro em segurança do trabalho
+Engenheiro especialista em trânsito
+Engenheiro florestal
+Engenheiro geotécnico
+Engenheiro hidráulico
+Engenheiro mecânico
+Engenheiro metalúrgico
+Engenheiro químico
+Engenheiro sanitário
+Engenheiro sanitarista
+escrevente judiciário III
+Escriturário Redator
+Escrivão judiciário
+Escrivão Judiciário II
+Especialista educacional
+Especialista em educação
+Especialista em gerontologia
+Estágio / audiovisual
+Estágio / economia
+Estágio / educação física
+Estágio / engenharia da computação
+Estágio em administração
+Estágio em arquivologia
+Estágio em ciência da computação
+Estágio em contabilidade
+Estágio em direito
+Estágio em jornalismo
+Estágio em letras
+Estágio em pedagogia
+Estágio em publicidade
+Estágio em turismo
+Estatístico
+Farmacêutico fiscal
+Farmacêutico fiscal júnior
+Farmacêutico/bioquímico
+Fiscal biomédico
+Fiscal superior de tributos
+Físico
+Fisioterapeuta
+Geógrafo
+Geólogo
+Gerente de incubadora
+Gestor de benefícios
+Gestor de programas
+Gestor de recursos humanos
+Gestor de resíduos sólidos
+Gestor jurídico
+Ginecologista/Obstetra
+Historiador
+Inspetor de Polícia
+Inspetor jurídico
+Instrutor de composição
+Instrutor de piano
+Instrutor de práticas desportivas
+Instrutor de teoria musical
+Instrutor desportivo
+Jornalista
+Juiz do trabalho substituto
+Juiz federal do trabalho
+Juiz leigo
+Juiz substituto
+Médico
+Médico ultrassonografista
+Médico / cirurgia torácica
+Médico / cirurgia vascular
+Médico acumputurista
+Médico acupunturista
+Médico aeroespacial
+Medico alergista
+Médico anestesiologista
+Médico anestesista
+Médico angiologista
+Médico auditor
+Médico autorizador de AIH
+Médico cardiologista
+Médico cirurgião obstetra
+Médico cirurgião / crânio-maxilo-facial
+Médico cirurgião do aparelho digestivo
+Médico cirurgião do trauma
+Médico cirurgião geral
+Medico cirurgião pediatra
+Médico cirurgião plástico
+Médico cirurgião vascular
+Médico citopatologista
+Médico clínica médica
+Médico clínico geral
+Médico Clínico Geral Plantonista
+Médico clínico vascular
+Médico coloproctologista
+Médico da saúde da família
+Médico da saúde mental
+Médico de saúde comunitário
+Médico dermatologista
+Médico do Programa Saúde Da Família (PSF)
+Médico do trabalho
+Médico ecografista
+Médico em segurança do trabalho
+Médico emergencista
+Médico endocrinologista
+Médico endoscopista
+Médico endoscopista respiratório
+Médico Estratégia da Família
+Médico fisiatra
+Médico gastroenterologista
+Médico gastropediatra
+Médico generalista
+Médico geriatra
+Médico ginecologista
+Médico ginecologista e obstetra
+Médico hematologista
+Médico homeopata
+Médico infectologista
+Médico intensivista
+Médico mastologista
+Médico nefrologista
+Médico nefrologista
+Médico neonatologista
+Medico neurocirurgião
+Médico neurologista
+Médico neuropediatra
+Médico nutrólogo
+Médico obstetra
+Médico Odontólogo
+Médico oftalmologista
+Médico oncologista
+Médico ortopedista
+Médico ortopedista e traumatologista
+Médico otorrinolaringologista
+Médico patologista
+Médico pediatra
+Médico Pediatra Plantonista
+Médico perito
+Médico perito previdenciário
+Médico plantonista
+Médico pneumologista
+Médico proctologista
+Médico PSF
+Médico psiquiatra
+Médico radiologista
+Médico radiologista / medicina nuclear
+Médico reumatologista
+Médico sanitarista
+Médico socorrista
+Médico trabalhista
+Médico ultrassonografista
+Médico ultrassonografista vascular
+Médico urologista
+Médico veterinário
+Monitor do projeto esporte social
+Monitor com Habilidades em Dança
+Museólogo
+Nutricionista
+Odontólogo
+Odontólogo / bucomaxilofacial
+Odontólogo / dentística
+Odontólogo / pacientes especiais
+Odontólogo / protesista
+Odontólogo cirurgião
+Odontólogo endodontista
+Odontólogo periodontista
+Odontólogo protogista
+Odontopediatra
+Oficial de justiça
+Oficial de máquinas
+Oficial de náutica
+Oficineiro
+Orçamentista
+Orientador educacional
+Orientador escolar
+Papiloscopista
+Pedagoga/Coordenadora do cRAS
+Pedagoga/Coordenadora do cras
+Pedagogo da assistência social
+Pedagogo indígena
+Perito criminal
+Pesquisador
+Policial rodoviário federal
+Procurador
+Procurador autárquico e fundacional
+Procurador da fazenda
+Procurador do estado
+Procurador do trabalho
+Procurador jurídico
+Procurador municipal
+Produtor visual
+Professor
+Professor do projeto esporte social
+Professor (Pró-Jovem e Sócio-Educativo)
+Professor / português e espanhol
+Professor auxiliar
+Professor da educação básica
+Professor de filosofia
+Professor de AICA
+Professor de artes
+Professor de biologia
+Professor de braille
+Professor de ciências
+Professor de ciências biológicas
+Professor de ciências da natureza
+Professor de ciências exatas
+Professor de ciências fisicas e biológicas
+Professor de contabilidade
+Professor de dança
+Professor de direito
+Professor de Educação Básica I Educação Infantil/ Ensino Fundamental Anos Iniciais
+Professor de Educação Básica II - Educação Física
+Professor de Educação Básica II - Língua Inglesa
+Professor de Educação Básica II - Língua Portuguesa
+Professor de Educação Básica II – Artes
+Professor de Educação Básica II – Ciências
+Professor de Educação Básica II – Geografia
+Professor de Educação Básica II – História
+Professor de Educação Básica II – Matemática
+Professor de educação especial
+Professor de educação física
+Professor de educação infantil
+Professor de EJA
+Professor de eletrônica
+Professor de ensino fundamental
+Professor de ensino religioso
+Professor de espanhol
+Professor de geografia
+Professor de geografia e história
+Professor de Hidroginástica
+Professor de história
+Professor de informática
+Professor de inglês
+Professor de inglês e espanhol
+Professor de letras
+Professor de letras / espanhol
+Professor de letras / inglês
+Professor de libras
+Professor de matemática
+Professor de música
+Professor de pedagogia
+Professor de português
+Professor de projetos sociais
+Professor do Magistério Superior
+Professor Educação Básica – Artes
+Professor Educação Básica – Educação Especial
+Professor Educação Básica – Educação Física
+Professor II História
+Professor II Letras
+Professor II Matemática
+Professor Língua Portuguesa
+PROFESSOR NÍVEL SUPERIOR
+Professor P-IV
+Professor pedagogo
+Professor polivalente / pedagogia
+Professor Tutor - Administração
+Professor Tutor – Ciências Contábeis
+Professor Tutor – Pedagogia
+Professor Tutor – Serviço Social
+Profissional da educação
+Profissional de vendas
+Profissional do magistério
+Profissional formador
+Programador visual
+Promotor de justiça
+Psicólogo
+Psicopedagogo
+Químico industrial
+Redator
+Regulador de serviço público
+Relações públicas
+Restaurador
+Revisor de texto
+Sanitarista
+Secretário administrativo
+Secretário de gabinete
+Serviço social
+Sociólogo
+Subcontador
+Supervisor contábil
+Supervisor de ensino
+Supervisor educacional
+Supervisor em secretaria
+Supervisor escolar
+Supervisor legislativo
+Supervisor pedagógico
+Supervisor técnico contábil
+Técnico de avaliação psicossocial
+Técnico de comunicação social
+Técnico de Dutos Júnior Equipamentos
+Técnico de monitoramento psicossocial
+Técnico em assuntos educacionais
+Técnico em Enfermagem da Casa Transitória
+Técnico superior de ensino
+Tecnólogo de alimentos
+Tecnólogo em alimentos
+Tecnólogo em irrigação e produção
+Tecnólogo em recursos hídricos e sanamento ambiental
+Tecnólogo em turismo
+Técnologo mecânico
+Terapeuta
+Terapeuta ocupacional
+Topógrafo
+Tradutor / alemão
+Tradutor de inglês
+Tradutor e intérprete de libras
+Transcritor de braille
+Treinador esportivo
+Turismólogo
+Tutor
+Veterinário
+Zootecnista

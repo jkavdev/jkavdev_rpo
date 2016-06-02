@@ -1,6 +1,13 @@
 package br.com.simulados.test;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -69,13 +76,8 @@ public class InsertTest {
 	}
 
 	@Test
-	public void insereCargo() {
-		Cargo cargo = new Cargo();
-		cargo.setNomeCargo("Perito");
-
-		manager.getTransaction().begin();
-		manager.persist(cargo);
-		manager.getTransaction().commit();
+	public void insereCargo() throws IOException {
+		
 	}
 
 	@Test

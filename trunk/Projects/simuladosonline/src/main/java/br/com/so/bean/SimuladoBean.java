@@ -53,6 +53,18 @@ public class SimuladoBean implements Serializable {
 	public void init() {
 		if (instituicoes == null) {
 			instituicoes = instituicaoDao.buscarTodos();
+			formataString(instituicoes);
+		}
+	}
+
+	private void formataString(List<Instituicao> inst) {
+		for (Instituicao i : inst) {
+			String texto = i.getSigla() + " - " + i.getNome();
+			if (texto.length() > 25) {
+				texto = texto.substring(0, 25);
+				texto = texto + "[...]";
+			}
+			i.setNome(texto);
 		}
 	}
 

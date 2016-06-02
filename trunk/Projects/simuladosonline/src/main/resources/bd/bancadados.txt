@@ -1,0 +1,431 @@
+Codigo // Não rodar//
+
+		try {
+			manager.getTransaction().begin();
+			FileInputStream arquivo = new FileInputStream("bancadados.txt");
+			InputStreamReader reader = new InputStreamReader(arquivo);
+			BufferedReader br = new BufferedReader(reader);
+			String linha = br.readLine();
+			while (linha != null) {
+				linha = linha.trim();
+				Banca banca = new Banca();
+				banca.setNome(linha);
+				manager.persist(banca);
+				linha = br.readLine();
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		manager.getTransaction().commit();
+		
+		
+		/// ----------- ///
+
+
+Absoluto RH
+ACEP
+ACP & Informática
+ACTIO ASSESSORIA
+Activa Assessoria
+Advise Consultoria
+AEDB - Associação Educacional Dom Bosco
+Aeronáutica do Brasil
+Ágata
+Agiliza
+Agirh
+Ágora Consultoria
+AIPD
+AJURI
+Alfar Assessoria
+ALFHA STE
+ALR Concursos
+Alternative
+AMEOSC
+Amiga Pública
+AMMA
+AMPLASC
+AOCP
+Ápice
+Aplicativa Assessoria
+APRECIA
+Aprender.com
+Apta
+Ascon
+Asconprev
+Asperhs
+Assconex
+ASSCONPP
+Asseconp
+Asseplac
+Assertcon
+Assessorarte
+Associação dos Municípios do Alto Uruguai Catarinense
+Astec
+Astral
+Atrio
+Azimuth
+Brasconpe
+CAIP/IMES
+CEC Concursos
+CEFET/MG
+CEMAT
+CEMI
+Centro Paula Souza
+CEPERJ
+Ceps/UFPA
+Cepuerj
+Cesgranrio
+CESPE
+Cestari
+CETAM
+CETAP
+CETREDE
+Cetro
+CIEE
+CK Verza
+Click Soluções
+CMM Concursos
+Company Learning
+Comperve/UFRN
+Concepção
+Concursos SS1
+Coned
+Confiatta
+Congerplan
+Conpass
+Conrio
+Consep
+Consesp
+CONSIS Consultoria
+Consulpam
+Consulplan
+Consultar
+Consultec
+Consultte
+Contemax
+COPEC
+Coperve/UFPB
+Copese/UFPI
+Copese/UFT
+Copeve/UFAL
+Cops/UEL
+CORREIOS
+Correto Concursos
+Coseac/UFF
+COTEC
+Covest/UNEMAT
+CS/UFG
+Dexter
+Dipallis Assessoria
+Directa
+DPU
+DRH/UEM
+DRH/UFRR
+Dux Concursos
+Ebracon
+Ecap Consultoria
+Educa
+EGP
+Energia Essencial
+EPL Concursos
+EPTS
+ESAF
+Escal
+ESPP
+Evoluir Consultoria
+Exame
+Exames & Consultoria
+Exata GG
+Exata Planejamento
+Exatus
+Êxito
+Êxito Projetos
+Exitus Concursos
+Facape
+Fadct
+Fadems
+Fadesp
+Fadurpe
+Faepesul
+FAFIPA
+FAMW
+FAPEC
+FAPEC-AL
+FAPEMS
+FAPERP
+FAPES
+FAUEL
+FAURGS
+FCC
+FDRH
+FEC/UFF
+FEMPERJ
+FEPESE
+FGPA
+FGR
+FGV
+FIBRAPA
+FIC
+FIDESA
+Fluxo Consultoria
+FMP Concursos
+FSV Concursos
+FUMARC
+FUNCAB
+FUNCEFET
+FUNCERN
+Fundação ADM
+Fundação Aroeira
+Fundação Benjamin Constant
+Fundação Bio-Rio
+Fundação Cajuína
+Fundação CEFETBAHIA
+Fundação CefetMinas
+Fundação Dom Cintra
+Fundação La Salle
+Fundação Madre Juliana
+Fundação Sousândrade
+Fundação Universa
+Fundatec
+Fundelta
+FUNRIO
+FUNTEF-CP
+FUNTEF-PR
+FUNVAPI
+FURB
+Gabriel Excelência
+Gazzinelli
+Gerencial
+Gestão Concurso
+Gestão de Concursos
+GR Consultoria
+Grifon
+Grupo Atame
+GSA
+Gualimp
+Homologare
+Hospital das Clínicas
+IADE
+Iades
+IASES
+IASPEC
+IBAM
+IBAM-SP
+IBAP-RJ
+IBDUS
+IBEG
+IBFC
+ICAP
+ICAP-TO
+ICR - Instituto César Rufino
+IDAGEM
+IDAP
+Ideal Soluções
+Idecan
+IDESC
+IDHTec
+IDRH Concursos
+IEPDM
+IESAP
+IESES
+IFBaiano
+IFF
+IFFarroupilha
+IFG
+IFMG
+IFNMG
+IFS
+IFSULDEMINAS
+IMais
+IMAM
+IMPARH
+Impellizzieri
+Imperial
+INCP
+INDEPAC
+Indexus
+Infinity
+INGA
+Instituto AOCP
+Instituto Arte e Pop
+Instituto Brasil
+Instituto Brio
+Instituto Centro de Ensino Tecnológico - CENTEC
+Instituto Cidades
+Instituto Coelho Neto
+Instituto Exatus
+Instituto Graça Aranha
+Instituto INDEC
+Instituto Legatus
+Instituto Ludus
+Instituto Machado de Assis
+Instituto Neo Exitus
+Instituto Nosso Rumo
+Instituto Pró-município
+Instituto Quadrix
+Instituto Saber
+Instituto Selecta
+Integri Brasil
+Intelectus
+Invar
+IOBV
+IPAD
+IPED
+IPEFAE
+IPRO
+ISAE
+Itame
+ITCO
+Itedes
+IUDS
+IVIN
+JCM Concursos
+JMS
+JS Concursos
+KLC Concursos
+LB&M Consultoria
+Legitimus
+Liberal
+Libertas
+Libri
+Liderança
+LJ Concursos
+Magnus
+Majoli
+Makiyama
+Makro
+Marinha do Brasil
+Máxima
+Méritos Gestão e Concursos
+MG Consultoria
+MGA Concursos
+Mil Consultoria
+Moura Melo
+Movens
+MS Concursos
+MSM Consultoria
+Multi Gestão
+Multydeias
+NC/UFPR
+NCE/UFRJ
+Net News Assessoria
+NetEduc
+Noroeste Concursos
+Nubes
+Nucepe/UESPI
+NW Classifica
+Objetiva
+Objeto Consultoria
+OM Consultoria
+Omega
+Oregon
+Organização Paulista
+Orhion
+PaqTcPB
+Pará Concursos
+PERFAS
+Persona Capacitação
+Piascon
+Planejar
+Planexcon
+Polis Auditoria
+Premier
+Previu
+Prime Concursos
+Projeção
+Prospectiva
+Prosperity
+Pública Concursos
+Publiconsult
+PUC-PR
+Qualicon
+Quântico
+RBO Concursos
+RCV Concursos
+Real Concursos
+Reis & Reis Auditores
+Ruffo Concursos
+Rumo Certo
+RV Consultoria
+S&R Concursos
+SB Auditoria
+SEAD-AP
+SEAP
+Select RH
+Seletrix
+Sellector
+Senso Assessoria
+Seprod
+Serap
+Serctam
+Sergio Bassi
+Seta
+SHDias
+Sigma
+Sigma Assessoria
+Sigma Consultoria
+Sigma RH
+Signa Projetos
+Sismeta
+Sistema Acafe
+Sociesc
+SOS Assessoria
+Souza Araújo
+SR Concursos
+SR Concursos e Pesquisas
+SR Digitalizações
+Status Consultoria
+Suportec
+Suprema
+Sydcon
+Tendência Concursos
+Torres Advogados
+TR Concursos
+TSR Concursos
+UDESC
+UEAP
+UEG
+UEMS
+UENP
+UEPA
+UERGS
+UERR
+UFAC
+UFCG
+UFES
+UFGD
+UFJF
+UFMT
+UFPE
+UFPEL
+UFRA
+UFRB
+UFRGS
+UFRPE
+UFRRJ
+UFS
+UFSC
+UFSJ
+UFTM
+UFVJM
+UNA
+UnC
+UNEB
+UNESPAR
+Única Assessoria
+UNICENTRO
+UNICON
+Unioeste
+UNIPAMPA
+UNIUV
+UNIVALI
+UNIVASF
+UNIVERSA
+UPENET
+URI Serviços
+UTFPR
+Viclam
+Virtus
+Visão Assessoria
+Vunesp
+Zambini
