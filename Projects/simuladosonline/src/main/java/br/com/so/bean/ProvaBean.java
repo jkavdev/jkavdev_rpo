@@ -67,7 +67,7 @@ public class ProvaBean implements Serializable {
 			String texto = i.getSigla() + " - " + i.getNome();
 			if (texto.length() > 25) {
 				texto = texto.substring(0, 25);
-				texto = texto + "[Teste]";
+				texto = texto + "[...]";
 			}
 			i.setNome(texto);
 		}

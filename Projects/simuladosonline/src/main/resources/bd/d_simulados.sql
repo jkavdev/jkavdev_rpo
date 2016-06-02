@@ -37,17 +37,18 @@ insert into cargo(nomeCargo) values
 desc banca;
 select * from banca;
 insert into banca(nome) values
-	('CESPE'),
-    ('IADES'),
-    ('FCC'),
-    ('IBFC'),
-    ('FGV'),
-    ('VUNESP'),
-    ('FUNCAB'),
-    ('CESGRANRIO'),
-    ('CONSULPLAN'),
-    ('FUMARC'),
-    ('FUNDAÇÃO SOUSÂNDRADE');
+	('APM'),
+    ('APTA'),
+    ('ARANTES ASSESSORIA TÉCNICA'),
+    ('ASPERHS'),
+    ('ASSECONP'),
+    ('ASSEPLAC'),
+    ('ASSESSORARTE'),
+    ('ASTEC'),
+    ('BRB'),
+    ('CAIP/IMES'),
+    ('CÁTEDRA'),
+    ('CAJAV');
 
     
 desc instituicao;
@@ -98,7 +99,7 @@ Empresas de Pequeno Porte
     ('Ministério do Turismo','MTur'),
     ('Ministério dos Transportes','MT'),
     ('Secretaria da Micro e Pequena Empresa da Presidência da República','SMPE/PR'),
-    ('Secretaria da Receita Federal do Brasil','SRF/MF')
+    ('Secretaria da Receita Federal do Brasil','SRF/MF'),
     ('Serviço Brasileiro de Apoio às Micro e Pequenas Empresas','SEBRAE Nacional'),
     ('Serviço Nacional de Aprendizagem Industrial','SENAI'),
     ('Serviço Nacional de Aprendizagem Rural','SENAR'),
