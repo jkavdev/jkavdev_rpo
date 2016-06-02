@@ -8,10 +8,8 @@
 
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 
-		<exclude-unlisted-classes>true</exclude-unlisted-classes>
-
 		<properties>
-			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/db_jpa" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/db_pro_jpa2" />
 			<property name="javax.persistence.jdbc.user" value="postgres" />
 			<property name="javax.persistence.jdbc.password" value="99346554" />
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
