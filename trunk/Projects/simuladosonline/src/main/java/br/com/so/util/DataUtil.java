@@ -3,6 +3,7 @@ package br.com.so.util;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class DataUtil {
@@ -27,6 +28,10 @@ public class DataUtil {
 			return false;
 		}
 		return true;
+	}
+
+	public static Date getDateByCalendar(Calendar data) {
+		return data.getTime();
 	}
 
 }
