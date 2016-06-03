@@ -14,7 +14,24 @@
 			<p:growl id="msgs" showDetail="true" />
 
 			<p:panel header="Cadastrar Questão" style="text-align:center;">
-				<h:panelGrid columns="2" cellpadding="5">
+				<h:panelGrid columns="2" cellpadding="5" id="painelQuestao">
+
+					<p:outputLabel for="tipo" value="Tipo: " />
+					<p:selectOneMenu id="tipo" value="#{questaoBean.questao.tipo}"
+						style="width:100%; ">
+						<p:ajax event="change" update="painelQuestao"></p:ajax>
+						<f:selectItem itemLabel="Selecione o Tipo" itemValue=""
+							noSelectionOption="true" />
+						<f:selectItem itemLabel="Certo ou Errado"
+							itemValue="Certo ou Errado" />
+						<f:selectItem itemLabel="Multipla Escolha"
+							itemValue="Multipla Escolha" />
+					</p:selectOneMenu>
+
+					<p:outputLabel for="enunciado" value="Enunciado: " />
+					<p:inputTextarea value="#{questaoBean.questao.enunciado}"
+						id="enunciado"></p:inputTextarea>
+
 					<p:outputLabel for="prova" value="Prova: " />
 					<p:selectOneMenu id="prova" converter="entityConverter"
 						value="#{questaoBean.prova}" style="width:100%; ">
@@ -24,12 +41,33 @@
 							itemLabel="#{p.instituicao.sigla} - #{p.banca.nome} - #{p.cargo.nomeCargo} - #{p.area.nome} - #{jsfUtilBean.formatDate(p.data,'dd/MM/yyyy')} "
 							itemValue="#{p}" />
 					</p:selectOneMenu>
+
+					<p:outputLabel for="resposta" value="Resposta: "
+						rendered="#{questaoBean.questao.tipo == 'Certo ou Errado'}" />
+					<p:selectOneMenu id="resposta"
+						value="#{questaoBean.questao.respostaObjetiva}"
+						style="width:100%; "
+						rendered="#{questaoBean.questao.tipo == 'Certo ou Errado'}">
+						<f:selectItem itemLabel="Selecione a Resposta" itemValue=""
+							noSelectionOption="true" />
+						<f:selectItem itemLabel="Certo" itemValue="Certo" />
+						<f:selectItem itemLabel="Errado" itemValue="Errado" />
+					</p:selectOneMenu>
+
+					<p:panel header="Opções" style="text-align:center;">
+						<p:outputLabel for="opcao" value="Opção: "
+							rendered="#{questaoBean.questao.tipo == 'Multipla Escolha'}" />
+						<p:outputLabel
+							value="Coloque apenas a pergunta, não enumere as perguntas. "
+							rendered="#{questaoBean.questao.tipo == 'Multipla Escolha'}"></p:outputLabel>
+						<p:inputTextarea value="" id="opcao"
+							rendered="#{questaoBean.questao.tipo == 'Multipla Escolha'}"></p:inputTextarea>
+					</p:panel>
+
 				</h:panelGrid>
-				<p:commandButton value="Iniciar"
-					actionListener="#{questaoBean.iniciar}" />
+				<p:commandButton value="Iniciar" action="#{questaoBean.iniciar}" />
 			</p:panel>
 		</h:form>
-
 
 	</ui:define>
 </ui:composition>

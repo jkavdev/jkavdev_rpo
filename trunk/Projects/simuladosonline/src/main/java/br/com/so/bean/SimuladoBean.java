@@ -6,7 +6,6 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
-import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -15,8 +14,6 @@ import org.primefaces.context.RequestContext;
 
 import br.com.so.dao.interfacesDao.IInstituicaoDao;
 import br.com.so.dao.interfacesDao.IProvaDao;
-import br.com.so.modelo.Area;
-import br.com.so.modelo.Cargo;
 import br.com.so.modelo.Instituicao;
 import br.com.so.modelo.Prova;
 import br.com.so.util.jsf.FacesUtil;
