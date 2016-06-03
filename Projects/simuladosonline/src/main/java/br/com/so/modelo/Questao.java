@@ -1,14 +1,24 @@
 package br.com.so.modelo;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Questao {
+public class Questao implements Serializable {
 
 	private long id;
-	private List<Pergunta> pergunta;
-	private boolean resposta;
+	private List<Opcao> perguntas;
+	private String respostaObjetiva;
 	private Disciplina disciplina;
-	private int tipo;
+	private String tipo;
+	private String enunciado;
+
+	public String getEnunciado() {
+		return enunciado;
+	}
+
+	public void setEnunciado(String enunciado) {
+		this.enunciado = enunciado;
+	}
 
 	public Disciplina getDisciplina() {
 		return disciplina;
@@ -18,15 +28,19 @@ public class Questao {
 		this.disciplina = disciplina;
 	}
 
-	public void setPergunta(List<Pergunta> pergunta) {
-		this.pergunta = pergunta;
+	public void setPergunta(List<Opcao> perguntas) {
+		this.perguntas = perguntas;
 	}
 
-	public int getTipo() {
+	public List<Opcao> getPerguntas() {
+		return perguntas;
+	}
+
+	public String getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(int tipo) {
+	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
 
@@ -38,12 +52,12 @@ public class Questao {
 		this.id = id;
 	}
 
-	public boolean getResposta() {
-		return resposta;
+	public String getRespostaObjetiva() {
+		return respostaObjetiva;
 	}
 
-	public void setResposta(boolean resposta) {
-		this.resposta = resposta;
+	public void setRespostaObjetiva(String respostaObjetiva) {
+		this.respostaObjetiva = respostaObjetiva;
 	}
 
 }

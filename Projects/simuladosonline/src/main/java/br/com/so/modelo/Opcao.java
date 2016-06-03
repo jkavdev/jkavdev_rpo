@@ -1,6 +1,6 @@
 package br.com.so.modelo;
 
-public class Pergunta {
+public class Opcao {
 
 	private long idPergunta;
 	private String opcao;
