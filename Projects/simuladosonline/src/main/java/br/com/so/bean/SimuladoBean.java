@@ -53,7 +53,7 @@ public class SimuladoBean implements Serializable {
 	public void init() {
 		if (instituicoes == null) {
 			instituicoes = instituicaoDao.buscarTodos();
-			formataString(instituicoes);
+			//formataString(instituicoes);
 		}
 	}
 

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="WEB-INF/templates/_template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+	<ui:define name="corpo">
+		<br />
+		<h:form>
+			<p:messages id="messages" showDetail="true" autoUpdate="true"
+				closable="true" />
+			<p:growl id="msgs" showDetail="true" />
+
+			<p:panel header="Cadastrar Questão" style="text-align:center;">
+				<h:panelGrid columns="2" cellpadding="5">
+					<p:outputLabel for="prova" value="Prova: " />
+					<p:selectOneMenu id="prova" converter="entityConverter"
+						value="#{questaoBean.prova}" style="width:100%; ">
+						<f:selectItem itemLabel="Selecione a Prova" itemValue=""
+							noSelectionOption="true" />
+						<f:selectItems value="#{questaoBean.provas}" var="p"
+							itemLabel="#{p.instituicao.sigla} - #{p.banca.nome} - #{p.cargo.nomeCargo} - #{p.area.nome} - #{jsfUtilBean.formatDate(p.data,'dd/MM/yyyy')} "
+							itemValue="#{p}" />
+					</p:selectOneMenu>
+				</h:panelGrid>
+				<p:commandButton value="Iniciar"
+					actionListener="#{questaoBean.iniciar}" />
+			</p:panel>
+		</h:form>
+
+
+	</ui:define>
+</ui:composition>
