@@ -20,7 +20,7 @@ public class JsfUtilBean {
 	public String formataTexto(String textoA, String textoB) {
 		String texto = textoA + " - " + textoB;
 		if (texto.length() > 22) {
-			texto = texto.substring(0, 25);
+			texto = texto.substring(0, 22);
 			texto = texto + "[...]";
 		}
 		return texto;
