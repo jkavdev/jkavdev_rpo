@@ -6,8 +6,8 @@ import java.util.List;
 public class Questao implements Serializable {
 
 	private long id;
-	private List<Opcao> perguntas;
-	private String respostaObjetiva;
+	private List<Opcao> opcoes;
+	private String resposta;
 	private Disciplina disciplina;
 	private String tipo;
 	private String enunciado;
@@ -28,12 +28,12 @@ public class Questao implements Serializable {
 		this.disciplina = disciplina;
 	}
 
-	public void setPergunta(List<Opcao> perguntas) {
-		this.perguntas = perguntas;
+	public void setOpcoes(List<Opcao> opcoes) {
+		this.opcoes = opcoes;
 	}
 
-	public List<Opcao> getPerguntas() {
-		return perguntas;
+	public List<Opcao> getOpcoes() {
+		return opcoes;
 	}
 
 	public String getTipo() {
@@ -52,12 +52,12 @@ public class Questao implements Serializable {
 		this.id = id;
 	}
 
-	public String getRespostaObjetiva() {
-		return respostaObjetiva;
+	public String getResposta() {
+		return resposta;
 	}
 
-	public void setRespostaObjetiva(String respostaObjetiva) {
-		this.respostaObjetiva = respostaObjetiva;
+	public void setResposta(String resposta) {
+		this.resposta = resposta;
 	}
 
 }

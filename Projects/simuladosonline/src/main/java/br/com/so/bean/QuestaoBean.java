@@ -1,12 +1,16 @@
 package br.com.so.bean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+
+import org.primefaces.context.RequestContext;
 
 import br.com.so.dao.interfacesDao.IProvaDao;
 import br.com.so.modelo.Prova;
@@ -24,8 +28,12 @@ public class QuestaoBean implements Serializable {
 	private IProvaDao provaDao;
 	@Inject
 	private Questao questao;
-	@Inject
-	private List<Opcao> respostas;
+	private HashMap<String, Opcao> opcoes;
+	private String nomeOpcaoSelecionada;
+	private List<String> keyList;
+
+	private static int contador = 0;
+	private char[] alfaLetra = "abcdefghijklmnopqrstuvwxyz".toCharArray();
 
 	@PostConstruct
 	public void init() {
@@ -34,13 +42,33 @@ public class QuestaoBean implements Serializable {
 		}
 	}
 
+	public void remover(String key) {
+		this.opcoes.remove(key);
+		this.keyList.remove(key);
+	}
+
 	public void adicionarOpcao() {
-		
+		if (opcoes == null) {
+			opcoes = new HashMap<>();
+		}
+
+		if (nomeOpcaoSelecionada != null && !nomeOpcaoSelecionada.trim().equals("")) {
+			Opcao opcao = new Opcao();
+			opcao.setNome(nomeOpcaoSelecionada);
+			opcoes.put(String.valueOf(alfaLetra[contador]).toUpperCase(), opcao);
+			keyList = new ArrayList<String>(opcoes.keySet());
+			nomeOpcaoSelecionada = null;
+			contador++;
+		}
 	}
 
 	public void iniciar() {
 		System.out.println("Tipo: " + questao.getTipo());
-		System.out.println("Questao: " + questao.getRespostaObjetiva());
+		System.out.println("Opções:");
+		for (String chave : keyList) {
+			System.out.println(chave + ") " + opcoes.get(chave));
+		}
+		System.out.println("Resposta: " + questao.getResposta());
 	}
 
 	public Questao getQuestao() {
@@ -71,8 +99,20 @@ public class QuestaoBean implements Serializable {
 		return provas;
 	}
 
-	public List<Opcao> getRespostas() {
-		return respostas;
+	public HashMap<String, Opcao> getOpcoes() {
+		return opcoes;
+	}
+
+	public String getNomeOpcaoSelecionada() {
+		return nomeOpcaoSelecionada;
+	}
+
+	public void setNomeOpcaoSelecionada(String nomeOpcaoSelecionada) {
+		this.nomeOpcaoSelecionada = nomeOpcaoSelecionada;
+	}
+
+	public List<String> getKeyList() {
+		return keyList;
 	}
 
 }
