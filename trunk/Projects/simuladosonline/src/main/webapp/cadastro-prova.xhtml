@@ -25,8 +25,7 @@
 						<f:selectItem itemLabel="Selecione a Instituição" itemValue=""
 							noSelectionOption="true" />
 						<f:selectItems value="#{provaBean.instituicoes}" var="i"
-							itemLabel="#{jsfUtilBean.formataTexto(i.sigla,i.nome)}"
-							itemValue="#{i}" />
+							itemLabel="#{i.sigla} - #{i.nome}" itemValue="#{i}" />
 					</p:selectOneMenu>
 
 					<p:outputLabel value="Cargo: *" for="cargo" />

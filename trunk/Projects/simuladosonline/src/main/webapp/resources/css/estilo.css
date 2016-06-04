@@ -1,5 +1,34 @@
 @CHARSET "UTF-8";
 
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+#conteudo {
+	width: 80%;
+	margin-left: 10%;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+}
+
+.push {
+	position: relative;
+	bottom: 0;
+}
+
+#rodape {
+	display: none;
+	border-top: 1px solid #e0e0e0;
+	text-align: center;
+	margin-top: 1em;
+	background-color: #fafafa;
+	position: relative;
+	bottom: 0;
+	width: 100%;
+}
+
 .caderno {
 	border-left: 0.6em dotted #dcdcdc;
 	background-size: 100% 100%;
@@ -184,15 +213,6 @@ ul.menu {
 	background: #000;
 }
 
-#rodape {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	border-top: 1px solid #e0e0e0;
-	text-align: center;
-	background-color: #fafafa;
-}
-
 .painel-simulado {
 	text-align: center;
 }
@@ -272,12 +292,6 @@ ul.menu {
 	padding-right: 3px;
 }
 
-#conteudo {
-	width: 80%;
-	margin-left: 10%;
-	height: auto;
-}
-
 #titulo-simulado {
 	font-size: 2em;
 }
@@ -332,4 +346,8 @@ ul.menu {
 
 .perfil:hover .perfilbtn {
 	background-color: #fff;
+}
+
+.ui-selectonemenu .ui-selectonemenu-label {
+	white-space: normal !important;
 }

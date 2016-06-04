@@ -3,8 +3,7 @@ package br.com.so.modelo;
 public class Opcao {
 
 	private long idPergunta;
-	private String opcao;
-	private boolean verdadeira;
+	private String nome;
 
 	public long getIdPergunta() {
 		return idPergunta;
@@ -14,20 +13,12 @@ public class Opcao {
 		this.idPergunta = idPergunta;
 	}
 
-	public String getOpcao() {
-		return opcao;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setOpcao(String opcao) {
-		this.opcao = opcao;
-	}
-
-	public boolean isVerdadeira() {
-		return verdadeira;
-	}
-
-	public void setVerdadeira(boolean verdadeira) {
-		this.verdadeira = verdadeira;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 }

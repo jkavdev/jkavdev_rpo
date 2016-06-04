@@ -45,8 +45,7 @@
 					<p:outputLabel for="resposta" value="Resposta: "
 						rendered="#{questaoBean.questao.tipo == 'Certo ou Errado'}" />
 					<p:selectOneMenu id="resposta"
-						value="#{questaoBean.questao.respostaObjetiva}"
-						style="width:100%; "
+						value="#{questaoBean.questao.resposta}" style="width:100%; "
 						rendered="#{questaoBean.questao.tipo == 'Certo ou Errado'}">
 						<f:selectItem itemLabel="Selecione a Resposta" itemValue=""
 							noSelectionOption="true" />
@@ -54,18 +53,49 @@
 						<f:selectItem itemLabel="Errado" itemValue="Errado" />
 					</p:selectOneMenu>
 
-					<p:panel header="Opções" style="text-align:center;">
-						<p:outputLabel for="opcao" value="Opção: "
-							rendered="#{questaoBean.questao.tipo == 'Multipla Escolha'}" />
-						<p:outputLabel
-							value="Coloque apenas a pergunta, não enumere as perguntas. "
-							rendered="#{questaoBean.questao.tipo == 'Multipla Escolha'}"></p:outputLabel>
-						<p:inputTextarea value="" id="opcao"
-							rendered="#{questaoBean.questao.tipo == 'Multipla Escolha'}"></p:inputTextarea>
-					</p:panel>
+					<p:outputLabel for="opcao" value="Opção: "
+						rendered="#{questaoBean.questao.tipo == 'Multipla Escolha'}" />
+					<p:inputTextarea value="#{questaoBean.nomeOpcaoSelecionada}"
+						id="opcao"
+						rendered="#{questaoBean.questao.tipo == 'Multipla Escolha'}">
+						<p:commandButton value="Adicionar"
+							action="#{questaoBean.adicionarOpcao}"
+							rendered="#{questaoBean.questao.tipo == 'Multipla Escolha'}"
+							update="listaOpcoes resposta-multipla" />
+					</p:inputTextarea>
+
+					<p:outputLabel for="listaOpcoes" value="Preview: "
+						rendered="#{questaoBean.questao.tipo == 'Multipla Escolha'}" />
+
+					<p:dataTable value="#{questaoBean.keyList}" var="key"
+						rendered="#{questaoBean.questao.tipo == 'Multipla Escolha'}"
+						id="listaOpcoes" resizableColumns="true"
+						tableStyle="table-layout: auto"
+						style="width:100%;background-color:transparent !important;">
+						<f:facet name="header">
+						#{questaoBean.questao.enunciado}
+						</f:facet>
+						<p:column style="white-space: normal">
+							<h:outputText value="#{key}) #{questaoBean.opcoes[key].nome}" />
+						</p:column>
+						<p:commandButton value="Remover"
+							action="#{questaoBean.remover(key)}" update="listaOpcoes"
+							style="float:right; right:0; "></p:commandButton>
+					</p:dataTable>
+
+					<p:outputLabel for="resposta-multipla" value="Resposta: "
+						rendered="#{questaoBean.questao.tipo == 'Multipla Escolha'}" />
+					<p:selectOneMenu id="resposta-multipla"
+						value="#{questaoBean.questao.resposta}" style="width:100%; "
+						rendered="#{questaoBean.questao.tipo == 'Multipla Escolha'}">
+						<f:selectItem itemLabel="Selecione a Resposta" itemValue=""
+							noSelectionOption="true" />
+						<f:selectItems value="#{questaoBean.keyList}" var="k"
+							itemLabel="#{k}" itemValue="#{questaoBean.opcoes[key].nome}" />
+					</p:selectOneMenu>
 
 				</h:panelGrid>
-				<p:commandButton value="Iniciar" action="#{questaoBean.iniciar}" />
+				<p:commandButton value="Salvar" action="#{questaoBean.iniciar}" />
 			</p:panel>
 		</h:form>
 

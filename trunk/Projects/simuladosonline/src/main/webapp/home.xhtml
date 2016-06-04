@@ -17,14 +17,14 @@
 				<h:panelGrid columns="2" cellpadding="5">
 					<p:outputLabel for="instituicao" value="Instituicao: " />
 					<p:selectOneMenu id="instituicao" converter="entityConverter"
-						value="#{simuladoBean.instituicao}" style="width:100%; ">
+						value="#{simuladoBean.instituicao}"
+						style="width:100%; white-space: normal ">
 						<p:ajax listener="#{simuladoBean.onInstituicaoClick}"
 							update="cargo area banca nivel" />
 						<f:selectItem itemLabel="Selecione a Instituição" itemValue=""
 							noSelectionOption="true" />
 						<f:selectItems value="#{simuladoBean.instituicoes}" var="i"
-							itemLabel="#{jsfUtilBean.formataTexto(i.sigla,i.nome)}"
-							itemValue="#{i}" />
+							itemLabel="#{i.sigla} - #{i.nome}" itemValue="#{i}" />
 					</p:selectOneMenu>
 
 					<p:outputLabel for="cargo" value="Cargo: " />
