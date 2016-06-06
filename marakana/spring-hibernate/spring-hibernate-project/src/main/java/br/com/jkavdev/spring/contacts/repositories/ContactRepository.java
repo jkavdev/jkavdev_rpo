@@ -74,7 +74,7 @@ public class ContactRepository {
 			connection.close();
 		}
 	}
-	
+
 	public Contact find(long id) throws SQLException {
 		Connection connection = dataSource.getConnection();
 		try {
