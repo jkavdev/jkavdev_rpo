@@ -37,6 +37,7 @@ public class QuestaoBean implements Serializable {
 
 	@PostConstruct
 	public void init() {
+		keyList = new ArrayList<>();
 		if (provas == null) {
 			provas = provaDao.buscarTodos();
 		}
@@ -57,7 +58,7 @@ public class QuestaoBean implements Serializable {
 			opcao.setNome(nomeOpcaoSelecionada);
 			opcoes.put(String.valueOf(alfaLetra[contador]).toUpperCase(), opcao);
 			keyList = new ArrayList<String>(opcoes.keySet());
-			nomeOpcaoSelecionada = null;
+			nomeOpcaoSelecionada = "";
 			contador++;
 		}
 	}

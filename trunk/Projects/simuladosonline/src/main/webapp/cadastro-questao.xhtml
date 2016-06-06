@@ -61,7 +61,7 @@
 						<p:commandButton value="Adicionar"
 							action="#{questaoBean.adicionarOpcao}"
 							rendered="#{questaoBean.questao.tipo == 'Multipla Escolha'}"
-							update="listaOpcoes resposta-multipla" />
+							update="listaOpcoes resposta-multipla @form" />
 					</p:inputTextarea>
 
 					<p:outputLabel for="listaOpcoes" value="Preview: "
