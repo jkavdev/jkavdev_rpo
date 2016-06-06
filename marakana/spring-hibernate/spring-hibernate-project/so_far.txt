@@ -1,0 +1,28 @@
+So far
+	- list all contact names
+	- add a contact
+	- view a contact
+	- edit a contact
+	- delete a contact
+	
+Controllers
+	- ContactServlet
+		- doGet 
+			- if 'add', displyas the add contact view
+			- else if 'edit', displyas the edit contact view
+			- else (???) displays the contact view
+			
+		- doPost
+			- if 'add', adds a contact, redirects to contact view
+			- if 'edit', edits contact, redirects to contact view
+			- if 'delete', deletes contact, redirects to contact list
+			
+	- ContactListServlet
+		- doGet
+			- displays the contact list view
+			
+views
+	- add a contact
+	- edit or delete a contact
+	- view a contact
+	- list all contact

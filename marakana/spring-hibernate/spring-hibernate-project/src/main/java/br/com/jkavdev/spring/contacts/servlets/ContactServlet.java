@@ -90,7 +90,17 @@ public class ContactServlet extends HttpServlet {
 
 				// redirect to contact view page
 				resp.sendRedirect("contact?id=" + contact.getId());
-			} else {
+			} else if (req.getParameter("delete") != null) {
+				long id = Long.parseLong(req.getParameter("id"));
+
+				Contact contact = contactRepository.find(id);
+				Address address = addressRepository.find(contact.getAddressId());
+				
+				contactRepository.delete(contact);
+				addressRepository.delete(address);
+				
+				resp.sendRedirect("contacts");
+			}else {
 				super.doPost(req, resp);
 			}
 		} catch (SQLException e) {
