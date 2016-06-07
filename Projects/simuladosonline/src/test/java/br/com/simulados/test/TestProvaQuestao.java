@@ -79,6 +79,7 @@ public class TestProvaQuestao {
 		provas.add(prova);
 
 		prova.setQuestoes(questoes);
+		questao.setProva(prova);
 
 		EntityTransaction transaction = this.manager.getTransaction();
 		transaction.begin();
@@ -91,6 +92,7 @@ public class TestProvaQuestao {
 		this.manager.persist(c);
 		this.manager.persist(d);
 
+		this.manager.persist(prova);
 		this.manager.persist(questao);
 
 		transaction.commit();
