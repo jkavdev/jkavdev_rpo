@@ -23,7 +23,7 @@ public class Questao implements Serializable {
 	private Disciplina disciplina;
 	private String tipo;
 	private String enunciado;
-	private List<Prova> provas;
+	private Prova prova;
 
 	public String getEnunciado() {
 		return enunciado;
@@ -79,13 +79,14 @@ public class Questao implements Serializable {
 		this.resposta = resposta;
 	}
 
-	@ManyToMany(mappedBy = "questoes")
-	public List<Prova> getProvas() {
-		return provas;
+	@ManyToOne
+	@JoinColumn(name = "prova_codigo")
+	public Prova getProva() {
+		return prova;
 	}
 
-	public void setProvas(List<Prova> provas) {
-		this.provas = provas;
+	public void setProva(Prova prova) {
+		this.prova = prova;
 	}
 
 }

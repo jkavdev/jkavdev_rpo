@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -100,8 +101,7 @@ public class Prova implements Serializable {
 		this.instituicao = instituicao;
 	}
 
-	@ManyToMany
-	@JoinTable(name="prova_questoes")
+	@OneToMany(mappedBy = "prova")
 	public List<Questao> getQuestoes() {
 		return questoes;
 	}
