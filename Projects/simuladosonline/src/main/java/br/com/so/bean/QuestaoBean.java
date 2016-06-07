@@ -48,7 +48,7 @@ public class QuestaoBean implements Serializable {
 		if (provas == null) {
 			provas = provaDao.buscarTodos();
 		}
-		if (disciplinas != null) {
+		if (disciplinas == null) {
 			disciplinas = disciplinaDao.buscarTodos();
 		}
 	}
