@@ -3,7 +3,19 @@ package br.com.so.modelo;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Questao implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private long id;
 	private List<Opcao> opcoes;
@@ -11,6 +23,7 @@ public class Questao implements Serializable {
 	private Disciplina disciplina;
 	private String tipo;
 	private String enunciado;
+	private List<Prova> provas;
 
 	public String getEnunciado() {
 		return enunciado;
@@ -20,6 +33,8 @@ public class Questao implements Serializable {
 		this.enunciado = enunciado;
 	}
 
+	@ManyToOne
+	@JoinColumn(name = "disciplina_codigo")
 	public Disciplina getDisciplina() {
 		return disciplina;
 	}
@@ -32,6 +47,8 @@ public class Questao implements Serializable {
 		this.opcoes = opcoes;
 	}
 
+	@ManyToMany
+	@JoinTable(name = "opcao_questao")
 	public List<Opcao> getOpcoes() {
 		return opcoes;
 	}
@@ -44,6 +61,8 @@ public class Questao implements Serializable {
 		this.tipo = tipo;
 	}
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public long getId() {
 		return id;
 	}
@@ -58,6 +77,15 @@ public class Questao implements Serializable {
 
 	public void setResposta(String resposta) {
 		this.resposta = resposta;
+	}
+
+	@ManyToMany(mappedBy = "questoes")
+	public List<Prova> getProvas() {
+		return provas;
+	}
+
+	public void setProvas(List<Prova> provas) {
+		this.provas = provas;
 	}
 
 }

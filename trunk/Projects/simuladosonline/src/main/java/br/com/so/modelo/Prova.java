@@ -2,6 +2,7 @@ package br.com.so.modelo;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -10,6 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
@@ -27,6 +30,7 @@ public class Prova implements Serializable {
 	private Cargo cargo;
 	private Banca banca;
 	private Nivel nivel;
+	private List<Questao> questoes;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -94,6 +98,16 @@ public class Prova implements Serializable {
 
 	public void setInstituicao(Instituicao instituicao) {
 		this.instituicao = instituicao;
+	}
+
+	@ManyToMany
+	@JoinTable(name="prova_questoes")
+	public List<Questao> getQuestoes() {
+		return questoes;
+	}
+
+	public void setQuestoes(List<Questao> questoes) {
+		this.questoes = questoes;
 	}
 
 	@Override

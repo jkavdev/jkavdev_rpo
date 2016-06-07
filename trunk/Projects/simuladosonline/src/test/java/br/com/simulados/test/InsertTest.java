@@ -1,13 +1,7 @@
 package br.com.simulados.test;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -22,7 +16,6 @@ import br.com.so.modelo.Area;
 import br.com.so.modelo.Banca;
 import br.com.so.modelo.Cargo;
 import br.com.so.modelo.Instituicao;
-import br.com.so.modelo.Nivel;
 import br.com.so.modelo.Prova;
 
 public class InsertTest {
