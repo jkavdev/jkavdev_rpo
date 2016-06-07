@@ -1,16 +1,28 @@
 package br.com.so.modelo;
 
-public class Opcao {
+import java.io.Serializable;
 
-	private long idPergunta;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Opcao implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	private Long id;
 	private String nome;
 
-	public long getIdPergunta() {
-		return idPergunta;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	public Long getId() {
+		return id;
 	}
 
-	public void setIdPergunta(long idPergunta) {
-		this.idPergunta = idPergunta;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getNome() {
