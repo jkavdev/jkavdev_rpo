@@ -16,6 +16,15 @@
 			<p:panel header="Cadastrar Questão" style="text-align:center;">
 				<h:panelGrid columns="2" cellpadding="5" id="painelQuestao">
 
+					<p:outputLabel for="disciplina" value="Disciplina: " />
+					<p:selectOneMenu id="disciplina" converter="entityConverter"
+						value="#{questaoBean.questao.disciplina}" style="width:100%; ">
+						<f:selectItem itemLabel="Selecione a Disciplina" itemValue=""
+							noSelectionOption="true" />
+						<f:selectItems value="#{questaoBean.disciplinas}" var="d"
+							itemLabel="#{d.nome} " itemValue="#{d}" />
+					</p:selectOneMenu>
+
 					<p:outputLabel for="tipo" value="Tipo: " />
 					<p:selectOneMenu id="tipo" value="#{questaoBean.questao.tipo}"
 						style="width:100%; ">
@@ -34,7 +43,7 @@
 
 					<p:outputLabel for="prova" value="Prova: " />
 					<p:selectOneMenu id="prova" converter="entityConverter"
-						value="#{questaoBean.prova}" style="width:100%; ">
+						value="#{questaoBean.questao.prova}" style="width:100%; ">
 						<f:selectItem itemLabel="Selecione a Prova" itemValue=""
 							noSelectionOption="true" />
 						<f:selectItems value="#{questaoBean.provas}" var="p"
@@ -78,9 +87,11 @@
 						<p:column style="white-space: normal">
 							<h:outputText value="#{key}) #{questaoBean.opcoes[key].nome}" />
 						</p:column>
-						<p:commandButton value="Remover"
-							action="#{questaoBean.remover(key)}" update="listaOpcoes"
-							style="float:right; right:0; "></p:commandButton>
+						<p:column style="white-space: normal">
+							<p:commandButton value="Remover"
+								action="#{questaoBean.remover(key)}" update="@all"
+								style="float:right; right:0; " />
+						</p:column>
 					</p:dataTable>
 
 					<p:outputLabel for="resposta-multipla" value="Resposta: "
@@ -95,7 +106,8 @@
 					</p:selectOneMenu>
 
 				</h:panelGrid>
-				<p:commandButton value="Salvar" action="#{questaoBean.iniciar}" />
+				<p:commandButton value="Cadastrar Questão"
+					action="#{questaoBean.iniciar}" />
 			</p:panel>
 		</h:form>
 

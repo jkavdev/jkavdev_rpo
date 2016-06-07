@@ -14,10 +14,10 @@ public class HibernateCargoDao extends HibernateGenericDao<Cargo, Long> implemen
 
 	@Override
 	public boolean existe(Cargo cargo) {
-		String sql = "select i from Cargo i where i.nomeCargo = :nome ";
+		String sql = "select c from Cargo c where c.nomeCargo = :nome ";
 
 		@SuppressWarnings("unchecked")
-		List<Instituicao> lista = this.getManager().createQuery(sql).setParameter("nome", cargo.getNomeCargo().toUpperCase())
+		List<Cargo> lista = this.getManager().createQuery(sql).setParameter("nome", cargo.getNomeCargo().toUpperCase())
 				.getResultList();
 
 		if (lista.isEmpty()) {
