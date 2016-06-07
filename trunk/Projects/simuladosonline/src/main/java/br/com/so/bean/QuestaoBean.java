@@ -12,9 +12,12 @@ import javax.inject.Named;
 
 import org.primefaces.context.RequestContext;
 
+import br.com.so.dao.interfacesDao.IDisciplinaDao;
 import br.com.so.dao.interfacesDao.IProvaDao;
 import br.com.so.modelo.Prova;
 import br.com.so.modelo.Questao;
+import br.com.so.util.AlfabetoUtil;
+import br.com.so.modelo.Disciplina;
 import br.com.so.modelo.Opcao;
 
 @Named
@@ -24,22 +27,29 @@ public class QuestaoBean implements Serializable {
 	@Inject
 	private Prova prova;
 	private List<Prova> provas;
+	private List<Disciplina> disciplinas;
 	@Inject
 	private IProvaDao provaDao;
+	@Inject
+	private IDisciplinaDao disciplinaDao;
+
 	@Inject
 	private Questao questao;
 	private HashMap<String, Opcao> opcoes;
 	private String nomeOpcaoSelecionada;
 	private List<String> keyList;
+	@Inject
+	private Disciplina disciplia;
 
-	private static int contador = 0;
-	private char[] alfaLetra = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+	private int contador = 0;
 
 	@PostConstruct
 	public void init() {
-		keyList = new ArrayList<>();
 		if (provas == null) {
 			provas = provaDao.buscarTodos();
+		}
+		if (disciplinas != null) {
+			disciplinas = disciplinaDao.buscarTodos();
 		}
 	}
 
@@ -56,20 +66,35 @@ public class QuestaoBean implements Serializable {
 		if (nomeOpcaoSelecionada != null && !nomeOpcaoSelecionada.trim().equals("")) {
 			Opcao opcao = new Opcao();
 			opcao.setNome(nomeOpcaoSelecionada);
-			opcoes.put(String.valueOf(alfaLetra[contador]).toUpperCase(), opcao);
+			int posicao = verificaPosicao();
+			opcoes.put(AlfabetoUtil.pegaLetra(posicao), opcao);
 			keyList = new ArrayList<String>(opcoes.keySet());
 			nomeOpcaoSelecionada = "";
 			contador++;
 		}
 	}
 
-	public void iniciar() {
-		System.out.println("Tipo: " + questao.getTipo());
-		System.out.println("Opções:");
-		for (String chave : keyList) {
-			System.out.println(chave + ") " + opcoes.get(chave));
+	private int verificaPosicao() {
+		for (int i = 0; i < contador; i++) {
+			if (!keyList.contains(AlfabetoUtil.pegaLetra(i))) {
+				return i;
+			}
 		}
-		System.out.println("Resposta: " + questao.getResposta());
+		return contador;
+	}
+
+	public void iniciar() {
+		if (questao != null) {
+			if (!questao.getDisciplina().getNome().equals("")) {
+				if (questao.getTipo().equalsIgnoreCase("Certo ou Errado")) {
+
+				} else if (questao.getTipo().equalsIgnoreCase("Multipla Escolha")) {
+
+				} else {
+
+				}
+			}
+		}
 	}
 
 	public Questao getQuestao() {
@@ -114,6 +139,18 @@ public class QuestaoBean implements Serializable {
 
 	public List<String> getKeyList() {
 		return keyList;
+	}
+
+	public Disciplina getDisciplia() {
+		return disciplia;
+	}
+
+	public void setDisciplia(Disciplina disciplia) {
+		this.disciplia = disciplia;
+	}
+
+	public List<Disciplina> getDisciplinas() {
+		return disciplinas;
 	}
 
 }
