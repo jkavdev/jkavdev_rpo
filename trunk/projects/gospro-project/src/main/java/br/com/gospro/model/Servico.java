@@ -17,7 +17,7 @@ public class Servico implements Serializable {
 	private BigDecimal valor;
 
 	@Id
-	// @GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@GeneratedValue
 	public Long getCodigo() {
 		return codigo;

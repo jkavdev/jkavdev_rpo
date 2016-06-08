@@ -37,7 +37,7 @@ public class OrderServico implements Serializable {
 		this.codigo = codigo;
 	}
 
-	@Column(name="data_abertura")
+	@Column(name = "data_abertura")
 	@Temporal(TemporalType.DATE)
 	public Calendar getDataAbertura() {
 		return dataAbertura;
@@ -47,7 +47,7 @@ public class OrderServico implements Serializable {
 		this.dataAbertura = dataAbertura;
 	}
 
-	@Column(name="data_encerramento")
+	@Column(name = "data_encerramento")
 	@Temporal(TemporalType.DATE)
 	public Calendar getDataEncerramento() {
 		return dataEncerramento;
@@ -65,7 +65,7 @@ public class OrderServico implements Serializable {
 		this.observacoes = observacoes;
 	}
 
-	@Column(name="peca_utilizada")
+	@Column(name = "peca_utilizada")
 	public String getPecaUtilizada() {
 		return pecaUtilizada;
 	}
@@ -82,7 +82,7 @@ public class OrderServico implements Serializable {
 		this.problema = problema;
 	}
 
-	@Column(name="servico_executado")
+	@Column(name = "servico_executado")
 	public String getServicoExecutado() {
 		return servicoExecutado;
 	}
@@ -91,16 +91,16 @@ public class OrderServico implements Serializable {
 		this.servicoExecutado = servicoExecutado;
 	}
 
-	@Column(name="valor_parcial")
 	public BigDecimal getValorPacial() {
 		return valorPacial;
 	}
 
+	@Column(name = "valor_parcial")
 	public void setValorPacial(BigDecimal valorPacial) {
 		this.valorPacial = valorPacial;
 	}
 
-	@Column(name="valor_total")
+	@Column(name = "valor_total")
 	public BigDecimal getValorTotal() {
 		return valorTotal;
 	}

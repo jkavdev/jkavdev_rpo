@@ -4,18 +4,18 @@
       http://xmlns.jcp.org/xml/ns/persistence/orm_2_1.xsd"
 	version="2.1">
 
-	<entity class="br.com.gospro.model.Pessoa" />
-	<entity class="br.com.gospro.model.Funcionario" />
+	<entity class="br.com.gospro.model.Cidade" />
 	<entity class="br.com.gospro.model.Cliente" />
 	<entity class="br.com.gospro.model.Contato" />
-	<entity class="br.com.gospro.model.Usuario" />
-	<entity class="br.com.gospro.model.Equipamento" />
-	<entity class="br.com.gospro.model.Servico" />
-	<entity class="br.com.gospro.model.OrderServico" />
 	<entity class="br.com.gospro.model.Endereco" />
+	<entity class="br.com.gospro.model.Equipamento" />
+	<entity class="br.com.gospro.model.Estado" />
+	<entity class="br.com.gospro.model.Funcionario" />
+	<entity class="br.com.gospro.model.Usuario" />
+	<entity class="br.com.gospro.model.OrderServico" />
+	<entity class="br.com.gospro.model.Pessoa" />
+	<entity class="br.com.gospro.model.Servico" />
 	<entity class="br.com.gospro.model.Cidade" />
 	<entity class="br.com.gospro.model.Status" />
-	<entity class="br.com.gospro.model.Estado" />
-
 
 </entity-mappings>

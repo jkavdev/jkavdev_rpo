@@ -15,7 +15,7 @@ public class Status implements Serializable {
 	private String descricao;
 
 	@Id
-	// @GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@GeneratedValue
 	public Long getCodigo() {
 		return codigo;

@@ -2,25 +2,26 @@ package br.com.gospro.model;
 
 import java.util.Calendar;
 
-import javax.persistence.AssociationOverride;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
-@AssociationOverride(name = "codigo", joinColumns = @JoinColumn(name = "funcionario_codigo"))
+@PrimaryKeyJoinColumn(name = "funcionario_codigo")
 public class Funcionario extends Pessoa {
 
 	private static final long serialVersionUID = 1L;
-	
+
+	private String cargo;
+
 	public Funcionario() {
 	}
 
-	public Funcionario(Calendar dataCadastro, String nome, String sobrenome, Calendar dataNascimento, String sexo, String cpf, String rg, String cargo) {
+	public Funcionario(Calendar dataCadastro, String nome, String sobrenome,
+			Calendar dataNascimento, String sexo, String cpf, String rg,
+			String cargo) {
 		super(dataCadastro, nome, sobrenome, dataNascimento, sexo, cpf, rg);
 		this.cargo = cargo;
 	}
-
-	private String cargo;
 
 	public String getCargo() {
 		return cargo;

@@ -1,6 +1,7 @@
 package br.com.gospro.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -16,10 +17,10 @@ public class Estado implements Serializable {
 	private Long codigo;
 	private String nome;
 	private String sigla;
-	private List<Cidade> cidades;
+	private List<Cidade> cidades = new ArrayList<>();;
 
 	@Id
-	// @GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@GeneratedValue
 	public Long getCodigo() {
 		return codigo;

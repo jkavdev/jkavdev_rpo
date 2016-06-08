@@ -37,8 +37,8 @@ public class Contato implements Serializable {
 		return codigo;
 	}
 
-	public void setCodigo(Long codigo) {
-		this.codigo = codigo;
+	public void setCodigo(Long id) {
+		this.codigo = id;
 	}
 
 	public String getEmail() {
