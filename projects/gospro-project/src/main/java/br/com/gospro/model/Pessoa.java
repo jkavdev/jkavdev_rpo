@@ -1,6 +1,7 @@
 package br.com.gospro.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -32,15 +33,15 @@ public abstract class Pessoa implements Serializable {
 	private String cpf;
 	private String rg;
 	private Usuario usuario;
-	private List<Contato> contatos;
+	private List<Contato> contatos = new ArrayList<>();
 	private Endereco endereco;
 
 	public Pessoa() {
 		super();
 	}
 
-	public Pessoa(Calendar dataCadastro, String nome, String sobrenome, Calendar dataNascimento, String sexo,
-			String cpf, String rg) {
+	public Pessoa(Calendar dataCadastro, String nome, String sobrenome,
+			Calendar dataNascimento, String sexo, String cpf, String rg) {
 		this();
 		this.dataCadastro = dataCadastro;
 		this.nome = nome;
@@ -52,7 +53,7 @@ public abstract class Pessoa implements Serializable {
 	}
 
 	@Id
-	// @GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@GeneratedValue
 	public Long getCodigo() {
 		return codigo;
@@ -146,7 +147,7 @@ public abstract class Pessoa implements Serializable {
 		this.usuario = usuario;
 	}
 
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "endereco_codigo")
 	public Endereco getEndereco() {
 		return endereco;

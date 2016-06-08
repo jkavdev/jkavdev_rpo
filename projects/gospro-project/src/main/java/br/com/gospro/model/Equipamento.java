@@ -17,7 +17,7 @@ public class Equipamento implements Serializable {
 	private String tipo;
 
 	@Id
-	// @GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@GeneratedValue
 	public Long getCodigo() {
 		return codigo;

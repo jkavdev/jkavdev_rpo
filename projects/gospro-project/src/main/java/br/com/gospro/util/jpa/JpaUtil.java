@@ -7,7 +7,7 @@ import javax.persistence.Persistence;
 
 public class JpaUtil {
 
-	private static final String PERSISTENCE_UNIT = "jpaMysqlPU";
+	private static final String PERSISTENCE_UNIT = "gosproPU";
 	private static EntityManagerFactory factory;
 	private static ThreadLocal<EntityManager> threadEntityManager = new ThreadLocal<>();
 

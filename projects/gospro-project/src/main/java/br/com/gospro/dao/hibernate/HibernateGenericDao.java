@@ -32,12 +32,16 @@ public class HibernateGenericDao<T, ID extends Serializable> implements GenericD
 
 	@Override
 	public void alterar(T entidade) {
+		this.manager.getTransaction().begin();
 		this.manager.merge(entidade);
+		this.manager.getTransaction().commit();
 	}
 
 	@Override
 	public void remover(T entidade) {
+		this.manager.getTransaction().begin();
 		this.manager.remove(entidade);
+		this.manager.getTransaction().commit();
 	}
 
 	@Override
