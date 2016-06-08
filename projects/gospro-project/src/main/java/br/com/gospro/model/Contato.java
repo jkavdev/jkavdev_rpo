@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -14,7 +13,7 @@ public class Contato implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private Long id;
+	private Long codigo;
 	private String email;
 	private String telefone;
 	private String celular;
@@ -32,13 +31,14 @@ public class Contato implements Serializable {
 	}
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Long getId() {
-		return id;
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue
+	public Long getCodigo() {
+		return codigo;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setCodigo(Long codigo) {
+		this.codigo = codigo;
 	}
 
 	public String getEmail() {
@@ -66,7 +66,7 @@ public class Contato implements Serializable {
 	}
 
 	@ManyToOne
-	@JoinColumn(name = "pes_codigo")
+	@JoinColumn(name = "pessoa_codigo")
 	public Pessoa getPessoa() {
 		return pessoa;
 	}

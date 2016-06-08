@@ -4,28 +4,31 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Endereco implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private Long id;
+	private Long codigo;
 	private String cep;
 	private String complemento;
 	private String numero;
 	private String bairro;
+	private Cidade cidade;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Long getId() {
-		return id;
+	// @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue
+	public Long getCodigo() {
+		return codigo;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setCodigo(Long codigo) {
+		this.codigo = codigo;
 	}
 
 	public String getCep() {
@@ -58,6 +61,16 @@ public class Endereco implements Serializable {
 
 	public void setBairro(String bairro) {
 		this.bairro = bairro;
+	}
+
+	@ManyToOne
+	@JoinColumn(name = "cidade_codigo")
+	public Cidade getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(Cidade cidade) {
+		this.cidade = cidade;
 	}
 
 }
