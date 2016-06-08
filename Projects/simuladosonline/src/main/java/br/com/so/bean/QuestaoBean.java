@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import javax.annotation.PostConstruct;
+import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -86,7 +87,6 @@ public class QuestaoBean implements Serializable {
 	}
 
 	public void cadastrar() {
-		System.out.println("OK");
 		if (questao.getEnunciado() != null && !questao.getEnunciado().trim().equals("")) {
 			if (questao.getTipo().equals("Multipla Escolha")) {
 				if (opcoes != null && !opcoes.isEmpty() && questao.getDisciplina() != null
@@ -96,19 +96,16 @@ public class QuestaoBean implements Serializable {
 					for (Map.Entry<String, Opcao> nomes : opcoes.entrySet()) {
 						nomes.getValue().setNome(nomes.getKey() + ") " + nomes.getValue().getNome());
 						listaOpcoes.add(nomes.getValue());
-						System.out.println(questao.getResposta());
 					}
 					questao.setOpcoes(listaOpcoes);
+					limpaPainel();
 					FacesUtil.addSuccessMessage("Questão Cadastrada com Sucesso!");
-					opcoes = new HashMap<>();
-					questao.setEnunciado(null);
-					questao.setResposta(null);
 				} else {
 					FacesUtil.addWarnMessage("Todos os campos devem ser preenchidos!");
 				}
 			} else if (questao.getTipo().equals("Certo ou Errado")) {
 				if (questao.getResposta() != null && !questao.getResposta().trim().equals("")) {
-					System.out.println(questao.getResposta());
+					limpaPainel();
 					FacesUtil.addSuccessMessage("Questão Cadastrada com Sucesso!");
 				} else {
 					FacesUtil.addWarnMessage("Selecione uma resposta para Questão!");
@@ -119,6 +116,13 @@ public class QuestaoBean implements Serializable {
 		} else {
 			FacesUtil.addWarnMessage("Todos os campos devem ser preenchidos!");
 		}
+	}
+
+	private void limpaPainel() {
+		opcoes = new HashMap<>();
+		keyList = new ArrayList<>();
+		questao.setEnunciado(null);
+		questao.setResposta(null);
 	}
 
 	public Questao getQuestao() {

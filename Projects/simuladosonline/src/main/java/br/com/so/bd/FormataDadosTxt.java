@@ -16,23 +16,23 @@ import br.com.so.util.jpa.JpaUtil;
 public class FormataDadosTxt {
 
 	public static void main(String[] args) throws IOException {
-		try {
-			FileInputStream arquivo = new FileInputStream("cargodados.txt");
-			InputStreamReader reader = new InputStreamReader(arquivo);
-			BufferedReader br = new BufferedReader(reader);
-			String linha = br.readLine();
-			List<String> lista = new ArrayList<>();
-			while (linha != null) {
-				linha = linha.trim();
-				if (!lista.contains(linha)) {
-					lista.add(linha);
-				}
-				System.out.println(linha);
-				linha = br.readLine();
-			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
+//		try {
+//			FileInputStream arquivo = new FileInputStream("cargodados.txt");
+//			InputStreamReader reader = new InputStreamReader(arquivo);
+//			BufferedReader br = new BufferedReader(reader);
+//			String linha = br.readLine();
+//			List<String> lista = new ArrayList<>();
+//			while (linha != null) {
+//				linha = linha.trim();
+//				if (!lista.contains(linha)) {
+//					lista.add(linha);
+//				}
+//				System.out.println(linha);
+//				linha = br.readLine();
+//			}
+//		} catch (FileNotFoundException e) {
+//			e.printStackTrace();
+//		}
 	}
 
 }
