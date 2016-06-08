@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<ui:composition template="/templates/modeloGeral.xhtml">
+	<ui:define name="conteudo">
+		<h:form>
+			<p:panel header="Ordem de Serviço - Listagem">
+				<p:dataTable emptyMessage="Nenhum Registro Encontrado."
+					paginator="true">
+					<f:facet name="header">
+
+					</f:facet>
+
+					<p:column headerText="Nº OS"></p:column>
+
+					<p:column headerText="Data Abertura"></p:column>
+
+					<p:column headerText="Cliente"></p:column>
+
+					<p:column headerText="Resposavel Técnico"></p:column>
+
+					<p:column headerText="Status OS"></p:column>
+
+					<p:column headerText="Valor Toral (R$)"></p:column>
+
+					<p:column headerText="Ação"></p:column>
+				</p:dataTable>
+			</p:panel>
+
+		</h:form>
+		<p:dialog header="Ordem de Serviço - Cadastro" widgetVar="dialogo"
+			draggable="false" resizable="false" modal="true" appendTo="@(body)"
+			height="auto" width="auto">
+			<h:form>
+				<p:fieldset legend="Dados gerais da OS">
+					<p:panelGrid columns="4">
+						<p:outputLabel for="cod" value="Nº OS" />
+						<p:inputText id="cod" value="" />
+
+						<p:outputLabel value="Data de Abertura: " />
+						<p:calendar />
+
+						<p:outputLabel value="Técnico Responsável: " />
+						<p:selectOneMenu>
+							<f:selectItem noSelectionOption="true"
+								itemLabel="Selecione Técnico" />
+						</p:selectOneMenu>
+
+						<p:outputLabel value="Cliente: " />
+						<p:selectOneMenu>
+							<f:selectItem noSelectionOption="true"
+								itemLabel="Selecione o Cliente" />
+						</p:selectOneMenu>
+
+						<p:outputLabel value="Equipamento: " />
+						<p:selectOneMenu>
+							<f:selectItem noSelectionOption="true"
+								itemLabel="Selecione o Equipamento" />
+						</p:selectOneMenu>
+
+						<p:outputLabel value="Serviço: " />
+						<p:selectOneMenu>
+							<f:selectItem noSelectionOption="true"
+								itemLabel="Selecione o Serviço" />
+						</p:selectOneMenu>
+
+					</p:panelGrid>
+				</p:fieldset>
+			</h:form>
+
+			<p:fieldset legend="Peças Utilizadas">
+				<h:form id="leg">
+					<p:panelGrid columns="1">
+						<p:inputTextarea rows="4" cols="100" queryDelay="750"
+							minQueryLength="4" />
+					</p:panelGrid>
+
+					<p:panelGrid columns="2">
+						<p:outputLabel for="val" value="Valor R$:" />
+						<p:inputText id="val" value="" />
+					</p:panelGrid>
+				</h:form>
+			</p:fieldset>
+
+			<p:fieldset legend="Serviços Executados: ">
+				<h:form id="servi">
+					<p:panelGrid columns="1">
+						<p:inputTextarea rows="4" cols="100" queryDelay="750"
+							minQueryLength="4" />
+					</p:panelGrid>
+
+					<p:panelGrid columns="2">
+						<p:outputLabel for="val1" value="Valor R$:" />
+						<p:inputText id="val1" value="" />
+					</p:panelGrid>
+				</h:form>
+
+			</p:fieldset>
+
+			<p:fieldset legend="Problemas: ">
+				<h:form id="prob">
+					<p:panelGrid columns="1">
+						<p:inputTextarea rows="4" cols="100" queryDelay="750"
+							minQueryLength="4" />
+					</p:panelGrid>
+				</h:form>
+			</p:fieldset>
+
+			<p:panelGrid columns="2">
+				<p:commandButton value="Salvar" image="ui-icon-disk" />
+				<p:commandButton value="Fechar" image="ui-icon-close"
+					oncomplete="PF('dialogo').hide();" />
+			</p:panelGrid>
+		</p:dialog>
+	</ui:define>
+</ui:composition>
+
+</html>

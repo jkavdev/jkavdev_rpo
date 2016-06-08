@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<ui:composition template="/templates/modeloGeral.xhtml">
+	<ui:define name="conteudo">
+		<h:form id="formListagem">
+			<p:panel header="Equipamento - Listagem">
+				<p:dataTable id="tabela" emptyMessage="Nenhum Registro Encontrado."
+					paginator="true" value="#{funcionarioBean.pessoas}"
+					var="equipamento" rows="8">
+					<f:facet name="header">
+						<p:commandButton value="Novo" image="ui-icon-document"
+							oncomplete="PF('diaCliente').show();"
+							actionListener="#{funcionarioBean.novo}"
+							update=":mensagem :formCadastro:painel" />
+					</f:facet>
+
+					<p:column headerText="Tipo"
+						filterBy="#{funcionarioBean.pessoa.nome}"
+						sortBy="#{funcionarioBean.pessoa.nome}">
+						<h:outputText value="#{funcionarioBean.pessoa.nome}" />
+					</p:column>
+
+					<p:column headerText="Marca"
+						sortBy="#{funcionarioBean.funcionario.cargo}"
+						filterBy="#{funcionarioBean.funcionario.cargo}">
+						<h:outputText value="#{funcionarioBean.funcionario.cargo}" />
+					</p:column>
+
+					<p:column headerText="Modelo"
+						filterBy="#{funcionarioBean.pessoa.nome}"
+						sortBy="#{funcionarioBean.pessoa.nome}">
+						<h:outputText value="#{funcionarioBean.funcionario.cargo}" />
+					</p:column>
+
+					<p:column headerText="Cliente"
+						filterBy="#{funcionarioBean.pessoa.nome}"
+						sortBy="#{funcionarioBean.pessoa.nome}">
+						<h:outputText value="#{funcionarioBean.funcionario.cargo}" />
+					</p:column>
+
+					<p:column headerText="Ação">
+						<p:commandButton icon="ui-icon-trash"
+							actionListener="#{usuarioBean.excluir}"
+							update=":mensagem :formListagem:tabela">
+							<p:confirm header="Confirmação"
+								message="Deseja Excluir o Usuário?" icon="ui-icon-alert" />
+
+							<f:attribute name="clienteSelecionado" value="#{usuario}" />
+						</p:commandButton>
+						<p:commandButton icon="ui-icon-pencil"
+							actionListener="#{usuarioBean.editar}"
+							update=":formCadastro:painel"
+							oncomplete="PF('diaCliente').show();">
+							<f:attribute name="usuarioSelecionado" value="#{usuario}" />
+						</p:commandButton>
+					</p:column>
+
+				</p:dataTable>
+			</p:panel>
+		</h:form>
+		<p:dialog header="Equipamento - Cadastro" widgetVar="diaCliente"
+			draggable="false" resizable="false" modal="true" appendTo="@(body)"
+			closable="false">
+			<h:form id="formCadastro">
+				<p:fieldset>
+					<h:panelGrid id="painel" columns="2">
+						<p:outputLabel for="mar" value="Marca:" />
+						<p:inputText id="mar" value="" />
+
+						<p:outputLabel for="mod" value="Modelo:" />
+						<p:inputText id="mod" value="" />
+
+						<p:outputLabel for="tip" value="Tipo:" />
+						<p:inputText id="tip" value="" />
+
+						<p:outputLabel for="cli" value="Cliente: " />
+						<p:selectOneMenu id="cli">
+							<f:selectItem noSelectionOption="true"
+								itemLabel="Selecione o Cliente" />
+						</p:selectOneMenu>
+
+					</h:panelGrid>
+					<p:panelGrid columns="2">
+						<p:commandButton value="Salvar" image="ui-icon-disk"
+							actionListener="#{funcionarioBean.salvar}"
+							update=":mensagem :formCadastro:painel :formListagem:tabela" />
+
+						<p:commandButton value="Fechar" image="ui-icon-close"
+							oncomplete="PF('diaCliente').hide();" />
+					</p:panelGrid>
+				</p:fieldset>
+			</h:form>
+
+		</p:dialog>
+
+		<p:dialog header="Endereço - Cadastro" widgetVar="diaEndereco"
+			draggable="false" resizable="false" modal="true" appendTo="@(body)"
+			closable="false">
+
+			<h:form id="formEndereco">
+				<p:fieldset>
+					<h:panelGrid id="endereco" columns="2">
+						<p:outputLabel for="End" value="Endereço:" />
+						<p:inputText id="End" value="" />
+
+						<p:outputLabel for="cep" value="CEP:" />
+						<p:inputText id="cep" value="" />
+
+						<p:outputLabel for="com" value="Complemento:" />
+						<p:inputText id="com" value="" />
+
+						<p:outputLabel value="Cidade:" />
+						<p:selectOneMenu>
+							<f:selectItem noSelectionOption="true"
+								itemLabel="Selecione a Cidade" />
+						</p:selectOneMenu>
+
+						<p:outputLabel value="Estado: " />
+						<p:selectOneMenu>
+							<f:selectItem noSelectionOption="true"
+								itemLabel="Selecione o Estado" />
+						</p:selectOneMenu>
+
+					</h:panelGrid>
+					<p:panelGrid columns="2">
+						<p:commandButton value="Salvar" image="ui-icon-disk"
+							actionListener="#{funcionarioBean.salvar}"
+							update=":mensagem :formListagem:tabela :formEndereco:endereco" />
+
+						<p:commandButton value="Fechar" image="ui-icon-close"
+							oncomplete="PF('diaEndereco').hide();" />
+					</p:panelGrid>
+				</p:fieldset>
+			</h:form>
+		</p:dialog>
+
+		<p:dialog header="Documento - Cadastro" widgetVar="diaDocumento"
+			draggable="false" resizable="false" modal="true" appendTo="@(body)"
+			closable="false">
+
+			<h:form id="formDoc">
+				<p:fieldset>
+					<h:panelGrid id="documento" columns="2">
+						<p:outputLabel for="cpf" value="CPF:" />
+						<p:inputText id="cpf" value="" />
+
+						<p:outputLabel for="cnpj" value="CNPJ:" />
+						<p:inputText id="cnpj" value="" />
+
+						<p:outputLabel for="rg" value="RG:" />
+						<p:inputText id="rg" value="" />
+
+					</h:panelGrid>
+					<p:panelGrid columns="2">
+						<p:commandButton value="Salvar" image="ui-icon-disk"
+							actionListener="#{funcionarioBean.salvar}"
+							update=":mensagem :formListagem:tabela :formEndereco:endereco" />
+
+						<p:commandButton value="Fechar" image="ui-icon-close"
+							oncomplete="PF('diaDocumento').hide();" />
+					</p:panelGrid>
+				</p:fieldset>
+			</h:form>
+		</p:dialog>
+
+		<p:dialog header="Contato - Cadastro" widgetVar="diaContato"
+			draggable="false" resizable="false" modal="true" appendTo="@(body)"
+			closable="false">
+
+			<h:form id="formContato">
+				<p:fieldset>
+					<h:panelGrid id="contato" columns="2">
+						<p:outputLabel for="ddd" value="DDD:" />
+						<p:inputText id="ddd" value="" />
+
+						<p:outputLabel for="tel" value="Telefone:" />
+						<p:inputText id="tel" value="" />
+
+						<p:outputLabel for="email" value="E-mail:" />
+						<p:inputText id="email" value="" />
+
+					</h:panelGrid>
+					<p:panelGrid columns="2">
+						<p:commandButton value="Salvar" image="ui-icon-disk"
+							actionListener="#{funcionarioBean.salvar}"
+							update=":mensagem :formListagem:tabela :formEndereco:endereco" />
+
+						<p:commandButton value="Fechar" image="ui-icon-close"
+							oncomplete="PF('diaContato').hide();" />
+					</p:panelGrid>
+				</p:fieldset>
+			</h:form>
+		</p:dialog>
+
+		<p:dialog header="Documento - Cadastro" widgetVar="diaDocumento"
+			draggable="false" resizable="false" modal="true" appendTo="@(body)"
+			closable="false">
+
+			<h:form id="tab">
+				<p:fieldset>
+					<h:panelGrid id="documento" columns="2">
+						<p:outputLabel for="cpf" value="CPF:" />
+						<p:inputText id="cpf" value="" />
+
+						<p:outputLabel for="cnpj" value="CNPJ:" />
+						<p:inputText id="cnpj" value="" />
+
+						<p:outputLabel for="rg" value="RG:" />
+						<p:inputText id="rg" value="" />
+
+					</h:panelGrid>
+					<p:panelGrid columns="2">
+						<p:commandButton value="Salvar" image="ui-icon-disk"
+							actionListener="#{funcionarioBean.salvar}"
+							update=":mensagem :formListagem:tabela :formEndereco:endereco" />
+
+						<p:commandButton value="Fechar" image="ui-icon-close"
+							oncomplete="PF('diaDocumento').hide();" />
+					</p:panelGrid>
+				</p:fieldset>
+			</h:form>
+		</p:dialog>
+
+	</ui:define>
+</ui:composition>
+
+</html>
