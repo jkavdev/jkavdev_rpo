@@ -10,17 +10,9 @@
 		<br />
 		<h:form>
 			<p:growl id="msgs" showDetail="true" />
-			<p:panel header="Cadastrar Questão" style="text-align:center;">
+			<p:panel header="Cadastrar Questão" id="painel"
+				style="text-align:center;">
 				<h:panelGrid columns="2" cellpadding="5" id="painelQuestao">
-
-					<p:outputLabel for="disciplina" value="Disciplina: " />
-					<p:selectOneMenu id="disciplina" converter="entityConverter"
-						value="#{questaoBean.questao.disciplina}" style="width:100%; ">
-						<f:selectItem itemLabel="Selecione a Disciplina" itemValue=""
-							noSelectionOption="true" />
-						<f:selectItems value="#{questaoBean.disciplinas}" var="d"
-							itemLabel="#{d.nome} " itemValue="#{d}" />
-					</p:selectOneMenu>
 
 					<p:outputLabel for="tipo" value="Tipo: " />
 					<p:selectOneMenu id="tipo" value="#{questaoBean.questao.tipo}"
@@ -32,6 +24,15 @@
 							itemValue="Certo ou Errado" />
 						<f:selectItem itemLabel="Multipla Escolha"
 							itemValue="Multipla Escolha" />
+					</p:selectOneMenu>
+
+					<p:outputLabel for="disciplina" value="Disciplina: " />
+					<p:selectOneMenu id="disciplina" converter="entityConverter"
+						value="#{questaoBean.questao.disciplina}" style="width:100%; ">
+						<f:selectItem itemLabel="Selecione a Disciplina" itemValue=""
+							noSelectionOption="true" />
+						<f:selectItems value="#{questaoBean.disciplinas}" var="d"
+							itemLabel="#{d.nome} " itemValue="#{d}" />
 					</p:selectOneMenu>
 
 					<p:outputLabel for="enunciado" value="Enunciado: " />
@@ -104,8 +105,7 @@
 
 				</h:panelGrid>
 				<p:commandButton value="Cadastrar Questão"
-					action="#{questaoBean.cadastrar}"
-					oncomplete="setTimeout(function() { $('#messages').hide(1000); }, 3000);" />
+					action="#{questaoBean.cadastrar}" update="painel" />
 				<p:messages id="messages" showDetail="true" autoUpdate="true"
 					closable="true" />
 			</p:panel>
