@@ -34,6 +34,18 @@
 					<f:convertDateTime pattern="dd/MM/yyyy" dateStyle="medium" locale="pt-BR" timeZone="America/Sao_Paulo"/>
 				</h:inputText>
 				
+				<h:outputLabel value="Bairro" id="bairro" />
+				<h:inputText for="bairro" value="#{funcionarioController.funcionario.endereco.bairro}" required="true" />
+				
+				<h:outputLabel value="CEP" id="cep" />
+				<h:inputText for="cep" value="#{funcionarioController.funcionario.endereco.cep}" required="true" />
+				
+				<h:outputLabel value="Complemento" id="complemento" />
+				<h:inputText for="complemento" value="#{funcionarioController.funcionario.endereco.complemento}" required="true" />
+				
+				<h:outputLabel value="Numero" id="numero" />
+				<h:inputText for="numero" value="#{funcionarioController.funcionario.endereco.numero}" required="true" />
+				
 				<h:commandButton action="#{funcionarioController.salvar}" value="Cadastrar" />
 			</h:panelGrid>
 		</h:form>

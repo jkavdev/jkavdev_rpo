@@ -1,0 +1,193 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<ui:composition template="/templates/modeloGeral.xhtml">
+	<ui:define name="conteudo">
+		<h:form id="formListagem">
+			<p:panel header="Listagem de Funcionários">
+				<p:dataTable id="tabela" emptyMessage="Nenhum Regisro Encontrado"
+					paginator="true" value="#{pessoaBean.pessoas}" var="fun" rows="10">
+
+					<p:column headerText="Nome">
+						<h:outputText value="#{fun.nome}" />
+					</p:column>
+					<p:column headerText="Sobrenome">
+						<h:outputText value="#{fun.sobrenome}" />
+					</p:column>
+					<p:column headerText="Data de Nascimento">
+						<h:outputText value="#{fun.dataNascimento}" />
+					</p:column>
+					<p:column headerText="Sexo">
+						<h:outputText value="#{fun.sexo}" />
+					</p:column>
+					<p:column headerText="Endereço">
+						<h:outputText value="#{fun.endereco.endereco}" />
+					</p:column>
+					<p:column headerText="CEP">
+						<h:outputText value="#{fun.endereco.CEP}" />
+					</p:column>
+					<p:column headerText="Complemento">
+						<h:outputText value="#{fun.endereco.complemento}" />
+					</p:column>
+					<p:column headerText="Cidade">
+						<h:outputText value="#{fun.endereco.cidade.nome}" />
+					</p:column>
+
+					<p:column>
+						<f:facet name="header">
+							<p:commandButton value="Adicionar" image="ui-icon-plus"
+								oncomplete="PF('dialogo').show();"
+								actionListener="#{funcionarioBean.novo()}"
+								update=" :mensagem :formCadastro:painel">
+								<f:actionListener
+									type="org.omnifaces.eventlistener.ResetInputAjaxActionListener" />
+							</p:commandButton>
+						</f:facet>
+
+						<p:commandButton icon="ui-icon-trash"
+							actionListener="#{funcionarioBean.excluir()}"
+							update=":mensagem :formListagem:tabela">
+							<p:confirm header="Confirmação"
+								message="Deseja Excluir o Usuário?" icon="ui-icon-alert" />
+
+							<f:attribute name="usuarioSelecionado" value="#{funcionario}" />
+						</p:commandButton>
+
+						<p:commandButton icon="ui-icon-pencil"
+							actionListener="#{funcionarioBean.editar()}"
+							update=":mensagem formCadastro:painel"
+							oncomplete="PF('dialogo').show();">
+							<f:attribute name="funcionarioSelecionado" value="#{funcionario}" />
+						</p:commandButton>
+					</p:column>
+				</p:dataTable>
+
+				<p:confirmDialog global="true">
+					<p:commandButton value="Sim" type="button"
+						styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+					<p:commandButton value="Não" type="button"
+						styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+				</p:confirmDialog>
+			</p:panel>
+		</h:form>
+
+		<p:dialog header="Cadastro de Funcionários" widgetVar="dialogo"
+			draggable="false" resizable="false" modal="true" appendTo="@(body)"
+			width="auto" height="auto">
+
+			<h:form id="formCadastro">
+				<p:fieldset>
+
+					<h:panelGrid id="painel" columns="4">
+						<p:outputLabel for="nom" value="Nome: " />
+						<p:inputText id="nom" size="40" value="#{pessoaBean.pessoa.nome}"
+							required="true" requiredMessage="O campo 'NOME' é Obrigatório!" />
+
+						<p:outputLabel for="sob" value="Sobrenome:" />
+						<p:inputText id="sob" size="40"
+							value="#{pessoaBean.pessoa.sobrenome}" required="true"
+							requiredMessage="O campo SOBRENOME é obrigatório!" />
+
+						<p:outputLabel for="sex" value="Sexo:" />
+						<p:selectOneRadio id="sex" value="#{pessoaBean.pessoa.sexo}"
+							required="true" requiredMessage="O campo 'SEXO' é obrigatório!">
+							<f:selectItem itemLabel="Masculino" itemValue="Masculino" />
+							<f:selectItem itemLabel="Feminino" itemValue="Feminino" />
+						</p:selectOneRadio>
+
+						<p:outputLabel for="car" value="Cargo: " />
+						<p:selectOneMenu id="car" required="true"
+							requiredMessage="O campo 'CARGO' é obrigatório!" filter="true">
+							<f:selectItem noSelectionOption="true"
+								itemLabel="Selecione o Cargo" />
+							<f:selectItems value="#{funcionarioBean.funcionarios}" var="fun"
+								itemValue="#{fun}" itemLabel="#{fun.cargo}" />
+						</p:selectOneMenu>
+
+						<p:outputLabel for="dat" value="Data de Nascimento: " />
+						<p:calendar id="dat" required="true"
+							value="#{pessoaBean.pessoa.dataNascimento}"
+							requiredMessage="O campo 'DATA DE NASCIMENTO' é obrigatório!"
+							locale="pt_BR" />
+
+						<p:outputLabel for="em" value="E-mail: " />
+						<p:inputText id="em" size="40"
+							value="#{pessoaBean.pessoa.contato.email}" required="true"
+							requiredMessage="O campo 'E-MAIL' é obrigatório!" />
+
+						<p:outputLabel for="rg" value="RG: " />
+						<p:inputText id="rg" maxlength="20" size="20"
+							value="#{pessoaBean.pessoa.documento.RG}" required="true"
+							requiredMessage="O campo 'RG' é obrigatório!" />
+
+						<p:outputLabel for="cpf" value="CPF: " />
+						<p:inputMask id="cpf" mask="999.999.999-99" size="13"
+							value="#{pessoaBean.pessoa.documento.CPF}" required="true"
+							requiredMessage="O campo 'CPF' é obrigatório!" />
+
+						<p:outputLabel for="ddd" value="DDD: " />
+						<p:inputMask id="ddd" mask="999" size="5"
+							value="#{pessoaBean.pessoa.contato.DDD}" />
+
+						<p:outputLabel for="telefone" value="Telefone:" />
+						<p:inputMask id="telefone"
+							value="#{pessoaBean.pessoa.contato.telefone}" mask="99999-9999"
+							size="15" />
+
+						<p:outputLabel for="end" value="Endereço: " />
+						<p:inputText id="end" size="40"
+							value="#{pessoaBean.pessoa.endereco.endereco}" required="true"
+							requiredMessage="O campo 'ENDEREÇO' é obrigatório!" />
+
+						<p:outputLabel for="bai" value="Bairro: " />
+						<p:inputText id="bai" size="40" value="" required="true"
+							requiredMessage="O campo 'BAIRRO' é obrigatório!" />
+
+						<p:outputLabel for="cep" value="CEP:" />
+						<p:inputMask mask="99999-999" id="cep" maxlength="20" size="20"
+							value="#{pessoaBean.pessoa.endereco.CEP}" required="true"
+							requiredMessage="O campo 'CEP' é obrigatório!" />
+
+						<p:outputLabel for="comp" value="Complemento: " />
+						<p:inputText id="comp" size="40"
+							value="#{pessoaBean.pessoa.endereco.complemento}" />
+
+						<p:outputLabel for="est" value="Estado:" />
+						<p:selectOneMenu id="est" required="true"
+							requiredMessage="O campo 'ESTADO' é obrigatório!" filter="true"
+							converter="omnifaces.SelectItemsConverter">
+							<f:selectItem noSelectionOption="true"
+								itemLabel="Selecione o Estado" />
+							<f:selectItems value="#{estadoBean.estados}" var="estado"
+								itemValue="#{estado}"
+								itemLabel="#{estado.nome} - #{estado.sigla}" />
+						</p:selectOneMenu>
+
+						<p:outputLabel for="cid" value="Cidade: " />
+						<p:selectOneMenu id="cid" required="false"
+							requiredMessage="O campo 'CIDADE' é obrigatório!"
+							converter="omnifaces.SelectItemsConverter">
+							<f:selectItem noSelectionOption="true"
+								itemLabel="Selecione a Cidade" />
+							<f:selectItems value="#{cidadeBean.cidades} " var="cidade"
+								itemValue="#{cidade}" itemLabel="#{cidade.nome}" />
+						</p:selectOneMenu>
+
+					</h:panelGrid>
+				</p:fieldset>
+
+				<p:panel>
+					<p:commandButton value="Salvar" image="ui-icon-disk"
+						actionListener="#{pessoaBean.salvar()}"
+						update=":mensagem :formCadastro:painel :formListagem:tabela" />
+					<p:commandButton value="Fechar" image="ui-icon-close"
+						oncomplete="PF('dialogo').hide();" />
+				</p:panel>
+			</h:form>
+		</p:dialog>
+	</ui:define>
+</ui:composition>
+</html>
