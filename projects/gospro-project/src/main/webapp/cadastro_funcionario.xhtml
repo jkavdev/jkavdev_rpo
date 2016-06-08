@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+	<h:head>
+		<title>Cadastro de Funcionarios</title>
+	</h:head>
+	
+	<h:body>
+		<h1>Cadastro de Funcionarios</h1>
+		<hr />
+		
+		<h:form>
+			<h:messages />
+			
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Nome" for="nome" />
+				<h:inputText id="nome" value="#{funcionarioController.funcionario.nome}" required="true" />
+				
+				<h:outputLabel value="Sobrenome" for="sobrenome" />
+				<h:inputText id="sobrenome" value="#{funcionarioController.funcionario.sobrenome}" />
+				
+				<h:outputLabel value="RG" id="rg" />
+				<h:inputText for="rg" value="#{funcionarioController.funcionario.rg}" required="true" />
+				
+				<h:outputLabel value="CPF" id="cpf" />
+				<h:inputText for="cpf" value="#{funcionarioController.funcionario.cpf}" required="true" />
+				
+				<h:outputLabel value="Data de Nascimento" id="nascimento" />
+				<h:inputText for="nascimento" value="#{funcionarioController.funcionario.dataNascimento.time}" required="true" >
+					<f:convertDateTime pattern="dd/MM/yyyy" dateStyle="medium" locale="pt-BR" timeZone="America/Sao_Paulo"/>
+				</h:inputText>
+				
+				<h:commandButton action="#{funcionarioController.salvar}" value="Cadastrar" />
+			</h:panelGrid>
+		</h:form>
+	</h:body>
+
+</html>

@@ -38,6 +38,8 @@ public abstract class Pessoa implements Serializable {
 
 	public Pessoa() {
 		super();
+		dataCadastro = Calendar.getInstance();
+		dataNascimento = Calendar.getInstance();
 	}
 
 	public Pessoa(Calendar dataCadastro, String nome, String sobrenome,
