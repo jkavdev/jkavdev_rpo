@@ -2,11 +2,12 @@ package br.com.gospro.model;
 
 import java.util.Calendar;
 
+import javax.persistence.AssociationOverride;
 import javax.persistence.Entity;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.JoinColumn;
 
 @Entity
-@PrimaryKeyJoinColumn(name = "func_codigo")
+@AssociationOverride(name = "codigo", joinColumns = @JoinColumn(name = "funcionario_codigo"))
 public class Funcionario extends Pessoa {
 
 	private static final long serialVersionUID = 1L;

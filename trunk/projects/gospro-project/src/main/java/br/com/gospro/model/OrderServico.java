@@ -4,10 +4,12 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Calendar;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class OrderServico implements Serializable {
@@ -25,7 +27,8 @@ public class OrderServico implements Serializable {
 	private BigDecimal valorTotal;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue
 	public Long getCodigo() {
 		return codigo;
 	}
@@ -34,6 +37,8 @@ public class OrderServico implements Serializable {
 		this.codigo = codigo;
 	}
 
+	@Column(name="data_abertura")
+	@Temporal(TemporalType.DATE)
 	public Calendar getDataAbertura() {
 		return dataAbertura;
 	}
@@ -42,6 +47,8 @@ public class OrderServico implements Serializable {
 		this.dataAbertura = dataAbertura;
 	}
 
+	@Column(name="data_encerramento")
+	@Temporal(TemporalType.DATE)
 	public Calendar getDataEncerramento() {
 		return dataEncerramento;
 	}
@@ -58,6 +65,7 @@ public class OrderServico implements Serializable {
 		this.observacoes = observacoes;
 	}
 
+	@Column(name="peca_utilizada")
 	public String getPecaUtilizada() {
 		return pecaUtilizada;
 	}
@@ -74,6 +82,7 @@ public class OrderServico implements Serializable {
 		this.problema = problema;
 	}
 
+	@Column(name="servico_executado")
 	public String getServicoExecutado() {
 		return servicoExecutado;
 	}
@@ -82,6 +91,7 @@ public class OrderServico implements Serializable {
 		this.servicoExecutado = servicoExecutado;
 	}
 
+	@Column(name="valor_parcial")
 	public BigDecimal getValorPacial() {
 		return valorPacial;
 	}
@@ -90,6 +100,7 @@ public class OrderServico implements Serializable {
 		this.valorPacial = valorPacial;
 	}
 
+	@Column(name="valor_total")
 	public BigDecimal getValorTotal() {
 		return valorTotal;
 	}

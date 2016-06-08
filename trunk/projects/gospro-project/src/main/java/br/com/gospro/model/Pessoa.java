@@ -8,7 +8,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -53,7 +52,8 @@ public abstract class Pessoa implements Serializable {
 	}
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	// @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue
 	public Long getCodigo() {
 		return codigo;
 	}
@@ -62,6 +62,8 @@ public abstract class Pessoa implements Serializable {
 		this.codigo = codigo;
 	}
 
+	@Column(name = "data_cadastro")
+	@Temporal(TemporalType.DATE)
 	public Calendar getDataCadastro() {
 		return dataCadastro;
 	}
@@ -88,7 +90,7 @@ public abstract class Pessoa implements Serializable {
 		this.sobrenome = sobrenome;
 	}
 
-	@Column(name = "dt_nascimento")
+	@Column(name = "data_nascimento")
 	@Temporal(TemporalType.DATE)
 	public Calendar getDataNascimento() {
 		return dataNascimento;
