@@ -10,10 +10,6 @@
 	<ui:define name="corpo">
 		<br />
 		<ui:include src="WEB-INF/templates/_menu-admin.xhtml"></ui:include>
-		<p:separator></p:separator>
-		<p:messages id="messages" showDetail="true" autoUpdate="true"
-			closable="true" />
-		<p:separator></p:separator>
 		<h:form>
 			<p:growl id="msgs" showDetail="true" styleClass="growl-estilo" />
 			<p:panel header="Cadastrar Prova" styleClass="painel-simulado">
@@ -66,7 +62,9 @@
 					<p:outputLabel value="Data: *" for="data" />
 					<p:inputMask mask="99/99/9999" value="#{provaBean.data}" id="data"></p:inputMask>
 
-					<p:commandButton action="#{provaBean.cadastrar}" value="Cadastrar"></p:commandButton>
+					<p:commandButton action="#{provaBean.cadastrar}" value="Cadastrar" />
+					<p:messages id="messages" showDetail="true" autoUpdate="true"
+						closable="true" />
 				</h:panelGrid>
 			</p:panel>
 		</h:form>

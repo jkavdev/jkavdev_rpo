@@ -10,10 +10,6 @@
 	<ui:define name="corpo">
 		<br />
 		<ui:include src="WEB-INF/templates/_menu-admin.xhtml"></ui:include>
-		<p:separator></p:separator>
-		<p:messages id="messages" showDetail="true" autoUpdate="true"
-			closable="true" />
-		<p:separator></p:separator>
 		<h:form>
 			<p:growl id="msgs" showDetail="true" styleClass="growl-estilo" />
 			<p:panel header="Cadastrar Area" styleClass="painel-simulado">
@@ -22,6 +18,8 @@
 					<p:inputText value="#{areaBean.area.nome}" id="nome" />
 
 					<p:commandButton action="#{areaBean.salvar}" value="Cadastrar"></p:commandButton>
+					<p:messages id="messages" showDetail="true" autoUpdate="true"
+						closable="true" />
 				</h:panelGrid>
 			</p:panel>
 		</h:form>

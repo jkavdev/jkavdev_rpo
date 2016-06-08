@@ -9,10 +9,7 @@
 	<ui:define name="corpo">
 		<br />
 		<h:form>
-			<p:messages id="messages" showDetail="true" autoUpdate="true"
-				closable="true" />
 			<p:growl id="msgs" showDetail="true" />
-
 			<p:panel header="Cadastrar Questão" style="text-align:center;">
 				<h:panelGrid columns="2" cellpadding="5" id="painelQuestao">
 
@@ -107,7 +104,10 @@
 
 				</h:panelGrid>
 				<p:commandButton value="Cadastrar Questão"
-					action="#{questaoBean.iniciar}" />
+					action="#{questaoBean.cadastrar}"
+					oncomplete="setTimeout(function() { $('#messages').hide(1000); }, 3000);" />
+				<p:messages id="messages" showDetail="true" autoUpdate="true"
+					closable="true" />
 			</p:panel>
 		</h:form>
 

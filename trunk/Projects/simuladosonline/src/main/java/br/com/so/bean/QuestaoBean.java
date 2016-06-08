@@ -3,7 +3,10 @@ package br.com.so.bean;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
@@ -17,6 +20,7 @@ import br.com.so.dao.interfacesDao.IProvaDao;
 import br.com.so.modelo.Prova;
 import br.com.so.modelo.Questao;
 import br.com.so.util.AlfabetoUtil;
+import br.com.so.util.jsf.FacesUtil;
 import br.com.so.modelo.Disciplina;
 import br.com.so.modelo.Opcao;
 
@@ -35,11 +39,9 @@ public class QuestaoBean implements Serializable {
 
 	@Inject
 	private Questao questao;
-	private HashMap<String, Opcao> opcoes;
+	private Map<String, Opcao> opcoes;
 	private String nomeOpcaoSelecionada;
 	private List<String> keyList;
-	@Inject
-	private Disciplina disciplia;
 
 	private int contador = 0;
 
@@ -83,17 +85,39 @@ public class QuestaoBean implements Serializable {
 		return contador;
 	}
 
-	public void iniciar() {
-		if (questao != null) {
-			if (!questao.getDisciplina().getNome().equals("")) {
-				if (questao.getTipo().equalsIgnoreCase("Certo ou Errado")) {
-
-				} else if (questao.getTipo().equalsIgnoreCase("Multipla Escolha")) {
-
+	public void cadastrar() {
+		System.out.println("OK");
+		if (questao.getEnunciado() != null && !questao.getEnunciado().trim().equals("")) {
+			if (questao.getTipo().equals("Multipla Escolha")) {
+				if (opcoes != null && !opcoes.isEmpty() && questao.getDisciplina() != null
+						&& !questao.getDisciplina().getNome().trim().equals("") && questao.getResposta() != null
+						&& !questao.getResposta().trim().equals("")) {
+					List<Opcao> listaOpcoes = new ArrayList<>();
+					for (Map.Entry<String, Opcao> nomes : opcoes.entrySet()) {
+						nomes.getValue().setNome(nomes.getKey() + ") " + nomes.getValue().getNome());
+						listaOpcoes.add(nomes.getValue());
+						System.out.println(questao.getResposta());
+					}
+					questao.setOpcoes(listaOpcoes);
+					FacesUtil.addSuccessMessage("Questão Cadastrada com Sucesso!");
+					opcoes = new HashMap<>();
+					questao.setEnunciado(null);
+					questao.setResposta(null);
 				} else {
-
+					FacesUtil.addWarnMessage("Todos os campos devem ser preenchidos!");
 				}
+			} else if (questao.getTipo().equals("Certo ou Errado")) {
+				if (questao.getResposta() != null && !questao.getResposta().trim().equals("")) {
+					System.out.println(questao.getResposta());
+					FacesUtil.addSuccessMessage("Questão Cadastrada com Sucesso!");
+				} else {
+					FacesUtil.addWarnMessage("Selecione uma resposta para Questão!");
+				}
+			} else {
+				FacesUtil.addWarnMessage("Selecione um tipo para a Questão!");
 			}
+		} else {
+			FacesUtil.addWarnMessage("Todos os campos devem ser preenchidos!");
 		}
 	}
 
@@ -125,7 +149,7 @@ public class QuestaoBean implements Serializable {
 		return provas;
 	}
 
-	public HashMap<String, Opcao> getOpcoes() {
+	public Map<String, Opcao> getOpcoes() {
 		return opcoes;
 	}
 
@@ -139,14 +163,6 @@ public class QuestaoBean implements Serializable {
 
 	public List<String> getKeyList() {
 		return keyList;
-	}
-
-	public Disciplina getDisciplia() {
-		return disciplia;
-	}
-
-	public void setDisciplia(Disciplina disciplia) {
-		this.disciplia = disciplia;
 	}
 
 	public List<Disciplina> getDisciplinas() {

@@ -10,10 +10,6 @@
 	<ui:define name="corpo">
 		<br />
 		<ui:include src="WEB-INF/templates/_menu-admin.xhtml"></ui:include>
-		<p:separator></p:separator>
-		<p:messages id="messages" showDetail="true" autoUpdate="true"
-			closable="true" />
-		<p:separator></p:separator>
 		<h:form>
 			<p:growl id="msgs" showDetail="true" styleClass="growl-estilo" />
 			<p:panel header="Cadastrar Disciplina" styleClass="painel-simulado">
@@ -22,7 +18,9 @@
 					<p:inputText value="#{disciplinaBean.disciplina.nome}" id="nome" />
 
 					<p:commandButton action="#{disciplinaBean.salvar}"
-						value="Cadastrar"></p:commandButton>
+						value="Cadastrar" />
+					<p:messages id="messages" showDetail="true" autoUpdate="true"
+						closable="true" />
 				</h:panelGrid>
 			</p:panel>
 		</h:form>
