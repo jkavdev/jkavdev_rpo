@@ -11,11 +11,12 @@
 	<entity class="br.com.gospro.model.Equipamento" />
 	<entity class="br.com.gospro.model.Estado" />
 	<entity class="br.com.gospro.model.Funcionario" />
-	<entity class="br.com.gospro.model.Usuario" />
 	<entity class="br.com.gospro.model.OrderServico" />
 	<entity class="br.com.gospro.model.Pessoa" />
 	<entity class="br.com.gospro.model.Servico" />
-	<entity class="br.com.gospro.model.Cidade" />
 	<entity class="br.com.gospro.model.Status" />
+	<entity class="br.com.gospro.model.Usuario" />
+
+
 
 </entity-mappings>
