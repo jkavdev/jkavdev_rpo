@@ -13,6 +13,7 @@
 	<entity class="br.com.gospro.model.Servico" />
 	<entity class="br.com.gospro.model.OrderServico" />
 	<entity class="br.com.gospro.model.Endereco" />
+	<entity class="br.com.gospro.model.Cidade" />
 	<entity class="br.com.gospro.model.Status" />
 	<entity class="br.com.gospro.model.Estado" />
 

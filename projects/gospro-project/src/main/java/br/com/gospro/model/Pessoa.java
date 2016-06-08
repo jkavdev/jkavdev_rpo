@@ -32,8 +32,8 @@ public abstract class Pessoa implements Serializable {
 	private String cpf;
 	private String rg;
 	private Usuario usuario;
-
 	private List<Contato> contatos;
+	private Endereco endereco;
 
 	public Pessoa() {
 		super();
@@ -144,6 +144,16 @@ public abstract class Pessoa implements Serializable {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+
+	@OneToOne
+	@JoinColumn(name = "endereco_codigo")
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
 	}
 
 }
