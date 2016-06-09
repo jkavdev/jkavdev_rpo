@@ -24,6 +24,8 @@ public class Questao implements Serializable {
 	private String tipo;
 	private String enunciado;
 	private Prova prova;
+	private String texto;
+	private String referenciaTexto;
 
 	public String getEnunciado() {
 		return enunciado;
@@ -87,6 +89,22 @@ public class Questao implements Serializable {
 
 	public void setProva(Prova prova) {
 		this.prova = prova;
+	}
+
+	public String getTexto() {
+		return texto;
+	}
+
+	public void setTexto(String texto) {
+		this.texto = texto;
+	}
+
+	public String getReferenciaTexto() {
+		return referenciaTexto;
+	}
+
+	public void setReferenciaTexto(String referenciaTexto) {
+		this.referenciaTexto = referenciaTexto;
 	}
 
 }

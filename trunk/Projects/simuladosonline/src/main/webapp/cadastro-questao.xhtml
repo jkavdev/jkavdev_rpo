@@ -8,13 +8,14 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 	<ui:define name="corpo">
 		<br />
+		<ui:include src="WEB-INF/templates/_menu-admin.xhtml" />
 		<h:form>
 			<p:growl id="msgs" showDetail="true" />
 			<p:panel header="Cadastrar Questão" id="painel"
 				style="text-align:center;">
 				<h:panelGrid columns="2" cellpadding="5" id="painelQuestao">
 
-					<p:outputLabel for="tipo" value="Tipo: " />
+					<p:outputLabel for="tipo" value="Tipo: *" />
 					<p:selectOneMenu id="tipo" value="#{questaoBean.questao.tipo}"
 						style="width:100%; ">
 						<p:ajax event="change" update="painelQuestao"></p:ajax>
@@ -26,7 +27,7 @@
 							itemValue="Multipla Escolha" />
 					</p:selectOneMenu>
 
-					<p:outputLabel for="disciplina" value="Disciplina: " />
+					<p:outputLabel for="disciplina" value="Disciplina: *" />
 					<p:selectOneMenu id="disciplina" converter="entityConverter"
 						value="#{questaoBean.questao.disciplina}" style="width:100%; ">
 						<f:selectItem itemLabel="Selecione a Disciplina" itemValue=""
@@ -35,9 +36,16 @@
 							itemLabel="#{d.nome} " itemValue="#{d}" />
 					</p:selectOneMenu>
 
-					<p:outputLabel for="enunciado" value="Enunciado: " />
+					<p:outputLabel for="texto" value="Texto: " />
+					<p:inputTextarea value="#{questaoBean.questao.texto}" id="texto" />
+
+					<p:outputLabel for="referencia" value="Referencia Texto: " />
+					<p:inputTextarea value="#{questaoBean.questao.referenciaTexto}"
+						id="referencia" />
+
+					<p:outputLabel for="enunciado" value="Enunciado: * " />
 					<p:inputTextarea value="#{questaoBean.questao.enunciado}"
-						id="enunciado"></p:inputTextarea>
+						id="enunciado" />
 
 					<p:outputLabel for="prova" value="Prova: " />
 					<p:selectOneMenu id="prova" converter="entityConverter"
@@ -49,7 +57,7 @@
 							itemValue="#{p}" />
 					</p:selectOneMenu>
 
-					<p:outputLabel for="resposta" value="Resposta: "
+					<p:outputLabel for="resposta" value="Resposta: * "
 						rendered="#{questaoBean.questao.tipo == 'Certo ou Errado'}" />
 					<p:selectOneMenu id="resposta"
 						value="#{questaoBean.questao.resposta}" style="width:100%; "
@@ -60,7 +68,7 @@
 						<f:selectItem itemLabel="Errado" itemValue="Errado" />
 					</p:selectOneMenu>
 
-					<p:outputLabel for="opcao" value="Opção: "
+					<p:outputLabel for="opcao" value="Opção: * "
 						rendered="#{questaoBean.questao.tipo == 'Multipla Escolha'}" />
 					<p:inputTextarea value="#{questaoBean.nomeOpcaoSelecionada}"
 						id="opcao"
@@ -92,7 +100,7 @@
 						</p:column>
 					</p:dataTable>
 
-					<p:outputLabel for="resposta-multipla" value="Resposta: "
+					<p:outputLabel for="resposta-multipla" value="Resposta: * "
 						rendered="#{questaoBean.questao.tipo == 'Multipla Escolha'}" />
 					<p:selectOneMenu id="resposta-multipla"
 						value="#{questaoBean.questao.resposta}" style="width:100%; "

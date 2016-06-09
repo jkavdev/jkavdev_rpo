@@ -10,7 +10,8 @@
 		<br />
 		<h:form>
 			<p:growl id="msgs" showDetail="true" />
-			<p:panel header="Selecione um Simulado" style="text-align:center;">
+			<p:panel header="Selecione um Simulado" id="painel"
+				style="text-align:center;">
 				<h:panelGrid columns="2" cellpadding="5">
 					<p:outputLabel for="instituicao" value="Instituicao: " />
 					<p:selectOneMenu id="instituicao" converter="entityConverter"
