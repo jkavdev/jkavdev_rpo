@@ -3,6 +3,7 @@ package br.com.so.modelo;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -49,7 +50,7 @@ public class Questao implements Serializable {
 		this.opcoes = opcoes;
 	}
 
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "opcao_questao")
 	public List<Opcao> getOpcoes() {
 		return opcoes;
