@@ -15,6 +15,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.primefaces.context.RequestContext;
+import org.primefaces.model.UploadedFile;
 
 import br.com.so.dao.interfacesDao.IDisciplinaDao;
 import br.com.so.dao.interfacesDao.IProvaDao;
@@ -123,6 +124,8 @@ public class QuestaoBean implements Serializable {
 		keyList = new ArrayList<>();
 		questao.setEnunciado(null);
 		questao.setResposta(null);
+		questao.setTexto(null);
+		questao.setReferenciaTexto(null);
 	}
 
 	public Questao getQuestao() {

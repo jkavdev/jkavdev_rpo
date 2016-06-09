@@ -15,9 +15,7 @@
 	<div id="cabecalho">
 
 		<div class="titulo">
-			<a href="home.xhtml"><h:graphicImage library="imagens"
-					name="logo.png" id="logo" /></a> <a id="titulo-texto"
-				href="home.xhtml">Simulados Online</a>
+			<a id="titulo-texto" href="home.xhtml">Titulo</a>
 		</div>
 
 		<div id="menu-topo">
@@ -37,13 +35,13 @@
 				<div class="perfil" style="float: right;">
 					<div id="icone_perfil">
 						<button class="perfilbtn">
-							<h:graphicImage library="imagens" name="perfil_icon.png"
+							<h:graphicImage library="imagens" name="icone_perfil.png"
 								styleClass="imagem_perfil" />
 						</button>
 						<div class="perfil-conteudo">
 							<a href="#">Perfil</a> <a href="caderno.xhtml">Cadernos</a> <a
 								href="#">Simulados Realizados</a> <a href="tela-admin.xhtml">Painel
-								ADMIN</a> <a href="#">Sair</a>
+								ADMIN</a><a href="tela-admin.xhtml">Questões</a><a href="#">Sair</a>
 						</div>
 					</div>
 				</div>
@@ -58,6 +56,25 @@
 		<ui:insert name="corpo" />
 		<div class="push"></div>
 	</div>
-	<div id="rodape">CopyRight. Todos os direitos reservados.</div>
+	<div class="page-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col l6 s12">
+					<h5 class="texto-site-titulo">Titulo</h5>
+					<p class="texto-site">Simulados e questões online, estude onde
+						e quando quiser.</p>
+				</div>
+				<div class="col l4 offset-l2 s12">
+					<h5 class="texto-redes">Redes Sociais</h5>
+					<ul>
+						<li><a class="links-redes" href="#!">Facebook</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright">
+			<div class="container">@Copyright 2016</div>
+		</div>
+	</div>
 </h:body>
 </html>

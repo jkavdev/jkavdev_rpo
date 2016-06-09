@@ -11,11 +11,10 @@ public class Usuario {
 	private String endereco;
 	private String email;
 	private int tipoConta;
-	
-	//Informacoes externas
+
 	private Caderno caderno;
 	private InformacoesEstudo informacoes;
-	
+
 	public String getTelefone() {
 		return telefone;
 	}
