@@ -15,12 +15,16 @@
 		<hibernate.version>5.1.0.Final</hibernate.version>
 		<!-- Driver MySQL -->
 		<mysql.connector.version>5.1.38</mysql.connector.version>
+		<!-- Driver PostgreSQL -->
+		<postgres.connector.version>9.4.1208</postgres.connector.version>
 		<!-- Primefaces -->
 		<primefaces.version>5.3</primefaces.version>
 		<!-- Primefaces Theme -->
 		<prime.theme.version>1.0.8</prime.theme.version>
 		<!-- JSF Version -->
 		<javax.faces.version>2.2.13</javax.faces.version>
+		<!-- OmniFaces - Utilitario do JSF -->
+		<omnifaces.version>2.3</omnifaces.version>
 		<!-- Weld - Implementação do CDI -->
 		<weld.version>2.2.10.Final</weld.version>
 		<!-- Weld depende do Jandex -->
@@ -87,6 +91,12 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.omnifaces</groupId>
+			<artifactId>omnifaces</artifactId>
+			<version>${omnifaces.version}</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>${hibernate.version}</version>
@@ -112,6 +122,12 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${mysql.connector.version}</version>
 			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>${postgres.connector.version}</version>
 		</dependency>
 
 		<dependency>
