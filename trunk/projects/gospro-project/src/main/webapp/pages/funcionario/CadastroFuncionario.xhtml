@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/WEB-INF/templates/LayoutPadrao.xhtml">
+	<ui:define name="conteudo">
+		<p:panel id="panelFuncionario" header="Funcionarios">
+			<h:form id="formCadastro">
+					<p:button value="Pesquisa" outcome="/pages/funcionario/PesquisaFuncionario"/>
+					
+				<p:fieldset>
+	
+					<h:panelGrid id="painel" columns="2">
+						<p:outputLabel for="nom" value="Nome: " />
+						<p:inputText id="nom" size="40" value="#{funcionarioController.funcionario.nome}" required="true" requiredMessage="O campo 'NOME' é Obrigatório!" />
+	
+						<p:outputLabel for="sex" value="Sexo:" />
+						<p:selectOneRadio id="sex" value="#{funcionarioController.funcionario.sexo}" required="true" requiredMessage="O campo 'SEXO' é obrigatório!">
+							<f:selectItems value="#{funcionarioController.sexos}" var="sexo" itemLabel="#{sexo.descricao}" itemValue="#{sexo}"/>
+						</p:selectOneRadio>
+	
+						<p:outputLabel for="car" value="Cargo: " />
+						<p:inputText id="car" size="40" value="#{funcionarioController.funcionario.cargo}" required="true" requiredMessage="O campo 'NOME' é Obrigatório!" />
+	
+						<p:outputLabel for="dat" value="Data de Nascimento: " />
+						<p:calendar id="dat" required="true" value="#{funcionarioController.funcionario.dataNascimento.time}" requiredMessage="O campo 'DATA DE NASCIMENTO' é obrigatório!" locale="pt_BR" >
+							<f:convertDateTime pattern="dd/MM/yyyy" dateStyle="medium" locale="pt_BR" timeZone="America/Sao_Paulo"/>
+						</p:calendar>
+	
+						<p:outputLabel for="rg" value="RG: " />
+						<p:inputText id="rg" maxlength="20" size="20" value="#{funcionarioController.funcionario.rg}" required="true" requiredMessage="O campo 'RG' é obrigatório!" />
+	
+						<p:outputLabel for="cpf" value="CPF: " />
+						<p:inputMask id="cpf" mask="999.999.999-99" size="13" value="#{funcionarioController.funcionario.cpf}" required="true" requiredMessage="O campo 'CPF' é obrigatório!" />
+	
+					</h:panelGrid>
+					
+					<p:commandButton value="Salvar" image="ui-icon-disk" actionListener="#{funcionarioController.salvar}" />
+				</p:fieldset>
+			</h:form>
+		</p:panel>
+	</ui:define>
+</ui:composition>
+
+</html>

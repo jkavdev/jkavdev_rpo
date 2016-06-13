@@ -17,12 +17,14 @@
 		<mysql.connector.version>5.1.38</mysql.connector.version>
 		<!-- Primefaces -->
 		<primefaces.version>5.3</primefaces.version>
+		<!-- Primefaces Theme -->
+		<prime.theme.version>1.0.8</prime.theme.version>
 		<!-- JSF Version -->
 		<javax.faces.version>2.2.13</javax.faces.version>
 		<!-- Weld - Implementação do CDI -->
-		<weld.version>2.3.4.Final</weld.version>
+		<weld.version>2.2.10.Final</weld.version>
 		<!-- Weld depende do Jandex -->
-		<jandex.version>2.0.2.Final</jandex.version>
+		<jandex.version>1.2.3.Final</jandex.version>
 		<!-- C3p0 - DataSource and ConnectionPool -->
 		<c3p0.version>0.9.5.2</c3p0.version>
 		<!-- JUnit - Testes -->
@@ -69,6 +71,12 @@
 			<artifactId>primefaces</artifactId>
 			<version>${primefaces.version}</version>
 			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.extensions</groupId>
+			<artifactId>all-themes</artifactId>
+			<version>${prime.theme.version}</version>
+			<type>pom</type>
 		</dependency>
 
 		<dependency>

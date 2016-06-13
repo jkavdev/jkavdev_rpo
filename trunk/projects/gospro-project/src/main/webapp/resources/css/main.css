@@ -1,0 +1,21 @@
+.ui-widget{
+	font-size: 90% !important;	
+}
+
+.ui-panelmenu .ui-panelmenu-header a{
+	color: black;
+}
+
+#mainHeader{
+	font-family: Verdana, sans-serif;
+	color: black;
+	font-size: 60px;
+	font-weight: bolder;
+}
+
+#mainFooter{
+	font-family: Verdana, sans-serif;
+	color: greyk;
+	font-size: 10px;
+	font-weight: bolder;
+}

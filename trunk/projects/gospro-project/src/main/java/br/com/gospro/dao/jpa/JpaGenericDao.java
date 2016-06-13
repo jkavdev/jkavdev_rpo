@@ -16,7 +16,7 @@ import br.com.gospro.util.jpa.Transactional;
 public class JpaGenericDao<T, ID extends Serializable> implements GenericDao<T, ID> {
 
 	@Inject
-	EntityManager manager;
+	private EntityManager manager;
 	private Class<T> entidade;
 
 	@SuppressWarnings("unchecked")
@@ -55,6 +55,10 @@ public class JpaGenericDao<T, ID extends Serializable> implements GenericDao<T, 
 		Root<T> root = criteriaQuery.from(entidade);
 
 		return this.manager.createQuery(criteriaQuery).getResultList();
+	}
+
+	public EntityManager getManager() {
+		return manager;
 	}
 
 }
