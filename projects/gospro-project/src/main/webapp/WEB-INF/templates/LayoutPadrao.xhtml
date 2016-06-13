@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<h:outputStylesheet library="css" name="main.css"/>
+	<title>GosProo</title>
+</h:head>
+<h:body>
+	<p:growl id="mensagem" />
+
+	<div id="geral">
+		<p:layout fullPage="true">
+			<p:layoutUnit position="north" resizable="false" size="74">
+				<h:form>
+					<p:toolbar>
+						<p:toolbarGroup align="right">
+							<p:panelGrid columns="3">
+								<h:outputText value="Bem vindo!_" />
+								<p:commandButton value="Sair" image="ui-icon-power" />
+							</p:panelGrid>
+						</p:toolbarGroup>
+					</p:toolbar>
+				</h:form>
+			</p:layoutUnit>
+
+			<p:layoutUnit header="LOGO DO SISTEMA" size="200" position="west" resizable="false" closable="false" collapsible="false">
+				<h:form id="form">
+					<p:panelMenu style="widht:300px">
+						<p:submenu label="Minha Empresa">
+							<p:menuitem value="Usuário" />
+							<p:menuitem value="Funcionário" />
+							<p:menuitem value="Estado" />
+							<p:menuitem value="Cidade" />
+							<p:menuitem value="Serviços" />
+						</p:submenu>
+
+						<p:submenu label="Cadastros">
+							<p:menuitem value="Cliente" />
+							<p:menuitem value="Equipamento" />
+							<p:menuitem value="Nova OS" />
+
+						</p:submenu>
+						<p:submenu label="Relatórios">
+						</p:submenu>
+					</p:panelMenu>
+				</h:form>
+			</p:layoutUnit>
+
+
+			<p:layoutUnit position="center" resizable="false" closable="false" collapsible="false">
+
+				<div id="conteudo">
+					<ui:insert name="conteudo"></ui:insert>
+				</div>
+
+			</p:layoutUnit>
+		</p:layout>
+
+	</div>
+</h:body>
+</html>
