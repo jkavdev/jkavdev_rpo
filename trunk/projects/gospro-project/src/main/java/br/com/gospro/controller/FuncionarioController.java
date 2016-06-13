@@ -2,25 +2,28 @@ package br.com.gospro.controller;
 
 import java.io.Serializable;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.annotation.PostConstruct;
+import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
 
 import br.com.gospro.dao.IFuncionarioDao;
-import br.com.gospro.dao.jpa.JpaFuncionarioDao;
 import br.com.gospro.model.Funcionario;
 import br.com.gospro.util.jsf.FacesUtil;
 
-@ManagedBean
-@RequestScoped
+@Named
+@ViewScoped
 public class FuncionarioController implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	IFuncionarioDao funcionarioDao = new JpaFuncionarioDao();
-	private Funcionario funcionario = new Funcionario();
+	@Inject
+	IFuncionarioDao funcionarioDao;
+	private Funcionario funcionario;
 
-	public FuncionarioController() {
-		funcionario = new Funcionario();
+	@PostConstruct
+	public void init() {
+		this.limpar();
 	}
 
 	public void salvar() {
@@ -30,6 +33,12 @@ public class FuncionarioController implements Serializable {
 		} else {
 			FacesUtil.addErrorMessage("Funcionario não salvo");
 		}
+
+		this.limpar();
+	}
+
+	private void limpar() {
+		funcionario = new Funcionario();
 	}
 
 	public Funcionario getFuncionario() {

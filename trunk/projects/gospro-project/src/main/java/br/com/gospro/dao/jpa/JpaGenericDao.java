@@ -4,17 +4,19 @@ import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
 import br.com.gospro.dao.GenericDao;
-import br.com.gospro.util.jpa.JpaUtil;
+import br.com.gospro.util.jpa.Transactional;
 
 public class JpaGenericDao<T, ID extends Serializable> implements GenericDao<T, ID> {
 
-	EntityManager manager = JpaUtil.geEntityManager();
+	@Inject
+	EntityManager manager;
 	private Class<T> entidade;
 
 	@SuppressWarnings("unchecked")
@@ -24,24 +26,21 @@ public class JpaGenericDao<T, ID extends Serializable> implements GenericDao<T, 
 	}
 
 	@Override
+	@Transactional
 	public void salvar(T entidade) {
-		this.manager.getTransaction().begin();
 		this.manager.merge(entidade);
-		this.manager.getTransaction().commit();
 	}
 
 	@Override
+	@Transactional
 	public void alterar(T entidade) {
-		this.manager.getTransaction().begin();
 		this.manager.merge(entidade);
-		this.manager.getTransaction().commit();
 	}
 
 	@Override
+	@Transactional
 	public void remover(T entidade) {
-		this.manager.getTransaction().begin();
 		this.manager.remove(entidade);
-		this.manager.getTransaction().commit();
 	}
 
 	@Override
