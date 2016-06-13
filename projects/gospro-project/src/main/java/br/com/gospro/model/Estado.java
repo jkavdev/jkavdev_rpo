@@ -1,34 +1,22 @@
 package br.com.gospro.model;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import br.com.gospro.util.jpa.BaseEntity;
 
 @Entity
-public class Estado implements Serializable {
+@Table(name = "estados")
+public class Estado extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 
-	private Long codigo;
 	private String nome;
 	private String sigla;
-	private List<Cidade> cidades = new ArrayList<>();;
-
-	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@GeneratedValue
-	public Long getCodigo() {
-		return codigo;
-	}
-
-	public void setCodigo(Long codigo) {
-		this.codigo = codigo;
-	}
+	private List<Cidade> cidades;
 
 	public String getNome() {
 		return nome;
