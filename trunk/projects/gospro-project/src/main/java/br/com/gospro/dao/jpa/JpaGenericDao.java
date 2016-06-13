@@ -11,7 +11,6 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
 import br.com.gospro.dao.GenericDao;
-import br.com.gospro.util.jpa.Transactional;
 
 public class JpaGenericDao<T, ID extends Serializable> implements GenericDao<T, ID> {
 
@@ -26,21 +25,19 @@ public class JpaGenericDao<T, ID extends Serializable> implements GenericDao<T, 
 	}
 
 	@Override
-	@Transactional
 	public void salvar(T entidade) {
 		this.manager.merge(entidade);
 	}
 
 	@Override
-	@Transactional
 	public void alterar(T entidade) {
 		this.manager.merge(entidade);
 	}
 
 	@Override
-	@Transactional
-	public void remover(T entidade) {
+	public void remover(T entidade){		
 		this.manager.remove(entidade);
+		this.manager.flush();
 	}
 
 	@Override

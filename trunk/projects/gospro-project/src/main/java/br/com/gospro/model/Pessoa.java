@@ -98,7 +98,7 @@ public abstract class Pessoa extends BaseEntity {
 	}
 
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "endereco_codigo")
+	@JoinColumn(name = "contato_codigo")
 	public Contato getContato() {
 		return contato;
 	}

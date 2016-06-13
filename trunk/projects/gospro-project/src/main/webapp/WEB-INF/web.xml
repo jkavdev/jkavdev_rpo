@@ -2,6 +2,10 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
 		 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	version="3.1">
+	
+	<welcome-file-list>
+		<welcome-file>index.xhtml</welcome-file>
+	</welcome-file-list>
 
 	<!-- JSF Servlet -->
 	<servlet>
@@ -24,10 +28,6 @@
 		<param-value>true</param-value>
 	</context-param>
 	<context-param>
-		<param-name>javax.faces.FACELETS_REFRESH_PERIOD</param-name>
-		<param-value>0</param-value>
-	</context-param>
-	<context-param>
 		<param-name>primefaces.FONT_AWESOME</param-name>
 		<param-value>true</param-value>
 	</context-param>
@@ -36,10 +36,10 @@
 		<param-value>Development</param-value>
 	</context-param>
 	<!-- Primefaces Theme -->
-	<context-param>
-		<param-name>primefaces.THEME</param-name>
-		<param-value>bootstrap</param-value>
-	</context-param>
+<!-- 	<context-param> -->
+<!-- 		<param-name>primefaces.THEME</param-name> -->
+<!-- 		<param-value>bootstrap</param-value> -->
+<!-- 	</context-param> -->
 
 	<!-- Listener do CDI -->
 	<listener>

@@ -10,9 +10,10 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import br.com.gospro.dao.IFuncionarioDao;
 import br.com.gospro.model.Funcionario;
 import br.com.gospro.model.Sexo;
+import br.com.gospro.service.FuncionarioService;
+import br.com.gospro.service.NegocioException;
 import br.com.gospro.util.jsf.FacesUtil;
 
 @Named
@@ -22,30 +23,46 @@ public class FuncionarioController implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Inject
-	private IFuncionarioDao funcionarioDao;
+	private FuncionarioService funcionarioService;
 	private Funcionario funcionario;
+	private Funcionario funcionarioSelecionado;
+	private List<Funcionario> funcionarios;
 	private List<Sexo> sexos;
 
 	@PostConstruct
 	public void init() {
 		this.limpar();
+//		funcionarios = funcionarioService.buscarTodos();
 		sexos = Arrays.asList(Sexo.values());
 	}
 
 	public void salvar() {
-		if (funcionario != null) {
-			funcionarioDao.salvar(funcionario);
+		try {
+			funcionarioService.salvar(funcionario);
 			FacesUtil.addSuccessMessage("Funcionario: " + funcionario.getNome() + " salvo com Sucesso");
-		} else {
+		} catch (NegocioException e) {
 			FacesUtil.addErrorMessage("Funcionario não salvo");
 		}
 
 		this.limpar();
 	}
 
+	public void excluir() {
+		try {
+			funcionarioService.excluir(funcionarioSelecionado);
+			funcionarios.remove(funcionarioSelecionado);
+			FacesUtil.addSuccessMessage("Funcionario: " + funcionario.getNome() + " removido com Sucesso");
+		} catch (NegocioException e) {
+			FacesUtil.addErrorMessage(e.getMessage());
+		}
+
+	}
+
 	private void limpar() {
-		funcionario = new Funcionario();
-		funcionario.setDataNascimento(Calendar.getInstance());
+		if (funcionario == null) {
+			funcionario = new Funcionario();
+			funcionario.setDataNascimento(Calendar.getInstance());
+		}
 	}
 
 	public Funcionario getFuncionario() {
@@ -54,6 +71,18 @@ public class FuncionarioController implements Serializable {
 
 	public void setFuncionario(Funcionario funcionario) {
 		this.funcionario = funcionario;
+	}
+
+	public Funcionario getFuncionarioSelecionado() {
+		return funcionarioSelecionado;
+	}
+
+	public void setFuncionarioSelecionado(Funcionario funcionarioSelecionado) {
+		this.funcionarioSelecionado = funcionarioSelecionado;
+	}
+
+	public List<Funcionario> getFuncionarios() {
+		return funcionarios;
 	}
 
 	public List<Sexo> getSexos() {
