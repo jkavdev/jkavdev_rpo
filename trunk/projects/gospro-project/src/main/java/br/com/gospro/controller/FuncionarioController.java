@@ -6,7 +6,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
 import br.com.gospro.dao.IFuncionarioDao;
-import br.com.gospro.dao.jpa.HibernateFuncionarioDao;
+import br.com.gospro.dao.jpa.JpaFuncionarioDao;
 import br.com.gospro.model.Funcionario;
 import br.com.gospro.util.jsf.FacesUtil;
 
@@ -16,7 +16,7 @@ public class FuncionarioController implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	IFuncionarioDao funcionarioDao = new HibernateFuncionarioDao();
+	IFuncionarioDao funcionarioDao = new JpaFuncionarioDao();
 	private Funcionario funcionario = new Funcionario();
 
 	public FuncionarioController() {
