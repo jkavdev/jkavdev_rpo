@@ -12,13 +12,13 @@ import javax.persistence.criteria.Root;
 import br.com.gospro.dao.GenericDao;
 import br.com.gospro.util.jpa.JpaUtil;
 
-public class HibernateGenericDao<T, ID extends Serializable> implements GenericDao<T, ID> {
+public class JpaGenericDao<T, ID extends Serializable> implements GenericDao<T, ID> {
 
 	EntityManager manager = JpaUtil.geEntityManager();
 	private Class<T> entidade;
 
 	@SuppressWarnings("unchecked")
-	public HibernateGenericDao() {
+	public JpaGenericDao() {
 		this.entidade = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
 
 	}
