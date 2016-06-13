@@ -1,4 +1,4 @@
-package br.com.gospro.dao.hibernate;
+package br.com.gospro.dao.jpa;
 
 import br.com.gospro.dao.IContatoDao;
 import br.com.gospro.model.Contato;

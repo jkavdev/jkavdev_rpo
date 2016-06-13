@@ -6,7 +6,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
 import br.com.gospro.dao.IFuncionarioDao;
-import br.com.gospro.dao.hibernate.HibernateFuncionarioDao;
+import br.com.gospro.dao.jpa.HibernateFuncionarioDao;
 import br.com.gospro.model.Funcionario;
 import br.com.gospro.util.jsf.FacesUtil;
 

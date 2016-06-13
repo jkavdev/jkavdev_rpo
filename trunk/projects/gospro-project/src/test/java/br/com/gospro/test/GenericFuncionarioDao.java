@@ -7,8 +7,8 @@ import org.junit.Test;
 
 import br.com.gospro.dao.IContatoDao;
 import br.com.gospro.dao.IFuncionarioDao;
-import br.com.gospro.dao.hibernate.HibernateContatoDao;
-import br.com.gospro.dao.hibernate.HibernateFuncionarioDao;
+import br.com.gospro.dao.jpa.HibernateContatoDao;
+import br.com.gospro.dao.jpa.HibernateFuncionarioDao;
 import br.com.gospro.model.Contato;
 import br.com.gospro.model.Funcionario;
 
