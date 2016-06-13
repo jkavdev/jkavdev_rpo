@@ -1,0 +1,44 @@
+MVC
+	Model - 
+		Coracao da Aplicacao
+			-Regras de Negocio
+			-Entidades
+			-Camada de acesso a dados
+	View
+		Rederizacao da Resposta
+			paginas
+			telas aplicacoes desktop
+			javascript
+			template engine
+			html
+			css
+	Controller
+		Controle do Fluxo da Aplicacao
+		
+		Fluxo
+			Browser
+			Web Server
+			Aplicacao
+			Controller
+			
+		Sem dados
+			Browser
+			Controller
+			View
+				Resposta
+			Browser
+			
+		Com dados
+			Browser
+			Controller
+				Instancia
+			Model
+				Acessa
+			Banco
+				Dados
+			Controller
+				Dados
+			View
+				Resposta
+			Browser
+					
