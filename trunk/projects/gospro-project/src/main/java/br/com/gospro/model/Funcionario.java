@@ -2,25 +2,29 @@ package br.com.gospro.model;
 
 import java.util.Calendar;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
-@PrimaryKeyJoinColumn(name = "funcionario_codigo")
+@Table(name = "funcionarios")
 public class Funcionario extends Pessoa {
 
 	private static final long serialVersionUID = 1L;
 
+	private String carteiraTrabalho;
 	private String cargo;
+	private Calendar dataAdmissao;
 
-	public Funcionario() {
+	@Column(name = "carteira_trabalho")
+	public String getCarteiraTrabalho() {
+		return carteiraTrabalho;
 	}
 
-	public Funcionario(Calendar dataCadastro, String nome, String sobrenome,
-			Calendar dataNascimento, String sexo, String cpf, String rg,
-			String cargo) {
-		super(dataCadastro, nome, sobrenome, dataNascimento, sexo, cpf, rg);
-		this.cargo = cargo;
+	public void setCarteiraTrabalho(String carteiraTrabalho) {
+		this.carteiraTrabalho = carteiraTrabalho;
 	}
 
 	public String getCargo() {
@@ -29,6 +33,16 @@ public class Funcionario extends Pessoa {
 
 	public void setCargo(String cargo) {
 		this.cargo = cargo;
+	}
+
+	@Column(name = "data_admissao")
+	@Temporal(TemporalType.DATE)
+	public Calendar getDataAdmissao() {
+		return dataAdmissao;
+	}
+
+	public void setDataAdmissao(Calendar dataAdmissao) {
+		this.dataAdmissao = dataAdmissao;
 	}
 
 }

@@ -1,82 +1,39 @@
 package br.com.gospro.model;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import br.com.gospro.util.jpa.BaseEntity;
+
 @Entity
+@Table(name = "pessoas")
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Pessoa implements Serializable {
+public abstract class Pessoa extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 
-	private Long codigo;
-	private Calendar dataCadastro;
 	private String nome;
-	private String sobrenome;
-	private Calendar dataNascimento;
-	private String sexo;
 	private String cpf;
 	private String rg;
+	private Sexo sexo;
+	private Calendar dataNascimento;
+	private Calendar dataCadastro;
 	private Usuario usuario;
-	private List<Contato> contatos = new ArrayList<>();
+	private Contato contato;
 	private Endereco endereco;
 
-	public Pessoa() {
-		super();
-		endereco = new Endereco();
-		dataCadastro = Calendar.getInstance();
-		dataNascimento = Calendar.getInstance();
-	}
-
-	public Pessoa(Calendar dataCadastro, String nome, String sobrenome,
-			Calendar dataNascimento, String sexo, String cpf, String rg) {
-		this();
-		this.dataCadastro = dataCadastro;
-		this.nome = nome;
-		this.sobrenome = sobrenome;
-		this.dataNascimento = dataNascimento;
-		this.sexo = sexo;
-		this.cpf = cpf;
-		this.rg = rg;
-	}
-
-	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@GeneratedValue
-	public Long getCodigo() {
-		return codigo;
-	}
-
-	public void setCodigo(Long codigo) {
-		this.codigo = codigo;
-	}
-
-	@Column(name = "data_cadastro")
-	@Temporal(TemporalType.DATE)
-	public Calendar getDataCadastro() {
-		return dataCadastro;
-	}
-
-	public void setDataCadastro(Calendar dataCadastro) {
-		this.dataCadastro = dataCadastro;
-	}
-
-	@Column(name = "nome", length = 40)
 	public String getNome() {
 		return nome;
 	}
@@ -85,13 +42,29 @@ public abstract class Pessoa implements Serializable {
 		this.nome = nome;
 	}
 
-	@Column(name = "sobrenome", length = 40)
-	public String getSobrenome() {
-		return sobrenome;
+	public String getCpf() {
+		return cpf;
 	}
 
-	public void setSobrenome(String sobrenome) {
-		this.sobrenome = sobrenome;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public String getRg() {
+		return rg;
+	}
+
+	public void setRg(String rg) {
+		this.rg = rg;
+	}
+
+	@Enumerated(EnumType.STRING)
+	public Sexo getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(Sexo sexo) {
+		this.sexo = sexo;
 	}
 
 	@Column(name = "data_nascimento")
@@ -104,40 +77,14 @@ public abstract class Pessoa implements Serializable {
 		this.dataNascimento = dataNascimento;
 	}
 
-	@Column(name = "sexo", length = 15)
-	public String getSexo() {
-		return sexo;
+	@Column(name = "data_cadastro")
+	@Temporal(TemporalType.DATE)
+	public Calendar getDataCadastro() {
+		return dataCadastro;
 	}
 
-	public void setSexo(String sexo) {
-		this.sexo = sexo;
-	}
-
-	@Column(name = "cpf", length = 15)
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-
-	@Column(name = "rg", length = 15)
-	public String getRg() {
-		return rg;
-	}
-
-	public void setRg(String rg) {
-		this.rg = rg;
-	}
-
-	@OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
-	public List<Contato> getContatos() {
-		return contatos;
-	}
-
-	public void setContatos(List<Contato> contatos) {
-		this.contatos = contatos;
+	public void setDataCadastro(Calendar dataCadastro) {
+		this.dataCadastro = dataCadastro;
 	}
 
 	@OneToOne
@@ -150,7 +97,17 @@ public abstract class Pessoa implements Serializable {
 		this.usuario = usuario;
 	}
 
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "endereco_codigo")
+	public Contato getContato() {
+		return contato;
+	}
+
+	public void setContato(Contato contato) {
+		this.contato = contato;
+	}
+
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "endereco_codigo")
 	public Endereco getEndereco() {
 		return endereco;

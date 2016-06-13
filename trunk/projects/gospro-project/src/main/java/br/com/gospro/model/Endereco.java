@@ -1,35 +1,23 @@
 package br.com.gospro.model;
 
-import java.io.Serializable;
-
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import br.com.gospro.util.jpa.BaseEntity;
 
 @Entity
-public class Endereco implements Serializable {
+@Table(name = "endereco")
+public class Endereco extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 
-	private Long codigo;
 	private String cep;
 	private String complemento;
 	private String numero;
 	private String bairro;
 	private Cidade cidade;
-
-	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@GeneratedValue
-	public Long getCodigo() {
-		return codigo;
-	}
-
-	public void setCodigo(Long codigo) {
-		this.codigo = codigo;
-	}
 
 	public String getCep() {
 		return cep;
