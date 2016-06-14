@@ -1,10 +1,11 @@
 package br.com.gospro.model;
 
-import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -16,7 +17,7 @@ public class Funcionario extends Pessoa {
 	private static final long serialVersionUID = 1L;
 
 	private String carteiraTrabalho;
-	private String cargo;
+	private Cargos cargo;
 	private Date dataAdmissao;
 
 	@Column(name = "carteira_trabalho")
@@ -28,11 +29,12 @@ public class Funcionario extends Pessoa {
 		this.carteiraTrabalho = carteiraTrabalho;
 	}
 
-	public String getCargo() {
+	@Enumerated(EnumType.STRING)
+	public Cargos getCargo() {
 		return cargo;
 	}
 
-	public void setCargo(String cargo) {
+	public void setCargo(Cargos cargo) {
 		this.cargo = cargo;
 	}
 

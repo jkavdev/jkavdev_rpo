@@ -6,43 +6,44 @@
 	xmlns:p="http://primefaces.org/ui">
 
 	<ui:define name="conteudo">
-		<h1>Pesquisa de Funcionários</h1>
 
-		<h:form id="frmPesquisaFuncionario">
-			<p:messages id="messages" autoUpdate="true" closable="true" />
-
-			<p:toolbar style="margin-top: 20px">
-				<p:toolbarGroup>
-					<p:commandButton value="Novo" id="botaoNovo" action="/pages/funcionario/CadastroFuncionario" />
-				</p:toolbarGroup>
-			</p:toolbar>
-
-			<p:dataTable id="funcionarioTable" value="#{funcionarioController.funcionarios}" var="funcionario" style="margin-top: 20px" emptyMessage="Nenhum fabricante encontrado." rows="20" paginator="true" paginatorAlwaysVisible="false" paginatorPosition="bottom">
-
-				<p:column headerText="Código" style="text-align: center; width: 100px">
-					<h:outputText value="#{funcionario.codigo}" />
-				</p:column>
-
-				<p:column headerText="Nome">
-					<h:outputText value="#{funcionario.nome}" />
-				</p:column>
-
-				<p:column style="width: 100px; text-align: center">
-					<p:button outcome="CadastroFuncionario" icon="ui-icon-pencil" title="Editar">
-						<f:param name="funcionario" value="#{funcionario.codigo}" />
-					</p:button>
-					<p:commandButton id="excluir" action="#{funcionarioController.excluir}" icon="ui-icon-trash" title="Excluir">
-						<f:setPropertyActionListener target="#{funcionarioController.funcionarioSelecionado}" value="#{funcionario}" />
-						<p:confirm header="Excluir Funcionario" message="em certeza que deseja excluir o funcionario #{funcionarioController.funcionarioSelecionado.nome}?" icon="ui-icon-alert" />						
-					</p:commandButton>
-				</p:column>
-			</p:dataTable>
-
-			<p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
-				<p:commandButton title="GDelYesButton" value="Sim" styleClass="ui-confirmdialog-yes" />
-				<p:commandButton title="GDelNoButton" value="Não" styleClass="ui-confirmdialog-no" update=":frmPesquisaFuncionario"/>
-			</p:confirmDialog>
-		</h:form>
+		<p:panel id="panelFuncionario" header="Pesquisa de Funcionarios">
+			<h:form id="frmPesquisaFuncionario">
+				<p:messages id="messages" autoUpdate="true" closable="true" />
+	
+				<p:toolbar style="margin-top: 20px">
+					<p:toolbarGroup>
+						<p:commandButton value="Novo" id="botaoNovo" action="/pages/funcionario/CadastroFuncionario" />
+					</p:toolbarGroup>
+				</p:toolbar>
+	
+				<p:dataTable id="funcionarioTable" value="#{pesquisaFuncionarioController.funcionarios}" var="funcionario" style="margin-top: 20px" emptyMessage="Nenhum fabricante encontrado." rows="20" paginator="true" paginatorAlwaysVisible="false" paginatorPosition="bottom">
+	
+					<p:column headerText="Código" style="text-align: center; width: 100px">
+						<h:outputText value="#{funcionario.codigo}" />
+					</p:column>
+	
+					<p:column headerText="Nome">
+						<h:outputText value="#{funcionario.nome}" />
+					</p:column>
+	
+					<p:column style="width: 100px; text-align: center">
+						<p:button outcome="CadastroFuncionario" icon="ui-icon-pencil" title="Editar">
+							<f:param name="funcionario" value="#{funcionario.codigo}" />
+						</p:button>
+						<p:commandButton id="excluir" action="#{pesquisaFuncionarioController.excluir}" icon="ui-icon-trash" title="Excluir">
+							<f:setPropertyActionListener target="#{pesquisaFuncionarioController.funcionarioSelecionado}" value="#{funcionario}" />
+							<p:confirm header="Excluir Funcionario" message="em certeza que deseja excluir o funcionario #{pesquisaFuncionarioController.funcionarioSelecionado.nome}?" icon="ui-icon-alert" />						
+						</p:commandButton>
+					</p:column>
+				</p:dataTable>
+	
+				<p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
+					<p:commandButton title="GDelYesButton" value="Sim" styleClass="ui-confirmdialog-yes" />
+					<p:commandButton title="GDelNoButton" value="Não" styleClass="ui-confirmdialog-no" update=":frmPesquisaFuncionario"/>
+				</p:confirmDialog>
+			</h:form>
+		</p:panel>
 	</ui:define>
 
 </ui:composition>
