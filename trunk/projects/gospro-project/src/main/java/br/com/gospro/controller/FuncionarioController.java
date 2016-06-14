@@ -32,7 +32,7 @@ public class FuncionarioController implements Serializable {
 	@PostConstruct
 	public void init() {
 		this.limpar();
-//		funcionarios = funcionarioService.buscarTodos();
+		// funcionarios = funcionarioService.buscarTodos();
 		sexos = Arrays.asList(Sexo.values());
 	}
 
@@ -61,7 +61,6 @@ public class FuncionarioController implements Serializable {
 	private void limpar() {
 		if (funcionario == null) {
 			funcionario = new Funcionario();
-			funcionario.setDataNascimento(Calendar.getInstance());
 		}
 	}
 

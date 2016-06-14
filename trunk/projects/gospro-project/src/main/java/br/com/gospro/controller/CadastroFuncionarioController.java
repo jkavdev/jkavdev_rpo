@@ -36,14 +36,12 @@ public class CadastroFuncionarioController implements Serializable {
 
 	public void salvar() {
 		try {
-			if (data != null) {
-				funcionario.setDataNascimento(DateUtil.getCalendarByString(data));
-				funcionarioService.salvar(funcionario);
-				FacesUtil.addSuccessMessage("Funcionario: " + funcionario.getNome() + " salvo com Sucesso");
-			}else{
-				FacesUtil.addErrorMessage("Data de Nascimento obrigatorio!");
-			}
-		} catch (NegocioException e) {
+			funcionarioService.salvar(funcionario);
+			FacesUtil.addSuccessMessage("Funcionario: " + funcionario.getNome() + " salvo com Sucesso");
+
+		} catch (
+
+		NegocioException e) {
 			FacesUtil.addErrorMessage(e.getMessage());
 		}
 		funcionario = new Funcionario();

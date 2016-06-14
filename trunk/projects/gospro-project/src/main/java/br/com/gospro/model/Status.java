@@ -1,29 +1,35 @@
 package br.com.gospro.model;
 
-import java.io.Serializable;
-
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
 @Entity
-public class Status implements Serializable {
+public enum Status {
 
-	private static final long serialVersionUID = 1L;
+	NOVO("Novo Servico"),
 
-	private Long codigo;
+	// Você ainda não confirmou a sua encomenda, e os detalhes de pagamento não
+	// foram introduzidos.
+
+	EMPROCESSO("Serviço em Atendimento"),
+
+	// Os seus detalhes de pagamento foram aceitos pela prestadora dos serviços
+	// de pagamento e serão apagados em breve. Os detalhes dos pagamentos pelo
+	// PayPal podem demorar mais tempo para serem apagados.
+
+	CONCLUIDO("Serviço concluído"),
+
+	// Seu pedido foi pago. Pode verificar os horários de entrega.
+	// [ mostrar como... ]
+
+	CANCELADO("Serviço Cancelado");
+
+	// Seu pedido foi cancelado.
+
+	private Status(String descricao) {
+		this.descricao = descricao;
+	}
+
 	private String descricao;
-
-	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@GeneratedValue
-	public Long getCodigo() {
-		return codigo;
-	}
-
-	public void setCodigo(Long codigo) {
-		this.codigo = codigo;
-	}
 
 	public String getDescricao() {
 		return descricao;
