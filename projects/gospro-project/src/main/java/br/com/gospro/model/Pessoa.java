@@ -1,6 +1,7 @@
 package br.com.gospro.model;
 
 import java.util.Calendar;
+import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -28,7 +29,7 @@ public abstract class Pessoa extends BaseEntity {
 	private String cpf;
 	private String rg;
 	private Sexo sexo;
-	private Calendar dataNascimento;
+	private Date dataNascimento;
 	private Calendar dataCadastro;
 	private Usuario usuario;
 	private Contato contato;
@@ -69,11 +70,11 @@ public abstract class Pessoa extends BaseEntity {
 
 	@Column(name = "data_nascimento")
 	@Temporal(TemporalType.DATE)
-	public Calendar getDataNascimento() {
+	public Date getDataNascimento() {
 		return dataNascimento;
 	}
 
-	public void setDataNascimento(Calendar dataNascimento) {
+	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 

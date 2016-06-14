@@ -1,24 +1,24 @@
 package br.com.gospro.model;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Calendar;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import br.com.gospro.util.jpa.BaseEntity;
+
 @Entity
-public class OrderServico implements Serializable {
+@Table(name="ordem_servicos")
+public class OrderServico extends BaseEntity{
 
 	private static final long serialVersionUID = 1L;
 
-	private Long codigo;
-	private Calendar dataAbertura;
-	private Calendar dataEncerramento;
+	private Date dataAbertura;
+	private Date dataEncerramento;
 	private String observacoes;
 	private String pecaUtilizada;
 	private String problema;
@@ -26,34 +26,23 @@ public class OrderServico implements Serializable {
 	private BigDecimal valorPacial;
 	private BigDecimal valorTotal;
 
-	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@GeneratedValue
-	public Long getCodigo() {
-		return codigo;
-	}
-
-	public void setCodigo(Long codigo) {
-		this.codigo = codigo;
-	}
-
 	@Column(name = "data_abertura")
 	@Temporal(TemporalType.DATE)
-	public Calendar getDataAbertura() {
+	public Date getDataAbertura() {
 		return dataAbertura;
 	}
 
-	public void setDataAbertura(Calendar dataAbertura) {
+	public void setDataAbertura(Date dataAbertura) {
 		this.dataAbertura = dataAbertura;
 	}
 
 	@Column(name = "data_encerramento")
 	@Temporal(TemporalType.DATE)
-	public Calendar getDataEncerramento() {
+	public Date getDataEncerramento() {
 		return dataEncerramento;
 	}
 
-	public void setDataEncerramento(Calendar dataEncerramento) {
+	public void setDataEncerramento(Date dataEncerramento) {
 		this.dataEncerramento = dataEncerramento;
 	}
 

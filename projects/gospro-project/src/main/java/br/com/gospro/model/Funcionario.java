@@ -1,6 +1,7 @@
 package br.com.gospro.model;
 
 import java.util.Calendar;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,7 +17,7 @@ public class Funcionario extends Pessoa {
 
 	private String carteiraTrabalho;
 	private String cargo;
-	private Calendar dataAdmissao;
+	private Date dataAdmissao;
 
 	@Column(name = "carteira_trabalho")
 	public String getCarteiraTrabalho() {
@@ -37,11 +38,11 @@ public class Funcionario extends Pessoa {
 
 	@Column(name = "data_admissao")
 	@Temporal(TemporalType.DATE)
-	public Calendar getDataAdmissao() {
+	public Date getDataAdmissao() {
 		return dataAdmissao;
 	}
 
-	public void setDataAdmissao(Calendar dataAdmissao) {
+	public void setDataAdmissao(Date dataAdmissao) {
 		this.dataAdmissao = dataAdmissao;
 	}
 

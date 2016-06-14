@@ -1,31 +1,19 @@
 package br.com.gospro.model;
 
-import java.io.Serializable;
-
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.Table;
+
+import br.com.gospro.util.jpa.BaseEntity;
 
 @Entity
-public class Equipamento implements Serializable {
+@Table(name = "equipamentos")
+public class Equipamento extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 
-	private Long codigo;
 	private String marca;
 	private String modelo;
 	private String tipo;
-
-	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@GeneratedValue
-	public Long getCodigo() {
-		return codigo;
-	}
-
-	public void setCodigo(Long codigo) {
-		this.codigo = codigo;
-	}
 
 	public String getMarca() {
 		return marca;

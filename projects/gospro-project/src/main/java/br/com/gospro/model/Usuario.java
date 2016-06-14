@@ -1,32 +1,20 @@
 package br.com.gospro.model;
 
-import java.io.Serializable;
-
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.Table;
+
+import br.com.gospro.util.jpa.BaseEntity;
 
 @Entity
-public class Usuario implements Serializable {
+@Table(name = "usuarios")
+public class Usuario extends BaseEntity{
 
 	private static final long serialVersionUID = 1L;
 
-	private Long codigo;
 	private boolean ativo;
-	private String categoria;
+	private UseType userRole;
 	private String login;
 	private String senha;
-
-	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@GeneratedValue
-	public Long getCodigo() {
-		return codigo;
-	}
-
-	public void setCodigo(Long codigo) {
-		this.codigo = codigo;
-	}
 
 	public boolean isAtivo() {
 		return ativo;
@@ -36,12 +24,12 @@ public class Usuario implements Serializable {
 		this.ativo = ativo;
 	}
 
-	public String getCategoria() {
-		return categoria;
+	public UseType getUserRole() {
+		return userRole;
 	}
 
-	public void setCategoria(String categoria) {
-		this.categoria = categoria;
+	public void setUserRole(UseType userRole) {
+		this.userRole = userRole;
 	}
 
 	public String getLogin() {
