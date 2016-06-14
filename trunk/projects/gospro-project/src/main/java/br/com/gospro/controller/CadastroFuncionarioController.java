@@ -9,11 +9,11 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import br.com.gospro.model.Cargos;
 import br.com.gospro.model.Funcionario;
 import br.com.gospro.model.Sexo;
 import br.com.gospro.service.FuncionarioService;
 import br.com.gospro.service.NegocioException;
-import br.com.gospro.util.datas.DateUtil;
 import br.com.gospro.util.jsf.FacesUtil;
 
 @Named
@@ -27,23 +27,25 @@ public class CadastroFuncionarioController implements Serializable {
 	@Inject
 	private Funcionario funcionario;
 	private List<Sexo> sexos;
-	private String data;
+	private List<Cargos> cargos;
 
 	@PostConstruct
 	public void init() {
 		sexos = Arrays.asList(Sexo.values());
+		cargos = Arrays.asList(Cargos.values());
 	}
 
 	public void salvar() {
 		try {
 			funcionarioService.salvar(funcionario);
 			FacesUtil.addSuccessMessage("Funcionario: " + funcionario.getNome() + " salvo com Sucesso");
-
-		} catch (
-
-		NegocioException e) {
+		} catch (NegocioException e) {
 			FacesUtil.addErrorMessage(e.getMessage());
 		}
+		limpaFormulario();
+	}
+
+	private void limpaFormulario() {
 		funcionario = new Funcionario();
 	}
 
@@ -59,12 +61,8 @@ public class CadastroFuncionarioController implements Serializable {
 		return sexos;
 	}
 
-	public String getData() {
-		return data;
-	}
-
-	public void setData(String data) {
-		this.data = data;
+	public List<Cargos> getCargos() {
+		return cargos;
 	}
 
 }
