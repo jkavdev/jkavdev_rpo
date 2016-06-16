@@ -13,8 +13,8 @@ import net.miginfocom.swing.MigLayout;
 public class CategoryGridPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	private JTable tableCategoryModel;
-
+	
+	private final JTable tableCategoryModel;
 	private final DefaultTableModel tableModel;
 
 	/**
@@ -31,14 +31,17 @@ public class CategoryGridPanel extends JPanel {
 		tableCategoryModel = new JTable(this.tableModel);
 		tableCategoryModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		tableCategoryModel.setCellSelectionEnabled(true);
+		
 		add(tableCategoryModel, "cell 0 0 2 2,grow");
 		add(this.tableCategoryModel.getTableHeader(), BorderLayout.NORTH);
 
 	}
 
 	public void addCategoryRow(CategoryBean category) {
-		this.tableModel.addRow(
-				new String[] { String.valueOf(category.getId()), category.getName(), category.getDescription() });
+		this.tableModel.addRow(new String[] { 
+				String.valueOf(category.getId()), 
+				category.getName(), 
+				category.getDescription() });
 	}
 
 }

@@ -16,21 +16,39 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
 		<hibernate.version>5.1.0.Final</hibernate.version>
+
 		<mysql.connector.version>5.1.38</mysql.connector.version>
+
 		<postgres.connector.version>9.4.1208</postgres.connector.version>
+
 		<primefaces.version>5.1</primefaces.version>
+
 		<prime.theme.version>1.0.8</prime.theme.version>
+
 		<javax.faces.version>2.2.13</javax.faces.version>
+
 		<omnifaces.version>2.3</omnifaces.version>
+
 		<weld.version>2.2.10.Final</weld.version>
+
 		<jandex.version>1.2.3.Final</jandex.version>
+
 		<c3p0.version>0.9.5.2</c3p0.version>
+
 		<junit.version>4.12</junit.version>
+
 		<jdk.version>1.8</jdk.version>
+
 		<slf4j.version>1.7.12</slf4j.version>
+
 		<commons-lang3.version>3.4</commons-lang3.version>
+
 		<log4j.version>1.2.17</log4j.version>
+
+		<miglayout.version>3.7.4</miglayout.version>
+
 	</properties>
 
 	<dependencyManagement>
@@ -123,7 +141,6 @@
 				<groupId>mysql</groupId>
 				<artifactId>mysql-connector-java</artifactId>
 				<version>${mysql.connector.version}</version>
-				<scope>provided</scope>
 			</dependency>
 
 			<dependency>
@@ -142,6 +159,12 @@
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
 				<version>${junit.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.miglayout</groupId>
+				<artifactId>miglayout</artifactId>
+				<version>${miglayout.version}</version>
 			</dependency>
 
 		</dependencies>
