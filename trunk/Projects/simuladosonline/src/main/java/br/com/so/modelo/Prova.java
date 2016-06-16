@@ -90,7 +90,7 @@ public class Prova implements Serializable {
 	}
 
 	@ManyToOne
-	@JoinColumn(name = "intituicao_id")
+	@JoinColumn(name = "instituicao_id")
 	public Instituicao getInstituicao() {
 		return instituicao;
 	}

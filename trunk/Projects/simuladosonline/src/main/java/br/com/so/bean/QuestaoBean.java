@@ -19,9 +19,11 @@ import org.primefaces.model.UploadedFile;
 
 import br.com.so.dao.interfacesDao.IDisciplinaDao;
 import br.com.so.dao.interfacesDao.IProvaDao;
+import br.com.so.dao.interfacesDao.IQuestaoDao;
 import br.com.so.modelo.Prova;
 import br.com.so.modelo.Questao;
 import br.com.so.util.AlfabetoUtil;
+import br.com.so.util.QuestaoConstantes;
 import br.com.so.util.jsf.FacesUtil;
 import br.com.so.modelo.Disciplina;
 import br.com.so.modelo.Opcao;
@@ -35,15 +37,20 @@ public class QuestaoBean implements Serializable {
 	private List<Prova> provas;
 	private List<Disciplina> disciplinas;
 	@Inject
+	private QuestaoConstantes constantes;
+	@Inject
 	private IProvaDao provaDao;
 	@Inject
 	private IDisciplinaDao disciplinaDao;
+	@Inject
+	private IQuestaoDao questaoDao;
 
 	@Inject
 	private Questao questao;
 	private Map<String, Opcao> opcoes;
 	private String nomeOpcaoSelecionada;
 	private List<String> keyList;
+	private boolean certoErrado;
 
 	private int contador = 0;
 
@@ -89,7 +96,7 @@ public class QuestaoBean implements Serializable {
 
 	public void cadastrar() {
 		if (questao.getEnunciado() != null && !questao.getEnunciado().trim().equals("")) {
-			if (questao.getTipo().equals("Multipla Escolha")) {
+			if (questao.getTipo().equals(constantes.getMultiplaEscolha())) {
 				if (opcoes != null && !opcoes.isEmpty() && questao.getDisciplina() != null
 						&& !questao.getDisciplina().getNome().trim().equals("") && questao.getResposta() != null
 						&& !questao.getResposta().trim().equals("")) {
@@ -99,13 +106,15 @@ public class QuestaoBean implements Serializable {
 						listaOpcoes.add(nomes.getValue());
 					}
 					questao.setOpcoes(listaOpcoes);
+					questaoDao.salvar(questao);
 					limpaPainel();
 					FacesUtil.addSuccessMessage("Questão Cadastrada com Sucesso!");
 				} else {
 					FacesUtil.addWarnMessage("Todos os campos devem ser preenchidos!");
 				}
-			} else if (questao.getTipo().equals("Certo ou Errado")) {
+			} else if (questao.getTipo().equals(constantes.getCertoErrado())) {
 				if (questao.getResposta() != null && !questao.getResposta().trim().equals("")) {
+					questaoDao.salvar(questao);
 					limpaPainel();
 					FacesUtil.addSuccessMessage("Questão Cadastrada com Sucesso!");
 				} else {
@@ -174,6 +183,22 @@ public class QuestaoBean implements Serializable {
 
 	public List<Disciplina> getDisciplinas() {
 		return disciplinas;
+	}
+
+	public QuestaoConstantes getConstantes() {
+		return constantes;
+	}
+
+	public boolean isCertoErrado() {
+		return certoErrado;
+	}
+
+	public void mudaCertoErrado() {
+		if (questao.getTipo() != null && questao.getTipo().equalsIgnoreCase(constantes.getCertoErrado())) {
+			certoErrado = true;
+		} else {
+			certoErrado = false;
+		}
 	}
 
 }

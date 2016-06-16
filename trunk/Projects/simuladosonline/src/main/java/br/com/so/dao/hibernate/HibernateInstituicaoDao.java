@@ -5,6 +5,7 @@ import java.util.List;
 
 import br.com.so.dao.interfacesDao.IInstituicaoDao;
 import br.com.so.modelo.Instituicao;
+import br.com.so.modelo.Prova;
 import br.com.so.util.jsf.FacesUtil;
 
 public class HibernateInstituicaoDao extends HibernateGenericDao<Instituicao, Long>
@@ -25,6 +26,12 @@ public class HibernateInstituicaoDao extends HibernateGenericDao<Instituicao, Lo
 		}
 		FacesUtil.addWarnMessage("Instituição ja cadastrada!");
 		return true;
+	}
+
+	@Override
+	public List<Instituicao> buscaTodasComProva() {
+		String sql = "select i from Instituicao i JOIN i.provas";
+		return this.getManager().createQuery(sql, Instituicao.class).getResultList();
 	}
 
 }
