@@ -17,9 +17,6 @@ public class CategoryGridPanel extends JPanel {
 	private final JTable tableCategoryModel;
 	private final DefaultTableModel tableModel;
 
-	/**
-	 * Create the panel.
-	 */
 	public CategoryGridPanel() {
 
 		String[] columnNames = new String[] { "ID", "Name", "Description" };
@@ -29,7 +26,7 @@ public class CategoryGridPanel extends JPanel {
 		setLayout(new MigLayout("", "[grow]", "[grow]"));
 
 		tableCategoryModel = new JTable(this.tableModel);
-		tableCategoryModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		tableCategoryModel.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 		tableCategoryModel.setCellSelectionEnabled(true);
 		
 		add(tableCategoryModel, "cell 0 0 2 2,grow");
