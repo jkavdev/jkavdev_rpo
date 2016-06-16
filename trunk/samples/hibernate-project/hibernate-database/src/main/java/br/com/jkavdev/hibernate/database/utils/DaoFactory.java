@@ -42,7 +42,7 @@ public abstract class DaoFactory implements IDaoFactory {
 	}
 
 	private EntityManager getCurrentEntityManager() {
-		return null;
+		return JpaUtil.getEntityManager();
 	}
 
 }
