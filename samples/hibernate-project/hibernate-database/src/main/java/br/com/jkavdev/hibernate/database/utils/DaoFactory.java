@@ -8,7 +8,7 @@ import br.com.jkavdev.hibernate.database.interfaces.ICategoryDao;
 import br.com.jkavdev.hibernate.database.interfaces.IDaoFactory;
 import br.com.jkavdev.hibernate.database.interfaces.IProductDao;
 
-public abstract class DaoFactory implements IDaoFactory {
+public class DaoFactory implements IDaoFactory {
 
 	private final ICategoryDao categoryDao;
 	private final IProductDao productDao;
