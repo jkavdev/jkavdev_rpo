@@ -13,7 +13,6 @@ public class JpaUtil {
 
 	static {
 		threadEntityManager = new ThreadLocal<>();
-
 		if (factory == null) {
 			factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
 		}
@@ -32,17 +31,18 @@ public class JpaUtil {
 
 	public static void closeEntityManager() {
 		EntityManager entityManager = threadEntityManager.get();
+		threadEntityManager.set(null);
 
-		if (entityManager != null) {
+		if (entityManager != null && entityManager.isOpen()) {
 			EntityTransaction transaction = entityManager.getTransaction();
 
 			if (transaction.isActive()) {
 				transaction.commit();
 			}
 
+			entityManager.flush();
 			entityManager.close();
 
-			threadEntityManager.set(null);
 		}
 	}
 
