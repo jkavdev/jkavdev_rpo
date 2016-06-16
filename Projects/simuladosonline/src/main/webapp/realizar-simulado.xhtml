@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="WEB-INF/templates/_template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+	<ui:define name="corpo">
+		<h:form id="formulario">
+			<h4 align="center">
+				<h:outputText id="txt_count"
+					value="Tempo: #{simuladoBean.numero} #{simuladoBean.formato}"
+					style="color:#{simuladoBean.cor}" />
+			</h4>
+			<p:growl id="msgs" showDetail="true" />
+			<p:panel header="Boa Prova!" id="painel" style="text-align:center;">
+				<p:messages id="messages" showDetail="true" autoUpdate="true"
+					closable="true" />
+				<p:poll interval="#{simuladoBean.intervalo}"
+					listener="#{simuladoBean.decrementa}" update="txt_count" />
+			</p:panel>
+		</h:form>
+	</ui:define>
+</ui:composition>

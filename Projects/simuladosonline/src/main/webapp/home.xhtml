@@ -12,60 +12,59 @@
 			<p:growl id="msgs" showDetail="true" />
 			<p:panel header="Selecione um Simulado" id="painel"
 				style="text-align:center;">
-				<h:panelGrid columns="2" cellpadding="5">
-					<p:outputLabel for="instituicao" value="Instituicao: " />
+				<h:panelGrid columns="2" cellpadding="5" id="painelGrid">
+					<p:outputLabel for="instituicao" value="Instituicao: *" />
 					<p:selectOneMenu id="instituicao" converter="entityConverter"
-						value="#{simuladoBean.instituicao}"
+						value="#{homeBean.instituicao}"
 						style="width:100%; white-space: normal ">
-						<p:ajax listener="#{simuladoBean.onInstituicaoClick}"
+						<p:ajax listener="#{homeBean.onInstituicaoClick}"
 							update="cargo area banca nivel" />
 						<f:selectItem itemLabel="Selecione a Instituição" itemValue=""
 							noSelectionOption="true" />
-						<f:selectItems value="#{simuladoBean.instituicoes}" var="i"
+						<f:selectItems value="#{homeBean.instituicoes}" var="i"
 							itemLabel="#{i.sigla} - #{i.nome}" itemValue="#{i}" />
 					</p:selectOneMenu>
 
-					<p:outputLabel for="cargo" value="Cargo: " />
-					<p:selectOneMenu id="cargo" value="#{simuladoBean.cargo}"
+					<p:outputLabel for="cargo" value="Cargo: *" />
+					<p:selectOneMenu id="cargo" value="#{homeBean.cargo}"
 						style="width:100%">
-						<p:ajax listener="#{simuladoBean.onCargoClick}"
+						<p:ajax listener="#{homeBean.onCargoClick}"
 							update="area banca nivel" />
 						<f:selectItem itemLabel="Selecione o Cargo" itemValue=""
 							noSelectionOption="true" />
-						<f:selectItems value="#{simuladoBean.cargos}" />
+						<f:selectItems value="#{homeBean.cargos}" />
 					</p:selectOneMenu>
 
 					<p:outputLabel for="area" value="Area: " />
-					<p:selectOneMenu id="area" value="#{simuladoBean.area}"
+					<p:selectOneMenu id="area" value="#{homeBean.area}"
 						style="width:100%">
-						<p:ajax listener="#{simuladoBean.onAreaClick}"
-							update="banca nivel" />
+						<p:ajax listener="#{homeBean.onAreaClick}" update="banca nivel" />
 						<f:selectItem itemLabel="Selecione a Area" itemValue=""
 							noSelectionOption="true" />
-						<f:selectItems value="#{simuladoBean.areas}" />
+						<f:selectItems value="#{homeBean.areas}" />
 					</p:selectOneMenu>
 
-					<p:outputLabel for="banca" value="Banca: " />
-					<p:selectOneMenu id="banca" value="#{simuladoBean.banca}"
+					<p:outputLabel for="banca" value="Banca: *" />
+					<p:selectOneMenu id="banca" value="#{homeBean.banca}"
 						style="width:100%">
-						<p:ajax listener="#{simuladoBean.onBancaClick}" update="nivel" />
+						<p:ajax listener="#{homeBean.onBancaClick}" update="nivel" />
 						<f:selectItem itemLabel="Selecione a Banca" itemValue=""
 							noSelectionOption="true" />
-						<f:selectItems value="#{simuladoBean.bancas}" />
+						<f:selectItems value="#{homeBean.bancas}" />
 					</p:selectOneMenu>
 
-					<p:outputLabel for="nivel" value="Nivel: " />
-					<p:selectOneMenu id="nivel" value="#{simuladoBean.nivel}"
+					<p:outputLabel for="nivel" value="Nivel: *" />
+					<p:selectOneMenu id="nivel" value="#{homeBean.nivel}"
 						style="width:100%">
-						<p:ajax listener="#{simuladoBean.onNivelClick}" />
+						<p:ajax listener="#{homeBean.onNivelClick}" />
 						<f:selectItem itemLabel="Selecione o Nivel" itemValue=""
 							noSelectionOption="true" />
-						<f:selectItems value="#{simuladoBean.niveis}" />
+						<f:selectItems value="#{homeBean.niveis}" />
 					</p:selectOneMenu>
 				</h:panelGrid>
 
 				<p:commandButton value="Iniciar"
-					actionListener="#{simuladoBean.iniciar}" />
+					actionListener="#{homeBean.iniciar}" />
 				<p:messages id="messages" showDetail="true" autoUpdate="true"
 					closable="true" />
 			</p:panel>

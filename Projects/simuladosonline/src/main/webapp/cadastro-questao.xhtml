@@ -18,7 +18,8 @@
 					<p:outputLabel for="tipo" value="Tipo: *" />
 					<p:selectOneMenu id="tipo" value="#{questaoBean.questao.tipo}"
 						style="width:100%; ">
-						<p:ajax event="change" update="painelQuestao"></p:ajax>
+						<p:ajax event="change" update="painelQuestao"
+							listener="#{questaoBean.mudaCertoErrado}" />
 						<f:selectItem itemLabel="Selecione o Tipo" itemValue=""
 							noSelectionOption="true" />
 						<f:selectItem itemLabel="Certo ou Errado"
@@ -58,10 +59,10 @@
 					</p:selectOneMenu>
 
 					<p:outputLabel for="resposta" value="Resposta: * "
-						rendered="#{questaoBean.questao.tipo == 'Certo ou Errado'}" />
+						rendered="#{questaoBean.questao.tipo != null and questaoBean.questao.tipo != '' and questaoBean.certoErrado}" />
 					<p:selectOneMenu id="resposta"
 						value="#{questaoBean.questao.resposta}" style="width:100%; "
-						rendered="#{questaoBean.questao.tipo == 'Certo ou Errado'}">
+						rendered="#{questaoBean.questao.tipo != null and questaoBean.questao.tipo != '' and questaoBean.certoErrado}">
 						<f:selectItem itemLabel="Selecione a Resposta" itemValue=""
 							noSelectionOption="true" />
 						<f:selectItem itemLabel="Certo" itemValue="Certo" />
@@ -69,21 +70,21 @@
 					</p:selectOneMenu>
 
 					<p:outputLabel for="opcao" value="Opção: * "
-						rendered="#{questaoBean.questao.tipo == 'Multipla Escolha'}" />
+						rendered="#{questaoBean.questao.tipo != null and questaoBean.questao.tipo != '' and !questaoBean.certoErrado}" />
 					<p:inputTextarea value="#{questaoBean.nomeOpcaoSelecionada}"
 						id="opcao"
-						rendered="#{questaoBean.questao.tipo == 'Multipla Escolha'}">
+						rendered="#{questaoBean.questao.tipo != null and questaoBean.questao.tipo != '' and !questaoBean.certoErrado}">
 						<p:commandButton value="Adicionar"
 							action="#{questaoBean.adicionarOpcao}"
-							rendered="#{questaoBean.questao.tipo == 'Multipla Escolha'}"
+							rendered="#{questaoBean.questao.tipo != null and questaoBean.questao.tipo != '' and !questaoBean.certoErrado}"
 							update="listaOpcoes resposta-multipla @form" />
 					</p:inputTextarea>
 
 					<p:outputLabel for="listaOpcoes" value="Preview: "
-						rendered="#{questaoBean.questao.tipo == 'Multipla Escolha'}" />
+						rendered="#{questaoBean.questao.tipo != null and questaoBean.questao.tipo != '' and !questaoBean.certoErrado}" />
 
 					<p:dataTable value="#{questaoBean.keyList}" var="key"
-						rendered="#{questaoBean.questao.tipo == 'Multipla Escolha'}"
+						rendered="#{questaoBean.questao.tipo != null and questaoBean.questao.tipo != '' and !questaoBean.certoErrado}"
 						id="listaOpcoes" resizableColumns="true"
 						tableStyle="table-layout: auto"
 						style="width:100%;background-color:transparent !important;">
@@ -101,10 +102,10 @@
 					</p:dataTable>
 
 					<p:outputLabel for="resposta-multipla" value="Resposta: * "
-						rendered="#{questaoBean.questao.tipo == 'Multipla Escolha'}" />
+						rendered="#{questaoBean.questao.tipo != null and questaoBean.questao.tipo != '' and !questaoBean.certoErrado}" />
 					<p:selectOneMenu id="resposta-multipla"
 						value="#{questaoBean.questao.resposta}" style="width:100%; "
-						rendered="#{questaoBean.questao.tipo == 'Multipla Escolha'}">
+						rendered="#{questaoBean.questao.tipo != null and questaoBean.questao.tipo != '' and !questaoBean.certoErrado}">
 						<f:selectItem itemLabel="Selecione a Resposta" itemValue=""
 							noSelectionOption="true" />
 						<f:selectItems value="#{questaoBean.keyList}" var="k"

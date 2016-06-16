@@ -18,7 +18,7 @@ public class Questao implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private long id;
+	private Long id;
 	private List<Opcao> opcoes;
 	private String resposta;
 	private Disciplina disciplina;
@@ -51,7 +51,7 @@ public class Questao implements Serializable {
 	}
 
 	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "opcao_questao")
+	@JoinTable(name = "Opcao_questao", joinColumns = @JoinColumn(name = "Opcao_id"), inverseJoinColumns = @JoinColumn(name = "Questao_id"))
 	public List<Opcao> getOpcoes() {
 		return opcoes;
 	}
@@ -66,11 +66,11 @@ public class Questao implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -106,6 +106,31 @@ public class Questao implements Serializable {
 
 	public void setReferenciaTexto(String referenciaTexto) {
 		this.referenciaTexto = referenciaTexto;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Questao other = (Questao) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
 	}
 
 }
