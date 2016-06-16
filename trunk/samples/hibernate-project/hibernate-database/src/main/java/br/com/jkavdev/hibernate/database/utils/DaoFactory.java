@@ -30,15 +30,18 @@ public class DaoFactory implements IDaoFactory {
 	}
 
 	private GenericDao<?, ?> instantiateDao(Class<?> daoClass) {
+
 		try {
 			GenericDao<?, ?> dao = (GenericDao<?, ?>) daoClass.newInstance();
 
 			dao.setManager(getCurrentEntityManager());
 
 			return dao;
-		} catch (Exception e) {
-			throw new RuntimeException(String.format("Cant instantiate DAO %s with the error", daoClass, e.getMessage()), e);
+		} catch (Exception ex) {
+			throw new RuntimeException(
+					String.format("Can not instantiate DAO %s with the error %s.", daoClass, ex.getMessage()), ex);
 		}
+
 	}
 
 	private EntityManager getCurrentEntityManager() {

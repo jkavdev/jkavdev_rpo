@@ -59,15 +59,16 @@ public abstract class GenericDao<T, ID extends Serializable> implements IGeneric
 	}
 
 	public EntityManager getManager() {
-		return manager;
-	}
-
-	public void setManager(EntityManager manager) {
 		if (this.manager == null) {
 			this.logger.error("EntityManager not Founded.");
 
 			throw new IllegalStateException("EntitManager has not been set DAO before usage");
 		}
+
+		return manager;
+	}
+
+	public void setManager(EntityManager manager) {
 		this.manager = manager;
 	}
 
