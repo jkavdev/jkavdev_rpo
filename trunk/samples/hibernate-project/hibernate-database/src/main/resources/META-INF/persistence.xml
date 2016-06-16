@@ -4,9 +4,13 @@
              http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
 	version="2.1">
 
-	<persistence-unit name="jpaMysqlPU" transaction-type="RESOURCE_LOCAL">
+	<persistence-unit name="hibernatePU" transaction-type="RESOURCE_LOCAL">
 
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		
+		<mapping-file>META-INF/entities/entityMapping.xml</mapping-file>
+
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/db_hibernate_project" />
