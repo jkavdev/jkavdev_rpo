@@ -11,6 +11,8 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Criterion;
 
+import br.com.jkavdev.hibernate.database.interfaces.IGenericDao;
+
 public abstract class GenericDao<T, ID extends Serializable> implements IGenericDao<T, ID> {
 
 	private final Logger logger = Logger.getLogger(this.getClass());
@@ -26,26 +28,34 @@ public abstract class GenericDao<T, ID extends Serializable> implements IGeneric
 
 	@Override
 	public T findById(ID id) {
-		return null;
+		return getManager().find(getPersistentClass(), id);
 	}
 
 	@Override
 	public List<T> findAll() {
-		return null;
+		return findByCriteria();
 	}
 
 	@Override
 	public ID save(T entity) {
+		beginTransaction();
+		getManager().persist(entity);
+		commit();
 		return null;
 	}
 
 	@Override
 	public void update(T entity) {
-
+		beginTransaction();
+		getManager().merge(entity);
+		commit();
 	}
 
 	@Override
 	public void delete(T entity) {
+		beginTransaction();
+		getManager().remove(entity);
+		commit();
 	}
 
 	public EntityManager getManager() {
@@ -65,7 +75,7 @@ public abstract class GenericDao<T, ID extends Serializable> implements IGeneric
 		return this.persistentClass;
 	}
 
-	@SuppressWarnings({ "unused", "unchecked" })
+	@SuppressWarnings({ "unchecked" })
 	private List<T> findByCriteria(Criterion... criterions) {
 		Session session = (Session) getManager().getDelegate();
 		Criteria createCriteria = session.createCriteria(getPersistentClass());
@@ -75,6 +85,14 @@ public abstract class GenericDao<T, ID extends Serializable> implements IGeneric
 		}
 
 		return createCriteria.list();
+	}
+
+	private void commit() {
+		getManager().getTransaction().commit();
+	}
+
+	private void beginTransaction() {
+		getManager().getTransaction().begin();
 	}
 
 }
