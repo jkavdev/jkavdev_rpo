@@ -26,6 +26,18 @@ public class ServicesDatabaseTest {
 		}
 
 	}
+	
+	public static void main(String[] args) {
+		CategoryBean automovel = createCategories("Automovel", "Automoveis Terrestres");
+		CategoryBean estofado = createCategories("Estofados", "Moveis Usados");
+		CategoryBean domestico = createCategories("Dometicos", "Linha Domestica");
+		CategoryBean eletronico = createCategories("Eletronico", "Eletronicos");
+
+		serviceFactory.getCategoryServices().insert(automovel);
+		serviceFactory.getCategoryServices().insert(estofado);
+		serviceFactory.getCategoryServices().insert(domestico);
+		serviceFactory.getCategoryServices().insert(eletronico);
+	}
 
 	@Test
 	public void testInsertCategories() {
@@ -40,7 +52,7 @@ public class ServicesDatabaseTest {
 		serviceFactory.getCategoryServices().insert(eletronico);
 	}
 
-	private CategoryBean createCategories(String name, String descrption) {
+	private static CategoryBean createCategories(String name, String descrption) {
 		CategoryBean categoryEntity = new CategoryBean();
 		categoryEntity.setName(name);
 		categoryEntity.setDescription(descrption);
