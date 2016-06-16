@@ -27,6 +27,14 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>br.com.jkavdev.hibernate</groupId>
+			<artifactId>hibernate-utils</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>br.com.jkavdev.hibernate</groupId>
+			<artifactId>hibernate-database</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 		</dependency>
