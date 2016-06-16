@@ -1,7 +1,9 @@
 package br.com.jkavdev.hibernate.database;
 
+import br.com.jkavdev.hibernate.database.interfaces.IDaoFactory;
 import br.com.jkavdev.hibernate.database.services.CategoryServices;
 import br.com.jkavdev.hibernate.database.services.ProductServices;
+import br.com.jkavdev.hibernate.database.utils.DaoFactory;
 import br.com.jkavdev.hibernate.utils.database.interfaces.ICategoryServices;
 import br.com.jkavdev.hibernate.utils.database.interfaces.IProductServices;
 import br.com.jkavdev.hibernate.utils.database.interfaces.IServiceFactory;
@@ -16,8 +18,10 @@ public class ServiceFactory implements IServiceFactory {
 	
 	//criando as instancias dos servicos
 	public ServiceFactory() {
-		this.categoryService = new CategoryServices();
-		this.productService = new ProductServices();
+		IDaoFactory daoFactory = new DaoFactory();
+		
+		this.categoryService = new CategoryServices(daoFactory);
+		this.productService = new ProductServices(daoFactory);
 	}
 
 	@Override
