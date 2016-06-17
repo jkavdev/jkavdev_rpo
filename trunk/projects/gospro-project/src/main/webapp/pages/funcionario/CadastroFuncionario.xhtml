@@ -9,11 +9,15 @@
 	<ui:define name="conteudo">
 		<p:panel id="panelFuncionario" header="Funcionarios">
 			<h:form id="formCadastro">
+			
 				<p:toolbar style="margin-top: 20px">
 					<p:toolbarGroup>
-						<p:button value="Pesquisa" outcome="/pages/funcionario/PesquisaFuncionario"/>
+						<p:button value="Pesquisa funcionários" outcome="/pages/funcionario/PesquisaFuncionario"/>
 					</p:toolbarGroup>
-				</p:toolbar>									
+				</p:toolbar>	
+				
+				<p:messages id="messages" autoUpdate="true" closable="true" />
+												
 				<h:panelGrid id="painel" columns="2">
 					<p:outputLabel for="nom" value="Nome: " />
 					<p:inputText id="nom" size="40" value="#{cadastroFuncionarioController.funcionario.nome}" required="true" requiredMessage="O campo 'NOME' é Obrigatório!" />
@@ -24,7 +28,7 @@
 					</p:selectOneRadio>
 
 					<p:outputLabel for="cargo" value="Cargo: " />
-					<p:selectOneMenu id="cargo" value="#{cadastroFuncionarioController.cargos}" required="true" requiredMessage="O campo 'CARGO' é obrigatório!">
+					<p:selectOneMenu id="cargo" value="#{cadastroFuncionarioController.funcionario.cargo}" required="true" requiredMessage="O campo 'CARGO' é obrigatório!">
 						<f:selectItem itemLabel="Selecione um Cargo"/>
 						<f:selectItems value="#{cadastroFuncionarioController.cargos}" var="cargo" itemLabel="#{cargo.descricao}" itemValue="#{cargo}"/>
 					</p:selectOneMenu>
@@ -42,7 +46,7 @@
 
 				</h:panelGrid>
 				
-				<p:commandButton value="Salvar" icon="ui-icon-disk" action="#{cadastroFuncionarioController.salvar}" />
+				<p:commandButton value="Salvar" icon="ui-icon-disk" action="#{cadastroFuncionarioController.salvar}" update="formCadastro"/>
 				
 			</h:form>
 		</p:panel>
