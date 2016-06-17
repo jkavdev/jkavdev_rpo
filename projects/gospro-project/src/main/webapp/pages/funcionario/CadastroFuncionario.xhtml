@@ -4,51 +4,64 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:o="http://omnifaces.org/ui">	
 
-	<ui:define name="conteudo">
-		<p:panel id="panelFuncionario" header="Funcionarios">
-			<h:form id="formCadastro">
-			
-				<p:toolbar style="margin-top: 20px">
-					<p:toolbarGroup>
-						<p:button value="Pesquisa funcionários" outcome="/pages/funcionario/PesquisaFuncionario"/>
-					</p:toolbarGroup>
-				</p:toolbar>	
-				
-				<p:messages id="messages" autoUpdate="true" closable="true" />
-												
-				<h:panelGrid id="painel" columns="2">
-					<p:outputLabel for="nom" value="Nome: " />
-					<p:inputText id="nom" size="40" value="#{cadastroFuncionarioController.funcionario.nome}" required="true" requiredMessage="O campo 'NOME' é Obrigatório!" />
+	<ui:define name="content">
+		<h:form id="formCadastro">
+		
+		<f:metadata>
+			<o:viewParam name="funcionario" value="#{cadastroFuncionarioController.funcionario}" />
+		</f:metadata>
+		
+		<h1>Cadastro de Funcionários</h1>
+		
+			<p:toolbar style="margin-top: 20px">
+				<p:toolbarGroup>
+					<p:commandButton value="Pesquisa Funcionario" id="botaoNovo" action="/pages/funcionario/PesquisaFuncionario.xhtml" />
+				</p:toolbarGroup>
+			</p:toolbar>
 
-					<p:outputLabel for="sex" value="Sexo:" />
-					<p:selectOneRadio id="sex" value="#{cadastroFuncionarioController.funcionario.sexo}" required="true" requiredMessage="O campo 'SEXO' é obrigatório!">
-						<f:selectItems value="#{cadastroFuncionarioController.sexos}" var="sexo" itemLabel="#{sexo.descricao}" itemValue="#{sexo}"/>
-					</p:selectOneRadio>
+			<p:messages id="messages" autoUpdate="true" closable="true" />
 
-					<p:outputLabel for="cargo" value="Cargo: " />
-					<p:selectOneMenu id="cargo" value="#{cadastroFuncionarioController.funcionario.cargo}" required="true" requiredMessage="O campo 'CARGO' é obrigatório!">
-						<f:selectItem itemLabel="Selecione um Cargo"/>
-						<f:selectItems value="#{cadastroFuncionarioController.cargos}" var="cargo" itemLabel="#{cargo.descricao}" itemValue="#{cargo}"/>
-					</p:selectOneMenu>
+			<h:panelGrid id="painel" columns="2">
+				<p:outputLabel for="nome" value="Nome: " />
+				<p:inputText id="nome" size="40" value="#{cadastroFuncionarioController.funcionario.nome}" />
 
-					<p:outputLabel for="data" value="Data de Nascimento: " />
-					<p:inputMask mask="99/99/9999" value="#{cadastroFuncionarioController.funcionario.dataNascimento}" id="data" >
-						<f:convertDateTime pattern="dd/MM/yyyy" dateStyle="medium" locale="pt_BR" timeZone="America/Sao_Paulo"/>
-					</p:inputMask>						
+				<p:outputLabel for="sex" value="Sexo:" />
+				<p:selectOneRadio id="sex" value="#{cadastroFuncionarioController.funcionario.sexo}" >
+					<f:selectItems value="#{cadastroFuncionarioController.sexos}" var="sexo" itemLabel="#{sexo.descricao}" itemValue="#{sexo}" />
+				</p:selectOneRadio>
 
-					<p:outputLabel for="rg" value="RG: " />
-					<p:inputText id="rg" maxlength="20" size="20" value="#{cadastroFuncionarioController.funcionario.rg}" required="true" requiredMessage="O campo 'RG' é obrigatório!" />
+				<p:outputLabel for="cargo" value="Cargo: " />
+				<p:selectOneMenu id="cargo" value="#{cadastroFuncionarioController.funcionario.cargo}" >
+					<f:selectItem itemLabel="Selecione um Cargo" />
+					<f:selectItems value="#{cadastroFuncionarioController.cargos}" var="cargo" itemLabel="#{cargo.descricao}" itemValue="#{cargo}" />
+				</p:selectOneMenu>
 
-					<p:outputLabel for="cpf" value="CPF: " />
-					<p:inputMask id="cpf" mask="999.999.999-99" size="13" value="#{cadastroFuncionarioController.funcionario.cpf}" required="true" requiredMessage="O campo 'CPF' é obrigatório!" />
+				<p:outputLabel for="data" value="Data de Nascimento: " />
+				<p:inputMask mask="99/99/9999"
+					value="#{cadastroFuncionarioController.funcionario.dataNascimento}"
+					id="data">
+					<f:convertDateTime pattern="dd/MM/yyyy" dateStyle="medium" locale="pt_BR" timeZone="America/Sao_Paulo" />
+				</p:inputMask>
 
-				</h:panelGrid>
-				
-				<p:commandButton value="Salvar" icon="ui-icon-disk" action="#{cadastroFuncionarioController.salvar}" update="formCadastro"/>
-				
-			</h:form>
-		</p:panel>
+				<p:outputLabel for="rg" value="RG: " />
+				<p:inputText id="rg" maxlength="20" size="20" value="#{cadastroFuncionarioController.funcionario.rg}"/>
+
+				<p:outputLabel for="cpf" value="CPF: " />
+				<p:inputMask id="cpf" mask="999.999.999-99" size="13" value="#{cadastroFuncionarioController.funcionario.cpf}"/>
+
+				<f:facet name="footer">
+					<p:row>
+						<p:outputPanel style="width: 100%;" layout="block">
+							<p:commandButton value="Salvar" icon="ui-icon-disk" action="#{cadastroFuncionarioController.salvar}" update="formCadastro" />
+						</p:outputPanel>
+					</p:row>
+				</f:facet>
+
+			</h:panelGrid>
+
+		</h:form>
 	</ui:define>
 </ui:composition>

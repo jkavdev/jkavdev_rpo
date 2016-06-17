@@ -1,69 +1,36 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:p="http://primefaces.org/ui">
+
 <h:head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<h:graphicImage library="images" name="wpattern_wproject.ico" />
 	<h:outputStylesheet library="css" name="main.css" />
-	<title><ui:define name="titulo" /></title>
+	<h:outputScript library="js" name="scripts.js" />
+	<title><ui:insert name="title" /> Gospro Project</title>
 </h:head>
+
 <h:body>
-	<p:growl id="mensagem" />
+	<p:layout fullPage="true">
+		
+		<p:layoutUnit position="north" size="100" resizable="false" closable="false" collapsible="false">			
+			<ui:include src="header.xhtml" />
+		</p:layoutUnit>
 
-	<div id="geral">
-		<p:layout fullPage="true">
-			<p:layoutUnit position="north" resizable="false" size="74">
-				<h:form>
-					<p:toolbar>
-						<p:toolbarGroup align="right">
-							<p:panelGrid columns="3">
-								<h:outputText value="Bem vindo!_" />
-								<p:commandButton value="Sair" image="ui-icon-power" />
-							</p:panelGrid>
-						</p:toolbarGroup>
-					</p:toolbar>
-				</h:form>
-			</p:layoutUnit>
+		<p:layoutUnit position="south" size="30" resizable="false" closable="false" collapsible="false">
+			<ui:include src="footer.xhtml" />
+		</p:layoutUnit>
 
-			<p:layoutUnit header="LOGO DO SISTEMA" size="200" position="west"
-				resizable="false" closable="false" collapsible="false">
-				<h:form id="form">
-					<p:panelMenu style="widht:300px">
-						<p:submenu label="Minha Empresa">
-							<p:menuitem value="Usuário" />
-							<p:menuitem value="Funcionário"
-								outcome="/pages/funcionario/PesquisaFuncionario" />
-							<p:menuitem value="Estado" />
-							<p:menuitem value="Cidade" />
-							<p:menuitem value="Serviços" />
-						</p:submenu>
+		<p:layoutUnit position="west" size="200" header="Menu" resizable="false" closable="false" collapsible="false">
+			<ui:include src="menu.xhtml" />
+		</p:layoutUnit>
 
-						<p:submenu label="Cadastros">
-							<p:menuitem value="Cliente" />
-							<p:menuitem value="Equipamento" />
-							<p:menuitem value="Nova OS" />
-
-						</p:submenu>
-						<p:submenu label="Relatórios">
-						</p:submenu>
-					</p:panelMenu>
-				</h:form>
-			</p:layoutUnit>
-
-
-			<p:layoutUnit position="center" resizable="false" closable="false"
-				collapsible="false">
-
-				<div id="conteudo">
-					<ui:insert name="conteudo"></ui:insert>
-				</div>
-
-			</p:layoutUnit>
-		</p:layout>
-
-	</div>
+		<p:layoutUnit position="center">
+			<ui:insert name="content" />
+		</p:layoutUnit>
+		
+	</p:layout>
 </h:body>
 </html>
