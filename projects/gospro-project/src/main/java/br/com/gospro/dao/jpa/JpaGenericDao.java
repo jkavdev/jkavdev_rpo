@@ -45,6 +45,7 @@ public class JpaGenericDao<T, ID extends Serializable> implements GenericDao<T, 
 		return this.manager.find(entidade, id);
 	}
 
+	@SuppressWarnings("unused")
 	@Override
 	public List<T> buscarTodos() {
 		CriteriaBuilder builder = this.manager.getCriteriaBuilder();
