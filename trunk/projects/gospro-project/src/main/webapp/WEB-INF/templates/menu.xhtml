@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<body>
+	<ui:composition>
+		<div id="mainMenu">
+			<h:form>
+				<p:panelMenu>
+				
+					<p:submenu label="Minha Empresa">
+						<p:menuitem value="Funcionario URL" url="/pages/funcionario/CadastroFuncionario.xhtml" icon="ui-icon-note" />
+						<p:menuitem value="Usuário" />
+						<p:menuitem value="Funcionário" outcome="/pages/funcionario/PesquisaFuncionario" />
+						<p:menuitem value="Estado" />
+						<p:menuitem value="Cidade" />
+						<p:menuitem value="Serviços" />
+					</p:submenu>
+
+					<p:submenu label="Cadastros">
+						<p:menuitem value="Cliente" />
+						<p:menuitem value="Equipamento" />
+						<p:menuitem value="Nova OS" />
+					</p:submenu>
+					
+					<p:submenu label="Relatórios" />
+										
+				</p:panelMenu>
+			</h:form>
+		</div>
+	</ui:composition>
+</body>
+
+</html>

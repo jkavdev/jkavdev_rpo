@@ -78,7 +78,7 @@ public abstract class Pessoa extends BaseEntity {
 		this.dataNascimento = dataNascimento;
 	}
 
-	@Column(name = "data_cadastro")
+	@Column(name = "data_cadastro", updatable = false)
 	@Temporal(TemporalType.DATE)
 	public Calendar getDataCadastro() {
 		return dataCadastro;

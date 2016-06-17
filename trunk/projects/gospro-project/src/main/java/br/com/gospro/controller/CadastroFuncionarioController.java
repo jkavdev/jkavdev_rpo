@@ -37,7 +37,6 @@ public class CadastroFuncionarioController implements Serializable {
 
 	public void salvar() {
 		try {
-			System.out.println("passei aqui salvar");
 			funcionarioService.salvar(funcionario);
 			FacesUtil.addSuccessMessage("Funcionario: " + funcionario.getNome() + " salvo com Sucesso");
 		} catch (NegocioException e) {
