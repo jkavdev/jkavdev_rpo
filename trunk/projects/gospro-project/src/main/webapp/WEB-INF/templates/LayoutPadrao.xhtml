@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<h:outputStylesheet library="css" name="main.css"/>
-	<title>GosProo</title>
+	<h:outputStylesheet library="css" name="main.css" />
+	<title><ui:define name="titulo" /></title>
 </h:head>
 <h:body>
 	<p:growl id="mensagem" />
@@ -28,12 +28,14 @@
 				</h:form>
 			</p:layoutUnit>
 
-			<p:layoutUnit header="LOGO DO SISTEMA" size="200" position="west" resizable="false" closable="false" collapsible="false">
+			<p:layoutUnit header="LOGO DO SISTEMA" size="200" position="west"
+				resizable="false" closable="false" collapsible="false">
 				<h:form id="form">
 					<p:panelMenu style="widht:300px">
 						<p:submenu label="Minha Empresa">
 							<p:menuitem value="Usuário" />
-							<p:menuitem value="Funcionário" outcome="/pages/funcionario/PesquisaFuncionario"/>
+							<p:menuitem value="Funcionário"
+								outcome="/pages/funcionario/PesquisaFuncionario" />
 							<p:menuitem value="Estado" />
 							<p:menuitem value="Cidade" />
 							<p:menuitem value="Serviços" />
@@ -52,7 +54,8 @@
 			</p:layoutUnit>
 
 
-			<p:layoutUnit position="center" resizable="false" closable="false" collapsible="false">
+			<p:layoutUnit position="center" resizable="false" closable="false"
+				collapsible="false">
 
 				<div id="conteudo">
 					<ui:insert name="conteudo"></ui:insert>
