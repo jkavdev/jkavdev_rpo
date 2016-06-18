@@ -12,6 +12,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import br.com.jkavdev.cocodonto.model.util.jpa.BaseEntity;
+
 @Entity
 @Table(name = "consultas")
 public class Consulta extends BaseEntity {
@@ -20,7 +22,6 @@ public class Consulta extends BaseEntity {
 
 	private Dentista dentista;
 	private Paciente paciente;
-	private Date dataCriacao;
 	private BigDecimal valor;
 	private Procedimento tratamento;
 	private Odontograma odontograma;
@@ -43,16 +44,6 @@ public class Consulta extends BaseEntity {
 
 	public void setPaciente(Paciente paciente) {
 		this.paciente = paciente;
-	}
-
-	@Column(name = "data_criacao")
-	@Temporal(TemporalType.TIMESTAMP)
-	public Date getDataCriacao() {
-		return dataCriacao;
-	}
-
-	public void setDataCriacao(Date dataCriacao) {
-		this.dataCriacao = dataCriacao;
 	}
 
 	public BigDecimal getValor() {

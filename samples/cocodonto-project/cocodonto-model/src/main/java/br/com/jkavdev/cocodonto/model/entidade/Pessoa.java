@@ -7,6 +7,8 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import br.com.jkavdev.cocodonto.model.util.jpa.BaseEntity;
+
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Pessoa extends BaseEntity {

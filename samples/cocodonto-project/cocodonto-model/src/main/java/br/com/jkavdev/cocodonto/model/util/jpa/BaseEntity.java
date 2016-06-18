@@ -1,4 +1,4 @@
-package br.com.jkavdev.cocodonto.model.entidade;
+package br.com.jkavdev.cocodonto.model.util.jpa;
 
 import java.io.Serializable;
 import java.util.Date;

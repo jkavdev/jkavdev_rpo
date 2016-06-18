@@ -8,26 +8,17 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import br.com.jkavdev.cocodonto.model.util.jpa.BaseEntity;
+
 @Entity
 @Table(name = "auditores")
 public class Auditor extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 
-	private Date dataCriacao;
 	private Date dataUltimaModificacao;
 	private String modificadoPor;
 	private String criadoPor;
-
-	@Column(name = "data_criacao")
-	@Temporal(TemporalType.TIMESTAMP)
-	public Date getDataCriacao() {
-		return dataCriacao;
-	}
-
-	public void setDataCriacao(Date dataCriacao) {
-		this.dataCriacao = dataCriacao;
-	}
 
 	@Column(name = "data_modificacao")
 	@Temporal(TemporalType.TIMESTAMP)
