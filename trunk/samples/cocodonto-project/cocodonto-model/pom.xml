@@ -14,11 +14,6 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>br.com.jkavdev.hibernate</groupId>
-			<artifactId>hibernate-utils</artifactId>
-		</dependency>
-
-		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 		</dependency>

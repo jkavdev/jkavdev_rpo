@@ -5,6 +5,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import br.com.jkavdev.cocodonto.model.util.jpa.BaseEntity;
+
 @Entity
 @Table(name = "contratos")
 public class Contrato extends BaseEntity {

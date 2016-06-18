@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import br.com.jkavdev.cocodonto.model.util.jpa.BaseEntity;
+
 @Entity
 @Table(name = "pagamentos")
 public class Procedimento extends BaseEntity {

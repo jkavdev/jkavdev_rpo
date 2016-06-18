@@ -8,6 +8,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import br.com.jkavdev.cocodonto.model.util.jpa.BaseEntity;
+
 @Entity
 @Table(name = "pagamentos")
 public class Pagamento extends BaseEntity {
