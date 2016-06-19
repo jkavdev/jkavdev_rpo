@@ -10,5 +10,13 @@
 	</parent>
 
 	<artifactId>northwind-service</artifactId>
+	
+	<dependencies>
+		<!-- WPATTERN NORTHWIND UTILS -->
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>northwind-utils</artifactId>
+		</dependency>
+	</dependencies>
 
 </project>

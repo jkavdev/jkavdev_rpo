@@ -11,4 +11,77 @@
 
 	<artifactId>northwind-factory</artifactId>
 
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<main.class>br.com.jkavdev.northwind.factory.NorthwindMain</main.class>
+	</properties>
+
+	<dependencies>
+		<!-- WPATTERN NORTHWIND BUSINESS -->
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>northwind-business</artifactId>
+		</dependency>
+
+		<!-- WPATTERN NORTHWIND DATABASE -->
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>northwind-database</artifactId>
+		</dependency>
+
+		<!-- WPATTERN NORTHWIND SERVICE -->
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>northwind-service</artifactId>
+		</dependency>
+
+		<!-- WPATTERN NORTHWIND UTILS -->
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>northwind-utils</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<shadedArtifactAttached>true</shadedArtifactAttached>
+							<shadedClassifierName>northwind</shadedClassifierName>
+							<shadedArtifactId>northwind</shadedArtifactId>
+						</configuration>
+					</execution>
+				</executions>
+				<configuration>
+					<finalName>northwind-server-${version}</finalName>
+					<transformers>
+						<transformer
+							implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+							<resource>META-INF/spring.handlers</resource>
+						</transformer>
+						<transformer
+							implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+							<resource>META-INF/spring.schemas</resource>
+						</transformer>
+						<transformer
+							implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+							<manifestEntries>
+								<Main-Class>${main.class}</Main-Class>
+							</manifestEntries>
+						</transformer>
+					</transformers>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>
