@@ -11,4 +11,43 @@
 
 	<artifactId>northwind-database</artifactId>
 
+	<dependencies>
+		<!-- WPATTERN NORTHWIND UTILS -->
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>northwind-utils</artifactId>
+		</dependency>
+
+		<!-- MYSQL DRIVER -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+
+		<!-- SLF4J -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+		</dependency>
+
+		<!-- HIBERNATE ENTITYMANAGER -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+		</dependency>
+
+		<!-- COMMONS LOGGING -->
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+		</dependency>
+
+		<!-- DOZER -->
+		<dependency>
+			<groupId>net.sf.dozer</groupId>
+			<artifactId>dozer</artifactId>
+		</dependency>
+
+	</dependencies>
+
 </project>
