@@ -16,11 +16,8 @@ public class CategoryEntity extends BaseEntity {
 	@Id
 	@GeneratedValue
 	private Long categoryId;
-
 	private String categoryName;
-
 	private String description;
-
 	private Byte[] picture;
 
 	public Long getCategoryId() {
