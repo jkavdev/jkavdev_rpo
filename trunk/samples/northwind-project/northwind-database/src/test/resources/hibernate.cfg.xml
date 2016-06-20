@@ -14,25 +14,25 @@
 		<property name="hibernate.connection.driver_class">org.gjt.mm.mysql.Driver</property>
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
 		<property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/northwind</property>
-		<property name="hibernate.connection.username">augusto</property>
+		<property name="hibernate.connection.username">jkavdev</property>
 		<property name="hibernate.connection.password">123456</property>
 
 		<!-- CONFIGURATIONs -->
 		<property name="hibernate.show_sql">true</property>
 
 		<!-- ENTITIES -->
-		<mapping class="br.com.wpattern.northwind.database.entities.CategoryEntity" />
-		<mapping class="br.com.wpattern.northwind.database.entities.CustomerCustomerDemoEntity" />
-		<mapping class="br.com.wpattern.northwind.database.entities.CustomerDemographicEntity" />
-		<mapping class="br.com.wpattern.northwind.database.entities.CustomerEntity" />
-		<mapping class="br.com.wpattern.northwind.database.entities.EmployeeEntity" />
-		<mapping class="br.com.wpattern.northwind.database.entities.EmployeeTerritoryEntity" />
-		<mapping class="br.com.wpattern.northwind.database.entities.OrderEntity" />
-		<mapping class="br.com.wpattern.northwind.database.entities.OrderDetailEntity" />
-		<mapping class="br.com.wpattern.northwind.database.entities.ProductEntity" />
-		<mapping class="br.com.wpattern.northwind.database.entities.ShipperEntity" />
-		<mapping class="br.com.wpattern.northwind.database.entities.SupplierEntity" />
-		<mapping class="br.com.wpattern.northwind.database.entities.RegionEntity" />
-		<mapping class="br.com.wpattern.northwind.database.entities.TerritoryEntity" />
+		<mapping class="br.com.jkavdev.northwind.database.entities.CategoryEntity" />
+		<mapping class="br.com.jkavdev.northwind.database.entities.CustomerCustomerDemoEntity" />
+		<mapping class="br.com.jkavdev.northwind.database.entities.CustomerDemographicEntity" />
+		<mapping class="br.com.jkavdev.northwind.database.entities.CustomerEntity" />
+		<mapping class="br.com.jkavdev.northwind.database.entities.EmployeeEntity" />
+		<mapping class="br.com.jkavdev.northwind.database.entities.EmployeeTerritoryEntity" />
+		<mapping class="br.com.jkavdev.northwind.database.entities.OrderEntity" />
+		<mapping class="br.com.jkavdev.northwind.database.entities.OrderDetailEntity" />
+		<mapping class="br.com.jkavdev.northwind.database.entities.ProductEntity" />
+		<mapping class="br.com.jkavdev.northwind.database.entities.ShipperEntity" />
+		<mapping class="br.com.jkavdev.northwind.database.entities.SupplierEntity" />
+		<mapping class="br.com.jkavdev.northwind.database.entities.RegionEntity" />
+		<mapping class="br.com.jkavdev.northwind.database.entities.TerritoryEntity" />
 	</session-factory>
 </hibernate-configuration>
