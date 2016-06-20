@@ -4,7 +4,9 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -50,7 +52,7 @@ public class Questao implements Serializable {
 		this.opcoes = opcoes;
 	}
 
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.ALL , fetch = FetchType.EAGER)
 	@JoinTable(name = "Opcao_questao", joinColumns = @JoinColumn(name = "Opcao_id"), inverseJoinColumns = @JoinColumn(name = "Questao_id"))
 	public List<Opcao> getOpcoes() {
 		return opcoes;
@@ -92,6 +94,7 @@ public class Questao implements Serializable {
 		this.prova = prova;
 	}
 
+	@Column(length = 65535, columnDefinition = "Text")
 	public String getTexto() {
 		return texto;
 	}
@@ -100,6 +103,7 @@ public class Questao implements Serializable {
 		this.texto = texto;
 	}
 
+	@Column(length = 65535, columnDefinition = "Text")
 	public String getReferenciaTexto() {
 		return referenciaTexto;
 	}

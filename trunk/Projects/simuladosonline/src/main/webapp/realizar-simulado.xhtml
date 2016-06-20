@@ -14,12 +14,56 @@
 					style="color:#{simuladoBean.cor}" />
 			</h4>
 			<p:growl id="msgs" showDetail="true" />
-			<p:panel header="Boa Prova!" id="painel" style="text-align:center;">
-				<p:messages id="messages" showDetail="true" autoUpdate="true"
-					closable="true" />
-				<p:poll interval="#{simuladoBean.intervalo}"
-					listener="#{simuladoBean.decrementa}" update="txt_count" />
-			</p:panel>
+			<p:messages id="messages" showDetail="true" autoUpdate="true"
+				closable="true" />
+			<p:poll interval="#{simuladoBean.intervalo}"
+				listener="#{simuladoBean.decrementa}" update="txt_count" />
+
+			<p:dataList value="#{simuladoBean.questoes}" var="q" type="unordered"
+				rowIndexVar="qi" itemType="none" paginator="true" rows="1"
+				styleClass="paginated">
+				<div style="padding: 5px;">
+					<f:facet name="header">
+						<p:outputLabel
+							value="#{simuladoBean.prova.instituicao.nome} - #{simuladoBean.prova.banca.nome}"
+							style="color:black" />
+						<br />
+						<p:outputLabel
+							value="#{simuladoBean.prova.cargo.nomeCargo} - #{simuladoBean.prova.area.nome}"
+							style="color:black" />
+					</f:facet>
+					<p:outputLabel value="#{q.texto}"
+						styleClass="textoJustificado-centro" />
+					<br />
+					<p:outputLabel value="#{q.referenciaTexto}"
+						style="color:black; float:right; font-size: 12px;" />
+					<br /> <br />
+					<p:outputLabel value="(#{q.disciplina.nome})" />
+					<br /> <br />
+					<p:outputLabel value="#{qi+1}) #{q.enunciado}" style="color:black" />
+					<br />
+					<h:panelGrid columns="2" style="color:#000;"
+						rendered="#{q.tipo == simuladoBean.certoErrado}">
+						<p:outputLabel for="resposta" value="Resposta: " />
+						<p:selectOneRadio id="resposta" value="#{simuladoBean.resposta}"
+							style="color:black;width:auto;">
+							<p:ajax listener="#{simuladoBean.processaResposta}">
+							</p:ajax>
+							<f:selectItem itemLabel="Certo" itemValue="Certo" />
+							<f:selectItem itemLabel="Errado" itemValue="Errado" />
+						</p:selectOneRadio>
+					</h:panelGrid>
+					<h:panelGrid columns="2" style="color:#000;"
+						rendered="#{q.tipo == simuladoBean.multiplaEscolha}">
+						<p:outputLabel for="resposta2" value="Resposta: " />
+						<p:selectOneRadio id="resposta2" value="#{simuladoBean.resposta}"
+							layout="grid" columns="1" style="color:black;width:auto;">
+							<f:selectItems value="#{q.opcoes}" var="op"
+								itemLabel="#{op.nome}" itemValue="#{op.nome} | #{q}" />
+						</p:selectOneRadio>
+					</h:panelGrid>
+				</div>
+			</p:dataList>
 		</h:form>
 	</ui:define>
 </ui:composition>

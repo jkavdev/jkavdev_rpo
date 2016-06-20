@@ -1,5 +1,6 @@
 package br.com.so.bean;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -111,7 +112,7 @@ public class HomeBean implements Serializable {
 		provasSimulado = HomeService.getProvaSimulado(nivel, provasAux);
 	}
 
-	public void iniciar() {
+	public void iniciar() throws IOException {
 		if (instituicao != null && cargo != null && banca != null && nivel != null && provasSimulado != null) {
 			List<Questao> questoes = new ArrayList<>();
 			for (Prova p : provasSimulado) {
@@ -121,8 +122,13 @@ public class HomeBean implements Serializable {
 					questoes.addAll(aux);
 				}
 			}
+			if (questoes != null && !questoes.isEmpty()) {
+				SimuladoBean.setQuestoes(questoes);
+				SimuladoBean.setProva(provasSimulado.get(0));
+				FacesContext.getCurrentInstance().getExternalContext().redirect("realizar-simulado.xhtml");
+			}
 		} else {
-			FacesUtil.addWarnMessage("Todos com campos com * devem ser preenchidos!");
+			FacesUtil.addWarnMessage("Todos os campos com * devem ser preenchidos!");
 		}
 	}
 
