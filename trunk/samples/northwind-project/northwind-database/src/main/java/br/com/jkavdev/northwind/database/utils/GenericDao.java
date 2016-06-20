@@ -20,7 +20,8 @@ public abstract class GenericDao<T extends BaseEntity, ID extends Serializable> 
 
 	@SuppressWarnings("unchecked")
 	public GenericDao() {
-		this.persistentClass = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass())
+		this.persistentClass = (Class<T>) ((ParameterizedType)
+				getClass().getGenericSuperclass())
 				.getActualTypeArguments()[0];
 
 		this.session = getCurrentSession();
