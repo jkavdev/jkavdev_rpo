@@ -384,3 +384,34 @@ ul.menu {
 .links-redes:hover {
 	color: #696969;
 }
+
+.ui-datalist .ui-datalist-header {
+	background-color: transparent !important;
+	border: 0px;
+}
+
+.ui-datalist-content ui-widget-content {
+	padding: 1em;
+	border-radius: 5px;
+	border-color: 1px solid #dcdcdc;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+}
+
+.ui-paginator.ui-paginator-top {
+	display: none;
+}
+
+.ui-paginator.ui-paginator-bottom {
+	background-color: transparent !important;
+	border: 0px;
+}
+
+.ui-datalist .ui-datalist-empty-message {
+	display: none;
+}
+
+.textoJustificado-centro {
+	color: black;
+	text-align: justify;
+}
