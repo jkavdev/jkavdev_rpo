@@ -14,7 +14,6 @@ public class CustomerDemographicEntity extends BaseEntity {
 
 	@Id
 	private String customerTypeId;
-
 	private String customerDesc;
 
 	public String getCustomerTypeId() {

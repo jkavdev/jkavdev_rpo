@@ -16,7 +16,6 @@ public class RegionEntity extends BaseEntity {
 	@Id
 	@GeneratedValue
 	private Long regionId;
-
 	private String regionDescription;
 
 	public Long getRegionId() {
