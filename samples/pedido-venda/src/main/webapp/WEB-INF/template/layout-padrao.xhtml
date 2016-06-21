@@ -8,6 +8,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title><ui:insert name="titulo">Sistema de Locadora de Veículo</ui:insert></title>
 	<h:outputStylesheet library="css" name="sistema.css" />
+	<h:outputScript library="js" name="jquery.maskMoney.js" />
 </h:head>
 
 <h:body>
@@ -39,6 +40,19 @@
 		Curso Online de Persistência de Dados com JPA 2 e Hibernate - <a
 			href="http://bit.ly/VJTAnC" target="_blank">www.algaworks.com</a>
 	</footer>
+
+	<script>
+		//get todos os componentes com a classe moeda
+		//e aplica a formatacao com o jquery.MaskMoney
+		function configurarMoeda() {
+			$(".moeda").maskMoney({ decimal: ",", thousands: ".", allowZero: true });
+		}
+
+		//quando o pagina rederizar o javascript executara a chamada do metodo
+		$(document).ready(function() {
+			configurarMoeda();
+		});
+	</script>
 </h:body>
 
 </html>

@@ -120,35 +120,10 @@ h1 {
 }
 
 .menu-sistema .ui-icon-triangle-1-s {
-	background: url(#{ resource [ 'imagens:seta-para-baixo.png' ]
+	background: url(#{ resource [ 'imagens:seta-para-baixo.png' ]})
+no-repeat;
 }
 
-)
-no-repeat
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-;
-}
 /* Menu sistema fim */
 .many-checkbox td {
 	border-width: 0px !important;
