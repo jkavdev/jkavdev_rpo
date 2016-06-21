@@ -11,6 +11,16 @@
 </h:head>
 
 <h:body>
+
+	<p:ajaxStatus styleClass="ajax-status">
+		<f:facet name="start">
+			<h:graphicImage library="imagens" name="carregando.gif" />
+		</f:facet>
+		<f:facet name="complete">
+			<h:outputText value="" />
+		</f:facet>
+	</p:ajaxStatus>
+
 	<header>
 		<div>
 			<h:link>
@@ -22,12 +32,12 @@
 	<div id="conteudo">
 		<ui:insert name="corpo" />
 	</div>
-	
-	<p:separator style="margin-top: 20px"/>
+
+	<p:separator style="margin-top: 20px" />
 
 	<footer>
-		Curso Online de Persistência de Dados com JPA 2 e Hibernate - 
-		<a href="http://bit.ly/VJTAnC" target="_blank">www.algaworks.com</a>
+		Curso Online de Persistência de Dados com JPA 2 e Hibernate - <a
+			href="http://bit.ly/VJTAnC" target="_blank">www.algaworks.com</a>
 	</footer>
 </h:body>
 
