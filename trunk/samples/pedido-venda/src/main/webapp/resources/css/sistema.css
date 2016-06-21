@@ -45,6 +45,7 @@ footer {
 	margin-top: 150px;
 }
 
+/*login*/
 .grid-login {
 	background-color: #f2f2f2;
 	border-radius: 8px;
@@ -60,10 +61,12 @@ h1 {
 	margin: 0px
 }
 
+/*formulario de cadastro*/
 .rotulo {
 	width: 150px
 }
 
+/*aumentando as celulas dentro do panel-grid*/
 .ui-panelgrid td {
 	height: 34px
 }
@@ -121,6 +124,10 @@ h1 {
 
 )
 no-repeat
+
+
+
+
 
 
 
