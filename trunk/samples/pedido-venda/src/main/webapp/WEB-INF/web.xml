@@ -4,7 +4,7 @@
 	version="3.1">
 
 	<welcome-file-list>
-		<welcome-file>Home.xhtml</welcome-file>
+		<welcome-file>home.xhtml</welcome-file>
 	</welcome-file-list>
 
 	<context-param>
@@ -26,5 +26,10 @@
 		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>*.xhtml</url-pattern>
 	</servlet-mapping>
+
+	<context-param>
+		<param-name>primefaces.THEME</param-name>
+		<param-value>bootstrap</param-value>
+	</context-param>
 
 </web-app>
