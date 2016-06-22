@@ -89,6 +89,10 @@ h1 {
 	padding-right: 10px;
 }
 
+.produto-tabela input{
+	width: 99%;
+}
+
 /* Customiza TabView - início */
 .ui-tabs .ui-tabs-panel {
 	padding: 0.5em 0.2em !important;
