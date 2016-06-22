@@ -1,8 +1,1 @@
 HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-HHH000436: Entity manager factory name (simuladosPU) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
-HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-HHH000436: Entity manager factory name (simuladosPU) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
