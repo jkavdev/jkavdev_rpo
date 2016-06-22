@@ -16,12 +16,11 @@
 				<p:commandButton id="botaoSalvar" value="Salvar" />
 			</p:toolbarGroup>
 			<p:toolbarGroup align="right">
-				<p:button value="Pesquisa" outcome="/produtos/cadastro-produtos" />
+				<p:button value="Pesquisa" outcome="/produtos/pesquisa-produtos" />
 			</p:toolbarGroup>
 		</p:toolbar>
 
-		<p:panelGrid columns="2" id="painel"
-			style="width: 100%; margin-top: 20px;" columnClasses="rotulo, campo">
+		<p:panelGrid columns="2" id="painel" style="width: 100%; margin-top: 20px;" columnClasses="rotulo, campo">
 			<p:outputLabel value="SKU" for="sku" />
 			<p:inputText id="sku" size="20" maxlength="10" />
 
