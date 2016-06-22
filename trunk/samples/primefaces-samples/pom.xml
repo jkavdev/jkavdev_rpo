@@ -8,27 +8,27 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<!-- Hibernate / JPA -->
+
 		<hibernate.version>5.1.0.Final</hibernate.version>
-		<!-- Driver MySQL -->
+
 		<mysql.connector.version>5.1.38</mysql.connector.version>
-		<!-- Driver PostgreSQL -->
+
 		<postgres.connector.version>9.4.1208</postgres.connector.version>
-		<!-- Primefaces -->
-		<primefaces.version>5.1</primefaces.version>
-		<!-- Primefaces Theme -->
+
+		<primefaces.version>4.0</primefaces.version>
+
 		<prime.theme.version>1.0.8</prime.theme.version>
-		<!-- JSF Version -->
+
 		<javax.faces.version>2.2.13</javax.faces.version>
-		<!-- OmniFaces - Utilitario do JSF -->
+
 		<omnifaces.version>2.3</omnifaces.version>
-		<!-- Weld - Implementação do CDI -->
+
 		<weld.version>2.2.10.Final</weld.version>
-		<!-- Weld depende do Jandex -->
+
 		<jandex.version>1.2.3.Final</jandex.version>
-		<!-- C3p0 - DataSource and ConnectionPool -->
+
 		<c3p0.version>0.9.5.2</c3p0.version>
-		<!-- JUnit - Testes -->
+
 		<junit.version>4.12</junit.version>
 	</properties>
 
@@ -67,11 +67,11 @@
 	</build>
 
 	<dependencies>
+
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
 			<version>${primefaces.version}</version>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.primefaces.extensions</groupId>
@@ -84,7 +84,6 @@
 			<groupId>org.glassfish</groupId>
 			<artifactId>javax.faces</artifactId>
 			<version>${javax.faces.version}</version>
-			<scope>compile</scope>
 		</dependency>
 
 		<dependency>
@@ -94,5 +93,14 @@
 		</dependency>
 
 	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>prime-repo</id>
+			<name>PrimeFaces Maven Repository</name>
+			<url>http://repository.primefaces.org</url>
+			<layout>default</layout>
+		</repository>
+	</repositories>
 
 </project>

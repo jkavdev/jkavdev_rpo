@@ -1,0 +1,27 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</h:head>
+
+<h:body>
+	<h:form id="frm">
+
+		<p:button value="Exibir" onclick="meuDialogo.show();  return false;" />
+		<p:button value="Ocultar" onclick="meuDialogo.hide();  return false;" />
+
+		<p:dialog header="Meu Dialogo" widgetVar="meuDialogo" 
+			draggable="false" resizable="false"
+			modal="false" maximizable="true" minimizable="true"
+			showEffect="shake" hideEffect="explode">
+			Conteudo do Dialogo
+		</p:dialog>
+
+	</h:form>
+</h:body>
+
+</html>
