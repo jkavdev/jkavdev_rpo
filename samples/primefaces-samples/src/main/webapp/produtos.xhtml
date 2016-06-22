@@ -1,0 +1,47 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</h:head>
+
+<h:body>
+	<h:form id="frm">
+
+		<p:button value="Adicionar Produto" onclick="inclusaoProdutoDialogo.show();  return false;" />
+
+		<p:dataTable value="#{produtosBean.produtos}" var="produto" id="produtosTable" emptyMessage="Não existem produtos.">
+			<p:column headerText="Produto">
+				<h:outputText value="#{produto}" />
+			</p:column>
+		</p:dataTable>
+
+		<p:dialog header="Meu Dialogo" widgetVar="inclusaoProdutoDialogo" draggable="false" resizable="false" modal="true">
+			<h:panelGroup id="inclusaoPanel">
+				<p:messages />
+
+				<h:panelGrid columns="2">
+					<p:outputLabel value="Nome" />
+					<p:inputText value="#{produtosBean.nomeProduto}" required="true" requiredMessage="Informe o nome do Produto" />
+				</h:panelGrid>
+
+				<p:commandButton action="#{produtosBean.incluirProduto}" value="Incluir" update="produtosTable inclusaoPanel" oncomplete="tratarInclusaoProduto(args)" />
+			</h:panelGroup>
+		</p:dialog>
+
+	</h:form>
+
+	<script>
+		function tratarInclusaoProduto(args){
+			if(!args.validationFailed){
+				inclusaoProdutoDialogo.hide();
+				}
+			}
+	</script>
+
+</h:body>
+
+</html>
