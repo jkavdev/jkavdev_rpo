@@ -9,7 +9,11 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import br.com.gospro.dao.ICidadeDao;
+import br.com.gospro.dao.IEstadoDao;
 import br.com.gospro.model.Cargos;
+import br.com.gospro.model.Cidade;
+import br.com.gospro.model.Estado;
 import br.com.gospro.model.Funcionario;
 import br.com.gospro.model.Sexo;
 import br.com.gospro.service.FuncionarioService;
@@ -26,19 +30,27 @@ public class CadastroFuncionarioController implements Serializable {
 	private FuncionarioService funcionarioService;
 	@Inject
 	private Funcionario funcionario;
+	@Inject
+	private IEstadoDao estadoDao;
+	@Inject
+	private ICidadeDao cidadeDao;
 	private List<Sexo> sexos;
 	private List<Cargos> cargos;
+	private List<Estado> estados;
+	private List<Cidade> cidades;
+	private Estado estado;
 
 	@PostConstruct
 	public void init() {
-		sexos = Arrays.asList(Sexo.values());
-		cargos = Arrays.asList(Cargos.values());
+		this.sexos = Arrays.asList(Sexo.values());
+		this.cargos = Arrays.asList(Cargos.values());
+		this.estados = this.estadoDao.buscarTodos();
 	}
 
 	public void salvar() {
 		try {
-			funcionarioService.salvar(funcionario);
-			FacesUtil.addSuccessMessage("Funcionario: " + funcionario.getNome() + " salvo com Sucesso");
+			this.funcionarioService.salvar(this.funcionario);
+			FacesUtil.addSuccessMessage("Funcionario: " + this.funcionario.getNome() + " salvo com Sucesso");
 		} catch (NegocioException e) {
 			FacesUtil.addErrorMessage(e.getMessage());
 		}
@@ -46,11 +58,15 @@ public class CadastroFuncionarioController implements Serializable {
 	}
 
 	private void limpaFormulario() {
-		funcionario = new Funcionario();
+		this.funcionario = new Funcionario();
+	}
+
+	public void buscaCidadePorEstado() {
+		this.cidades = this.cidadeDao.buscarCidadePorEstado(this.estado);
 	}
 
 	public Funcionario getFuncionario() {
-		return funcionario;
+		return this.funcionario;
 	}
 
 	public void setFuncionario(Funcionario funcionario) {
@@ -58,11 +74,27 @@ public class CadastroFuncionarioController implements Serializable {
 	}
 
 	public List<Sexo> getSexos() {
-		return sexos;
+		return this.sexos;
 	}
 
 	public List<Cargos> getCargos() {
-		return cargos;
+		return this.cargos;
+	}
+
+	public Estado getEstado() {
+		return this.estado;
+	}
+
+	public void setEstado(Estado estado) {
+		this.estado = estado;
+	}
+
+	public List<Estado> getEstados() {
+		return this.estados;
+	}
+
+	public List<Cidade> getCidades() {
+		return this.cidades;
 	}
 
 }

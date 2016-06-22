@@ -59,6 +59,19 @@
 						</p:outputPanel>
 					</p:row>
 				</f:facet>
+					
+					<p:outputLabel for="estado" value="Estado: " />
+					<p:selectOneMenu id="estado" value="#{cadastroFuncionarioController.estado}" required="true" requiredMessage="O campo 'ESTADO' é obrigatório!">
+						<f:selectItem itemLabel="Selecione um Estado"/>
+						<f:selectItems value="#{cadastroFuncionarioController.estados}" var="estado" itemLabel="#{estado.nome}" itemValue="#{cargo}"/>
+						<p:ajax listener="#{cadastroFuncionarioController.buscaCidadePorEstado}" update="cidade"/>
+					</p:selectOneMenu>
+					
+					<p:outputLabel for="cidade" value="Cidades: " />
+					<p:selectOneMenu id="cidade" value="#{cadastroFuncionarioController.funcionario.endereco.cidade}" required="true" requiredMessage="O campo 'CIDADE' é obrigatório!">
+						<f:selectItem itemLabel="Selecione uma Cidade"/>
+						<f:selectItems value="#{cadastroFuncionarioController.cidades}" var="cidade" itemLabel="#{cidade.nome}" itemValue="#{cidade}"/>						
+					</p:selectOneMenu>
 
 			</h:panelGrid>
 
