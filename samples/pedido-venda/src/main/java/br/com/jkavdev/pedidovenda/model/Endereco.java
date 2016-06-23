@@ -2,6 +2,7 @@ package br.com.jkavdev.pedidovenda.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -35,6 +36,7 @@ public class Endereco implements Serializable {
 		this.id = id;
 	}
 
+	@Column(nullable = false, length = 150)
 	public String getLogradouro() {
 		return this.logradouro;
 	}
@@ -43,6 +45,7 @@ public class Endereco implements Serializable {
 		this.logradouro = logradouro;
 	}
 
+	@Column(nullable = false, length = 20)
 	public String getNumero() {
 		return this.numero;
 	}
@@ -51,6 +54,7 @@ public class Endereco implements Serializable {
 		this.numero = numero;
 	}
 
+	@Column(length = 150)
 	public String getComplemento() {
 		return this.complemento;
 	}
@@ -59,6 +63,7 @@ public class Endereco implements Serializable {
 		this.complemento = complemento;
 	}
 
+	@Column(nullable = false, length = 60)
 	public String getCidade() {
 		return this.cidade;
 	}
@@ -67,6 +72,7 @@ public class Endereco implements Serializable {
 		this.cidade = cidade;
 	}
 
+	@Column(nullable = false, length = 60)
 	public String getUf() {
 		return this.uf;
 	}
@@ -75,6 +81,7 @@ public class Endereco implements Serializable {
 		this.uf = uf;
 	}
 
+	@Column(nullable = false, length = 9)
 	public String getCep() {
 		return this.cep;
 	}
@@ -84,7 +91,7 @@ public class Endereco implements Serializable {
 	}
 
 	@ManyToOne
-	@JoinColumn(name = "cliente_id")
+	@JoinColumn(name = "cliente_id", nullable = false)
 	public Cliente getCliente() {
 		return this.cliente;
 	}

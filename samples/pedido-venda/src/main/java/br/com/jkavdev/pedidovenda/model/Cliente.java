@@ -38,6 +38,7 @@ public class Cliente implements Serializable {
 		this.id = id;
 	}
 
+	@Column(nullable = false, length = 100)
 	public String getNome() {
 		return this.nome;
 	}
@@ -46,6 +47,7 @@ public class Cliente implements Serializable {
 		this.nome = nome;
 	}
 
+	@Column(nullable = false, length = 255)
 	public String getEmail() {
 		return this.email;
 	}
@@ -54,7 +56,7 @@ public class Cliente implements Serializable {
 		this.email = email;
 	}
 
-	@Column(name = "documento_receita_federal")
+	@Column(name = "documento_receita_federal", nullable = false, length = 14)
 	public String getDocumentoReceitaFederal() {
 		return this.documentoReceitaFederal;
 	}
@@ -64,6 +66,7 @@ public class Cliente implements Serializable {
 	}
 
 	@Enumerated(EnumType.STRING)
+	@Column(nullable = false, length = 10)
 	public TipoPessoa getTipoPessoa() {
 		return this.tipoPessoa;
 	}
