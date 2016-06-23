@@ -32,6 +32,10 @@
 		<c3p0.version>0.9.5.2</c3p0.version>
 		<!-- JUnit - Testes -->
 		<junit.version>4.12</junit.version>
+		<!-- Abstracao da implementacao de Log -->
+		<commons.loggin.version>1.2</commons.loggin.version>
+		<!-- Implementacao da api de log -->
+		<log4j.version>1.2.17</log4j.version>
 	</properties>
 
 	<build>
@@ -114,6 +118,18 @@
 			<artifactId>jandex</artifactId>
 			<version>${jandex.version}</version>
 			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>${commons.loggin.version}</version>
 		</dependency>
 
 		<!-- <dependency> -->
