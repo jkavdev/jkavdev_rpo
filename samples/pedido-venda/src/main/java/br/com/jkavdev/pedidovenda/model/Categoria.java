@@ -11,21 +11,20 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "usuarios")
-public class Usuario implements Serializable {
+@Table(name = "categorias")
+public class Categoria implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
-	private String nome;
-	private String email;
-	private String senha;
-	private List<Grupo> grupos = new ArrayList<>();
+	private String descricao;
+	private Categoria categoriaPai;
+	private List<Categoria> subcategorias = new ArrayList<>();
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,43 +36,32 @@ public class Usuario implements Serializable {
 		this.id = id;
 	}
 
-	@Column(nullable = false, length = 80)
-	public String getNome() {
-		return nome;
+	@Column(nullable = false, length = 60)
+	public String getDescricao() {
+		return descricao;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
-	@Column(nullable = false, unique = true, length = 255)
-	public String getEmail() {
-		return email;
+	@ManyToOne
+	@JoinColumn(name = "categoria_pai_id")
+	public Categoria getCategoriaPai() {
+		return categoriaPai;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setCategoriaPai(Categoria categoriaPai) {
+		this.categoriaPai = categoriaPai;
 	}
 
-	@Column(nullable = false, length = 20)
-	public String getSenha() {
-		return senha;
+	@OneToMany(mappedBy = "categoriaPai", cascade = CascadeType.ALL)
+	public List<Categoria> getSubcategorias() {
+		return subcategorias;
 	}
 
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "usuario_grupo", 
-		joinColumns = @JoinColumn(name = "usuario_id"), 
-		inverseJoinColumns = @JoinColumn(name = "grupo_id"))
-	public List<Grupo> getGrupos() {
-		return grupos;
-	}
-
-	public void setGrupos(List<Grupo> grupos) {
-		this.grupos = grupos;
+	public void setSubcategorias(List<Categoria> subcategorias) {
+		this.subcategorias = subcategorias;
 	}
 
 	@Override
@@ -92,7 +80,7 @@ public class Usuario implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Usuario other = (Usuario) obj;
+		Categoria other = (Categoria) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
