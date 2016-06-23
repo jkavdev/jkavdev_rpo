@@ -157,13 +157,18 @@ public class Pedido implements Serializable {
 		this.enderecoEntrega = enderecoEntrega;
 	}
 
-	@OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL, orphanRemoval = true)
 	public List<ItemPedido> getItens() {
 		return this.itens;
 	}
 
 	public void setItens(List<ItemPedido> itens) {
 		this.itens = itens;
+	}
+
+	public void adicionaItem(ItemPedido item) {
+		this.itens.add(item);
+		item.setPedido(this);
 	}
 
 	@Override
