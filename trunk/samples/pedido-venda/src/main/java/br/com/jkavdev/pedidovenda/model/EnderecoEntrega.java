@@ -2,6 +2,10 @@ package br.com.jkavdev.pedidovenda.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class EnderecoEntrega implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -13,6 +17,7 @@ public class EnderecoEntrega implements Serializable {
 	private String uf;
 	private String cep;
 
+	@Column(nullable = false, length = 150)
 	public String getLogradouro() {
 		return this.logradouro;
 	}
@@ -21,6 +26,7 @@ public class EnderecoEntrega implements Serializable {
 		this.logradouro = logradouro;
 	}
 
+	@Column(nullable = false, length = 20)
 	public String getNumero() {
 		return this.numero;
 	}
@@ -29,6 +35,7 @@ public class EnderecoEntrega implements Serializable {
 		this.numero = numero;
 	}
 
+	@Column(length = 150)
 	public String getComplemento() {
 		return this.complemento;
 	}
@@ -37,6 +44,7 @@ public class EnderecoEntrega implements Serializable {
 		this.complemento = complemento;
 	}
 
+	@Column(nullable = false, length = 60)
 	public String getCidade() {
 		return this.cidade;
 	}
@@ -45,6 +53,7 @@ public class EnderecoEntrega implements Serializable {
 		this.cidade = cidade;
 	}
 
+	@Column(nullable = false, length = 60)
 	public String getUf() {
 		return this.uf;
 	}
@@ -53,6 +62,7 @@ public class EnderecoEntrega implements Serializable {
 		this.uf = uf;
 	}
 
+	@Column(nullable = false, length = 9)
 	public String getCep() {
 		return this.cep;
 	}
