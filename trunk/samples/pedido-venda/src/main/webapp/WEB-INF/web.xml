@@ -32,4 +32,8 @@
 		<param-value>bootstrap</param-value>
 	</context-param>
 
+	<listener>
+		<listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>
+	</listener>
+
 </web-app>
