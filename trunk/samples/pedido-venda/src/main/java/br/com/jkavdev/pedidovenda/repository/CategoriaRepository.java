@@ -16,11 +16,21 @@ public class CategoriaRepository implements Serializable {
 	private EntityManager manager;
 
 	public List<Categoria> raizes() {
-		return this.manager.createQuery("from Categoria", Categoria.class).getResultList();
+		String jpql = "from Categoria where categoriaPai is null";
+
+		return this.manager.createQuery(jpql, Categoria.class).getResultList();
 	}
 
 	public Categoria porId(Long id) {
 		return this.manager.find(Categoria.class, id);
+	}
+
+	public List<Categoria> SubcategoriasDe(Categoria categoriaPai) {
+		String jpql = "from Categoria where categoriaPai = :categoriaPai";
+
+		return this.manager.createQuery(jpql, Categoria.class)
+				.setParameter("categoriaPai", categoriaPai)
+				.getResultList();
 	}
 
 }
