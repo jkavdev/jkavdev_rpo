@@ -48,14 +48,16 @@ public class JsfExceptionHandler extends ExceptionHandlerWrapper {
 			try {
 				if (exception instanceof ViewExpiredException) {
 					handled = true;
-					redirect("/home.xhtml");
+					redirect("/");
+					
 				} else if (negocioException != null) {
 					handled = true;
 					FacesUtil.addErrorMessage(negocioException.getMessage());
+					
 				} else {
 					handled = true;
-					log.error("Erro de sistema" + exception.getMessage(), exception);
-					redirect("/erro.xhtml");
+					log.error("Erro de sistema: " + exception.getMessage(), exception);
+					redirect("/Erro.xhtml");
 				}
 			} finally {
 				if (handled) {
@@ -73,6 +75,7 @@ public class JsfExceptionHandler extends ExceptionHandlerWrapper {
 		} else if (exception.getCause() != null) {
 			return getNegocioException(exception.getCause());
 		}
+
 		return null;
 	}
 
