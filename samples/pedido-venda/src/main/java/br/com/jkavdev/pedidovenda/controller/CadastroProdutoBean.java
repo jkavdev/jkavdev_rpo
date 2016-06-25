@@ -11,6 +11,7 @@ import javax.validation.constraints.NotNull;
 import br.com.jkavdev.pedidovenda.model.Categoria;
 import br.com.jkavdev.pedidovenda.model.Produto;
 import br.com.jkavdev.pedidovenda.repository.CategoriaRepository;
+import br.com.jkavdev.pedidovenda.util.jsf.FacesUtil;
 
 @Named
 @ViewScoped
@@ -21,20 +22,27 @@ public class CadastroProdutoBean implements Serializable {
 	@Inject
 	private CategoriaRepository categoriaRepository;
 	private Produto produto;
-	private List<Categoria> categoriasRaizes;
 	private Categoria categoriaPai;
+	private List<Categoria> categoriasRaizes;
+	private List<Categoria> subCategorias;
 
 	public CadastroProdutoBean() {
 		this.produto = new Produto();
 	}
 
-//	@PostConstruct
 	public void init() {
-		categoriasRaizes = categoriaRepository.raizes();
+		if (FacesUtil.isNotPostBack()) {
+			categoriasRaizes = categoriaRepository.raizes();
+		}
 	}
 
 	public void salvar() {
 		System.out.println("Categoria Pai: " + categoriaPai.getDescricao());
+		System.out.println("Subcategoria: " + produto.getCategoria().getDescricao());
+	}
+	
+	public void carregarSubcategorias(){
+		subCategorias = categoriaRepository.SubcategoriasDe(categoriaPai);
 	}
 
 	public Produto getProduto() {
@@ -56,6 +64,10 @@ public class CadastroProdutoBean implements Serializable {
 
 	public void setCategoriaPai(Categoria categoriaPai) {
 		this.categoriaPai = categoriaPai;
+	}
+
+	public List<Categoria> getSubCategorias() {
+		return subCategorias;
 	}
 
 }
