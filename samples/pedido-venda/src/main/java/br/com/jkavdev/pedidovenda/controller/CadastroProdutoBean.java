@@ -5,10 +5,9 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 import br.com.jkavdev.pedidovenda.model.Categoria;
 import br.com.jkavdev.pedidovenda.model.Produto;
@@ -19,22 +18,18 @@ public class CadastroProdutoBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	@Inject
+	private EntityManager manager;
 	private Produto produto;
 	private List<Categoria> categoriasRaizes;
 
 	public CadastroProdutoBean() {
 		this.produto = new Produto();
 	}
-	
-	@PostConstruct
-	public void init(){
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("pedidoPU");
-		EntityManager manager = factory.createEntityManager();
 
+	@PostConstruct
+	public void init() {
 		categoriasRaizes = manager.createQuery("from Categoria", Categoria.class).getResultList();
-		
-		manager.close();
-		factory.close();
 	}
 
 	public void salvar() {
