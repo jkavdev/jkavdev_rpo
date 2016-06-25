@@ -19,7 +19,7 @@ import javax.validation.Payload;;
 // validar no codigo
 @Constraint(validatedBy = {})
 // indicando padrao
-@Pattern(regexp = "([a-zA-Z]{2}\\d{4, 18})?")
+@Pattern(regexp = "([a-zA-Z]{2}\\d{4,18})?")
 public @interface SKU {
 
 	// vou receber esta mensagem via arquivo properties

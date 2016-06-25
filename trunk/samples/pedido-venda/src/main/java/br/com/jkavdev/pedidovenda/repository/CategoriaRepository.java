@@ -11,12 +11,16 @@ import br.com.jkavdev.pedidovenda.model.Categoria;
 public class CategoriaRepository implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Inject
 	private EntityManager manager;
 
 	public List<Categoria> raizes() {
-		return manager.createQuery("from Categoria", Categoria.class).getResultList();
+		return this.manager.createQuery("from Categoria", Categoria.class).getResultList();
+	}
+
+	public Categoria porId(Long id) {
+		return this.manager.find(Categoria.class, id);
 	}
 
 }

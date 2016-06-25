@@ -13,7 +13,7 @@ public class JsfExceptionHandlerFactory extends ExceptionHandlerFactory {
 
 	@Override
 	public ExceptionHandler getExceptionHandler() {
-		return new JsfExceptionHandler(this.parent.getExceptionHandler());
+		return new JsfExceptionHandler(parent.getExceptionHandler());
 	}
 
 }
