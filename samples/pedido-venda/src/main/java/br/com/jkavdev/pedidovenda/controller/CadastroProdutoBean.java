@@ -1,6 +1,7 @@
 package br.com.jkavdev.pedidovenda.controller;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.view.ViewScoped;
@@ -11,6 +12,7 @@ import javax.validation.constraints.NotNull;
 import br.com.jkavdev.pedidovenda.model.Categoria;
 import br.com.jkavdev.pedidovenda.model.Produto;
 import br.com.jkavdev.pedidovenda.repository.CategoriaRepository;
+import br.com.jkavdev.pedidovenda.service.CadastroProdutoService;
 import br.com.jkavdev.pedidovenda.util.jsf.FacesUtil;
 
 @Named
@@ -21,28 +23,40 @@ public class CadastroProdutoBean implements Serializable {
 
 	@Inject
 	private CategoriaRepository categoriaRepository;
+	@Inject
+	private CadastroProdutoService produtoService;
+
 	private Produto produto;
 	private Categoria categoriaPai;
+
 	private List<Categoria> categoriasRaizes;
 	private List<Categoria> subCategorias;
 
 	public CadastroProdutoBean() {
+		this.limpar();
+	}
+
+	public void limpar() {
 		this.produto = new Produto();
+		this.categoriaPai = null;
+		this.subCategorias = new ArrayList<>();
 	}
 
 	public void init() {
 		if (FacesUtil.isNotPostBack()) {
-			categoriasRaizes = categoriaRepository.raizes();
+			this.categoriasRaizes = this.categoriaRepository.raizes();
 		}
 	}
 
-	public void salvar() {
-		System.out.println("Categoria Pai: " + categoriaPai.getDescricao());
-		System.out.println("Subcategoria: " + produto.getCategoria().getDescricao());
+	public void carregarSubcategorias() {
+		this.subCategorias = this.categoriaRepository.SubcategoriasDe(categoriaPai);
 	}
-	
-	public void carregarSubcategorias(){
-		subCategorias = categoriaRepository.SubcategoriasDe(categoriaPai);
+
+	public void salvar() {
+		this.produto = this.produtoService.salvar(this.produto);
+		this.limpar();
+
+		FacesUtil.addInfoMessage("Produto salvo com sucesso!");
 	}
 
 	public Produto getProduto() {
