@@ -1,0 +1,15 @@
+<entity-mappings xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm
+      http://xmlns.jcp.org/xml/ns/persistence/orm_2_1.xsd"
+	version="2.1">
+
+	<entity class="br.com.jkavdev.models.dpj.model.Artigo" />
+	<entity class="br.com.jkavdev.models.dpj.model.Autoridade" />
+	<entity class="br.com.jkavdev.models.dpj.model.Cargo" />
+	<entity class="br.com.jkavdev.models.dpj.model.Declaracao" />
+	<entity class="br.com.jkavdev.models.dpj.model.Delegacia" />
+	<entity class="br.com.jkavdev.models.dpj.model.Endereco" />
+	<entity class="br.com.jkavdev.models.dpj.model.Pessoa" />
+
+</entity-mappings>
