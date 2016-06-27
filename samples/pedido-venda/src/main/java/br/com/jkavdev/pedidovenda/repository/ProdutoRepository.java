@@ -16,7 +16,6 @@ public class ProdutoRepository implements Serializable {
 	private EntityManager manager;
 
 	public Produto salvar(Produto produto) {
-		this.manager.persist(produto);
 		return this.manager.merge(produto);
 	}
 
