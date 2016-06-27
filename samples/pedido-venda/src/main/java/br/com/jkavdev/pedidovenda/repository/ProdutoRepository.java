@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
 
 import br.com.jkavdev.pedidovenda.model.Produto;
@@ -17,13 +16,8 @@ public class ProdutoRepository implements Serializable {
 	private EntityManager manager;
 
 	public Produto salvar(Produto produto) {
-		EntityTransaction transaction = manager.getTransaction();
-		transaction.begin();
-
-		produto = this.manager.merge(produto);
-
-		transaction.commit();
-		return produto;
+		this.manager.persist(produto);
+		return this.manager.merge(produto);
 	}
 
 	public Produto porSku(String sku) {
