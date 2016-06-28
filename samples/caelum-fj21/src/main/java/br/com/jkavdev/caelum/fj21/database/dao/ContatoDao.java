@@ -114,6 +114,42 @@ public class ContatoDao {
 		}
 		
 	}
+	
+	public void update(Contato contato){
+		String sql = "update Contatos "
+				+ "set nome = ?, email = ?, endereco = ?, dataNascimento = ? "
+				+ "where id = ?";
+		
+		try {
+			PreparedStatement prepareStatement = connection.prepareStatement(sql);
+			prepareStatement.setString(1, contato.getNome());
+			prepareStatement.setString(2, contato.getEmail());
+			prepareStatement.setString(3, contato.getEndereco());
+			prepareStatement.setDate(4, new Date(contato.getDataNascimento().getTimeInMillis())  );
+			prepareStatement.setLong(5, contato.getId());
+			
+			prepareStatement.execute();
+			prepareStatement.close();
+		} catch (SQLException e) {
+			System.out.println("Nao foi possivel alterar o registro");
+			throw new DaoException(e);
+		}
+	}
+	
+	public void remove(Contato contato){
+		String sql = "delete from Contatos where id = ?";
+		
+		try {
+			PreparedStatement prepareStatement = connection.prepareStatement(sql);
+			prepareStatement.setLong(1, contato.getId());
+			
+			prepareStatement.execute();
+			prepareStatement.close();
+		} catch (SQLException e) {
+			System.out.println("Nao foi possivel remover o registro");
+			throw new DaoException(e);
+		}
+	}
 
 	public Contato unmarshall(ResultSet resultSet) throws SQLException {
 		Contato contato = new Contato();
