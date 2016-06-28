@@ -17,13 +17,17 @@ public class Contato {
 		super();
 	}
 
-	public Contato(Long id, String nome, String email, String endereco, Calendar dataNascimento) {
+	public Contato(String nome, String email, String endereco, Calendar dataNascimento) {
 		this();
-		this.id = id;
 		this.nome = nome;
 		this.email = email;
 		this.endereco = endereco;
 		this.dataNascimento = dataNascimento;
+	}
+	
+	public Contato(Long id, String nome, String email, String endereco, Calendar dataNascimento) {
+		this(nome, email, endereco, dataNascimento);
+		this.id = id;
 	}
 
 	public Long getId() {
