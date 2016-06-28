@@ -58,4 +58,8 @@ public class ProdutoRepository implements Serializable {
 		return criteria.addOrder(Order.asc("nome")).list();
 	}
 
+	public Produto porId(Long id) {
+		return this.manager.find(Produto.class, id);
+	}
+
 }

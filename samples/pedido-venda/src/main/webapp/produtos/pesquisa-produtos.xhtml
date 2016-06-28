@@ -55,7 +55,9 @@
 				</p:column>
 				
 				<p:column headerText="Estoque" style="text-align: center;">
-					<p:button icon="ui-icon-pencil" title="Editar"/>
+					<p:button icon="ui-icon-pencil" title="Editar" outcome="/produtos/cadastro-produtos" >
+						<f:param name="produto" value="#{produto.id}"/>
+					</p:button>
 					<p:commandButton icon="ui-icon-trash" title="Excluir" oncomplete="confirmacaoExclusao.show()"/>
 				</p:column>
 			</p:dataTable>
