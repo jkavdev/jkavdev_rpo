@@ -16,7 +16,7 @@ public class ConnectionFactoryTest {
 
 			connection.close();
 			
-		} catch (NegocioException e) {
+		} catch (DaoException e) {
 			System.out.println("Erro ao abrir conecão:");
 			e.printStackTrace();
 		} catch (SQLException e) {

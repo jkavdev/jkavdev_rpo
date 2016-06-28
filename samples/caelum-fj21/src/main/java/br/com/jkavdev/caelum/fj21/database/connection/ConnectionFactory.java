@@ -10,12 +10,12 @@ public class ConnectionFactory {
 	private String user = "jkavdev";
 	private String url = "jdbc:mysql://localhost:3306/db_caelum_fj21";
 
-	public Connection getConnection() throws NegocioException {
+	public Connection getConnection() throws DaoException {
 
 		try {
 			return DriverManager.getConnection(url, user, password);
 		} catch (SQLException e) {
-			throw new NegocioException(e);
+			throw new DaoException(e);
 		}
 	}
 
