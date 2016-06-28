@@ -13,7 +13,7 @@
 		<!-- Hibernate / JPA -->
 		<hibernate.version>5.1.0.Final</hibernate.version>
 		<!-- Driver MySQL -->
-		<mysql.connector.version>6.0.2</mysql.connector.version>
+		<mysql.connector.version>5.1.38</mysql.connector.version>
 		<!-- Driver PostgreSQL -->
 		<postgres.connector.version>9.4.1208</postgres.connector.version>
 		<!-- Primefaces -->
@@ -38,6 +38,8 @@
 		<log4j.version>1.2.17</log4j.version>
 		<!-- Hibernate Validator -->
 		<hibernate.validator.version>5.2.4.Final</hibernate.validator.version>
+		<!-- Metodos utilitarios commons-lang -->
+		<commons-lang3.version>3.4</commons-lang3.version>
 	</properties>
 
 	<build>
@@ -75,6 +77,11 @@
 	</build>
 
 	<dependencies>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons-lang3.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
