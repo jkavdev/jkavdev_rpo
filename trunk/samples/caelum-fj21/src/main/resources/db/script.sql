@@ -10,3 +10,11 @@ CREATE TABLE contatos (
 	dataNascimento DATE,
 	PRIMARY KEY (id)
 );
+
+CREATE TABLE funcionarios (
+	id BIGINT NOT NULL AUTO_INCREMENT,
+	nome VARCHAR(255),
+	senha VARCHAR(255),
+	usuario VARCHAR(255),
+	PRIMARY KEY (id)
+);
