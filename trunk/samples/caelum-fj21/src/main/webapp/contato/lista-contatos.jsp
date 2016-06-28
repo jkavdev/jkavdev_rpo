@@ -24,7 +24,16 @@
 			<tr bgcolor="#${id.count % 2 == 0 ? 'aaee88' : 'ffffff' }">
 				<td>${id.count}</td>
 				<td>${contato.nome }</td>
-				<td>${contato.email }</td>
+				<td>
+					<c:choose>
+						<c:when test="${not empty contato.email }">
+							<a href="mailto:${contato.email }">${contato.email }</a>
+						</c:when>
+						<c:otherwise >
+							E-mail não informado
+						</c:otherwise>	
+					</c:choose>
+				</td>
 				<td>${contato.endereco }</td>
 				<td>${contato.dataNascimento }</td>
 			</tr>
