@@ -10,6 +10,7 @@ import javax.inject.Named;
 import br.com.jkavdev.pedidovenda.model.Produto;
 import br.com.jkavdev.pedidovenda.repository.ProdutoRepository;
 import br.com.jkavdev.pedidovenda.repository.filter.ProdutoFilter;
+import br.com.jkavdev.pedidovenda.util.jsf.FacesUtil;
 
 @Named
 @ViewScoped
@@ -20,6 +21,7 @@ public class PesquisaProdutosBean implements Serializable {
 	@Inject
 	private ProdutoRepository produtoRepository;
 	private List<Produto> produtosFiltrados;
+	private Produto produtoSelecionado;
 	private ProdutoFilter filtro;
 
 	public PesquisaProdutosBean() {
@@ -29,6 +31,13 @@ public class PesquisaProdutosBean implements Serializable {
 	public void pesquisar() {
 		this.produtosFiltrados = this.produtoRepository.filtrados(filtro);
 	}
+	
+	public void excluir(){
+		produtoRepository.remover(produtoSelecionado);
+		this.produtosFiltrados.remove(produtoSelecionado);
+		
+		FacesUtil.addInfoMessage("Produto: " + produtoSelecionado.getSku() + " excluido com sucesso!");
+	}
 
 	public List<Produto> getProdutosFiltrados() {
 		return this.produtosFiltrados;
@@ -36,6 +45,14 @@ public class PesquisaProdutosBean implements Serializable {
 
 	public ProdutoFilter getFiltro() {
 		return filtro;
+	}
+
+	public Produto getProdutoSelecionado() {
+		return produtoSelecionado;
+	}
+
+	public void setProdutoSelecionado(Produto produtoSelecionado) {
+		this.produtoSelecionado = produtoSelecionado;
 	}
 
 }

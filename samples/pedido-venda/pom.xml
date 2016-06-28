@@ -17,7 +17,7 @@
 		<!-- Driver PostgreSQL -->
 		<postgres.connector.version>9.4.1208</postgres.connector.version>
 		<!-- Primefaces -->
-		<primefaces.version>5.3</primefaces.version>
+		<primefaces.version>4.0</primefaces.version>
 		<!-- Primefaces Theme -->
 		<prime.theme.version>1.0.8</prime.theme.version>
 		<!-- JSF Version -->
