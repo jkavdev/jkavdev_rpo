@@ -64,6 +64,38 @@ public class ContatoDaoTest {
 		System.out.println("Contato buscado: " + contato);
 		System.out.println("Contato buscado: " + contato1);
 	}
+	
+	@Test
+	public void updateContato(){
+		List<Contato> contatos = contatoDao.findAll();
+		
+		for (Contato contato : contatos) {
+			if(contato.getId() == 3){
+				contato.setNome("Lucas Alves");
+				contatoDao.update(contato);
+				
+				System.out.println(contato.getNome());
+			}else if(contato.getId() == 2){
+				contato.setNome("Douglas Alves");
+				contatoDao.update(contato);
+				
+				System.out.println(contato.getNome());
+			}
+		}
+	}
+	
+	@Test
+	public void removeContato(){
+		List<Contato> contatos = contatoDao.findAll();
+		
+		for (Contato contato : contatos) {
+			if(contato.getId() == 1){
+				contatoDao.remove(contato);
+				
+				System.out.println(contato.getNome());
+			}
+		}
+	}
 
 	private Contato createContato(Long id, String nome, String email,
 			String endereco) {
