@@ -15,9 +15,7 @@
 
 	<h1>Listagem de Contato</h1>
 
-	<jsp:useBean id="dao" class="br.com.jkavdev.caelum.fj21.database.dao.ContatoDao"></jsp:useBean>
-
-	<display:table name="${dao.findAll}" id="contato" class="table table-bordered tableContato">
+	<display:table name="${contatos}" id="contato" class="table table-bordered tableContato">
 		<display:column property="nome" />
 		<display:column property="email" autolink="true" />
 		<display:column property="endereco" />
