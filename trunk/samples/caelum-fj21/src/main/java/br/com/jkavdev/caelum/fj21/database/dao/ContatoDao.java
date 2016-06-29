@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import br.com.jkavdev.caelum.fj21.database.connection.ConnectionFactory;
 import br.com.jkavdev.caelum.fj21.database.connection.DaoException;
 import br.com.jkavdev.caelum.fj21.model.Contato;
@@ -16,6 +18,8 @@ import br.com.jkavdev.caelum.fj21.model.Contato;
 public class ContatoDao {
 	
 	private Connection connection;
+	
+	private Logger logger = Logger.getLogger(ContatoDao.class);
 	
 	public ContatoDao() throws DaoException {
 		this.connection = new ConnectionFactory().getConnection();
@@ -41,7 +45,7 @@ public class ContatoDao {
 		}
 	}
 	
-	public List<Contato> findAll() throws DaoException{
+	public List<Contato> getFindAll() throws DaoException{
 		String sql = "select * from Contatos";
 		List<Contato> contatos = new ArrayList<>();
 		
@@ -57,6 +61,8 @@ public class ContatoDao {
 			
 			resultSet.close();
 			prepareStatement.close();
+			
+			logger.info(contatos);
 			
 			return contatos;
 		} catch (SQLException e) {

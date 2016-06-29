@@ -32,7 +32,7 @@ public class ContatoDaoTest {
 
 	@Test
 	public void findlAllContatos() throws DaoException {
-		List<Contato> contatos = contatoDao.findAll();
+		List<Contato> contatos = contatoDao.getFindAll();
 
 		for (Contato contato : contatos) {
 			System.out.println(contato);
@@ -67,7 +67,7 @@ public class ContatoDaoTest {
 	
 	@Test
 	public void updateContato(){
-		List<Contato> contatos = contatoDao.findAll();
+		List<Contato> contatos = contatoDao.getFindAll();
 		
 		for (Contato contato : contatos) {
 			if(contato.getId() == 3){
@@ -86,7 +86,7 @@ public class ContatoDaoTest {
 	
 	@Test
 	public void removeContato(){
-		List<Contato> contatos = contatoDao.findAll();
+		List<Contato> contatos = contatoDao.getFindAll();
 		
 		for (Contato contato : contatos) {
 			if(contato.getId() == 1){
