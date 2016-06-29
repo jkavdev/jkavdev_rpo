@@ -15,7 +15,7 @@ import br.com.jkavdev.caelum.fj21.database.dao.ContatoDao;
 import br.com.jkavdev.caelum.fj21.model.Contato;
 import br.com.jkavdev.caelum.fj21.util.data.DataUtil;
 
-@WebServlet("/AdicionaContato")
+@WebServlet("/contato/AdicionaContato")
 public class AdicionaContatoServlet extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
