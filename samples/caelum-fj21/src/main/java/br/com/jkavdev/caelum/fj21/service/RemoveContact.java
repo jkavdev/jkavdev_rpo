@@ -25,7 +25,7 @@ public class RemoveContact implements Logica {
 
 		logger.info("Excluindo contato...");
 
-		return "contato/lista-contatos.jsp";
+		return "mvc?logica=FindAllContacts";
 	}
 
 }
