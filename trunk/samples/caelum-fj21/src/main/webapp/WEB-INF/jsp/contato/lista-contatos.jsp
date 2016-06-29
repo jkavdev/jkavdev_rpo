@@ -22,7 +22,8 @@
 		<display:column title="Data" sortable="true">
 			<fmt:formatDate value="${contato.dataNascimento.time}" pattern="dd/MM/yyyy" />
 		</display:column>
-		<display:column title="Ações" value="<a href='mvc?logica=RemoveContact&id=${contato.id}'>Remover</a>" />
+		<display:column title="Remover" value="<a href='mvc?logica=RemoveContact&id=${contato.id}'>Remover</a>" />
+		<display:column title="Editar" value="<a href='mvc?logica=UpdateContact&id=${contato.id}'>Editar</a>" />
 	</display:table>
 
 	<c:import url="../rodape.jsp" />
