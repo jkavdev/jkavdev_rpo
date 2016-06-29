@@ -41,15 +41,16 @@ public class AdicionaContatoServlet extends HttpServlet{
 		
 		ContatoDao contatoDao = new ContatoDao();
 		
-		contatoDao.insert(contato);
-		
-		// imprime o nome do contato que foi adicionado
-		out.println("<html>");
-		out.println("<body>");
-		out.println("Contato " + contato.getNome() + " adicionado com sucesso!");
-		out.println("</body>");
-		out.println("</html>");
-		
+		if (contato.getNome() != null) {
+			contatoDao.insert(contato);
+			
+			// imprime o nome do contato que foi adicionado
+			out.println("<html>");
+			out.println("<body>");
+			out.println("Contato " + contato.getNome() + " adicionado com sucesso!");
+			out.println("</body>");
+			out.println("</html>");
+		}
 	}
 
 	private Contato createContato(String nome, String email, String endereco, Calendar dataNascimento) {
