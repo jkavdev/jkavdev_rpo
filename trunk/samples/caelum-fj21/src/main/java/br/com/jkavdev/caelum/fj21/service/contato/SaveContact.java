@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.util.Calendar;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -15,9 +16,15 @@ import br.com.jkavdev.caelum.fj21.model.Contato;
 import br.com.jkavdev.caelum.fj21.service.Logica;
 import br.com.jkavdev.caelum.fj21.util.data.DataUtil;
 
-public class SaveContact implements Logica {
+public class SaveContact extends HttpServlet implements Logica {
 	
+	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(SaveContact.class);
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {		
+		req.getRequestDispatcher("WEB-INF/jsp/contato/contato-adicionado.jsp");
+	}
 
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) {
