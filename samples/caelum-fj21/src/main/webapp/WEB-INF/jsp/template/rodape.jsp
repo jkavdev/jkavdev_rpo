@@ -1,3 +1,3 @@
 <hr />
 
-Copyright 2016 - Todos os direitos reservados
+© Copyright 2016 - Todos os direitos reservados
