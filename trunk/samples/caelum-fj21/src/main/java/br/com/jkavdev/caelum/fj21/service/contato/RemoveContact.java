@@ -8,6 +8,7 @@ import org.apache.log4j.Logger;
 import br.com.jkavdev.caelum.fj21.database.dao.ContatoDao;
 import br.com.jkavdev.caelum.fj21.model.Contato;
 import br.com.jkavdev.caelum.fj21.service.Logica;
+import br.com.jkavdev.caelum.fj21.service.PrimeiraLogica;
 
 public class RemoveContact implements Logica {
 

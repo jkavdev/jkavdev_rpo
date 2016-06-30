@@ -1,11 +1,9 @@
-package br.com.jkavdev.caelum.fj21.service.contato;
+package br.com.jkavdev.caelum.fj21.service;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
-
-import br.com.jkavdev.caelum.fj21.service.Logica;
 
 public class PrimeiraLogica implements Logica {
 	
