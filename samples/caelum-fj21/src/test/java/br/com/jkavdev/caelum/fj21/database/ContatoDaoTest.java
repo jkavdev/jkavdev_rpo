@@ -17,7 +17,7 @@ public class ContatoDaoTest {
 
 	@Before
 	public void init() throws DaoException {
-		contatoDao = new ContatoDao();
+//		contatoDao = new ContatoDao();
 	}
 
 	@Test

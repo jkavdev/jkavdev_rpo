@@ -1,6 +1,7 @@
 package br.com.jkavdev.caelum.fj21.servlet;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.text.ParseException;
 import java.util.Calendar;
 
@@ -36,7 +37,8 @@ public class AdicionaContatoServlet extends HttpServlet {
 
 		Contato contato = createContato(nome, email, endereco, dataNascimento);
 
-		ContatoDao contatoDao = new ContatoDao();
+		Connection connection = (Connection) req.getAttribute("connection");
+		ContatoDao contatoDao = new ContatoDao(connection);
 
 		if (contato.getNome() != null) {
 			contatoDao.insert(contato);
