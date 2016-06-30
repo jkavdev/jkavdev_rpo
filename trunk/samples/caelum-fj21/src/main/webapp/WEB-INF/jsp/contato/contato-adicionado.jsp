@@ -1,6 +1,5 @@
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Contato Adicionado=</title>
 	</head>
 	<body>
@@ -9,6 +8,9 @@
 		<div class="alert alert-success" role="alert">
 			<h1>Contato ${param.nome } adicionado com Sucesso</h1>
 		</div>
+		
+		<a href="mvc?logica=SaveContactForm"><span class="badge">Adicionar novo contato</span></a>
+		<a href="mvc?logica=FindAllContacts"><span class="badge">Lista de contatos</span></a>
 		
 	</body>
 </html>

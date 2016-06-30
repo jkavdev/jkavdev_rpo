@@ -8,7 +8,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class OiMundo extends HttpServlet{
+	
+	public static void main(String[] args) {
+		
+//		String l = "";
+		String l = null;
+		
+		System.out.println(StringUtils.isBlank(l));
+		
+		
+		
+	}
 
 	private static final long serialVersionUID = 1L;
 	
