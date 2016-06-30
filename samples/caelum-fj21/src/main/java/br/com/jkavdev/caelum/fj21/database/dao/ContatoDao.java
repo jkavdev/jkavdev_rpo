@@ -41,6 +41,8 @@ public class ContatoDao {
 			prepareStatement.close();
 			
 		} catch (SQLException e) {
+			logger.error("Contato não salvo: ", e);
+			
 			throw new DaoException("Contato não salvo", e);
 		}
 	}
@@ -62,11 +64,10 @@ public class ContatoDao {
 			resultSet.close();
 			prepareStatement.close();
 			
-			logger.info(contatos);
-			
 			return contatos;
 		} catch (SQLException e) {
-			System.out.println("Nao foi possivel retornar registros");
+			logger.error("Nao foi possivel retornar registros: ", e);
+			
 			throw new DaoException(e);
 		}
 	}
@@ -92,7 +93,8 @@ public class ContatoDao {
 			
 			return contatos;
 		} catch (SQLException e) {
-			System.out.println("Nao foi possivel retornar registros");
+			logger.error("Nao foi possivel retornar registros: ", e);
+			
 			throw new DaoException(e);
 		}
 	}
@@ -115,7 +117,8 @@ public class ContatoDao {
 			
 			return contato;
 		} catch (SQLException e) {
-			System.out.println("Nao foi possivel retornar registros");
+			logger.error("Nao foi possivel retornar registro: ", e);
+			
 			throw new DaoException(e);
 		}
 		
@@ -137,7 +140,8 @@ public class ContatoDao {
 			prepareStatement.execute();
 			prepareStatement.close();
 		} catch (SQLException e) {
-			System.out.println("Nao foi possivel alterar o registro");
+			logger.error("Nao foi possivel alterar o registro: ", e);
+			
 			throw new DaoException(e);
 		}
 	}
@@ -152,7 +156,8 @@ public class ContatoDao {
 			prepareStatement.execute();
 			prepareStatement.close();
 		} catch (SQLException e) {
-			System.out.println("Nao foi possivel remover o registro");
+			logger.error("Nao foi possivel remover o registro: ", e);
+
 			throw new DaoException(e);
 		}
 	}
