@@ -15,7 +15,7 @@
 		<div class='row'>
 			<div class="col-sm-offset-2 col-md-8">
 				<h1 class="text-center">Novo Contato</h1>
-				<form class="form-horizontal" method="post" action="AdicionaContato" id="formulario">
+				<form class="form-horizontal" method="post" action="mvc?logica=SaveContact" id="formulario">
 					<div id="mensagem" class=""></div>
 					<div class="form-group">
 						<label for="nome" class="col-sm-2 control-label">Nome </label>
@@ -40,7 +40,7 @@
 						<label for="dataNascimento" class="col-sm-2 control-label">Data de Nascimento</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="dataNascimento" placeholder="Data de Nascimento">
-							<caelum:campoData id="dataNascimento" />
+							<caelum:campoData id="dataNascimento"  />
 						</div>
 					</div>
 					<div class="form-group">

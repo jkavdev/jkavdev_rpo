@@ -12,6 +12,11 @@
 		<br />
 		<% String desenvolvido = "Desenvolvido por (JKAVDEV)"; %>
 		<%=desenvolvido%>
+		
+		<br /><br />
+		
+		<a href="mvc?logica=SaveContactForm"><span class="badge">Adicionar novo contato</span></a><br /><br />
+		<a href="mvc?logica=FindAllContacts"><span class="badge">Lista de contatos</span></a>
 	
 	</body>
 </html>

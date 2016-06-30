@@ -26,7 +26,7 @@
 		<display:column title="Editar" value="<a href='mvc?logica=UpdateContact&id=${contato.id}'>Editar</a>" />
 	</display:table>
 
-	<a href="mvc?logica=SaveContact"><span class="badge">Adicionar novo contato</span></a>
+	<a href="mvc?logica=SaveContactForm"><span class="badge">Adicionar novo contato</span></a>
 
 	<div class="navbar navbar-default navbar-fixed-bottom">
 		<div class="container">
