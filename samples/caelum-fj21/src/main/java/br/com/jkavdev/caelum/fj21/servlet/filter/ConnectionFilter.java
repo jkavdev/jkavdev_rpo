@@ -36,6 +36,7 @@ public class ConnectionFilter implements Filter{
 		 chain.doFilter(request, response);
 		 
 		 try {
+			 logger.info("Fechando conexão com o banco==================================================");
 			connection.close();
 		} catch (SQLException e) {
 			logger.error("Erro ao fechar Conexão: ", e);

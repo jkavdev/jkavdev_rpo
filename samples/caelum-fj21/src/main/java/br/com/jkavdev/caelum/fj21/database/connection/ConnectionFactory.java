@@ -19,7 +19,7 @@ public class ConnectionFactory {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
-			logger.info("Obtendo conexão com o banco ----------------------");
+			logger.info("Obtendo conexão connection=====================================================");
 			
 			return DriverManager.getConnection(url, user, password);
 		} catch (SQLException | ClassNotFoundException e) {
