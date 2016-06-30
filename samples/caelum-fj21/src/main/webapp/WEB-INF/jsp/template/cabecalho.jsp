@@ -2,11 +2,11 @@
 
 <head>
 	<link rel="stylesheet" type="text/css" href="/caelum-fj21/resources/css/style.css" />
-	<link rel="stylesheet" type="text/css" href="/caelum-fj21/resources/css/bootstrap/css/bootstrap.css" />
-	<link rel="stylesheet" type="text/css" href="/caelum-fj21/resources/css/jquery-ui.css" />
-	<script src="/caelum-fj21/resources/js/jquery.js" type="text/javascript"></script>
-	<script src="/caelum-fj21/resources/css/bootstrap/js/bootstrap.js" type="text/javascript"></script>
-	<script src="/caelum-fj21/resources/js/jquery-ui.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="/caelum-fj21/resources/bootstrap/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="/caelum-fj21/resources/jquery/css/jquery-ui.css" />
+	<script src="/caelum-fj21/resources/jquery/js/jquery.js" type="text/javascript"></script>
+	<script src="/caelum-fj21/resources/bootstrap/js/bootstrap.js" type="text/javascript"></script>
+	<script src="/caelum-fj21/resources/jquery/js/jquery-ui.js" type="text/javascript"></script>
 </head>
 
 <c:url value="/resources/imagens/caelum.png" var="imagem" />

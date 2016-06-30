@@ -12,7 +12,7 @@
 </head>
 <body>
 
-	<c:import url="../cabecalho.jsp" />
+	<c:import url="../template/cabecalho.jsp" />
 
 	<h1>Listagem de Contato</h1>
 

@@ -19,7 +19,7 @@ public class ControllerServlet extends HttpServlet {
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		String action = req.getParameter("logica");
-		String className = "br.com.jkavdev.caelum.fj21.service." + action;
+		String className = "br.com.jkavdev.caelum.fj21.service.contato." + action;
 		
 		try{
 			Class<?> classe = Class.forName(className);

@@ -11,7 +11,7 @@
 </head>
 <body>
 
-	<c:import url="../cabecalho.jsp" />
+	<c:import url="../template/cabecalho.jsp" />
 
 	<h1>Listagem de Contato</h1>
 
@@ -25,8 +25,10 @@
 		<display:column title="Remover" value="<a href='mvc?logica=RemoveContact&id=${contato.id}'>Remover</a>" />
 		<display:column title="Editar" value="<a href='mvc?logica=UpdateContact&id=${contato.id}'>Editar</a>" />
 	</display:table>
+	
+	<a href="mvc?logica=SaveContact"><span class="badge">Adicionar novo contato</span></a>
 
-	<c:import url="../rodape.jsp" />
+	<c:import url="../template/rodape.jsp" />
 
 </body>
 </html>
