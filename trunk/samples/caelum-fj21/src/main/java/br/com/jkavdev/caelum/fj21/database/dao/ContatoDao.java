@@ -11,7 +11,6 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import br.com.jkavdev.caelum.fj21.database.connection.ConnectionFactory;
 import br.com.jkavdev.caelum.fj21.database.connection.DaoException;
 import br.com.jkavdev.caelum.fj21.model.Contato;
 
@@ -21,8 +20,8 @@ public class ContatoDao {
 	
 	private Logger logger = Logger.getLogger(ContatoDao.class);
 	
-	public ContatoDao() throws DaoException {
-		this.connection = new ConnectionFactory().getConnection();
+	public ContatoDao(Connection connection) {
+		this.connection = connection;
 	}
 	
 	public void insert(Contato contato) throws DaoException{

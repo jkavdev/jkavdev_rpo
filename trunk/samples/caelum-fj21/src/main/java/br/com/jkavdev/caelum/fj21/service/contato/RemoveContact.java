@@ -1,5 +1,7 @@
 package br.com.jkavdev.caelum.fj21.service.contato;
 
+import java.sql.Connection;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -17,12 +19,13 @@ public class RemoveContact implements Logica {
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) {
 
+		Connection connection = (Connection) request.getAttribute("connection");
 		long id = Long.parseLong(request.getParameter("id"));
 
 		Contato contato = new Contato();
 		contato.setId(id);
 
-		ContatoDao contatoDao = new ContatoDao();
+		ContatoDao contatoDao = new ContatoDao(connection);
 		contatoDao.remove(contato);
 
 		logger.info("Excluindo contato...");

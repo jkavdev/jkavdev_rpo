@@ -1,5 +1,6 @@
 package br.com.jkavdev.caelum.fj21.service.contato;
 
+import java.sql.Connection;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +20,9 @@ public class FindAllContacts implements Logica {
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) {
 
-		List<Contato> contatos = new ContatoDao().getFindAll();
+		Connection connection = (Connection) request.getAttribute("connection");
+		
+		List<Contato> contatos = new ContatoDao(connection).getFindAll();
 
 		request.setAttribute("contatos", contatos);
 
