@@ -1,4 +1,4 @@
-DROP DATABASE db_caelum_fj21_spring;
+DROP DATABASE IF EXISTS db_caelum_fj21_spring;
 CREATE DATABASE db_caelum_spring;
 USE db_caelum_spring;
 
@@ -10,7 +10,7 @@ CREATE TABLE tarefas (
 	PRIMARY KEY (id)
 );
 
-INSERT INTO contatos(nome, email, endereco, dataNascimento)
+INSERT INTO tarefas(descricao, finalizado, dataFinalizacao)
 	VALUES
 		('Finalizar Estudos', 0, '1994-04-05'),
         ('Futebol com os amigos', 1, '1994-01-05'),
