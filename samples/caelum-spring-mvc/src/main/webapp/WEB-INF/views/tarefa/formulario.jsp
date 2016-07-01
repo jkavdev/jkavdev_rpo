@@ -10,8 +10,8 @@
 	
 		<h3>Adicionar Tarefas</h3>
 		
-		<form action="adicionarTarefa" method="post">
-			Descriação: <br /> <textarea rows="5" cols="100" /> <br />
+		<form action="adicionaTarefa" method="post">
+			Descriação: <br /> <textarea rows="5" cols="100" ></textarea> <br />
 			
 			<input type="submit" value="Adicionar"/>
 		</form>

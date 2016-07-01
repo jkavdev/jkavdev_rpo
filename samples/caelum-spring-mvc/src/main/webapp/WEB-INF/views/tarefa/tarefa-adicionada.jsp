@@ -8,7 +8,7 @@
 			<h1>Tarefa ${param.nome } adicionada com Sucesso</h1>
 		</div>
 		
-		<a href="mvc?logica=SaveContactForm"><span class="badge">Adicionar nova tarefa</span></a>
+		<a href="novaTarefa"><span class="badge">Adicionar nova tarefa</span></a>
 		<a href="mvc?logica=FindAllContacts"><span class="badge">Lista de Tarefas</span></a>
 		
 	</body>

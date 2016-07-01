@@ -2,6 +2,9 @@ package br.com.jkavdev.caelum.fj21.spring.model;
 
 import java.util.Calendar;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class Tarefa {
 
 	private Long id;
@@ -17,6 +20,8 @@ public class Tarefa {
 		this.id = id;
 	}
 
+	@NotNull
+	@Size(min = 5)
 	public String getDescricao() {
 		return descricao;
 	}

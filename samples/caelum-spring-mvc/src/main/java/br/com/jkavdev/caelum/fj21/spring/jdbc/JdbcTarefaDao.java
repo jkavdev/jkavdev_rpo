@@ -15,13 +15,17 @@ import br.com.jkavdev.caelum.fj21.spring.model.Tarefa;
 
 public class JdbcTarefaDao {
 
-	private Connection connection;
+	private Connection connection = null;
+	
+	public JdbcTarefaDao() {
+		try {
+			this.connection = new ConnectionFactory().getConnection();
+		} catch (DaoException e) {
+			e.printStackTrace();
+		}
+	}
 
 	private Logger logger = Logger.getLogger(JdbcTarefaDao.class);
-
-	public JdbcTarefaDao(Connection connection) {
-		this.connection = connection;
-	}
 
 	public void insert(Tarefa tarefa) throws DaoException {
 		String sql = "insert into Tarefas " + "(descricao, finalizado, dataFinalizacao) " + "values(?, ?, ?)";

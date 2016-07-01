@@ -1,7 +1,12 @@
 package br.com.jkavdev.caelum.fj21.spring.controller;
 
+import java.util.Calendar;
+
+import javax.validation.Valid;
+
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.jkavdev.caelum.fj21.spring.jdbc.DaoException;
@@ -20,16 +25,24 @@ public class TarefasController {
 	}
 
 	@RequestMapping("adicionaTarefa")
-	public String adiciona(Tarefa tarefa) {
+	public String adiciona(@Valid Tarefa tarefa, BindingResult result) {
 
-		JdbcTarefaDao tarefaDao = new JdbcTarefaDao(null);
+//		if (result.hasFieldErrors("descricao")) {
+		if (tarefa.getDescricao() == null || tarefa.getDescricao().equals("")) {
+			return form();
+		}
+		
+		tarefa.setDataFinalizacao(Calendar.getInstance());
+
+		JdbcTarefaDao tarefaDao = new JdbcTarefaDao();
+		
 		try {
 			tarefaDao.insert(tarefa);
 		} catch (DaoException e) {
 			logger.error("Tarefa não cadastrada", e);
 		}
 
-		return "tarefa/adicionada";
+		return "tarefa/tarefa-adicionada";
 	}
 
 }
