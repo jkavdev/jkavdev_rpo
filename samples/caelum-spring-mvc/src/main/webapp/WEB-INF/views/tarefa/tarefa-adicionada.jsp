@@ -1,8 +1,9 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<link type="text/css" href="<c:url value="/resources/css/style.css"/>" rel="stylesheet" />
-		<link type="text/css" href="<c:url value="/resources/bootstrap/css/bootstrap.css"/>" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/style.css"/>" />
+		<link rel="stylesheet" type="text/css" href="<c:url value="/resources/bootstrap/css/bootstrap.css"/>" />
 		<script src="resources/bootstrap/js/bootstrap.js" type="text/javascript"></script>
 		<title>Tarefa adicionada</title>
 	</head>
@@ -13,7 +14,7 @@
 		</div>
 		
 		<a href="novaTarefa"><span class="badge">Adicionar nova tarefa</span></a>
-		<a href="mvc?logica=FindAllContacts"><span class="badge">Lista de Tarefas</span></a>
+		<a href="listaTarefas"><span class="badge">Lista de Tarefas</span></a>
 		
 	</body>
 </html>
