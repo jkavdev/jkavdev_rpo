@@ -3,8 +3,8 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<link type="text/css" href="<c:url value="/resources/css/style.css"/>" rel="stylesheet" />
-		<link type="text/css" href="<c:url value="/resources/bootstrap/css/bootstrap.css"/>" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/style.css"/>" />
+		<link rel="stylesheet" type="text/css" href="<c:url value="/resources/bootstrap/css/bootstrap.css"/>" />
 		<script src="resources/bootstrap/js/bootstrap.js" type="text/javascript"></script>
 		<title>Formulário de Cadastro de Tarefa</title>
 	</head>

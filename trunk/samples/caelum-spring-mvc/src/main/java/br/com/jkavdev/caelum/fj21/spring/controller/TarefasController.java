@@ -27,15 +27,14 @@ public class TarefasController {
 	@RequestMapping("adicionaTarefa")
 	public String adiciona(@Valid Tarefa tarefa, BindingResult result) {
 
-//		if (result.hasFieldErrors("descricao")) {
-		if (tarefa.getDescricao() == null || tarefa.getDescricao().equals("")) {
+		if (result.hasFieldErrors("descricao")) {
 			return form();
 		}
-		
+
 		tarefa.setDataFinalizacao(Calendar.getInstance());
 
 		JdbcTarefaDao tarefaDao = new JdbcTarefaDao();
-		
+
 		try {
 			tarefaDao.insert(tarefa);
 		} catch (DaoException e) {
