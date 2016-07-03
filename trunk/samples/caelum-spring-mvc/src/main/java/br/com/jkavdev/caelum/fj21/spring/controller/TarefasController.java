@@ -12,7 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import br.com.jkavdev.caelum.fj21.spring.jdbc.ConnectionFactoryException;
+import br.com.jkavdev.caelum.fj21.spring.jdbc.DaoException;
 import br.com.jkavdev.caelum.fj21.spring.jdbc.JdbcTarefaDao;
 import br.com.jkavdev.caelum.fj21.spring.model.Tarefa;
 
@@ -42,7 +42,7 @@ public class TarefasController {
 
 		try {
 			tarefaDao.insert(tarefa);
-		} catch (ConnectionFactoryException e) {
+		} catch (DaoException e) {
 			logger.error("Tarefa não cadastrada", e);
 		}
 
@@ -76,7 +76,7 @@ public class TarefasController {
 
 		try {
 			tarefas = tarefaDao.getFindAll();
-		} catch (ConnectionFactoryException e) {
+		} catch (DaoException e) {
 			logger.error("Tarefas não encontradas", e);
 		}
 

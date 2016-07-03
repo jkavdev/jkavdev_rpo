@@ -26,7 +26,7 @@ public class JdbcTarefaDao {
 		}
 	}
 
-	public void insert(Tarefa tarefa) throws ConnectionFactoryException {
+	public void insert(Tarefa tarefa) throws DaoException {
 		String sql = "insert into Tarefas " + "(descricao, finalizado, dataFinalizacao) " + "values(?, ?, ?)";
 
 		try {
@@ -41,11 +41,11 @@ public class JdbcTarefaDao {
 		} catch (SQLException e) {
 			logger.error(e);
 			
-			throw new ConnectionFactoryException(e);
+			throw new DaoException(e);
 		}
 	}
 
-	public List<Tarefa> getFindAll() throws ConnectionFactoryException {
+	public List<Tarefa> getFindAll() throws DaoException {
 		String sql = "select * from Tarefas";
 		List<Tarefa> Tarefas = new ArrayList<>();
 
@@ -66,11 +66,11 @@ public class JdbcTarefaDao {
 		} catch (SQLException e) {
 			logger.error(e);
 			
-			throw new ConnectionFactoryException(e);
+			throw new DaoException(e);
 		}
 	}
 
-	public Tarefa find(Long id) throws ConnectionFactoryException {
+	public Tarefa find(Long id) throws DaoException {
 		String sql = "select * from Tarefas c where c.id = ?";
 		Tarefa Tarefa = null;
 
@@ -90,12 +90,12 @@ public class JdbcTarefaDao {
 		} catch (SQLException e) {
 			logger.error(e);
 			
-			throw new ConnectionFactoryException(e);
+			throw new DaoException(e);
 		}
 
 	}
 
-	public void remove(Tarefa Tarefa) throws ConnectionFactoryException {
+	public void remove(Tarefa Tarefa) throws DaoException {
 		String sql = "delete from Tarefas where id = ?";
 
 		try {
@@ -107,7 +107,7 @@ public class JdbcTarefaDao {
 		} catch (SQLException e) {
 			logger.error(e);
 			
-			throw new ConnectionFactoryException(e);
+			throw new DaoException(e);
 		}
 	}
 
@@ -118,7 +118,7 @@ public class JdbcTarefaDao {
 		Tarefa.setFinalizado(resultSet.getBoolean("finalizado"));
 
 		Calendar data = Calendar.getInstance();
-		data.setTime(resultSet.getDate("dataNascimento"));
+		data.setTime(resultSet.getDate("dataFinalizacao"));
 		Tarefa.setDataFinalizacao(data);
 		return Tarefa;
 	}
