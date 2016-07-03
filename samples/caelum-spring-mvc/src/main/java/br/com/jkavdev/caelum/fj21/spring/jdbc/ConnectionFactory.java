@@ -8,24 +8,24 @@ import org.apache.log4j.Logger;
 
 public class ConnectionFactory {
 
-	private Logger logger = Logger.getLogger(ConnectionFactory.class);
-	
-	private String password = "123456";
-	private String user = "jkavdev";
-	private String url = "jdbc:mysql://localhost:3306/db_caelum_spring";
+	private static final Logger logger = Logger.getLogger(ConnectionFactory.class);
 
-	public Connection getConnection() throws DaoException {
+	private static final String password = "123456";
+	private static final String user = "jkavdev";
+	private static final String url = "jdbc:mysql://localhost:3306/db_caelum_spring";
+
+	public static Connection getConnection() throws ConnectionFactoryException {
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			
-			logger.info("Obtendo conexão connection=====================================================");
-			
+
+			logger.info("Obtendo connection===============");
+
 			return DriverManager.getConnection(url, user, password);
 		} catch (SQLException | ClassNotFoundException e) {
 			logger.error("Erro ao se conectar com o banco: ", e);
-			
-			throw new DaoException(e);
+
+			throw new ConnectionFactoryException(e);
 		}
 	}
 

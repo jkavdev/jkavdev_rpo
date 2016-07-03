@@ -15,19 +15,18 @@ import br.com.jkavdev.caelum.fj21.spring.model.Tarefa;
 
 public class JdbcTarefaDao {
 
+	private static final Logger logger = Logger.getLogger(ConnectionFactory.class);
 	private Connection connection = null;
 	
 	public JdbcTarefaDao() {
 		try {
-			this.connection = new ConnectionFactory().getConnection();
-		} catch (DaoException e) {
-			e.printStackTrace();
+			this.connection = ConnectionFactory.getConnection();
+		} catch (ConnectionFactoryException e) {
+			logger.error(e);
 		}
 	}
 
-	private Logger logger = Logger.getLogger(JdbcTarefaDao.class);
-
-	public void insert(Tarefa tarefa) throws DaoException {
+	public void insert(Tarefa tarefa) throws ConnectionFactoryException {
 		String sql = "insert into Tarefas " + "(descricao, finalizado, dataFinalizacao) " + "values(?, ?, ?)";
 
 		try {
@@ -42,11 +41,11 @@ public class JdbcTarefaDao {
 		} catch (SQLException e) {
 			logger.error(e);
 			
-			throw new DaoException(e);
+			throw new ConnectionFactoryException(e);
 		}
 	}
 
-	public List<Tarefa> getFindAll() throws DaoException {
+	public List<Tarefa> getFindAll() throws ConnectionFactoryException {
 		String sql = "select * from Tarefas";
 		List<Tarefa> Tarefas = new ArrayList<>();
 
@@ -67,11 +66,11 @@ public class JdbcTarefaDao {
 		} catch (SQLException e) {
 			logger.error(e);
 			
-			throw new DaoException(e);
+			throw new ConnectionFactoryException(e);
 		}
 	}
 
-	public Tarefa find(Long id) throws DaoException {
+	public Tarefa find(Long id) throws ConnectionFactoryException {
 		String sql = "select * from Tarefas c where c.id = ?";
 		Tarefa Tarefa = null;
 
@@ -91,12 +90,12 @@ public class JdbcTarefaDao {
 		} catch (SQLException e) {
 			logger.error(e);
 			
-			throw new DaoException(e);
+			throw new ConnectionFactoryException(e);
 		}
 
 	}
 
-	public void remove(Tarefa Tarefa) throws DaoException {
+	public void remove(Tarefa Tarefa) throws ConnectionFactoryException {
 		String sql = "delete from Tarefas where id = ?";
 
 		try {
@@ -108,7 +107,7 @@ public class JdbcTarefaDao {
 		} catch (SQLException e) {
 			logger.error(e);
 			
-			throw new DaoException(e);
+			throw new ConnectionFactoryException(e);
 		}
 	}
 

@@ -1,4 +1,8 @@
+body{
+	margin-left: 10px; 
+}
+
 .formTarefa{
-	margin-left: 50px;
+	margin-left: 10px;
 	width: 30% !important;
 }

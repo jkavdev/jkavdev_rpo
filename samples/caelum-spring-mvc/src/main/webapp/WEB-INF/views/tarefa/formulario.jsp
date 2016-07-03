@@ -10,15 +10,15 @@
 	</head>
 	<body>
 	
-		<form action="adicionaTarefa" method="post">
-		
-			<h3>Nova Tarefa</h3>
+		<h3>Nova Tarefa</h3>
+	
+		<form action="adicionaTarefa" method="post" class="formTarefa">
 		
 			<form:errors path="tarefa.descricao" cssStyle="color:red"/>
 			
-			<div class="form-group">
+			<div class="form-group panelTarefa">
 			    <label for="tarefa">Cadastro de Tarefas</label>
-			    <textarea name="descricao" class="form-control formTarefa" id="tarefa" rows="5" cols="100"></textarea>
+			    <textarea name="descricao" class="form-control textTarefa" id="tarefa" rows="5" cols="100"></textarea>
 	  		</div>
 			
 			<input type="submit" class="btn btn-primary" value="Adicionar"/>

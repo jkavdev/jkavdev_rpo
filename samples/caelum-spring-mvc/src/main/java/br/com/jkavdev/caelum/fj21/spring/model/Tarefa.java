@@ -20,8 +20,8 @@ public class Tarefa {
 		this.id = id;
 	}
 
-	@NotNull
-	@Size(min = 5)
+	@NotNull(message = "{tarefa.descricao.vazia}")
+	@Size(min = 5, message = "{tarefa.descricao.pequena}")
 	public String getDescricao() {
 		return descricao;
 	}
