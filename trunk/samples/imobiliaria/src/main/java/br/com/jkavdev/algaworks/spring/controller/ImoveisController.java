@@ -27,11 +27,12 @@ public class ImoveisController {
 		return modelAndView;
 	}
 
+	// tratara uma requisicao do tipo post
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView adicionar(Imovel imovel, RedirectAttributes attributes) {
 		ModelAndView modelAndView = new ModelAndView("cadastro-imovel");
 
-		modelAndView.setViewName("redirect:/imovies/novo");
+		modelAndView.setViewName("redirect:/imoveis/novo");
 		// atributo que durara durante o redirect
 		attributes.addFlashAttribute("mensagem", "Imovel cadastrado com sucesso!");
 
