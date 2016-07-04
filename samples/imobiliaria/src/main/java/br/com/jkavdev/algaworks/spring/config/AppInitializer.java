@@ -6,12 +6,15 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		return null;
+		//recomendado pelo spring para iniciar estas configuracoes de banco
+		//no inicio da aplicacao
+		return new Class<?>[] { AppJpaConfig.class };
 	}
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
 		// recebe um arrays de classes que configurarao o projeto
+		//sera configurado depois do rootConfig
 		return new Class<?>[] { AppWebConfig.class };
 	}
 
