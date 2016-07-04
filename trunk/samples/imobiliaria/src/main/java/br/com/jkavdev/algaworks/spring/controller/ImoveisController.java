@@ -1,5 +1,6 @@
 package br.com.jkavdev.algaworks.spring.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -8,11 +9,15 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.jkavdev.algaworks.spring.model.Imovel;
 import br.com.jkavdev.algaworks.spring.model.TipoImovel;
+import br.com.jkavdev.algaworks.spring.repository.Imoveis;
 
 @Controller
 // controller que tratara todas as requisicoes de imoveis
-@RequestMapping("/imoveis/")
+@RequestMapping("/imoveis")
 public class ImoveisController {
+
+	@Autowired
+	private Imoveis imoveis;
 
 	@RequestMapping("/novo")
 	public ModelAndView novo() {
@@ -30,11 +35,14 @@ public class ImoveisController {
 	// tratara uma requisicao do tipo post
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView adicionar(Imovel imovel, RedirectAttributes attributes) {
-		ModelAndView modelAndView = new ModelAndView("cadastro-imovel");
+		// ModelAndView modelAndView = new ModelAndView("cadastro-imovel"); erro aqui
+		ModelAndView modelAndView = new ModelAndView();
+
+		imoveis.guardar(imovel);
 
 		modelAndView.setViewName("redirect:/imoveis/novo");
 		// atributo que durara durante o redirect
-		attributes.addFlashAttribute("mensagem", "Imovel cadastrado com sucesso!");
+		attributes.addFlashAttribute("mensagem", "Imóvel cadastrado com sucesso!");
 
 		return modelAndView;
 	}
