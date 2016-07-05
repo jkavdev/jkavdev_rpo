@@ -1,10 +1,18 @@
 package br.com.jkavdev.algaworks.spring.config;
 
+import java.math.BigDecimal;
 import java.util.Locale;
 
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.format.number.NumberStyleFormatter;
+import org.springframework.format.support.DefaultFormattingConversionService;
+import org.springframework.format.support.FormattingConversionService;
+import org.springframework.validation.Validator;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
@@ -73,12 +81,44 @@ public class AppWebConfig extends WebMvcConfigurerAdapter {
 	public LocaleResolver localeResolver() {
 		return new FixedLocaleResolver(new Locale("pt", "BR"));
 	}
-	
-	//habilitando os recursos estaticos css, js images
-	//para o servidor de aplicacao
+
+	// habilitando os recursos estaticos css, js images
+	// para o servidor de aplicacao
 	@Override
 	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
 		configurer.enable();
+	}
+
+	// formatador de string para Bigdecimal
+	@Bean
+	public FormattingConversionService mvcConversionService() {
+		DefaultFormattingConversionService conversionService = new DefaultFormattingConversionService(true);
+		NumberStyleFormatter bigDecimalFormatter = new NumberStyleFormatter("#,##0.00");
+		conversionService.addFormatterForFieldType(BigDecimal.class, bigDecimalFormatter);
+
+		return conversionService;
+	}
+
+	// configuracao de mensagens
+	@Bean
+	public MessageSource messageSource() {
+		ReloadableResourceBundleMessageSource bundle = new ReloadableResourceBundleMessageSource();
+		bundle.setBasename("/WEB-INF/i18n/messages");
+		bundle.setDefaultEncoding("UTF-8"); // http://www.utf8-chartable.de/
+		bundle.setCacheSeconds(1);
+		return bundle;
+	}
+
+	@Bean
+	public LocalValidatorFactoryBean validator() {
+		LocalValidatorFactoryBean validatorFactoryBean = new LocalValidatorFactoryBean();
+		validatorFactoryBean.setValidationMessageSource(messageSource());
+		return validatorFactoryBean;
+	}
+
+	@Override
+	public Validator getValidator() {
+		return validator();
 	}
 
 }
