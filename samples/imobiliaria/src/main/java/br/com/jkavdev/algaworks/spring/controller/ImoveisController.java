@@ -73,7 +73,7 @@ public class ImoveisController {
 		return modelAndView;
 	}
 
-	@RequestMapping("/pesquisa")
+	@RequestMapping
 	public ModelAndView filtrar(@ModelAttribute("filtro") ImovelFilter filtro) {
 		ModelAndView modelAndView = new ModelAndView("pesquisa-imoveis");
 
