@@ -2,6 +2,8 @@ package br.com.jkavdev.algaworks.spring.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -34,9 +36,15 @@ public class ImoveisController {
 
 	// tratara uma requisicao do tipo post
 	@RequestMapping(method = RequestMethod.POST)
-	public ModelAndView adicionar(Imovel imovel, RedirectAttributes attributes) {
-		// ModelAndView modelAndView = new ModelAndView("cadastro-imovel"); erro aqui
+	public ModelAndView adicionar(@Validated Imovel imovel, Errors errors, RedirectAttributes attributes) {
+		// ModelAndView modelAndView = new ModelAndView("cadastro-imovel"); erro
+		// aqui
 		ModelAndView modelAndView = new ModelAndView();
+		
+		if(errors.hasErrors()){
+			modelAndView.setViewName("cadastro-imovel");
+			return modelAndView;
+		}
 
 		imoveis.guardar(imovel);
 

@@ -10,6 +10,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name = "imoveis")
@@ -33,6 +36,7 @@ public class Imovel {
 		this.codigo = codigo;
 	}
 
+	@NotBlank
 	public String getDescricao() {
 		return descricao;
 	}
@@ -41,6 +45,7 @@ public class Imovel {
 		this.descricao = descricao;
 	}
 
+	@NotNull
 	public BigDecimal getValor() {
 		return valor;
 	}
@@ -49,6 +54,7 @@ public class Imovel {
 		this.valor = valor;
 	}
 
+	@NotBlank
 	public String getBairro() {
 		return bairro;
 	}
@@ -57,6 +63,7 @@ public class Imovel {
 		this.bairro = bairro;
 	}
 
+	@NotNull
 	@Enumerated(EnumType.STRING)
 	public TipoImovel getTipo() {
 		return tipo;
