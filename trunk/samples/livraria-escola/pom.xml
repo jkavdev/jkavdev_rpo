@@ -23,6 +23,9 @@
 		<log4j.version>1.2.17</log4j.version>
 		<!-- Metodos utilitarios commons-lang -->
 		<commons-lang3.version>3.4</commons-lang3.version>
+		<!-- Spring -->
+		<spring-framework.version>4.3.1.RELEASE</spring-framework.version>
+		<spring-data-jpa.version>1.10.2.RELEASE</spring-data-jpa.version>
 	</properties>
 
 	<build>
@@ -51,6 +54,35 @@
 	</build>
 
 	<dependencies>
+
+		<!-- Spring transactions -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring-framework.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring-framework.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- Spring Context -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring-framework.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>${spring-data-jpa.version}</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.hibernate</groupId>
