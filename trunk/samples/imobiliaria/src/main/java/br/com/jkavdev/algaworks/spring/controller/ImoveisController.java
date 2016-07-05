@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import br.com.jkavdev.algaworks.spring.model.Imovel;
 import br.com.jkavdev.algaworks.spring.model.TipoImovel;
 import br.com.jkavdev.algaworks.spring.repository.Imoveis;
+import br.com.jkavdev.algaworks.spring.repository.filter.ImovelFilter;
 
 @Controller
 // controller que tratara todas as requisicoes de imoveis
@@ -41,8 +42,8 @@ public class ImoveisController {
 		// ModelAndView modelAndView = new ModelAndView("cadastro-imovel"); erro
 		// aqui
 		ModelAndView modelAndView = new ModelAndView();
-		
-		if(errors.hasErrors()){
+
+		if (errors.hasErrors()) {
 			modelAndView.setViewName("cadastro-imovel");
 			return modelAndView;
 		}
@@ -55,12 +56,31 @@ public class ImoveisController {
 
 		return modelAndView;
 	}
-	
+
 	@ModelAttribute
-	public List<TipoImovel> tiposImoveis(){
+	public List<TipoImovel> tiposImoveis() {
 		// adicionando lista de tipoImovel na view
 		// por padrao o nome da lista sera tipoImovelList
 		return Arrays.asList(TipoImovel.values());
+	}
+
+	@RequestMapping("/pesquisa")
+	public ModelAndView pesquisa() {
+		ModelAndView modelAndView = new ModelAndView("pesquisa-imoveis");
+
+		modelAndView.addObject("filtro", new ImovelFilter());
+
+		return modelAndView;
+	}
+
+	@RequestMapping("/pesquisa")
+	public ModelAndView filtrar(@ModelAttribute("filtro") ImovelFilter filtro) {
+		ModelAndView modelAndView = new ModelAndView("pesquisa-imoveis");
+
+		List<Imovel> imoveisFiltrados = imoveis.filtrar(filtro);
+		modelAndView.addObject(imoveisFiltrados);
+
+		return modelAndView;
 	}
 
 }
