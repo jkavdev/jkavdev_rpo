@@ -1,9 +1,13 @@
 package br.com.jkavdev.algaworks.spring.controller;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -27,9 +31,6 @@ public class ImoveisController {
 
 		// adicionando objeto na view
 		modelAndView.addObject(new Imovel());
-		// adicionando lista de tipoImovel na view
-		// por padrao o nome da lista sera tipoImovelList
-		modelAndView.addObject(TipoImovel.values());
 
 		return modelAndView;
 	}
@@ -53,6 +54,13 @@ public class ImoveisController {
 		attributes.addFlashAttribute("mensagem", "Imóvel cadastrado com sucesso!");
 
 		return modelAndView;
+	}
+	
+	@ModelAttribute
+	public List<TipoImovel> tiposImoveis(){
+		// adicionando lista de tipoImovel na view
+		// por padrao o nome da lista sera tipoImovelList
+		return Arrays.asList(TipoImovel.values());
 	}
 
 }
