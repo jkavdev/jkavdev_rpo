@@ -5,6 +5,8 @@
 	version="2.1">
 
 	<entity class="br.com.jkavdev.livraria.model.Livro" />
+	<entity class="br.com.jkavdev.livraria.model.Curso" />
+	<entity class="br.com.jkavdev.livraria.model.Aluno" />
 	<entity class="br.com.jkavdev.livraria.model.Genero" />
 	<entity class="br.com.jkavdev.livraria.model.Autor" />
 
