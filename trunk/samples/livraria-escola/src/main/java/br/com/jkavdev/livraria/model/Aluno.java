@@ -1,10 +1,13 @@
 package br.com.jkavdev.livraria.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import br.com.jkavdev.livraria.utils.jpa.BaseEntity;
@@ -20,6 +23,7 @@ public class Aluno extends BaseEntity {
 	private TipoSexo sexo;
 	private Endereco endereco;
 	private Contato contato;
+	private List<Emprestimo> emprestimos;
 
 	public Aluno(String nome, String sobrenome, TipoSexo sexo, Endereco endereco, Contato contato) {
 		this(nome, sobrenome, sexo);
@@ -82,6 +86,15 @@ public class Aluno extends BaseEntity {
 
 	public void setContato(Contato contato) {
 		this.contato = contato;
+	}
+
+	@OneToMany(mappedBy = "livro")
+	public List<Emprestimo> getEmprestimos() {
+		return emprestimos;
+	}
+
+	public void setEmprestimos(List<Emprestimo> emprestimos) {
+		this.emprestimos = emprestimos;
 	}
 
 }

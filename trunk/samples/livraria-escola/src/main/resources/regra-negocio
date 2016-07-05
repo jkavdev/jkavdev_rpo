@@ -1,0 +1,25 @@
+Requirement is a Database for Library for a UK School
+The Rules are as follows :-
+
+A. What are the Things of Interest ?
+A.1 Authors
+A.2 Books
+A.3 Genres
+A.4 Pupils
+
+B. How are they related ?
+B.1 An Author can write one or many Books.
+B.2 A Book can have one or many Authors
+B.3 A Book can belong to only one Genre.
+B.4 A Pupil can take out one,zero,two or three Books on Loan at any time.
+
+C. What else do we know about Them ?
+C.1 A Book has a Date of Publication.
+C.2 A Book has an ISBN, which identifies it uniquely.
+C.3 A Book has a Price
+C.4 A Book has a Title.
+
+Barry Williams 
+12th. March 2007 
+Principal Consultant 
+Database Answers
