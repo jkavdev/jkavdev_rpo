@@ -9,12 +9,20 @@
 		</layout>
 	</appender>
 
-	<logger name="org.springframework.web">
+	<logger name="br.com.jkavdev.livraria">
+		<level value="debug" />
+	</logger>
+
+	<logger name="org.springframework">
 		<level value="warn" />
 	</logger>
 
 	<logger name="org.hibernate">
 		<level value="info" />
+	</logger>
+
+	<logger name="org.jboss">
+		<level value="warn" />
 	</logger>
 
 	<root>
