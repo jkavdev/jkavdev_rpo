@@ -1,4 +1,4 @@
-package br.com.jkavdev.livraria.test;
+package br.com.jkavdev.livraria.test.insert;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
