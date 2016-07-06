@@ -20,7 +20,7 @@ public class Autor extends BaseEntity {
 
 	private String nome;
 	private String sobrenome;
-	private List<Livro> livros;
+	private List<Livro> livrosEscritos;
 
 	public Autor() {
 		super();
@@ -55,16 +55,16 @@ public class Autor extends BaseEntity {
 			name = "livros_por_autor", 
 			joinColumns = @JoinColumn(name = "livro_id", nullable = false), 
 			inverseJoinColumns = @JoinColumn(name = "autor_id", nullable = false))
-	public List<Livro> getLivros() {
-		return livros;
+	public List<Livro> getLivrosEscritos() {
+		return livrosEscritos;
 	}
 
-	public void setLivros(List<Livro> livros) {
-		this.livros = livros;
+	public void setLivrosEscritos(List<Livro> livros) {
+		this.livrosEscritos = livros;
 	}
 
 	public void adicionaLivro(Livro livro){
-		this.livros.add(livro);
+		this.livrosEscritos.add(livro);
 	}
 
 }

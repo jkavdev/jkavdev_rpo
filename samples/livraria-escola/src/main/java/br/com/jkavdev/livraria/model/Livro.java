@@ -84,7 +84,7 @@ public class Livro extends BaseEntity {
 		this.numeroDeCopias = numeroDeCopias;
 	}
 
-	@Column(name = "preco", precision = 10, scale = 2)
+	@Column(name = "preco", precision = 10, scale = 2, nullable = false)
 	public BigDecimal getPreco() {
 		return preco;
 	}
@@ -93,7 +93,7 @@ public class Livro extends BaseEntity {
 		this.preco = preco;
 	}
 
-	@Column(name = "data_de_publicacao")
+	@Column(name = "data_de_publicacao", nullable = false)
 	@Temporal(TemporalType.DATE)
 	public Calendar getDataDePublicacao() {
 		return DataDePublicacao;
