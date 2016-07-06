@@ -27,4 +27,13 @@ public class AlunoRepositoryTest extends AbstractDatabaseTest {
 
 	}
 
+	@Test
+	public void insertAluno() {
+
+		Aluno aluno = alunoRepository.findOne(1L);
+
+		logger.info("Aluno do banco: " + aluno);
+
+	}
+
 }
