@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -53,8 +54,10 @@ public class Autor extends BaseEntity {
 	@ManyToMany(cascade = CascadeType.PERSIST)
 	@JoinTable(
 			name = "livros_por_autor", 
-			joinColumns = @JoinColumn(name = "livro_id", nullable = false), 
-			inverseJoinColumns = @JoinColumn(name = "autor_id", nullable = false))
+			joinColumns = @JoinColumn(name = "livro_id", nullable = false),
+			foreignKey = @ForeignKey(name = "fk_autor_livro_id"),
+			inverseJoinColumns = @JoinColumn(name = "autor_id", nullable = false),
+			inverseForeignKey = @ForeignKey(name = "fk_autor_autor_id"))
 	public List<Livro> getLivrosEscritos() {
 		return livrosEscritos;
 	}
