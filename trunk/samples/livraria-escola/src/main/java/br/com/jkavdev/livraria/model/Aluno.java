@@ -1,7 +1,9 @@
 package br.com.jkavdev.livraria.model;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -23,7 +25,7 @@ public class Aluno extends BaseEntity {
 	private TipoSexo sexo;
 	private Endereco endereco;
 	private Contato contato;
-	private List<Emprestimo> emprestimos;
+	private Set<Emprestimo> emprestimos;
 
 	public Aluno(String nome, String sobrenome, TipoSexo sexo, Endereco endereco, Contato contato) {
 		this(nome, sobrenome, sexo);
@@ -88,13 +90,21 @@ public class Aluno extends BaseEntity {
 		this.contato = contato;
 	}
 
-	@OneToMany(mappedBy = "livro")
-	public List<Emprestimo> getEmprestimos() {
+	@OneToMany(mappedBy = "aluno", cascade = CascadeType.PERSIST)
+	public Set<Emprestimo> getEmprestimos() {
 		return emprestimos;
 	}
 
-	public void setEmprestimos(List<Emprestimo> emprestimos) {
+	public void setEmprestimos(Set<Emprestimo> emprestimos) {
 		this.emprestimos = emprestimos;
+	}
+
+	public void adicionarEmprestimo(Emprestimo emprestimo) {
+		if (this.emprestimos == null) {
+			this.emprestimos = new HashSet<>();
+		}
+		this.emprestimos.add(emprestimo);
+		emprestimo.adicionarAluno(this);
 	}
 
 }
