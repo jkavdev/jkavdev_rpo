@@ -21,7 +21,7 @@ public class Curso extends BaseEntity {
 
 	private String nomeCurso;
 	private String descricao;
-	private List<Livro> livros;
+	private List<Livro> livrosIndicados;
 
 	public Curso(String nomeCurso, String descricao) {
 		this();
@@ -56,19 +56,19 @@ public class Curso extends BaseEntity {
 			name = "livros_indicados", 
 			joinColumns = @JoinColumn(name = "livro_id", nullable = false), 
 			inverseJoinColumns = @JoinColumn(name = "curso_id", nullable = false))
-	public List<Livro> getLivros() {
-		return livros;
+	public List<Livro> getLivrosIndicados() {
+		return livrosIndicados;
 	}
 
-	public void setLivros(List<Livro> livros) {
-		this.livros = livros;
+	public void setLivrosIndicados(List<Livro> livros) {
+		this.livrosIndicados = livros;
 	}
 
 	public void adicionaLivroIndicado(Livro indicado) {
-		if(livros == null) {
-			this.livros = new ArrayList<>();
+		if(livrosIndicados == null) {
+			this.livrosIndicados = new ArrayList<>();
 		}
-		this.livros.add(indicado);
+		this.livrosIndicados.add(indicado);
 	}
 
 }
