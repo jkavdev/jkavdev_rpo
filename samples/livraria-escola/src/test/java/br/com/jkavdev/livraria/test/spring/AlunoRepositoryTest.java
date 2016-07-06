@@ -36,4 +36,11 @@ public class AlunoRepositoryTest extends AbstractDatabaseTest {
 
 	}
 
+	@Test
+	public void selectAlunoByName() {
+		Aluno jhonatan = alunoRepository.findAlunoByNome("Jhonatan Kolen");
+
+		logger.info(jhonatan);
+	}
+
 }

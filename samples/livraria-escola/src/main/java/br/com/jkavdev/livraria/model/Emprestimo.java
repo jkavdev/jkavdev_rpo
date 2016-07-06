@@ -1,10 +1,15 @@
 package br.com.jkavdev.livraria.model;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -13,39 +18,19 @@ import javax.persistence.TemporalType;
 import br.com.jkavdev.livraria.utils.jpa.BaseEntity;
 
 @Entity
-@Table(name = "livros_emprestados")
+@Table(name = "emprestimos_de_livros")
 public class Emprestimo extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 
-	private Livro livro;
-	private Aluno aluno;
 	private boolean perdido;
 	private boolean multaPaga;
 	private boolean atrasado;
 	private Calendar dataDoEmprestimo;
 	private Calendar dataDoEmprestimoVencimento;
 	private Calendar dataDeEntrega;
-
-	@ManyToOne
-	@JoinColumn(name = "livro_id", nullable = false)
-	public Livro getLivro() {
-		return livro;
-	}
-
-	public void setLivro(Livro livro) {
-		this.livro = livro;
-	}
-
-	@ManyToOne
-	@JoinColumn(name = "aluno_id", nullable = false)
-	public Aluno getAluno() {
-		return aluno;
-	}
-
-	public void setAluno(Aluno aluno) {
-		this.aluno = aluno;
-	}
+	private List<Livro> livros;
+	private Aluno aluno;
 
 	@Column(nullable = false)
 	public boolean isPerdido() {
@@ -90,7 +75,8 @@ public class Emprestimo extends BaseEntity {
 		return dataDoEmprestimoVencimento;
 	}
 
-	public void setDataDoEmprestimoVencimento( Calendar dataDoEmprestimoVencimento) {
+	public void setDataDoEmprestimoVencimento(
+			Calendar dataDoEmprestimoVencimento) {
 		this.dataDoEmprestimoVencimento = dataDoEmprestimoVencimento;
 	}
 
@@ -103,15 +89,43 @@ public class Emprestimo extends BaseEntity {
 	public void setDataDeEntrega(Calendar dataDeEntrega) {
 		this.dataDeEntrega = dataDeEntrega;
 	}
-	
-	public void adicionarAluno(Aluno aluno){
+
+	@ManyToMany
+	@JoinTable(
+			name = "livros_emprestados", 
+			joinColumns = @JoinColumn(name = "livro_id"),
+			foreignKey = @ForeignKey(name = "fk_livro_emprestado_livro_id"),
+			inverseJoinColumns = @JoinColumn(name = "emprestimo_id"), 
+			inverseForeignKey = @ForeignKey(name = "fk_livro_emprestado_emprestimo_id"))
+	public List<Livro> getLivros() {
+		return livros;
+	}
+
+	public void setLivros(List<Livro> livros) {
+		this.livros = livros;
+	}
+
+	@ManyToOne
+	@JoinColumn(name = "aluno_id", nullable = false, foreignKey = @ForeignKey(name = "fk_emprestimo_aluno_id"))
+	public Aluno getAluno() {
+		return aluno;
+	}
+
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
+	}
+
+	public void adicionarAluno(Aluno aluno) {
 		this.setAluno(aluno);
 		aluno.getEmprestimos().add(this);
 	}
-	
-	public void adicionarLivro(Livro livro){
-		this.setLivro(livro);
-		livro.getEmprestimos().add(this);
+
+	public void adicionarLivro(Livro livro) {
+		if (this.livros == null) {
+			this.livros = new ArrayList<>();
+		}
+		
+		this.getLivros().add(livro);
 	}
 
 }

@@ -5,5 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import br.com.jkavdev.livraria.model.Aluno;
 
 public interface IAlunoRepository extends JpaRepository<Aluno, Long> {
+	
+	public Aluno findAlunoByNome(String nome);
 
 }

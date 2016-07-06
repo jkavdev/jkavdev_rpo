@@ -2,15 +2,12 @@ package br.com.jkavdev.livraria.model;
 
 import java.math.BigDecimal;
 import java.util.Calendar;
-import java.util.HashSet;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -29,14 +26,13 @@ public class Livro extends BaseEntity {
 	private Integer numeroDeCopias;
 	private BigDecimal preco;
 	private Calendar DataDePublicacao;
-	private Set<Emprestimo> emprestimos;
 
 	public Livro() {
 		super();
 	}
 
-	public Livro(String isbn, String titulo, Genero genero, Integer numeroDeCopias, BigDecimal preco,
-			Calendar dataDePublicacao) {
+	public Livro(String isbn, String titulo, Genero genero,
+			Integer numeroDeCopias, BigDecimal preco, Calendar dataDePublicacao) {
 		this(isbn, titulo, genero);
 		this.numeroDeCopias = numeroDeCopias;
 		this.preco = preco;
@@ -69,7 +65,7 @@ public class Livro extends BaseEntity {
 	}
 
 	@ManyToOne
-	@JoinColumn(name = "genero_id", nullable = false)
+	@JoinColumn(name = "genero_id", nullable = false, foreignKey = @ForeignKey(name = "fk_livro_genero_id"))
 	public Genero getGenero() {
 		return genero;
 	}
@@ -104,23 +100,6 @@ public class Livro extends BaseEntity {
 
 	public void setDataDePublicacao(Calendar dataDePublicacao) {
 		DataDePublicacao = dataDePublicacao;
-	}
-
-	@OneToMany(mappedBy = "livro", cascade = CascadeType.PERSIST)
-	public Set<Emprestimo> getEmprestimos() {
-		return emprestimos;
-	}
-
-	public void setEmprestimos(Set<Emprestimo> emprestimos) {
-		this.emprestimos = emprestimos;
-	}
-
-	public void adicionarEmprestimo(Emprestimo emprestimo) {
-		if (this.emprestimos == null) {
-			this.emprestimos = new HashSet<>();
-		}
-		this.emprestimos.add(emprestimo);
-		emprestimo.adicionarLivro(this);
 	}
 
 }

@@ -27,7 +27,8 @@ public class Aluno extends BaseEntity {
 	private Contato contato;
 	private Set<Emprestimo> emprestimos;
 
-	public Aluno(String nome, String sobrenome, TipoSexo sexo, Endereco endereco, Contato contato) {
+	public Aluno(String nome, String sobrenome, TipoSexo sexo,
+			Endereco endereco, Contato contato) {
 		this(nome, sobrenome, sexo);
 		this.endereco = endereco;
 		this.contato = contato;

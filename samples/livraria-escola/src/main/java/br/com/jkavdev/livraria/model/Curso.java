@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -55,7 +56,9 @@ public class Curso extends BaseEntity {
 	@JoinTable(
 			name = "livros_indicados", 
 			joinColumns = @JoinColumn(name = "livro_id", nullable = false), 
-			inverseJoinColumns = @JoinColumn(name = "curso_id", nullable = false))
+			foreignKey = @ForeignKey(name = "fk_curso_livro_id"),
+			inverseJoinColumns = @JoinColumn(name = "curso_id", nullable = false),
+			inverseForeignKey = @ForeignKey(name = "fk_curso_curso_id"))
 	public List<Livro> getLivrosIndicados() {
 		return livrosIndicados;
 	}
