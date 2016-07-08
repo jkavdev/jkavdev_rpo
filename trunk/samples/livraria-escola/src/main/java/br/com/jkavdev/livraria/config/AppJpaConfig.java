@@ -17,7 +17,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import br.com.jkavdev.livraria.model.Aluno;
 import br.com.jkavdev.livraria.repository.IAlunoRepository;
 
-
 @Configuration
 @ComponentScan(basePackageClasses = { IAlunoRepository.class })
 @EnableTransactionManagement
@@ -25,20 +24,20 @@ public class AppJpaConfig {
 
 	@Bean
 	public DataSource dataSource() {
-		DriverManagerDataSource dataSource = new DriverManagerDataSource("jdbc:mysql://localhost:3306/db_algaworks_imobiliaria");
-		dataSource.setUsername("jkavdev");
-		dataSource.setPassword("123456");
-		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+		DriverManagerDataSource dataSource = new DriverManagerDataSource("jdbc:postgresql://localhost:5432/db_livraria");
+		dataSource.setUsername("postgres");
+		dataSource.setPassword("99346554");
+		dataSource.setDriverClassName("org.postgresql.Driver");
 		return dataSource;
 	}
 
 	@Bean
 	public JpaVendorAdapter jpaVendorAdapter() {
 		HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
-		adapter.setDatabase(Database.MYSQL);
+		adapter.setDatabase(Database.POSTGRESQL);
 		adapter.setShowSql(true);
 		adapter.setGenerateDdl(false);
-		adapter.setDatabasePlatform("org.hibernate.dialect.MySQLDialect");
+		adapter.setDatabasePlatform("org.hibernate.dialect.PostgreSQLDialect");
 		return adapter;
 	}
 
@@ -48,12 +47,12 @@ public class AppJpaConfig {
 		entityManagerFactory.setDataSource(dataSource);
 		entityManagerFactory.setJpaVendorAdapter(jpaVendorAdapter);
 		entityManagerFactory.setPackagesToScan(Aluno.class.getPackage().getName());
-		entityManagerFactory.getJpaPropertyMap().put("hibernate.hbm2ddl.auto", "update");	
+		entityManagerFactory.getJpaPropertyMap().put("hibernate.hbm2ddl.auto", "update");
 		return entityManagerFactory;
 	}
 
 	@Bean
-	public PlatformTransactionManager transactionManager( LocalContainerEntityManagerFactoryBean entityManagerFactoryBean) {
+	public PlatformTransactionManager transactionManager(LocalContainerEntityManagerFactoryBean entityManagerFactoryBean) {
 		JpaTransactionManager transactionManager = new JpaTransactionManager();
 		transactionManager.setEntityManagerFactory(entityManagerFactoryBean.getObject());
 		return transactionManager;

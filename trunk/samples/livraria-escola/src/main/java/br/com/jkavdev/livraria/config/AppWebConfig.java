@@ -27,12 +27,11 @@ import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 import org.thymeleaf.templateresolver.TemplateResolver;
 
-import br.com.jkavdev.livraria.model.Autor;
-
+import br.com.jkavdev.livraria.controller.LivroController;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackageClasses = { Autor.class })
+@ComponentScan(basePackageClasses = { LivroController.class })
 public class AppWebConfig extends WebMvcConfigurerAdapter {
 
 	@Bean
