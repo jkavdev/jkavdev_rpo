@@ -33,16 +33,21 @@ import br.com.jkavdev.livraria.controller.LivroController;
 @EnableWebMvc
 @ComponentScan(basePackageClasses = { LivroController.class })
 public class AppWebConfig extends WebMvcConfigurerAdapter {
+	
+	private static final String TEMPLATE_RESOLVER_PREFIX = "/WEB-INF/views";
+    private static final String TEMPLATE_RESOLVER_SUFFIX = ".html";
+    private static final String TEMPLATE_RESOLVER_TEMPLATE_MODE = "HTML5";
+    private static final String TEMPLATE_RESOLVER_CHARACTER_ENCODING = "UTF-8";
 
 	@Bean
 	public TemplateResolver webTemplateResolver() {
 		TemplateResolver templateResolver = new ServletContextTemplateResolver();
-		templateResolver.setPrefix("/WEB-INF/views/");
-		templateResolver.setSuffix(".html");
-		templateResolver.setTemplateMode("HTML5");
-		templateResolver.setCharacterEncoding("UTF-8");
+		templateResolver.setPrefix(TEMPLATE_RESOLVER_PREFIX);
+		templateResolver.setSuffix(TEMPLATE_RESOLVER_SUFFIX);
+		templateResolver.setTemplateMode(TEMPLATE_RESOLVER_TEMPLATE_MODE);
+		templateResolver.setCharacterEncoding(TEMPLATE_RESOLVER_CHARACTER_ENCODING);
 		templateResolver.setCacheable(false);
-
+		
 		return templateResolver;
 	}
 
@@ -51,7 +56,7 @@ public class AppWebConfig extends WebMvcConfigurerAdapter {
 		SpringTemplateEngine templateEngine = new SpringTemplateEngine();
 		templateEngine.setTemplateResolver(templateResolver);
 		templateEngine.addDialect(new LayoutDialect());
-
+		
 		return templateEngine;
 	}
 
@@ -59,11 +64,11 @@ public class AppWebConfig extends WebMvcConfigurerAdapter {
 	public ViewResolver viewResolver(SpringTemplateEngine templateEngine) {
 		ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
 		viewResolver.setTemplateEngine(templateEngine);
-		viewResolver.setCharacterEncoding("UTF-8");
-
+		viewResolver.setCharacterEncoding(TEMPLATE_RESOLVER_CHARACTER_ENCODING);
+		
 		return viewResolver;
 	}
-	
+
 	@Bean
 	public LocaleResolver localeResolver() {
 		return new FixedLocaleResolver(new Locale("pt", "BR"));
@@ -76,8 +81,8 @@ public class AppWebConfig extends WebMvcConfigurerAdapter {
 
 	@Bean
 	public FormattingConversionService mvcConversionService() {
-		DefaultFormattingConversionService conversionService = new DefaultFormattingConversionService(true);
-		NumberStyleFormatter bigDecimalFormatter = new NumberStyleFormatter("#,##0.00");
+		DefaultFormattingConversionService conversionService = new DefaultFormattingConversionService( true);
+		NumberStyleFormatter bigDecimalFormatter = new NumberStyleFormatter( "#,##0.00");
 		conversionService.addFormatterForFieldType(BigDecimal.class, bigDecimalFormatter);
 
 		return conversionService;
