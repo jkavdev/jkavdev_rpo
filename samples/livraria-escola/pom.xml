@@ -6,71 +6,37 @@
 	<groupId>br.com.jkavdev.livraria</groupId>
 	<artifactId>livraria-escola</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
 
 	<properties>
-		<!-- Encoding -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-		<!-- Java Version -->
-		<java.version>1.8</java.version>
-
-		<!-- Plugins -->
-		<maven.war.plugin.version>2.6</maven.war.plugin.version>
-		<maven.plugin.compiler.version>3.5.1</maven.plugin.compiler.version>
-
 		<!-- Hibernate / JPA -->
 		<hibernate.version>5.1.0.Final</hibernate.version>
-		<hibernate-validator.version>5.2.1.Final</hibernate-validator.version>
-
 		<!-- Driver MySQL -->
 		<mysql.connector.version>5.1.38</mysql.connector.version>
 		<!-- Driver PostgreSQL -->
 		<postgres.connector.version>9.4.1208</postgres.connector.version>
-
-		<!-- JUnit -->
+		<!-- JUnit - Testes -->
 		<junit.version>4.12</junit.version>
-
-		<!-- Commons-Logging -->
+		<!-- Abstracao da implementacao de Log -->
 		<commons.loggin.version>1.2</commons.loggin.version>
-
-		<!-- Log4j -->
+		<!-- Implementacao da api de log -->
 		<log4j.version>1.2.17</log4j.version>
-
-		<!-- Commons-Lang -->
+		<!-- Metodos utilitarios commons-lang -->
 		<commons-lang3.version>3.4</commons-lang3.version>
-
-		<!-- Servlet -->
-		<servlet.version>3.1.0</servlet.version>
-
 		<!-- Spring -->
 		<spring-framework.version>4.3.1.RELEASE</spring-framework.version>
 		<spring-data-jpa.version>1.10.2.RELEASE</spring-data-jpa.version>
-		<spring-security.version>4.1.1.RELEASE</spring-security.version>
-
-		<!-- Thymeleaf -->
-		<thymeleaf.version>2.1.4.RELEASE</thymeleaf.version>
-		<thymeleaf-layout-dialect.version>1.2.8</thymeleaf-layout-dialect.version>
-		<thymeleaf-extras-springsecurity.version>2.1.2.RELEASE</thymeleaf-extras-springsecurity.version>
 	</properties>
 
 	<build>
 		<finalName>${project.artifactId}</finalName>
 		<plugins>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>${maven.war.plugin.version}</version>
-				<configuration>
-					<failOnMissingWebXml>false</failOnMissingWebXml>
-				</configuration>
-			</plugin>
-			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>${maven.plugin.compiler.version}</version>
+				<version>3.5.1</version>
 				<configuration>
-					<source>${java.version}</source>
-					<target>${java.version}</target>
+					<source>1.8</source>
+					<target>1.8</target>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -89,83 +55,35 @@
 
 	<dependencies>
 
-		<!-- Thymeleaf -->
-		<dependency>
-			<groupId>org.thymeleaf</groupId>
-			<artifactId>thymeleaf-spring4</artifactId>
-			<version>${thymeleaf.version}</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>nz.net.ultraq.thymeleaf</groupId>
-			<artifactId>thymeleaf-layout-dialect</artifactId>
-			<version>${thymeleaf-layout-dialect.version}</version>
-			<scope>compile</scope>
-		</dependency>
-
-		<!-- Servlet -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>${servlet.version}</version>
-			<scope>provided</scope>
-		</dependency>
-
-		<!-- Spring Security -->
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-config</artifactId>
-			<version>${spring-security.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-core</artifactId>
-			<version>${spring-security.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-web</artifactId>
-			<version>${spring-security.version}</version>
-		</dependency>
-
-		<!-- Spring Data -->
-		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-jpa</artifactId>
-			<version>${spring-data-jpa.version}</version>
-		</dependency>
-
-		<!-- Spring MVC -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-			<version>${spring-framework.version}</version>
-			<scope>compile</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>commons-logging</groupId>
-					<artifactId>commons-logging</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
+		<!-- Spring transactions -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
 			<version>${spring-framework.version}</version>
 			<scope>compile</scope>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
 			<version>${spring-framework.version}</version>
 			<scope>compile</scope>
 		</dependency>
+
+		<!-- Spring Context -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 			<version>${spring-framework.version}</version>
 			<scope>compile</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>${spring-data-jpa.version}</version>
+		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
@@ -173,21 +91,13 @@
 			<scope>compile</scope>
 		</dependency>
 
-		<!-- Hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>${hibernate.version}</version>
 			<scope>compile</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<version>${hibernate-validator.version}</version>
-			<scope>compile</scope>
-		</dependency>
 
-		<!-- MySQL -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -195,35 +105,30 @@
 			<scope>compile</scope>
 		</dependency>
 
-		<!-- Postgres -->
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>${postgres.connector.version}</version>
 		</dependency>
 
-		<!-- Log4j -->
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>${log4j.version}</version>
 		</dependency>
 
-		<!-- Commons-Logging -->
 		<dependency>
 			<groupId>commons-logging</groupId>
 			<artifactId>commons-logging</artifactId>
 			<version>${commons.loggin.version}</version>
 		</dependency>
 
-		<!-- Commons-Lang -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>${commons-lang3.version}</version>
 		</dependency>
 
-		<!-- JUnit -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
