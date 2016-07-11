@@ -1,5 +1,6 @@
 package br.com.jkavdev.livraria.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -54,9 +55,9 @@ public class Autor extends BaseEntity {
 	@ManyToMany(cascade = CascadeType.PERSIST)
 	@JoinTable(
 			name = "livros_por_autor", 
-			joinColumns = @JoinColumn(name = "livro_id", nullable = false),
-			foreignKey = @ForeignKey(name = "fk_autor_livro_id"),
-			inverseJoinColumns = @JoinColumn(name = "autor_id", nullable = false),
+			joinColumns = @JoinColumn(name = "livro_id", nullable = false), 
+			foreignKey = @ForeignKey(name = "fk_autor_livro_id"), 
+			inverseJoinColumns = @JoinColumn(name = "autor_id", nullable = false), 
 			inverseForeignKey = @ForeignKey(name = "fk_autor_autor_id"))
 	public List<Livro> getLivrosEscritos() {
 		return livrosEscritos;
@@ -66,7 +67,11 @@ public class Autor extends BaseEntity {
 		this.livrosEscritos = livros;
 	}
 
-	public void adicionaLivro(Livro livro){
+	public void adicionaLivro(Livro livro) {
+		if(this.livrosEscritos == null){
+			this.livrosEscritos = new ArrayList<>();
+		}
+		
 		this.livrosEscritos.add(livro);
 	}
 
