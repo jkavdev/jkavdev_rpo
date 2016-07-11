@@ -5,5 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import br.com.jkavdev.livraria.model.Livro;
 
 public interface ILivroRepository extends JpaRepository<Livro, Long> {
+	
+	public Livro findLivroByIsbn(String isbn);
 
 }
