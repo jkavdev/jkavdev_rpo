@@ -15,7 +15,8 @@ import br.com.jkavdev.livraria.test.AbstractDatabaseTest;
 
 public class CursoRepositoryTest extends AbstractDatabaseTest {
 
-	private static final Logger logger = Logger.getLogger(AutorRepositoryTest.class);
+	private static final Logger logger = Logger
+			.getLogger(AutorRepositoryTest.class);
 
 	@Autowired
 	private ICursoRepository cursoRepository;
@@ -142,16 +143,20 @@ public class CursoRepositoryTest extends AbstractDatabaseTest {
 	}
 
 	@Test
+//	@Transactional
 	public void insertLivrosIndicados() {
 
 		Curso curso = cursoRepository.findOne(1L);
 		Livro livro = livroRepository.findOne(1L);
 
-		List<Livro> livros = new ArrayList<>();
-		livros.add(livro);
-
-		curso.setLivrosIndicados(livros);
+//		curso.adicionaLivroIndicado(livro);
+//		
+//		List<Livro> livros = new ArrayList<>();
+//		
+//		curso.setLivrosIndicados(livros);
 		
+		curso.adicionaLivroIndicado(livro);
+
 		cursoRepository.save(curso);
 	}
 
