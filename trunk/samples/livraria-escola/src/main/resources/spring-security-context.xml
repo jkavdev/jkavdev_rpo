@@ -1,22 +1,37 @@
-<beans:beans xmlns="http://www.springframework.org/schema/security"
-	xmlns:beans="http://www.springframework.org/schema/beans" 
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
-           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-           http://www.springframework.org/schema/security
-           http://www.springframework.org/schema/security/spring-security-4.1.xsd">
+<b:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:b="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
 
-	<http auto-config="true">
-		<intercept-url pattern="/**" access="ROLE_ADMINISTRADORES" />
+	<http use-expressions="true">
+		<intercept-url pattern="/protected.jsf" access="isAuthenticated()" />
+		<intercept-url pattern="/account.jsf" access="hasRole('Show Account Page')" />
+		<intercept-url pattern="/**" access="permitAll()" />
+
+		<form-login />
+
+		<logout />
 	</http>
 
+	<bean id="jdbcUserService" class="de.slackspace.tutorials.rolespermissions.security.SpringSecurityDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+		<property name="enableGroups" value="true" />
+		<property name="enableAuthorities" value="false" />
+		<property name="groupAuthoritiesByUsernameQuery">
+			<value>SELECT R.ID, R.NAME, P.NAME
+				FROM ROLES R
+				JOIN ROLE_MEMBERS RM on R.id = RM.roles_id
+				JOIN USERS U on U.id = RM.members_id
+				JOIN ROLE_PERMISSIONS RP ON RP.roles_id = R.id
+				JOIN PERMISSIONS P ON P.id = RP.permissions_id
+				WHERE U.username=?
+			</value>
+		</property>
+	</bean>
+
 	<authentication-manager>
-		<authentication-provider>
-			<user-service>
-				<user name="test" password="joao" authorities="ROLE_VENDEDORES" />
-				<user name="jkavdev" password="123456" authorities="ROLE_ADMINISTRADORES" />
-			</user-service>
+		<authentication-provider user-service-ref="jdbcUserService">
 		</authentication-provider>
 	</authentication-manager>
 
-</beans:beans>
+</b:beans>
