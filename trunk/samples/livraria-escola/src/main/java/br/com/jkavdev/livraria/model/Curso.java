@@ -72,10 +72,12 @@ public class Curso extends BaseEntity {
 	}
 
 	public void adicionaLivroIndicado(Livro indicado) {
-		if (livrosIndicados == null) {
-			this.livrosIndicados = new ArrayList<>();
-		}
-		this.livrosIndicados.add(indicado);
+		
+		List<Livro>livros = new ArrayList<>();
+		
+		livros.add(indicado);
+		
+		this.setLivrosIndicados(livros);
 	}
 
 }
