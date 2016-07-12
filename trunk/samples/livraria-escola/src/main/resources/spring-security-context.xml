@@ -2,6 +2,9 @@
 	xmlns:b="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 						http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+						
+	<b:bean id="userDetailsService" class="br.com.jkavdev.livraria.security.UserDetailsService">
+	</b:bean>						
 
 	<http pattern="/resources/**" security="none" />
 
@@ -16,11 +19,9 @@
 		<logout />
 	</http>
 
-	<user-service>
-		<user name="jkavdev" password="password" authorities="AMINISTRADOR" />
-		<user name="maria" password="password" authorities="BIBLIOTECARIA" />
-		<user name="carlos" password="password" authorities="ALUNOS" />
-		<user name="jose" password="password" authorities="ALUNOS" />
-	</user-service>
+	<authentication-manager>
+		<authentication-provider user-service-ref="userDetailsService">
+		</authentication-provider>
+	</authentication-manager>
 
 </b:beans>
