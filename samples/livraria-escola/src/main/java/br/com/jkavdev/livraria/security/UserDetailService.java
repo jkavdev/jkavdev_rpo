@@ -10,11 +10,13 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
 import br.com.jkavdev.livraria.model.Grupo;
 import br.com.jkavdev.livraria.model.Usuario;
 import br.com.jkavdev.livraria.repository.IUsuarioRepository;
 
+@Service
 public class UserDetailService implements UserDetailsService {
 
 	@Autowired
