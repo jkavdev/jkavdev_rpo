@@ -18,7 +18,6 @@ public class UsuarioSistema extends User {
 		super(usuario.getEmail(), usuario.getSenha(), authorities);
 
 		this.usuario = usuario;
-
 	}
 
 	public Usuario getUsuario() {

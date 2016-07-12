@@ -2,11 +2,10 @@ package br.com.jkavdev.livraria.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.com.jkavdev.livraria.model.Curso;
 import br.com.jkavdev.livraria.model.Usuario;
 
-public interface IUsuarioRepository extends JpaRepository<Curso, Long> {
+public interface IUsuarioRepository extends JpaRepository<Usuario, Long> {
 
-	Usuario porEmail(String email);
+	public Usuario porEmail(String email);
 
 }
