@@ -1,5 +1,7 @@
 package br.com.jkavdev.xstream.test;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
 import com.thoughtworks.xstream.XStream;
@@ -12,17 +14,21 @@ public class ProdutoTest {
 	public void deveGerarXmlComNomePrecoDescricaoAdequados(){
 		
 		String xmlEsperado = 
-				"<produto>"
-					+ " <nome>Geladeira</nome>"
-					+ "<preco>1000.0</preco>"
-					+ "<descricao>Geladeira duas portas</descricao>"
+				"<produto>\n"
+					+ "  <nome>Geladeira</nome>\n"
+					+ "  <preco>1000.0</preco>\n"
+					+ "  <descricao>Geladeira duas portas</descricao>\n"
 				+ "</produto>";
-	
-
 		
 		Produto geladeira = new Produto("Geladeira", 1000.0, "Geladeira duas portas");
 		
-		new XStream();
+		XStream xstream = new XStream();
+		
+		xstream.alias("produto", Produto.class);
+		
+		String xmlGerado = xstream.toXML(geladeira);
+		
+		assertEquals(xmlEsperado, xmlGerado);
 		
 	}
 
