@@ -14,13 +14,13 @@ public class ProdutoTest {
 	public void deveGerarXmlComNomePrecoDescricaoAdequados(){
 		
 		String xmlEsperado = 
-				"<produto>\n"
+				"<produto codigo=\"1587\">\n"
 					+ "  <nome>Geladeira</nome>\n"
 					+ "  <preco>1000.0</preco>\n"
 					+ "  <descrição>Geladeira duas portas</descrição>\n"
 				+ "</produto>";
 		
-		Produto geladeira = new Produto("Geladeira", 1000.0, "Geladeira duas portas");
+		Produto geladeira = new Produto(1587, "Geladeira", 1000.0, "Geladeira duas portas");
 		
 		XStream xstream = new XStream();
 		
@@ -29,6 +29,9 @@ public class ProdutoTest {
 		
 		//criando um apelido para um campo
 		xstream.aliasField("descrição", Produto.class, "descricao");
+		
+		//atribuindo um valor
+		xstream.useAttributeFor(Produto.class, "codigo");
 		
 		String xmlGerado = xstream.toXML(geladeira);
 		
