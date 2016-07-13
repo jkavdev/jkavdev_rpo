@@ -9,11 +9,12 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 
 		<mapping-file>META-INF/entities/entityMapping.xml</mapping-file>
+		
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		
 		<properties>
 			<property name="hibernate.format_sql" value="true" />
 		</properties>
-
-		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 
 	</persistence-unit>
 
