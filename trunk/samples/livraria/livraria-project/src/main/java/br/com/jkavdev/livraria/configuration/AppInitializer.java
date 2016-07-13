@@ -7,7 +7,7 @@ public class AppInitializer
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		return null;
+		return new Class<?>[] { AppSecConfig.class };
 	}
 
 	@Override
