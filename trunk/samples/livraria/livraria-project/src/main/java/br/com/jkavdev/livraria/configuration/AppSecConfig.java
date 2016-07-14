@@ -12,28 +12,28 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class AppSecConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth)
-			throws Exception {
+	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 
 		auth.inMemoryAuthentication().withUser("user").password("password").roles("USER");
 	}
 
 	@Override
-	protected void configure(HttpSecurity http) throws Exception { 
-		
+	protected void configure(HttpSecurity http) throws Exception {
+
 		http.authorizeRequests()
-		.antMatchers("/login").anonymous()
-		.antMatchers("/admin/**").access("hasRole('ADMINISTRADOR')")
-		.antMatchers("/usuario/**").access("hasRole('USUARIO')")
-		.antMatchers("/livro/**").access("hasRole('USUARIO') or hasRole('ADMINISTRADOR')")
-		.antMatchers("/**").denyAll()
-		.and().
-		formLogin()
-		 .loginPage("/login.html")
-		 .defaultSuccessUrl("/index.html")
-         .failureUrl("/login.html?error=true")
-	     .and()
-	     .logout().logoutSuccessUrl("/login.html");
+			.antMatchers("/login").anonymous()
+			.antMatchers("/admin/**").access("hasRole('ADMINISTRADOR')")
+			.antMatchers("/usuario/**").access("hasRole('USUARIO')")
+			.antMatchers("/livro/**").access("hasRole('USUARIO') or hasRole('ADMINISTRADOR')")
+			.antMatchers("/**").denyAll()
+			.and()
+			.formLogin()
+				.loginPage("/login")
+				.defaultSuccessUrl("/index")
+				.failureUrl("/login?error=true")
+				.and()
+				.logout()
+				.logoutSuccessUrl("/login");
 
 	}
 }
