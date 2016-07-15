@@ -6,6 +6,6 @@ import br.com.jkavdev.livraria.model.Usuario;
 
 public interface IUsuarioRepository extends JpaRepository<Usuario, Long> {
 
-	public Usuario porEmail(String email);
+	public Usuario findUsuarioByEmail(String email);
 
 }

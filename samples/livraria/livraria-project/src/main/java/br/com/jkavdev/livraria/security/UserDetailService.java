@@ -25,7 +25,7 @@ public class UserDetailService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
-		Usuario usuario = usuarioRepository.porEmail(email);
+		Usuario usuario = usuarioRepository.findUsuarioByEmail(email);
 		UsuarioSistema user = null;
 
 		if (usuario != null) {
@@ -36,7 +36,7 @@ public class UserDetailService implements UserDetailsService {
 	}
 
 	private Collection<? extends GrantedAuthority> getGrupos(Usuario usuario) {
-		
+
 		List<SimpleGrantedAuthority> authorities = new ArrayList<>();
 
 		for (Grupo grupo : usuario.getGrupos()) {
