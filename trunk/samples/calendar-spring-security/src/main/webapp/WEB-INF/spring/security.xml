@@ -25,11 +25,13 @@
 		<!-- login-processing-url - especifica a url do formulario de login no qual sera submetida usando 'post' -->
 		<!-- username-parameter - modificando o parametro do usuario do spring para 'username' e o mesmo com o passowrd -->
 		<!-- authentication-failure-url - especifica a qual url ira caso erro no login -->
+		<!-- default-target-url - indica para onde deve ir apos o login -->
 		<form-login login-page="/login/form"
 			login-processing-url="/login"
 			username-parameter="username"
 			password-parameter="password"
-			authentication-failure-url="/login/form?error"/>
+			authentication-failure-url="/login/form?error"
+			default-target-url="/default"/>
 			
 		<!-- configurando logut do sistema -->
 		<logout logout-url="/logout"
