@@ -10,6 +10,20 @@
 	<!-- criara um filter servlet que garantira que o usuario atual estara vinculado com sua permissao de acesso -->
 	<http auto-config="true">
 		<intercept-url pattern="/**" access="ROLE_USER" />
+		
+		<!-- login-page - onde estara a pagina de login -->
+		<!-- login-processing-url - especifica a url do formulario de login no qual sera submetida usando 'post' -->
+		<!-- username-parameter - modificando o parametro do usuario do spring para 'username' e o mesmo com o passowrd -->
+		<!-- authentication-failure-url - especifica a qual url ira caso erro no login -->
+		<form-login login-page="/login/form"
+			login-processing-url="/login"
+			username-parameter="username"
+			password-parameter="password"
+			authentication-failure-url="/login/form?error"/>
+			
+		<!-- configurando logut do sistema -->
+		<logout logout-url="/logout"
+			logout-success-url="/login/form?logout"/>
 	</http>
 
 	<!-- informa como spring security fará a autenticacao do usuario -->
