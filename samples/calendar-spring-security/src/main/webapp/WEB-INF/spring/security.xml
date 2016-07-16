@@ -6,10 +6,20 @@
 		http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
 		http://www.springframework.org/schema/security
 		http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+		
+	<!-- igorara qualquer request vindo de resources -->
+	<http pattern="/resources/**" security="none"/>
 
 	<!-- criara um filter servlet que garantira que o usuario atual estara vinculado com sua permissao de acesso -->
-	<http auto-config="true">
-		<intercept-url pattern="/**" access="ROLE_USER" />
+	<http auto-config="true">	
+	
+		<!-- Permitindo que usuarios anonimos tenham acesso as paginas de bem-vindo, login e logout -->
+		<!-- Apenas adiministradores tem acesso a pagina All Events -->
+		<intercept-url pattern="/" 			access="ROLE_ANONYMOUS,ROLE_USER"/>
+		<intercept-url pattern="/login/*" 	access="ROLE_ANONYMOUS,ROLE_USER"/>
+		<intercept-url pattern="/logout" 	access="ROLE_ANONYMOUS,ROLE_USER"/>
+		<intercept-url pattern="/events/" 	access="ROLE_ADMIN"/>
+		<intercept-url pattern="/**" 		access="ROLE_USER" />
 		
 		<!-- login-page - onde estara a pagina de login -->
 		<!-- login-processing-url - especifica a url do formulario de login no qual sera submetida usando 'post' -->
@@ -30,7 +40,8 @@
 	<authentication-manager>
 		<authentication-provider>
 			<user-service>
-				<user name="user1@example.com" password="user1" authorities="ROLE_USER" />
+				<user name="user1@example.com" 	password="user1" 	authorities="ROLE_USER" />
+				<user name="admin1@example.com" password="admin1" 	authorities="ROLE_USER,ROLE_ADMIN"/>
 			</user-service>
 		</authentication-provider>
 	</authentication-manager>
