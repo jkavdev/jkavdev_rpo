@@ -11,15 +11,15 @@
 	<http pattern="/resources/**" security="none"/>
 
 	<!-- criara um filter servlet que garantira que o usuario atual estara vinculado com sua permissao de acesso -->
-	<http auto-config="true">	
+	<http auto-config="true" use-expressions="true">	
 	
 		<!-- Permitindo que usuarios anonimos tenham acesso as paginas de bem-vindo, login e logout -->
 		<!-- Apenas adiministradores tem acesso a pagina All Events -->
-		<intercept-url pattern="/" 			access="ROLE_ANONYMOUS,ROLE_USER"/>
-		<intercept-url pattern="/login/*" 	access="ROLE_ANONYMOUS,ROLE_USER"/>
-		<intercept-url pattern="/logout" 	access="ROLE_ANONYMOUS,ROLE_USER"/>
-		<intercept-url pattern="/events/" 	access="ROLE_ADMIN"/>
-		<intercept-url pattern="/**" 		access="ROLE_USER" />
+		<intercept-url pattern="/" 			access="permitAll"/>
+		<intercept-url pattern="/login/*" 	access="permitAll"/>
+		<intercept-url pattern="/logout" 	access="permitAll"/>
+		<intercept-url pattern="/events/" 	access="hasRole('ROLE_ADMIN')"/>
+		<intercept-url pattern="/**" 		access="hasRole('ROLE_USER')" />
 		
 		<!-- login-page - onde estara a pagina de login -->
 		<!-- login-processing-url - especifica a url do formulario de login no qual sera submetida usando 'post' -->
