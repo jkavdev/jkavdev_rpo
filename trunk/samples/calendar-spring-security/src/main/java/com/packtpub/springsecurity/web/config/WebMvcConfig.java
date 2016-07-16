@@ -12,6 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 import org.springframework.web.servlet.view.ContentNegotiatingViewResolver;
@@ -20,8 +21,9 @@ import org.springframework.web.servlet.view.json.MappingJacksonJsonView;
 
 /**
  * <p>
- * Here we leverage Spring 3.1's {@link EnableWebMvc} support. This allows more powerful configuration but still be
- * concise about it. Specifically it allows overriding {@link #requestMappingHandlerMapping()}. Note that this class is
+ * Here we leverage Spring 3.1's {@link EnableWebMvc} support. This allows more
+ * powerful configuration but still be concise about it. Specifically it allows
+ * overriding {@link #requestMappingHandlerMapping()}. Note that this class is
  * loaded via the mvc-config.xml
  * </p>
  * <p>
@@ -71,49 +73,57 @@ import org.springframework.web.servlet.view.json.MappingJacksonJsonView;
 @EnableWebMvc
 public class WebMvcConfig extends WebMvcConfigurationSupport {
 
-    /**
-     * We mention this in the book, but this helps to ensure that the intercept-url patterns prevent access to our
-     * controllers. For example, once security has been applied for administrators try commenting out the modifications
-     * to the super class and requesting <a
-     * href="http://localhost:800/calendar/events/.html">http://localhost:800/calendar/events/.html</a>. You will
-     * observe that security is bypassed since it did not match the pattern we provided. In later chapters, we discuss
-     * how to secure the service tier which helps mitigate bypassing of the URL based security too.
-     */
-    @Bean
-    @Override
-    public RequestMappingHandlerMapping requestMappingHandlerMapping() {
-        RequestMappingHandlerMapping result = super.requestMappingHandlerMapping();
-        result.setUseSuffixPatternMatch(false);
-        result.setUseTrailingSlashMatch(false);
-        return result;
-    }
+	/**
+	 * We mention this in the book, but this helps to ensure that the
+	 * intercept-url patterns prevent access to our controllers. For example,
+	 * once security has been applied for administrators try commenting out the
+	 * modifications to the super class and requesting <a href=
+	 * "http://localhost:800/calendar/events/.html">http://localhost:800/calendar/events/.html</a>.
+	 * You will observe that security is bypassed since it did not match the
+	 * pattern we provided. In later chapters, we discuss how to secure the
+	 * service tier which helps mitigate bypassing of the URL based security
+	 * too.
+	 */
+	@Bean
+	@Override
+	public RequestMappingHandlerMapping requestMappingHandlerMapping() {
+		RequestMappingHandlerMapping result = super.requestMappingHandlerMapping();
+		result.setUseSuffixPatternMatch(false);
+		result.setUseTrailingSlashMatch(false);
+		return result;
+	}
 
-    @Override
-    protected void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/").setCachePeriod(31556926);
-    }
+	@Override
+	protected void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/").setCachePeriod(31556926);
+	}
 
-    @Bean
-    public ContentNegotiatingViewResolver contentNegotiatingViewResolver() {
-        ContentNegotiatingViewResolver result = new ContentNegotiatingViewResolver();
-        Map<String, String> mediaTypes = new HashMap<String, String>();
-        mediaTypes.put("json", MediaType.APPLICATION_JSON_VALUE);
-        result.setMediaTypes(mediaTypes);
-        MappingJacksonJsonView jacksonView = new MappingJacksonJsonView();
-        jacksonView.setExtractValueFromSingleKeyModel(true);
-        Set<String> modelKeys = new HashSet<String>();
-        modelKeys.add("events");
-        modelKeys.add("event");
-        jacksonView.setModelKeys(modelKeys);
-        result.setDefaultViews(Collections.singletonList((View) jacksonView));
-        return result;
-    }
+	@Bean
+	public ContentNegotiatingViewResolver contentNegotiatingViewResolver() {
+		ContentNegotiatingViewResolver result = new ContentNegotiatingViewResolver();
+		Map<String, String> mediaTypes = new HashMap<String, String>();
+		mediaTypes.put("json", MediaType.APPLICATION_JSON_VALUE);
+		result.setMediaTypes(mediaTypes);
+		MappingJacksonJsonView jacksonView = new MappingJacksonJsonView();
+		jacksonView.setExtractValueFromSingleKeyModel(true);
+		Set<String> modelKeys = new HashSet<String>();
+		modelKeys.add("events");
+		modelKeys.add("event");
+		jacksonView.setModelKeys(modelKeys);
+		result.setDefaultViews(Collections.singletonList((View) jacksonView));
+		return result;
+	}
 
-    @Bean
-    public InternalResourceViewResolver internalResolver() {
-        InternalResourceViewResolver internalResolver = new InternalResourceViewResolver();
-        internalResolver.setPrefix("/WEB-INF/views/");
-        internalResolver.setSuffix(".jsp");
-        return internalResolver;
-    }
+	@Bean
+	public InternalResourceViewResolver internalResolver() {
+		InternalResourceViewResolver internalResolver = new InternalResourceViewResolver();
+		internalResolver.setPrefix("/WEB-INF/views/");
+		internalResolver.setSuffix(".jsp");
+		return internalResolver;
+	}
+
+	//adicionando controller do login
+	public void addViewControllers(ViewControllerRegistry registry) {
+		registry.addViewController("/login/form").setViewName("login");
+	}
 }
