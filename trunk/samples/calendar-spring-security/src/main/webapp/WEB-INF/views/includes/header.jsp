@@ -41,27 +41,27 @@
                     <ul class="nav">
                     	<!-- criando variavel booleana informando se está autenticado -->
                     	<sec:authorize access="authenticated" var="authenticated"/>
-							<c:choose>
-								<c:when test="${authenticated}">
-									<li id="greeting">
-										<div>
-											Welcome <sec:authentication property="name" />
-										</div>
-									</li>
-									
-									<c:url var="logoutUrl" value="/logout"/>					
-									<li>
-										<a href="${logoutUrl}">Logout</a>
-									</li>								
-								</c:when>
+						<c:choose>
+							<c:when test="${authenticated}">
+								<li id="greeting">
+									<div>
+										Welcome <sec:authentication property="name" />
+									</div>
+								</li>
 								
-								<c:otherwise>
-									<c:url var="loginUrl" value="/login/form"/>
-									<li>
-										<a id="navLoginLink" href="${loginUrl}">Login</a>
-									</li>
-								</c:otherwise>
-							</c:choose>
+								<c:url var="logoutUrl" value="/logout"/>					
+								<li>
+									<a href="${logoutUrl}">Logout</a>
+								</li>								
+							</c:when>
+							
+							<c:otherwise>
+								<c:url var="loginUrl" value="/login/form"/>
+								<li>
+									<a id="navLoginLink" href="${loginUrl}">Login</a>
+								</li>
+							</c:otherwise>
+						</c:choose>
                     </ul>
                 </div>
             </div>
