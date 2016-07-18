@@ -24,41 +24,47 @@ public class AppJPAConfig {
 
 	@Bean
 	public DataSource dataSource() {
+		
 		DriverManagerDataSource dataSource = new DriverManagerDataSource("jdbc:mysql://localhost:3306/db_livraria");
 		dataSource.setUsername("jkavdev");
 		dataSource.setPassword("123456");
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		
+
 		return dataSource;
 	}
 
 	@Bean
 	public JpaVendorAdapter jpaVendorAdapter() {
+		
 		HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
 		adapter.setDatabase(Database.MYSQL);
 		adapter.setShowSql(true);
 		adapter.setGenerateDdl(false);
 		adapter.setDatabasePlatform("org.hibernate.dialect.MySQLDialect");
-		
+
 		return adapter;
 	}
 
 	@Bean
-	public LocalContainerEntityManagerFactoryBean entityManagerFactory( DataSource dataSource, JpaVendorAdapter jpaVendorAdapter) {
+	public LocalContainerEntityManagerFactoryBean entityManagerFactory(
+			DataSource dataSource, JpaVendorAdapter jpaVendorAdapter) {
+		
 		LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
 		entityManagerFactory.setDataSource(dataSource);
 		entityManagerFactory.setJpaVendorAdapter(jpaVendorAdapter);
 		entityManagerFactory.setPackagesToScan(Livro.class.getPackage().getName());
 		entityManagerFactory.getJpaPropertyMap().put("hibernate.hbm2ddl.auto", "update");
-		
+
 		return entityManagerFactory;
 	}
 
 	@Bean
-	public PlatformTransactionManager transactionManager(LocalContainerEntityManagerFactoryBean entityManagerFactoryBean) {
+	public PlatformTransactionManager transactionManager(
+			LocalContainerEntityManagerFactoryBean entityManagerFactoryBean) {
+		
 		JpaTransactionManager transactionManager = new JpaTransactionManager();
 		transactionManager.setEntityManagerFactory(entityManagerFactoryBean.getObject());
-		
+
 		return transactionManager;
 	}
 
