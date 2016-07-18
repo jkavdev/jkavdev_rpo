@@ -1,5 +1,6 @@
 package br.com.jkavdev.livraria.security;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -16,8 +17,10 @@ import br.com.jkavdev.livraria.model.Grupo;
 import br.com.jkavdev.livraria.model.Usuario;
 import br.com.jkavdev.livraria.repository.IUsuarioRepository;
 
-@Service
-public class UserDetailService implements UserDetailsService {
+@Service("customUserDetailsService")
+public class CustomUserDetailsService implements UserDetailsService, Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	@Autowired
 	IUsuarioRepository usuarioRepository;
@@ -25,7 +28,7 @@ public class UserDetailService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
-		Usuario usuario = usuarioRepository.findUsuarioByEmail(email);
+		Usuario usuario = usuarioRepository.findByEmail(email);
 		UsuarioSistema user = null;
 
 		if (usuario != null) {
