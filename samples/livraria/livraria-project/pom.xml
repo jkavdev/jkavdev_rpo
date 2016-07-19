@@ -25,7 +25,7 @@
 		<spring-data-jpa.version>1.9.0.RELEASE</spring-data-jpa.version>
 		<spring-security.version>4.1.1.RELEASE</spring-security.version>
 
-		<!-- Web -->
+		<!-- Servlet -->
 		<servlet.version>3.1.0</servlet.version>
 
 		<!-- Thymeleaf -->
@@ -49,7 +49,7 @@
 
 	<dependencies>
 
-		<!-- Outras dependencias Web -->
+		<!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
@@ -90,7 +90,6 @@
 			<version>${spring-framework.version}</version>
 			<scope>compile</scope>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
@@ -98,6 +97,7 @@
 			<scope>compile</scope>
 		</dependency>
 
+		<!-- Spring Test -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
@@ -120,6 +120,7 @@
 			<version>${spring-data-jpa.version}</version>
 		</dependency>
 
+		<!-- Hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
@@ -127,11 +128,12 @@
 			<scope>compile</scope>
 		</dependency>
 
+		<!-- MySQL -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${mysql.connector.version}</version>
-			<scope>compile</scope>
+			<scope>provided</scope>
 		</dependency>
 
 		<!-- Thymeleaf -->
@@ -171,6 +173,7 @@
 			<scope>compile</scope>
 		</dependency>
 
+		<!-- Junit -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
