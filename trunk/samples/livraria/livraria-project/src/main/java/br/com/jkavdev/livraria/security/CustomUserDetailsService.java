@@ -1,6 +1,5 @@
 package br.com.jkavdev.livraria.security;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -17,12 +16,10 @@ import br.com.jkavdev.livraria.model.Grupo;
 import br.com.jkavdev.livraria.model.Usuario;
 import br.com.jkavdev.livraria.repository.IUsuarioRepository;
 
-@Service("customUserDetailsService")
-public class CustomUserDetailsService implements UserDetailsService, Serializable {
+@Service
+public class CustomUserDetailsService implements UserDetailsService{
 
-	private static final long serialVersionUID = 1L;
-
-//	@Autowired
+	@Autowired
 	IUsuarioRepository usuarioRepository;
 
 	@Override

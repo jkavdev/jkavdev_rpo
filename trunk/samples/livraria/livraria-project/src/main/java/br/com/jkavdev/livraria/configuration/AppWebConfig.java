@@ -28,7 +28,7 @@ public class AppWebConfig extends WebMvcConfigurerAdapter {
 
 	@Bean
 	public TemplateResolver webTemplateResolver() {
-		
+
 		TemplateResolver templateResolver = new ServletContextTemplateResolver();
 		templateResolver.setPrefix("/WEB-INF/views/");
 		templateResolver.setSuffix(".html");
@@ -41,7 +41,7 @@ public class AppWebConfig extends WebMvcConfigurerAdapter {
 
 	@Bean
 	public TemplateEngine templateEngine(TemplateResolver templateResolver) {
-		
+
 		SpringTemplateEngine templateEngine = new SpringTemplateEngine();
 		templateEngine.setTemplateResolver(templateResolver);
 		templateEngine.addDialect(new LayoutDialect());
@@ -51,7 +51,7 @@ public class AppWebConfig extends WebMvcConfigurerAdapter {
 
 	@Bean
 	public ViewResolver viewResolver(SpringTemplateEngine templateEngine) {
-		
+
 		ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
 		viewResolver.setTemplateEngine(templateEngine);
 		viewResolver.setCharacterEncoding("UTF-8");
@@ -61,14 +61,14 @@ public class AppWebConfig extends WebMvcConfigurerAdapter {
 
 	@Bean
 	public LocaleResolver localeResolver() {
-		
+
 		return new FixedLocaleResolver(new Locale("pt", "BR"));
 	}
 
 	@Override
 	public void configureDefaultServletHandling(
 			DefaultServletHandlerConfigurer configurer) {
-		
+
 		configurer.enable();
 	}
 }
