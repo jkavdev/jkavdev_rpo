@@ -26,6 +26,18 @@
 	padding-top: 12px;
 }
 
+.navbar-brand welcome{
+	float: right;
+}
+
+.navbar-brand collections{
+	float: right;
+}
+
+.navbar-brand about{
+	float: right;
+}
+
 .intervalo-valores {
 	margin: 0 15px;
 }

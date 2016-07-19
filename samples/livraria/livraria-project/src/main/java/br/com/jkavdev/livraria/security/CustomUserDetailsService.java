@@ -22,7 +22,7 @@ public class CustomUserDetailsService implements UserDetailsService, Serializabl
 
 	private static final long serialVersionUID = 1L;
 
-	@Autowired
+//	@Autowired
 	IUsuarioRepository usuarioRepository;
 
 	@Override
