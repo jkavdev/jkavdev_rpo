@@ -2,7 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	xmlns:th="http://www.thymeleaf.org"
-	layout:decorator="template/template-padrao">
+	layout:decorator="template/template-padrao.html">
+	
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/resources/css/main.css}" />
+	</head>
 
 <section layout:fragment="conteudo">
 	<span>Spring and Thymeleaf !!!</span>
