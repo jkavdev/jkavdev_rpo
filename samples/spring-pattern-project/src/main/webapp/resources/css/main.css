@@ -1,5 +1,38 @@
 body {
 	background-image: url('http://crunchify.com/bg.png');
+	margin-top: 20px;
+	margin-bottom: 20px;
+	background-color: #DFDFDF;
+}
+
+html, body{
+	height: 100%;
+}
+
+.container templates {
+	border: #C1C1C1 solid 1px;
+	border-radius: 10px;
+}
+
+.span-5 border {
+	height: 400px;
+	background-color: #FCFCFC;
+}
+
+.list-group {
+	margin-top: 2em;
+}
+
+.list-group a {
+	width: 20em;
+}
+
+.footers {
+	position: absolute;
+	bottom: 0;
+	width: 100%; /* Set the fixed height of the footer here */
+	height: 60px;
+	background-color: #f5f5f5;
 }
 
 .message {
