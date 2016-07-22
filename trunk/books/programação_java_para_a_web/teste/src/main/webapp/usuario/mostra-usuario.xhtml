@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+	<head>
+		<title>Usuário Cadastrado</title>
+	</head>
+	
+	<h:body>
+	
+		<h1>Usuário Cadastrado</h1>
+		<hr />
+		
+		<h:form>
+		
+			Nome: <h:outputText value="#{usuarioBean.nome}" /><br />
+			E-mail: <h:outputLink value="mailto:#{usuarioBean.nome}" >
+						<h:outputText value="#{usuarioBean.email}" />
+					</h:outputLink><br />
+			Senha: <h:outputText value="#{usuarioBean.senha}" /><br /><br />
+			
+			<h:commandLink action="/index" value="Início" />
+			<h:commandLink action="usuario" value="Novo Usuário" style="margin-left: 50px;"/>
+			
+		</h:form>
+		
+		<hr />
+		
+	</h:body>
+
+</html>
