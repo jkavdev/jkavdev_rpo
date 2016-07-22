@@ -36,15 +36,14 @@
 		<!-- limita tempo de inatividade, caso a conexao nao seja validada -->
 		<property name="c3p0.idle_test_period">3000</property>
 
-		<!-- mapeamento das classes que representam as tabelas no banco -->
-		<mapping class="br.com.jkavdev.hibernate.modelo.Contato" />
-
-		<mapping class="br.com.jkavdev.javaweb.comercio.modelo.entidade.Categoria" />
-		<mapping class="br.com.jkavdev.javaweb.comercio.modelo.entidade.Cliente" />
-		<mapping class="br.com.jkavdev.javaweb.comercio.modelo.entidade.Empregado" />
-		<mapping class="br.com.jkavdev.javaweb.comercio.modelo.entidade.Endereco" />
-		<mapping class="br.com.jkavdev.javaweb.comercio.modelo.entidade.Pedido" />
-		<mapping class="br.com.jkavdev.javaweb.comercio.modelo.entidade.Produto" />
+		<!-- mapeamento das classes que representam as tabelas no banco -->		
+		<mapping class="br.com.jkavdev.javaweb.hibernate.comercio.modelo.Categoria" />
+		<mapping class="br.com.jkavdev.javaweb.hibernate.comercio.modelo.Cliente" />
+		<mapping class="br.com.jkavdev.javaweb.hibernate.comercio.modelo.Contato" />
+		<mapping class="br.com.jkavdev.javaweb.hibernate.comercio.modelo.Empregado" />
+		<mapping class="br.com.jkavdev.javaweb.hibernate.comercio.modelo.Endereco" />
+		<mapping class="br.com.jkavdev.javaweb.hibernate.comercio.modelo.Pedido" />
+		<mapping class="br.com.jkavdev.javaweb.hibernate.comercio.modelo.Produto" />
 	</session-factory>
 </hibernate-configuration>
 
