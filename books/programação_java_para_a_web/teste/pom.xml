@@ -19,6 +19,9 @@
 
 		<!-- Java War Plugin -->
 		<maven-war-plugin.version>2.6</maven-war-plugin.version>
+		
+		<!-- Java Resources plugin -->
+		<maven-resources-plugin.version>3.0.1</maven-resources-plugin.version>
 
 		<!-- JavaEE -->
 		<javaee.version>7.0</javaee.version>
@@ -55,7 +58,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
-				<version>3.0.1</version>
+				<version>${maven-resources-plugin.version}</version>
 				<configuration>
 					<encoding>UTF-8</encoding>
 				</configuration>
