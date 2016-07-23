@@ -1,10 +1,13 @@
 package br.com.jkavdev.algaworks.jsf.controller;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.NoneScoped;
 
 import br.com.jkavdev.algaworks.jsf.model.Produto;
 
@@ -12,9 +15,20 @@ import br.com.jkavdev.algaworks.jsf.model.Produto;
 // cria uma instancia para ser usada durante toda a aplicacao
 // @ApplicationScoped¨
 
-//criara uma instancia para ser usada durante a sessao do usuario
-@SessionScoped
-public class GestaoProdutosBeans {
+// criara uma instancia para ser usada durante a sessao do usuario
+// @SessionScoped
+
+// criara uma instancia para ser usada durante a vida pagina
+// @ViewScoped
+
+//escopo padrao criara uma instancia para a requisicao
+//@RequestScoped
+
+//escopo nao definido 
+@NoneScoped
+public class GestaoProdutosBeans implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private List<Produto> produtos;
 	private Produto produto;
@@ -24,9 +38,19 @@ public class GestaoProdutosBeans {
 		this.produto = new Produto();
 	}
 
+	@PostConstruct
+	public void init() {
+		System.out.println("Bean Inicializado");
+	}
+
 	public void incluir() {
 		this.produtos.add(produto);
 		this.produto = new Produto();
+	}
+
+	@PreDestroy
+	public void dest() {
+		System.out.println("Bean Finalizado");
 	}
 
 	public Produto getProduto() {
