@@ -7,7 +7,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.NoneScoped;
+import javax.faces.bean.ViewScoped;
 
 import br.com.jkavdev.algaworks.jsf.model.Produto;
 
@@ -19,13 +19,13 @@ import br.com.jkavdev.algaworks.jsf.model.Produto;
 // @SessionScoped
 
 // criara uma instancia para ser usada durante a vida pagina
-// @ViewScoped
+@ViewScoped
 
-//escopo padrao criara uma instancia para a requisicao
-//@RequestScoped
+// escopo padrao criara uma instancia para a requisicao
+// @RequestScoped
 
-//escopo nao definido 
-@NoneScoped
+// escopo nao definido
+// @NoneScoped
 public class GestaoProdutosBeans implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -46,6 +46,15 @@ public class GestaoProdutosBeans implements Serializable {
 	public void incluir() {
 		this.produtos.add(produto);
 		this.produto = new Produto();
+	}
+
+	public String obterAjuda() {
+		if (this.produtos.isEmpty()) {
+			return "ajuda-gestao-produtos?faces-redirect=true";
+		} else {
+			return "ajuda-gestao-produtos-telefone?faces-redirect=true";
+		}
+
 	}
 
 	@PreDestroy
