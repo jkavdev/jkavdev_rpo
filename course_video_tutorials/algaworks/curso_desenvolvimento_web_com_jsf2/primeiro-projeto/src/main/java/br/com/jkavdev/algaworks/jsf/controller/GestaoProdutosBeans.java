@@ -8,6 +8,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.event.ActionEvent;
 
 import br.com.jkavdev.algaworks.jsf.model.Produto;
 
@@ -32,6 +33,7 @@ public class GestaoProdutosBeans implements Serializable {
 
 	private List<Produto> produtos;
 	private Produto produto;
+	private Produto produtoSelecionado;
 
 	public GestaoProdutosBeans() {
 		this.produtos = new ArrayList<>();
@@ -44,6 +46,7 @@ public class GestaoProdutosBeans implements Serializable {
 	}
 
 	public void incluir() {
+		System.out.println("Incluindo");
 		this.produtos.add(produto);
 		this.produto = new Produto();
 	}
@@ -55,6 +58,17 @@ public class GestaoProdutosBeans implements Serializable {
 			return "ajuda-gestao-produtos-telefone?faces-redirect=true";
 		}
 
+	}
+
+	public void verificarInclusao(ActionEvent event) {
+		System.out.println("Verificando");
+		if ("".equals(this.produto.getFabricante())) {
+			this.produto.setFabricante("Sem fabricante");
+		}
+	}
+
+	public void excluir() {
+		this.produtos.remove(this.produtoSelecionado);
 	}
 
 	@PreDestroy
@@ -72,6 +86,14 @@ public class GestaoProdutosBeans implements Serializable {
 
 	public List<Produto> getProdutos() {
 		return produtos;
+	}
+
+	public Produto getProdutoSelecionado() {
+		return produtoSelecionado;
+	}
+
+	public void setProdutoSelecionado(Produto produtoSelecionado) {
+		this.produtoSelecionado = produtoSelecionado;
 	}
 
 }
