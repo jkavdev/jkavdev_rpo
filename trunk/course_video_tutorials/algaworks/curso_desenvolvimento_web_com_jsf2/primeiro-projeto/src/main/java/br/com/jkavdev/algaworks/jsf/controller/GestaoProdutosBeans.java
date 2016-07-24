@@ -7,7 +7,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.ValueChangeEvent;
 
@@ -18,10 +18,10 @@ import br.com.jkavdev.algaworks.jsf.model.Produto;
 // @ApplicationScoped¨
 
 // criara uma instancia para ser usada durante a sessao do usuario
-// @SessionScoped
+ @SessionScoped
 
 // criara uma instancia para ser usada durante a vida pagina
-@ViewScoped
+//@ViewScoped
 
 // escopo padrao criara uma instancia para a requisicao
 // @RequestScoped
@@ -84,7 +84,7 @@ public class GestaoProdutosBeans implements Serializable {
 		this.produtosFiltrados.clear();
 
 		// se o nome do fabricante comecar com o pesquisar
-		for (Produto produto : produtosFiltrados) {
+		for (Produto produto : produtos) {
 			if (produto.getNome() != null && produto.getNome().toLowerCase()
 					.startsWith(event.getNewValue().toString().toLowerCase())) {
 				this.produtosFiltrados.add(produto);
