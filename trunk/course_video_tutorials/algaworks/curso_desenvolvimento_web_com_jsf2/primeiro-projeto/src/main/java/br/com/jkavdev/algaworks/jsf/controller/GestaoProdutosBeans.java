@@ -9,6 +9,7 @@ import javax.annotation.PreDestroy;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
+import javax.faces.event.ValueChangeEvent;
 
 import br.com.jkavdev.algaworks.jsf.model.Produto;
 
@@ -34,10 +35,13 @@ public class GestaoProdutosBeans implements Serializable {
 	private List<Produto> produtos;
 	private Produto produto;
 	private Produto produtoSelecionado;
+	private String nomePesquisa;
+	private List<Produto> produtosFiltrados;
 
 	public GestaoProdutosBeans() {
 		this.produtos = new ArrayList<>();
 		this.produto = new Produto();
+		this.produtosFiltrados = new ArrayList<>();
 	}
 
 	@PostConstruct
@@ -71,6 +75,23 @@ public class GestaoProdutosBeans implements Serializable {
 		this.produtos.remove(this.produtoSelecionado);
 	}
 
+	public void nomePesquisaAlterado(ValueChangeEvent event) {
+		System.out.println("Evento de mudancao de valor");
+
+		System.out.println("Valor atual: " + event.getOldValue());
+		System.out.println("Valor novo: " + event.getNewValue());
+
+		this.produtosFiltrados.clear();
+
+		// se o nome do fabricante comecar com o pesquisar
+		for (Produto produto : produtosFiltrados) {
+			if (produto.getNome() != null && produto.getNome().toLowerCase()
+					.startsWith(event.getNewValue().toString().toLowerCase())) {
+				this.produtosFiltrados.add(produto);
+			}
+		}
+	}
+
 	@PreDestroy
 	public void dest() {
 		System.out.println("Bean Finalizado");
@@ -94,6 +115,18 @@ public class GestaoProdutosBeans implements Serializable {
 
 	public void setProdutoSelecionado(Produto produtoSelecionado) {
 		this.produtoSelecionado = produtoSelecionado;
+	}
+
+	public String getNomePesquisa() {
+		return nomePesquisa;
+	}
+
+	public void setNomePesquisa(String fabricantePesquisa) {
+		this.nomePesquisa = fabricantePesquisa;
+	}
+
+	public List<Produto> getProdutosFiltrados() {
+		return produtosFiltrados;
 	}
 
 }
