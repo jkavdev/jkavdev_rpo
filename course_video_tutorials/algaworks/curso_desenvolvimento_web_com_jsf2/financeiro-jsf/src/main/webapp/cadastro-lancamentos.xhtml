@@ -15,16 +15,19 @@
 		
 		<h:form id="frm">
 		
-			<h:commandButton value="Novo" />
-			<h:commandButton value="Consulta" />
+			<h:button value="Novo" outcome="cadastro-lancamentos"/>
+			<h:button value="Consulta" outcome="consulta-lancamentos"/>
+			
+			<h:messages showDetail="false" showSummary="true"
+				styleClass="form-messages" errorClass="error" infoClass="info"/>
 			
 			<h:panelGrid columns="2" 
 				styleClass="form-grid" columnClasses="label, campo">
 				
 				<h:outputLabel value="Tipo" />
-				<h:selectOneRadio >
-					<f:selectItem itemLabel="Receita"/>
-					<f:selectItem itemLabel="Despesa"/>
+				<h:selectOneRadio value="#{cadastroLancamentoBean.lancamento.tipo}" required="true" label="Tipo do Lançamento">
+					<f:selectItems value="#{cadastroLancamentoBean.tiposLancamentos}" var="tipoLancamento"
+						 itemLabel="#{tipoLancamento.descricao}" itemValue="#{tipoLancamento}"/>
 				</h:selectOneRadio>
 				
 				<h:outputLabel value="Pessoa" />
@@ -33,25 +36,36 @@
 				</h:selectOneMenu>
 				
 				<h:outputLabel value="Descricao" />
-				<h:inputText size="60" />
+				<h:inputText size="60" value="#{cadastroLancamentoBean.lancamento.descricao}" 
+					required="true" label="Descrição"/>
 				
 				<h:outputLabel value="Valor" />
-				<h:inputText size="12" />
+				<h:inputText size="12" value="#{cadastroLancamentoBean.lancamento.valor}"
+					required="true" label="Valor">
+					<f:convertNumber locale="pt_BR" maxFractionDigits="2" minFractionDigits="2"/>
+					<f:validateDoubleRange minimum="0"/>
+				</h:inputText>
 				
-				<h:outputLabel value="Data de Lançamento" />
-				<h:inputText size="12" />
+				<h:outputLabel value="Data de Vencimento" />
+				<h:inputText size="12" value="#{cadastroLancamentoBean.lancamento.dataVencimento}"
+					required="true" label="Data de Vencimento">
+					<f:convertDateTime pattern="dd/MM/yyyy"/>
+				</h:inputText>
 				
 				<h:outputLabel />
 				<h:panelGroup>
-					<h:selectBooleanCheckbox />
-					<h:outputLabel value="Conta Paga"/>
+					<h:selectBooleanCheckbox id="pagoCheckbox" value="#{cadastroLancamentoBean.lancamento.pago}"/>
+					<h:outputLabel for="pagoCheckbox" value="Conta Paga"/>
 				</h:panelGroup>
 				
-				<h:outputLabel value="Data de Lançamento" />
-				<h:inputText size="12" />
+				<h:outputLabel value="Data de Pagamento" />
+				<h:inputText size="12" value="#{cadastroLancamentoBean.lancamento.dataPagamento}"
+					label="Data de Pagamento">
+					<f:convertDateTime pattern="dd/MM/yyyy"/>
+				</h:inputText>
 				
 				<h:outputLabel />
-				<h:commandButton value="Cadastrar" />
+				<h:commandButton value="Cadastrar" action="#{cadastroLancamentoBean.cadastrar}"/>
 			</h:panelGrid>
 		</h:form>
 	</h:body>
