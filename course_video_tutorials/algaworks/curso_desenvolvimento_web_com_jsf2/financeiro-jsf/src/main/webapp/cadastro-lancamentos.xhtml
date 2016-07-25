@@ -56,15 +56,19 @@
 				
 				<h:outputLabel />
 				<h:panelGroup>
-					<h:selectBooleanCheckbox id="pagoCheckbox" value="#{cadastroLancamentoBean.lancamento.pago}"/>
+					<h:selectBooleanCheckbox id="pagoCheckbox" value="#{cadastroLancamentoBean.lancamento.pago}"
+						immediate="true" valueChangeListener="#{cadastroLancamentoBean.lancamentoPagoModificado}"
+						onchange="submit()"/>
 					<h:outputLabel for="pagoCheckbox" value="Conta Paga"/>
 				</h:panelGroup>
 				
-				<h:outputLabel value="Data de Pagamento" />
+				<h:outputLabel value="Data de Pagamento" rendered="#{cadastroLancamentoBean.lancamento.pago}"/>
 				<h:inputText size="12" value="#{cadastroLancamentoBean.lancamento.dataPagamento}"
-					label="Data de Pagamento">
+					label="Data de Pagamento" rendered="#{cadastroLancamentoBean.lancamento.pago}">
 					<f:convertDateTime pattern="dd/MM/yyyy"/>
+					<f:validator validatorId="br.com.jkavdev.algaworks.jsf.RequeridoCondicional"/>
 					<f:validator validatorId="br.com.jkavdev.algaworks.jsf.DataFutura"/>
+					<f:attribute name="checado" value="#{cadastroLancamentoBean.lancamento.pago}"/>
 				</h:inputText>
 				
 				<h:outputLabel />
