@@ -64,6 +64,7 @@
 				<h:inputText size="12" value="#{cadastroLancamentoBean.lancamento.dataPagamento}"
 					label="Data de Pagamento">
 					<f:convertDateTime pattern="dd/MM/yyyy"/>
+					<f:validator validatorId="br.com.jkavdev.algaworks.jsf.DataFutura"/>
 				</h:inputText>
 				
 				<h:outputLabel />
