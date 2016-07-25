@@ -31,8 +31,10 @@
 				</h:selectOneRadio>
 				
 				<h:outputLabel value="Pessoa" />
-				<h:selectOneMenu >
-					<f:selectItem itemLabel="Escola Infantil"/>
+				<h:selectOneMenu value="#{cadastroLancamentoBean.lancamento.pessoa}" required="true" label="Pessoa">
+					<f:selectItem itemLabel="Selecione" noSelectionOption="true"/>
+					<f:selectItems value="#{cadastroLancamentoBean.pessoas}"
+						var="pessoa" itemLabel="#{pessoa.nome}" itemValue="#{pessoa}"/>
 				</h:selectOneMenu>
 				
 				<h:outputLabel value="Descricao" />
