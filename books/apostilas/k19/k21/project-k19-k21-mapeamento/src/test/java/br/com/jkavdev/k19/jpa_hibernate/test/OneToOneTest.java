@@ -1,59 +1,38 @@
 package br.com.jkavdev.k19.jpa_hibernate.test;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 import br.com.jkavdev.k19.jpa_hibernate.model.Estado;
 import br.com.jkavdev.k19.jpa_hibernate.model.Governador;
 
-public class OneToOneTest {
+public class OneToOneTest extends AbstractJUnitConfig {
 
-	private EntityManagerFactory factory;
-	private EntityManager manager;
-
-	@Before
-	public void init() {
-		factory = Persistence.createEntityManagerFactory("k21PU");
-		manager = factory.createEntityManager();
-	}
-
-	@After
-	public void clean() {
-		manager.close();
-		factory.close();
-	}
-	
 	@Test
-	public void insertEstado(){
-		
+	public void insertEstado() {
+
 		Estado estado = new Estado();
 		estado.setNome("Goiais");
-		
+
 		Governador governador = new Governador();
 		governador.setNome("Marconi Perilo");
-		
+
 		estado.setGovernador(governador);
-		
+
 		beginTransaction();
-		
-		manager.persist(governador);
-		manager.persist(estado);
-		
+
+		this.getManager().persist(governador);
+		this.getManager().persist(estado);
+
 		commit();
-		
+
 	}
 
 	public void commit() {
-		manager.getTransaction().commit();
+		this.getManager().getTransaction().commit();
 	}
 
 	public void beginTransaction() {
-		manager.getTransaction().begin();
+		this.getManager().getTransaction().begin();
 	}
 
 }
