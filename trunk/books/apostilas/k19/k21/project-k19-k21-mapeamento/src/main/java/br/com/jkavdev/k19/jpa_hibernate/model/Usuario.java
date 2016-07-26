@@ -11,6 +11,8 @@ import javax.persistence.TemporalType;
 @Entity
 public class Usuario extends BaseEntity {
 
+	private static final long serialVersionUID = 1L;
+	
 	private String email;
 	private Calendar dataDeCadastro;
 	private byte[] foto;

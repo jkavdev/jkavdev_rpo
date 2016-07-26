@@ -5,6 +5,8 @@
 	version="2.1">
 	
 	<entity class="br.com.jkavdev.k19.jpa_hibernate.model.Funcionario" />
+	<entity class="br.com.jkavdev.k19.jpa_hibernate.model.Estado" />
+	<entity class="br.com.jkavdev.k19.jpa_hibernate.model.Governador" />
 	<entity class="br.com.jkavdev.k19.jpa_hibernate.model.Turma" />
 	<entity class="br.com.jkavdev.k19.jpa_hibernate.model.Usuario" />
 
