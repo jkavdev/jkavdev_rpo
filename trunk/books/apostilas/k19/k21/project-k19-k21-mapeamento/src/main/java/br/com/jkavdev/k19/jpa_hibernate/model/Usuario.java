@@ -1,4 +1,4 @@
-package br.com.jkavdev.k19.jpa_hibernate;
+package br.com.jkavdev.k19.jpa_hibernate.model;
 
 import java.util.Calendar;
 

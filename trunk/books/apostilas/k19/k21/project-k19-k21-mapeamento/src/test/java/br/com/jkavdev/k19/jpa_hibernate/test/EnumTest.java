@@ -1,6 +1,4 @@
-package br.com.jkavdev.k19.jpa_hibernate;
-
-import java.util.Calendar;
+package br.com.jkavdev.k19.jpa_hibernate.test;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -10,9 +8,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.jkavdev.k19.jpa_hibernate.model.Usuario;
+import br.com.jkavdev.k19.jpa_hibernate.model.Periodo;
+import br.com.jkavdev.k19.jpa_hibernate.model.Turma;
 
-public class JpaTest {
+public class EnumTest {
 
 	private EntityManagerFactory factory;
 	private EntityManager manager;
@@ -30,12 +29,17 @@ public class JpaTest {
 	}
 
 	@Test
-	public void insertUsuario() {
-		Usuario usuario = criaUsuario("contato@k19.com");
+	public void insertTurma() {
+
+		Turma matutino = criaTurma(Periodo.MATUTINO);
+		Turma noturno = criaTurma(Periodo.NOTURNO);
+		Turma vespertino = criaTurma(Periodo.VESPERTINO);
 
 		beginTransaction();
 
-		manager.persist(usuario);
+		manager.persist(matutino);
+		manager.persist(vespertino);
+		manager.persist(noturno);
 
 		commit();
 
@@ -49,12 +53,11 @@ public class JpaTest {
 		manager.getTransaction().begin();
 	}
 
-	public Usuario criaUsuario(String email) {
-		Usuario usuario = new Usuario();
-		usuario.setEmail(email);
-		usuario.setDataDeCadastro(Calendar.getInstance());
+	public Turma criaTurma(Periodo periodo) {
+		Turma turma = new Turma();
+		turma.setPeriodo(periodo);
 
-		return usuario;
+		return turma;
 	}
 
 }

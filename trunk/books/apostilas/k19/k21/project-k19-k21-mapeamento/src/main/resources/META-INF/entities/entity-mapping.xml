@@ -5,5 +5,6 @@
 	version="2.1">
 
 	<entity class="br.com.jkavdev.k19.jpa_hibernate.model.Usuario" />
+	<entity class="br.com.jkavdev.k19.jpa_hibernate.model.Turma" />
 
 </entity-mappings>
