@@ -3,8 +3,9 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm
       http://xmlns.jcp.org/xml/ns/persistence/orm_2_1.xsd"
 	version="2.1">
-
-	<entity class="br.com.jkavdev.k19.jpa_hibernate.model.Usuario" />
+	
+	<entity class="br.com.jkavdev.k19.jpa_hibernate.model.Funcionario" />
 	<entity class="br.com.jkavdev.k19.jpa_hibernate.model.Turma" />
+	<entity class="br.com.jkavdev.k19.jpa_hibernate.model.Usuario" />
 
 </entity-mappings>
