@@ -32,7 +32,10 @@ public class OneToOneTest {
 	public void insertEstado(){
 		
 		Estado estado = new Estado();
+		estado.setNome("Goiais");
+		
 		Governador governador = new Governador();
+		governador.setNome("Marconi Perilo");
 		
 		estado.setGovernador(governador);
 		
