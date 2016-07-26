@@ -4,29 +4,16 @@ import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Usuario {
+public class Usuario extends BaseEntity {
 
-	private Long id;
 	private String email;
 	private Calendar dataDeCadastro;
 	private byte[] foto;
-
-	@Id
-	@GeneratedValue
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	@Column(unique = true)
 	public String getEmail() {
