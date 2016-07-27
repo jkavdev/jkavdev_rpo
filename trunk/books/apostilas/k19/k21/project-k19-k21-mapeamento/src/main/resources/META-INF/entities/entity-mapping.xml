@@ -11,6 +11,9 @@
 	<entity class="br.com.jkavdev.k19.jpa_hibernate.model.Fatura" />
 	<entity class="br.com.jkavdev.k19.jpa_hibernate.model.Pedido" />
 	<entity class="br.com.jkavdev.k19.jpa_hibernate.model.Livro" />
+	<entity class="br.com.jkavdev.k19.jpa_hibernate.model.heranca.Pessoa" />
+	<entity class="br.com.jkavdev.k19.jpa_hibernate.model.heranca.PessoaJuridica" />
+	<entity class="br.com.jkavdev.k19.jpa_hibernate.model.heranca.PessoaFisica" />
 	<entity class="br.com.jkavdev.k19.jpa_hibernate.model.Autor" />
 	<entity class="br.com.jkavdev.k19.jpa_hibernate.model.Estado" />
 	<entity class="br.com.jkavdev.k19.jpa_hibernate.model.Departamento" />
