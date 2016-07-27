@@ -1,4 +1,4 @@
-package br.com.jkavdev.spring.persistence;
+package br.com.jkavdev.spring.persistence.config;
 
 import java.util.Properties;
 
