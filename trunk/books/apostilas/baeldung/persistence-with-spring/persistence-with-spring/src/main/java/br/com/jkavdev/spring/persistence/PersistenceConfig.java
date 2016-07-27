@@ -13,8 +13,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
-import org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
+import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
@@ -24,16 +24,16 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class PersistenceConfig {
 
 	@Autowired
-	private Environment environment;
+	private Environment env;
 
 	@Bean
-	public AnnotationSessionFactoryBean sessionFactory() {
+	public LocalSessionFactoryBean sessionFactory() {
 		
-		AnnotationSessionFactoryBean sessionFactory = new AnnotationSessionFactoryBean();
+		LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
 		sessionFactory.setDataSource(restDataSource());
 		sessionFactory.setPackagesToScan(new String[] { "br.com.jkavdev.spring.persistence.model" });
 		sessionFactory.setHibernateProperties(hibernateProperties());
-
+		
 		return sessionFactory;
 	}
 
@@ -41,10 +41,10 @@ public class PersistenceConfig {
 	public DataSource restDataSource() {
 		
 		BasicDataSource dataSource = new BasicDataSource();
-		dataSource.setDriverClassName(environment.getProperty("jdbc.driverClassName"));
-		dataSource.setUrl(environment.getProperty("jdbc.url"));
-		dataSource.setUsername(environment.getProperty("jdbc.user"));
-		dataSource.setPassword(environment.getProperty("jdbc.pass"));
+		dataSource.setDriverClassName(env.getProperty("jdbc.driverClassName"));
+		dataSource.setUrl(env.getProperty("jdbc.url"));
+		dataSource.setUsername(env.getProperty("jdbc.user"));
+		dataSource.setPassword(env.getProperty("jdbc.pass"));
 		
 		return dataSource;
 	}
@@ -67,8 +67,9 @@ public class PersistenceConfig {
 	Properties hibernateProperties() {
 		return new Properties() {
 			{
-				setProperty("hibernate.hbm2ddl.auto", environment.getProperty("hibernate.hbm2ddl.auto"));
-				setProperty("hibernate.dialect", environment.getProperty("hibernate.dialect"));
+				setProperty("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
+				setProperty("hibernate.dialect", env.getProperty("hibernate.dialect"));
+				setProperty("hibernate.globally_quoted_identifiers", "true");
 			}
 		};
 	}
