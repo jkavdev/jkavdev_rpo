@@ -6,6 +6,8 @@
 	
 	<entity class="br.com.jkavdev.k19.jpa_hibernate.model.Funcionario" />
 	<entity class="br.com.jkavdev.k19.jpa_hibernate.model.Cliente" />
+	<entity class="br.com.jkavdev.k19.jpa_hibernate.model.Ligacao" />
+	<entity class="br.com.jkavdev.k19.jpa_hibernate.model.Fatura" />
 	<entity class="br.com.jkavdev.k19.jpa_hibernate.model.Pedido" />
 	<entity class="br.com.jkavdev.k19.jpa_hibernate.model.Livro" />
 	<entity class="br.com.jkavdev.k19.jpa_hibernate.model.Autor" />
