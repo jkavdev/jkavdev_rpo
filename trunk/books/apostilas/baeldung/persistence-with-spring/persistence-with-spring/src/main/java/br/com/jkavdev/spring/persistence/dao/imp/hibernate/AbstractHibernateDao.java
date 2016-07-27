@@ -1,4 +1,4 @@
-package br.com.jkavdev.spring.persistence.dao;
+package br.com.jkavdev.spring.persistence.dao.imp.hibernate;
 
 import java.io.Serializable;
 import java.util.List;
@@ -7,7 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class AbstractHibernateDao<T extends Serializable> {
+public abstract class AbstractHibernateDao<T extends Serializable> {
 
 	private Class<T> entity;
 
@@ -28,10 +28,11 @@ public class AbstractHibernateDao<T extends Serializable> {
 				createQuery("from " + entity.getName()).list();
 	}
 	
-	public void salve(final T entity){
+	public void save(final T entity){
 		getCurrentSession().persist(entity);
 	}
 	
+	@SuppressWarnings("unchecked")
 	public T update(final T entity){
 		return (T) getCurrentSession().merge(entity);
 	}
