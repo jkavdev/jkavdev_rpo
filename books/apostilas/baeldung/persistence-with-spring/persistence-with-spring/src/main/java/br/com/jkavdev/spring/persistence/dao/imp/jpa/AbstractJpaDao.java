@@ -1,4 +1,4 @@
-package br.com.jkavdev.spring.persistence.dao;
+package br.com.jkavdev.spring.persistence.dao.imp.jpa;
 
 import java.io.Serializable;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-public class AbstractJpaDao<T extends Serializable> {
+public abstract class AbstractJpaDao<T extends Serializable> {
 
 	private Class<T> entity;
 
@@ -26,7 +26,7 @@ public class AbstractJpaDao<T extends Serializable> {
 		return manager.createQuery("from " + entity.getName()).getResultList();
 	}
 
-	public void salve(final T entity) {
+	public void save(final T entity) {
 		manager.persist(entity);
 	}
 
