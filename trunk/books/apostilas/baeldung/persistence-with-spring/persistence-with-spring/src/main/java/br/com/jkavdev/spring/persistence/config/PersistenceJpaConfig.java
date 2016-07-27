@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
+//@EnableJpaRepositories(basePackages = "br.com.jkavdev.spring.persistence.dao")
 public class PersistenceJpaConfig {
 
 	@Bean
