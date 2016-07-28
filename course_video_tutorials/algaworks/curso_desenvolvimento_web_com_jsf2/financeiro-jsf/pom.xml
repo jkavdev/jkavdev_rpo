@@ -29,6 +29,12 @@
 		<!-- Implementacao do JSF -->
 		<jsf.version>2.2.10</jsf.version>
 
+		<!-- Hibernate -->
+		<hibernate.version>5.1.0.Final</hibernate.version>
+
+		<!-- MySQL Drive -->
+		<mysql.version>5.1.38</mysql.version>
+
 	</properties>
 
 	<dependencies>
@@ -41,6 +47,16 @@
 			<groupId>org.glassfish</groupId>
 			<artifactId>javax.faces</artifactId>
 			<version>${jsf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
 		</dependency>
 	</dependencies>
 
