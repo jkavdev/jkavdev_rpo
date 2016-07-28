@@ -6,19 +6,30 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 
+import org.hibernate.Session;
+import org.hibernate.criterion.Order;
+
+import br.com.jkavdev.algaworks.jsf.model.Lancamento;
+import br.com.jkavdev.algaworks.jsf.util.jpa.HibernateUtil;
+
 @ManagedBean
 public class ConsultaLancamentoBean {
 
-	private List<String> lancamentos = new ArrayList<>();
+	private List<Lancamento> lancamentos = new ArrayList<>();
 
+	@SuppressWarnings("unchecked")
 	@PostConstruct
 	public void init() {
-		for (int i = 0; i < 20; i++) {
-			lancamentos.add("");
-		}
+		Session session = HibernateUtil.getSession();
+		
+		this.lancamentos = session.createCriteria(Lancamento.class)
+				.addOrder(Order.desc("dataVencimento"))
+				.list();
+		
+		session.close();
 	}
 
-	public List<String> getLancamentos() {
+	public List<Lancamento> getLancamentos() {
 		return lancamentos;
 	}
 

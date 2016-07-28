@@ -47,13 +47,15 @@ public class CadastroLancamentoBean implements Serializable {
 	}
 
 	public void cadastrar() {
-		System.out.println("Tipo: " + this.lancamento.getTipo());
-		System.out.println("Descrição: " + this.lancamento.getDescricao());
-		System.out.println("Pessoa: " + this.lancamento.getPessoa().getNome());
-		System.out.println("Valor: " + this.lancamento.getValor());
-		System.out.println("Data vencimento: " + this.lancamento.getDataVencimento());
-		System.out.println("Conta paga: " + this.lancamento.isPago());
-		System.out.println("Data pagamento: " + this.lancamento.getDataPagamento());
+		Session session = HibernateUtil.getSession();
+		
+		session.getTransaction().begin();
+		
+		session.merge(this.lancamento);
+		
+		session.getTransaction().commit();
+		
+		session.close();
 
 		this.lancamento = new Lancamento();
 
