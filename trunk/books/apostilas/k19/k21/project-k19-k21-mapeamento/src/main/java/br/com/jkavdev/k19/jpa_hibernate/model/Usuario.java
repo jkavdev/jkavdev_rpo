@@ -2,8 +2,10 @@ package br.com.jkavdev.k19.jpa_hibernate.model;
 
 import java.util.Calendar;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Lob;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -12,7 +14,7 @@ import javax.persistence.TemporalType;
 public class Usuario extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private String email;
 	private Calendar dataDeCadastro;
 	private byte[] foto;
@@ -37,6 +39,9 @@ public class Usuario extends BaseEntity {
 	}
 
 	@Lob
+	// informando que est campo não será retornado
+	// apenas se for solicitado
+	@Basic(fetch = FetchType.LAZY)
 	public byte[] getFoto() {
 		return foto;
 	}

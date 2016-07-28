@@ -1,6 +1,7 @@
 package br.com.jkavdev.k19.jpa_hibernate.model;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
@@ -20,7 +21,9 @@ public class Estado extends BaseEntity {
 		this.nome = nome;
 	}
 
-	@OneToOne(optional = false)
+	// informando que este campo não será retornado
+	// apenas se solicitado
+	@OneToOne(optional = false, fetch = FetchType.LAZY)
 	@JoinColumn(name = "governador_id")
 	public Governador getGovernador() {
 		return governador;
