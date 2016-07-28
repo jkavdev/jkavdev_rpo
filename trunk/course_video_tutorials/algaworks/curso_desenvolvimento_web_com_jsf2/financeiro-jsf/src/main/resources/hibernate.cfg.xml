@@ -10,12 +10,12 @@
 		<property name="hibernate.connection.password">123456</property>
 		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/db_financeiro_algaworks</property>
 		<property name="hibernate.connection.username">jkavdev</property>
-		
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
 		<property name="hibernate.show_sql">true</property>
-		
-		<mapping class="br.com.jkavdev.algaworks.jsf.model.Lancamento"/>
-		<mapping class="br.com.jkavdev.algaworks.jsf.model.Pessoa"/>
+
+		<mapping class="br.com.jkavdev.algaworks.jsf.model.Lancamento" />
+		<mapping class="br.com.jkavdev.algaworks.jsf.model.Pessoa" />
 	</session-factory>
 	
 </hibernate-configuration>
