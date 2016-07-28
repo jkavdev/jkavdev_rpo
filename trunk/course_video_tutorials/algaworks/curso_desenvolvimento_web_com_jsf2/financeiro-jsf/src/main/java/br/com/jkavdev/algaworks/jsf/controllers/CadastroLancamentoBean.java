@@ -11,10 +11,13 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
 
+import org.hibernate.Session;
+import org.hibernate.criterion.Order;
+
 import br.com.jkavdev.algaworks.jsf.model.Lancamento;
 import br.com.jkavdev.algaworks.jsf.model.Pessoa;
 import br.com.jkavdev.algaworks.jsf.model.TipoLancamento;
-import br.com.jkavdev.algaworks.jsf.services.GestaoPessoas;
+import br.com.jkavdev.algaworks.jsf.util.jpa.HibernateUtil;
 
 @ManagedBean
 @ViewScoped
@@ -25,10 +28,16 @@ public class CadastroLancamentoBean implements Serializable {
 	private Lancamento lancamento = new Lancamento();
 	private List<Pessoa> pessoas = new ArrayList<>();
 
+	@SuppressWarnings("unchecked")
 	@PostConstruct
 	public void init() {
-		GestaoPessoas gestaoPessoas = new GestaoPessoas();
-		pessoas = gestaoPessoas.listarTodas();
+		Session session = HibernateUtil.getSession();
+
+		this.pessoas = session.createCriteria(Pessoa.class)
+				.addOrder(Order.asc("nome"))
+				.list();
+
+		session.close();
 	}
 
 	public void lancamentoPagoModificado(ValueChangeEvent event) {
