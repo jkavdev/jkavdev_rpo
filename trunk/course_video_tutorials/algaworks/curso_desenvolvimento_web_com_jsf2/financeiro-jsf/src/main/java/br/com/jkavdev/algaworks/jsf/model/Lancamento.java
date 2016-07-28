@@ -4,10 +4,24 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class Lancamento implements Serializable{
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
+@Table(name = "lancamentos")
+public class Lancamento implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private Integer codigo;
 	private TipoLancamento tipo;
 	private Pessoa pessoa;
@@ -17,6 +31,8 @@ public class Lancamento implements Serializable{
 	private boolean pago;
 	private Date dataPagamento;
 
+	@Id
+	@GeneratedValue
 	public Integer getCodigo() {
 		return codigo;
 	}
@@ -25,6 +41,8 @@ public class Lancamento implements Serializable{
 		this.codigo = codigo;
 	}
 
+	@Enumerated(EnumType.STRING)
+	@Column(length = 20)
 	public TipoLancamento getTipo() {
 		return tipo;
 	}
@@ -33,6 +51,8 @@ public class Lancamento implements Serializable{
 		this.tipo = tipo;
 	}
 
+	@ManyToOne
+	@JoinColumn(name = "codigo_pessoa")
 	public Pessoa getPessoa() {
 		return pessoa;
 	}
@@ -41,6 +61,7 @@ public class Lancamento implements Serializable{
 		this.pessoa = pessoa;
 	}
 
+	@Column(length = 100)
 	public String getDescricao() {
 		return descricao;
 	}
@@ -53,10 +74,13 @@ public class Lancamento implements Serializable{
 		return valor;
 	}
 
+	@Column(precision = 3, scale = 2)
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
 
+	@Temporal(TemporalType.DATE)
+	@Column(name = "data_nascimento")
 	public Date getDataVencimento() {
 		return dataVencimento;
 	}
@@ -73,6 +97,8 @@ public class Lancamento implements Serializable{
 		this.pago = pago;
 	}
 
+	@Temporal(TemporalType.DATE)
+	@Column(name = "data_pagamento")
 	public Date getDataPagamento() {
 		return dataPagamento;
 	}

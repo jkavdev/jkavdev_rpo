@@ -2,6 +2,14 @@ package br.com.jkavdev.algaworks.jsf.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "pessoas")
 public class Pessoa implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -17,6 +25,8 @@ public class Pessoa implements Serializable {
 		this.nome = nome;
 	}
 
+	@Id
+	@GeneratedValue
 	public Integer getCodigo() {
 		return codigo;
 	}
@@ -25,6 +35,7 @@ public class Pessoa implements Serializable {
 		this.codigo = codigo;
 	}
 
+	@Column(length = 11)
 	public String getNome() {
 		return nome;
 	}
