@@ -17,7 +17,7 @@ import org.hibernate.criterion.Order;
 import br.com.jkavdev.algaworks.jsf.model.Lancamento;
 import br.com.jkavdev.algaworks.jsf.model.Pessoa;
 import br.com.jkavdev.algaworks.jsf.model.TipoLancamento;
-import br.com.jkavdev.algaworks.jsf.util.jpa.HibernateUtil;
+import br.com.jkavdev.algaworks.jsf.util.jsf.FacesUtil;
 
 @ManagedBean
 @ViewScoped
@@ -31,13 +31,11 @@ public class CadastroLancamentoBean implements Serializable {
 	@SuppressWarnings("unchecked")
 	@PostConstruct
 	public void init() {
-		Session session = HibernateUtil.getSession();
+		Session session  = (Session)  FacesUtil.getRequesAttribute("session");
 
 		this.pessoas = session.createCriteria(Pessoa.class)
 				.addOrder(Order.asc("nome"))
 				.list();
-
-		session.close();
 	}
 
 	public void lancamentoPagoModificado(ValueChangeEvent event) {
@@ -47,15 +45,9 @@ public class CadastroLancamentoBean implements Serializable {
 	}
 
 	public void cadastrar() {
-		Session session = HibernateUtil.getSession();
-		
-		session.getTransaction().begin();
+		Session session  = (Session)  FacesUtil.getRequesAttribute("session");
 		
 		session.merge(this.lancamento);
-		
-		session.getTransaction().commit();
-		
-		session.close();
 
 		this.lancamento = new Lancamento();
 

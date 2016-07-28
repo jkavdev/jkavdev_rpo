@@ -8,7 +8,7 @@ import javax.faces.convert.FacesConverter;
 import org.hibernate.Session;
 
 import br.com.jkavdev.algaworks.jsf.model.Pessoa;
-import br.com.jkavdev.algaworks.jsf.util.jpa.HibernateUtil;
+import br.com.jkavdev.algaworks.jsf.util.jsf.FacesUtil;
 
 @FacesConverter(forClass = Pessoa.class)
 public class PessoaConverter implements Converter {
@@ -18,7 +18,7 @@ public class PessoaConverter implements Converter {
 		Pessoa retorno = null;
 
 		if (value != null) {
-			Session session = HibernateUtil.getSession();
+			Session session  = (Session)  FacesUtil.getRequesAttribute("session");
 			
 			retorno = session.load(Pessoa.class, new Integer(value));
 		}

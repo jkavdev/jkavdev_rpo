@@ -12,6 +12,7 @@ import org.hibernate.criterion.Order;
 
 import br.com.jkavdev.algaworks.jsf.model.Lancamento;
 import br.com.jkavdev.algaworks.jsf.util.jpa.HibernateUtil;
+import br.com.jkavdev.algaworks.jsf.util.jsf.FacesUtil;
 
 @ManagedBean
 public class ConsultaLancamentoBean {
