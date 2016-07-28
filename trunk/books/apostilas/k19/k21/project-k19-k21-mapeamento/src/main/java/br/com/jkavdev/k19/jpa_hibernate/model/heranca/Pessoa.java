@@ -11,9 +11,10 @@ import br.com.jkavdev.k19.jpa_hibernate.model.BaseEntity;
 //@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 
 //será criado uma entidade para cada especificacao
-@Inheritance(strategy = InheritanceType.JOINED)
+//@Inheritance(strategy = InheritanceType.JOINED)
 
-
+//será criado apenas as tabelas especificas desta classe
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Pessoa extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
