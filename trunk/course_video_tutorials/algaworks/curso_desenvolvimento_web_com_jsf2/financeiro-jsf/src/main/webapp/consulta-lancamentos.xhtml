@@ -17,6 +17,9 @@
 		<h:form>
 			<h:commandButton value="Novo Lançamento" />
 			
+			<h:messages showDetail="false" showSummary="true"
+				styleClass="form-messages" errorClass="error" infoClass="info"/>
+			
 			<h:dataTable value="#{consultaLancamentoBean.lancamentos}" var="lancamento"
 				width="100%" styleClass="grid" headerClass="cabecalho" rowClasses="cor-sim, cor-nao"
 				columnClasses="tipo, pessoa, descricao, valor, vencimento, pagamento, situacao, acoes">
@@ -65,7 +68,10 @@
 				
 				<h:column>
 					<h:graphicImage library="images" name="editar.png" />
-					<h:graphicImage library="images" name="excluir.png" />
+					<h:commandLink action="#{consultaLancamentoBean.excluir}">
+						<h:graphicImage library="images" name="excluir.png" />
+						<f:setPropertyActionListener value="#{lancamento}" target="#{consultaLancamentoBean.lancamentoSelecionado}" />
+					</h:commandLink>
 				</h:column>
 				
 			</h:dataTable>
