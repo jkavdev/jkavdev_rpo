@@ -11,13 +11,12 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
 
-import org.hibernate.Session;
-import org.hibernate.criterion.Order;
-
 import br.com.jkavdev.algaworks.jsf.model.Lancamento;
 import br.com.jkavdev.algaworks.jsf.model.Pessoa;
 import br.com.jkavdev.algaworks.jsf.model.TipoLancamento;
-import br.com.jkavdev.algaworks.jsf.util.jsf.FacesUtil;
+import br.com.jkavdev.algaworks.jsf.repositories.Lancamentos;
+import br.com.jkavdev.algaworks.jsf.repositories.Pessoas;
+import br.com.jkavdev.algaworks.jsf.util.jpa.Repositorios;
 
 @ManagedBean
 @ViewScoped
@@ -25,17 +24,14 @@ public class CadastroLancamentoBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	private Repositorios repositorios = new Repositorios();
 	private Lancamento lancamento = new Lancamento();
 	private List<Pessoa> pessoas = new ArrayList<>();
 
-	@SuppressWarnings("unchecked")
 	@PostConstruct
 	public void init() {
-		Session session  = (Session)  FacesUtil.getRequesAttribute("session");
-
-		this.pessoas = session.createCriteria(Pessoa.class)
-				.addOrder(Order.asc("nome"))
-				.list();
+		Pessoas pessoas = this.repositorios.getPessoas();
+		this.pessoas = pessoas.todas();
 	}
 
 	public void lancamentoPagoModificado(ValueChangeEvent event) {
@@ -45,9 +41,8 @@ public class CadastroLancamentoBean implements Serializable {
 	}
 
 	public void cadastrar() {
-		Session session  = (Session)  FacesUtil.getRequesAttribute("session");
-		
-		session.merge(this.lancamento);
+		Lancamentos lancamentos = this.repositorios.getLancamentos();
+		lancamentos.guardar(this.lancamento);
 
 		this.lancamento = new Lancamento();
 
