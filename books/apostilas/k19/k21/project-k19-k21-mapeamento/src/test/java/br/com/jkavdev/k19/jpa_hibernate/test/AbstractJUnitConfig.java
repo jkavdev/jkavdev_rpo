@@ -32,6 +32,10 @@ public class AbstractJUnitConfig {
 		manager.getTransaction().begin();
 	}
 	
+	public EntityManagerFactory getFactory() {
+		return factory;
+	}
+	
 	public EntityManager getManager() {
 		return manager;
 	}
