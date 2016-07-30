@@ -57,11 +57,10 @@ public class GestaoProdutosBeans implements Serializable {
 
 	public String obterAjuda() {
 		if (this.produtos.isEmpty()) {
-			return "ajuda-gestao-produtos?faces-redirect=true";
+			return "sem-produtos";
 		} else {
-			return "ajuda-gestao-produtos-telefone?faces-redirect=true";
+			return "com-produtos";
 		}
-
 	}
 
 	public void verificarInclusao(ActionEvent event) {
