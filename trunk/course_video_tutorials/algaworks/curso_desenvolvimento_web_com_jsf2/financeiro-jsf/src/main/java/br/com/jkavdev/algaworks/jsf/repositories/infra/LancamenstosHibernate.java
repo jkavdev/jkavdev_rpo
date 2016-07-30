@@ -46,4 +46,9 @@ public class LancamenstosHibernate implements Lancamentos {
 				.uniqueResult();
 	}
 
+	@Override
+	public Lancamento porCodigo(Integer codigo) {
+		return this.session.get(Lancamento.class, codigo);
+	}
+
 }
