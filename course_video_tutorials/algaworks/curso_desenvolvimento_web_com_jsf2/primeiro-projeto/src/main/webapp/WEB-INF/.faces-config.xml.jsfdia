@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::0" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="inicio::#gestao-produtos-navegacao-implicita.xhtml"
+    NAME="output" PATH="/gestao-produtos-navegacao-implicita.xhtml"
+    TARGET="rules:#gestao-produtos-navegacao-implicita.xhtml"
+    TITLE="inicio" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#gestao-produtos-navegacao-implicita.xhtml"
+  PATH="/gestao-produtos-navegacao-implicita.xhtml" SHAPE="240,33,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#gestao-produtos-navegacao-implicita.xhtml:0"
+   NAME="item" PATH="/gestao-produtos-navegacao-implicita.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="com-produtos::#ajuda-gestao-produtos-telefone.xhtml"
+    NAME="output" PATH="/ajuda-gestao-produtos-telefone.xhtml"
+    TARGET="rules:#ajuda-gestao-produtos-telefone.xhtml"
+    TITLE="com-produtos" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="sem-produtos::#ajuda-gestao-produtos.xhtml"
+    NAME="output1" PATH="/ajuda-gestao-produtos.xhtml"
+    TARGET="rules:#ajuda-gestao-produtos.xhtml" TITLE="sem-produtos" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#ajuda-gestao-produtos.xhtml"
+  PATH="/ajuda-gestao-produtos.xhtml" SHAPE="464,161,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#ajuda-gestao-produtos-telefone.xhtml"
+  PATH="/ajuda-gestao-produtos-telefone.xhtml" SHAPE="464,17,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

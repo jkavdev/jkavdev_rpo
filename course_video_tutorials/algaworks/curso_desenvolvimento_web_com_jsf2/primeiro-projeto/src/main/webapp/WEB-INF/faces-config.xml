@@ -4,5 +4,26 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
 	version="2.2">
 
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>inicio</from-outcome>
+			<to-view-id>/gestao-produtos-navegacao-implicita.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/gestao-produtos-navegacao-implicita.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>com-produtos</from-outcome>
+			<to-view-id>/ajuda-gestao-produtos-telefone.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>sem-produtos</from-outcome>
+			<to-view-id>/ajuda-gestao-produtos.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
 
 </faces-config>
