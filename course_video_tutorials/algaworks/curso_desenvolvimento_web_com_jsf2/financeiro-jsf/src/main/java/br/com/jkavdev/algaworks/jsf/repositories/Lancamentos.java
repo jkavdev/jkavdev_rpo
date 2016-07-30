@@ -14,4 +14,6 @@ public interface Lancamentos {
 
 	public Lancamento comDadosIguais(Lancamento lancamento);
 
+	public Lancamento porCodigo(Integer codigo);
+
 }

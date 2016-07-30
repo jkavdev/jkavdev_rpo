@@ -18,7 +18,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "lancamentos")
-public class Lancamento implements Serializable {
+public class Lancamento implements Serializable, Cloneable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -130,6 +130,11 @@ public class Lancamento implements Serializable {
 		} else if (!codigo.equals(other.codigo))
 			return false;
 		return true;
+	}
+	
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
 	}
 
 }
