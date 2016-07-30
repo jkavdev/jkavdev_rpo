@@ -1,0 +1,31 @@
+<html 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+	<h:head>
+		<title><ui:insert name="titulo">Financeiro</ui:insert></title>
+		
+		<h:outputStylesheet library="css" name="sistema.css"/>
+	</h:head>
+	
+	<h:body>
+	
+		<div id="header">
+			<ui:insert name="cabecalho">
+				<ui:include src="/template/cabecalho.xhtml" />
+			</ui:insert>
+		</div>
+		
+		<div id="content">
+			<ui:insert name="conteudo"/>
+		</div>
+		
+		<div id="footer">
+			<ui:include src="/template/rodape.xhtml" />			
+		</div>
+		
+	</h:body>
+
+</html>
