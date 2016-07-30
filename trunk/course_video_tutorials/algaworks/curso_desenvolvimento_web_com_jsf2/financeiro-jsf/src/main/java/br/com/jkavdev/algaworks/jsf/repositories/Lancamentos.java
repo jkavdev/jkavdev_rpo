@@ -12,4 +12,6 @@ public interface Lancamentos {
 
 	public void remover(Lancamento lancamento);
 
+	public Lancamento comDadosIguais(Lancamento lancamento);
+
 }

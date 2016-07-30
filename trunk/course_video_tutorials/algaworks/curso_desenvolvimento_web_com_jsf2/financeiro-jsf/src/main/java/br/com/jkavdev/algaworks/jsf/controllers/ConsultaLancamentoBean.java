@@ -9,6 +9,8 @@ import javax.faces.bean.ManagedBean;
 
 import br.com.jkavdev.algaworks.jsf.model.Lancamento;
 import br.com.jkavdev.algaworks.jsf.repositories.Lancamentos;
+import br.com.jkavdev.algaworks.jsf.services.GestaoLancamentos;
+import br.com.jkavdev.algaworks.jsf.services.RegraNegocioException;
 import br.com.jkavdev.algaworks.jsf.util.jpa.Repositorios;
 import br.com.jkavdev.algaworks.jsf.util.jsf.FacesUtil;
 
@@ -20,22 +22,22 @@ public class ConsultaLancamentoBean {
 	private Lancamento lancamentoSelecionado;
 
 	@PostConstruct
-	public void init() {
+	public void inicializar() {
 		Lancamentos lancamentos = this.repositorios.getLancamentos();
 		this.lancamentos = lancamentos.todos();
 	}
 
 	public void excluir() {
-		if (this.lancamentoSelecionado.isPago()) {
-			FacesUtil.adicionarMensagem(FacesMessage.SEVERITY_ERROR, "Lançamento já foi pago e não pode ser excluído");
-		} else {
-			Lancamentos lancamentos = this.repositorios.getLancamentos();
-			lancamentos.remover(lancamentoSelecionado);
-
-			this.init();
-
+		GestaoLancamentos gestaoLancamentos = new GestaoLancamentos(this.repositorios.getLancamentos());
+		try {
+			gestaoLancamentos.excluir(lancamentoSelecionado);
 			FacesUtil.adicionarMensagem(FacesMessage.SEVERITY_INFO, "Lançamento excluído com sucesso!");
+
+			this.inicializar();
+		} catch (RegraNegocioException e) {
+			FacesUtil.adicionarMensagem(FacesMessage.SEVERITY_ERROR, "Lançamento já foi pago e não pode ser excluído!");
 		}
+
 	}
 
 	public List<Lancamento> getLancamentos() {

@@ -14,9 +14,11 @@ import javax.faces.event.ValueChangeEvent;
 import br.com.jkavdev.algaworks.jsf.model.Lancamento;
 import br.com.jkavdev.algaworks.jsf.model.Pessoa;
 import br.com.jkavdev.algaworks.jsf.model.TipoLancamento;
-import br.com.jkavdev.algaworks.jsf.repositories.Lancamentos;
 import br.com.jkavdev.algaworks.jsf.repositories.Pessoas;
+import br.com.jkavdev.algaworks.jsf.services.GestaoLancamentos;
+import br.com.jkavdev.algaworks.jsf.services.RegraNegocioException;
 import br.com.jkavdev.algaworks.jsf.util.jpa.Repositorios;
+import br.com.jkavdev.algaworks.jsf.util.jsf.FacesUtil;
 
 @ManagedBean
 @ViewScoped
@@ -29,7 +31,7 @@ public class CadastroLancamentoBean implements Serializable {
 	private List<Pessoa> pessoas = new ArrayList<>();
 
 	@PostConstruct
-	public void init() {
+	public void inicializar() {
 		Pessoas pessoas = this.repositorios.getPessoas();
 		this.pessoas = pessoas.todas();
 	}
@@ -41,13 +43,17 @@ public class CadastroLancamentoBean implements Serializable {
 	}
 
 	public void cadastrar() {
-		Lancamentos lancamentos = this.repositorios.getLancamentos();
-		lancamentos.guardar(this.lancamento);
+		GestaoLancamentos gestaoLancamentos = new GestaoLancamentos(this.repositorios.getLancamentos());
+
+		try {
+			gestaoLancamentos.guardar(lancamento);
+
+			FacesUtil.adicionarMensagem(FacesMessage.SEVERITY_INFO, "Cadastro efetuado com sucesso!");
+		} catch (RegraNegocioException e) {
+			FacesUtil.adicionarMensagem(FacesMessage.SEVERITY_INFO, e.getMessage());
+		}
 
 		this.lancamento = new Lancamento();
-
-		String msg = "Cadastro efetuado com sucesso!";
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, msg, msg));
 	}
 
 	public TipoLancamento[] getTiposLancamentos() {
