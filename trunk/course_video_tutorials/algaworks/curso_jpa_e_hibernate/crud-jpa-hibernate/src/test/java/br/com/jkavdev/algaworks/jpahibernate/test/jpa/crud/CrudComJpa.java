@@ -40,6 +40,27 @@ public class CrudComJpa extends JpaConfig {
 
 	}
 
+	@Test
+	public void removendoCliente() {
+
+		// para que alguma alteração no banco seja refletida
+		// todas as entidades que serão alteradas precisam estarem gerenciadas
+		Cliente clienteEncontrado = this.getManager().find(Cliente.class, 2L);
+
+		beginTransaction();
+
+		// verificando caso nao encontrado
+		if (clienteEncontrado != null) {
+			this.getManager().remove(clienteEncontrado);
+
+			System.out.println("Cliente removido: " + clienteEncontrado.getNome());
+		} else {
+			System.out.println("Cliente não encontrado");
+		}
+
+		commit();
+	}
+
 	public Cliente criaCliente(String nome, Integer idade, String profissao, String sexo) {
 		Cliente cliente = new Cliente();
 		cliente.setNome(nome);
