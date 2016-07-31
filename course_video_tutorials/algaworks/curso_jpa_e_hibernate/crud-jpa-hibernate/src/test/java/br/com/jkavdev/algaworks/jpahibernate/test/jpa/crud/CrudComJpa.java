@@ -12,11 +12,32 @@ public class CrudComJpa extends JpaConfig {
 
 		Cliente cliente = criaCliente("Jhonatan Kolen", 26, "Programador", "M");
 
+		// qualquer alteração refletida no banco de dados
+		// é necessário abrir uma transacação
 		beginTransaction();
 
 		this.getManager().persist(cliente);
 
+		// realizando commit para serem refletidas as alterações no banco
 		commit();
+	}
+
+	@Test
+	public void consultaCliente() {
+
+		// realizando a consulta no banco
+		// informando qual será o tipo retornado
+		// e a chave primária identificando o registro a ser retornado
+		Cliente clienteEncontrado = this.getManager().find(Cliente.class, 15L);
+
+		// verificando o resultado
+		// caso informado um id nao existente, retornará null
+		if (clienteEncontrado != null) {
+			System.out.println("Cliente: " + clienteEncontrado.getNome());
+		} else {
+			System.out.println("Cliente não encontrado");
+		}
+
 	}
 
 	public Cliente criaCliente(String nome, Integer idade, String profissao, String sexo) {
