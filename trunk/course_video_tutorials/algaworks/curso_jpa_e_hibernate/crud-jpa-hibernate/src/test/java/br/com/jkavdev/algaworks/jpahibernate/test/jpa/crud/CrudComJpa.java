@@ -61,6 +61,31 @@ public class CrudComJpa extends JpaConfig {
 		commit();
 	}
 
+	@Test
+	public void atualizadoCliente() {
+
+		Cliente clienteEncontrado = this.getManager().find(Cliente.class, 2L);
+
+		beginTransaction();
+
+		// verificando caso nao encontrado
+		if (clienteEncontrado != null) {
+
+			// alterando as propriedades do cliente encontrado
+			clienteEncontrado.setNome("Yago Santos");
+			clienteEncontrado.setIdade(35);
+
+			System.out.println("Cliente alterado: " + clienteEncontrado.getNome());
+		} else {
+			System.out.println("Cliente não encontrado");
+		}
+
+		// o hibernate na hora do commit sincronizará todas as entidades
+		// no seu contexto com o banco de dados
+		commit();
+
+	}
+
 	public Cliente criaCliente(String nome, Integer idade, String profissao, String sexo) {
 		Cliente cliente = new Cliente();
 		cliente.setNome(nome);
