@@ -54,6 +54,14 @@ public class Transferencia {
 		System.out.println("Saldo da conta2: " + conta2.getSaldo());
 
 		// =========
+		
+		//fechando manager e abrindo
+		
+		manager.close();
+		
+		manager = factory.createEntityManager();
+		
+		//==
 
 		// alterando valores das contas
 		System.out.println("Digite o valor a retirar da conta1 a depositar na conta2: ");
@@ -64,6 +72,10 @@ public class Transferencia {
 		// aplicando transferência
 		conta.setSaldo(conta.getSaldo() - valorTransferencia);
 		conta2.setSaldo(conta2.getSaldo() + valorTransferencia);
+		
+		//atribuindo novamento as entidades ao manager
+		manager.merge(conta);
+		manager.merge(conta2);
 
 		// verificando transferência
 		if (conta.getSaldo() > 0) {
