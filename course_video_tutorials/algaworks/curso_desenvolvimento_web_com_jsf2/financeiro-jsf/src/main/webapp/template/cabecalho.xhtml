@@ -6,8 +6,16 @@
 	<h:graphicImage library="images" name="logo.png" styleClass="logo" />
 
 	<div class="menu">
-		<h:link outcome="home">#{msg.home}</h:link>
-		<h:link outcome="consulta-lancamentos">#{msg.entries}</h:link>
+		<h:form>
+		
+			<h:outputFormat value="#{msg.hello}" styleClass="logged-user" >
+				<f:param value="#{facesContext.externalContext.userPrincipal.name}"/>
+			</h:outputFormat>
+		
+			<h:link outcome="home">#{msg.home}</h:link>
+			<h:link outcome="consulta-lancamentos">#{msg.entries}</h:link>
+			<h:commandLink action="#{segurancaBean.sair}" value="#{msg.logout}" />
+		</h:form>
 	</div>
 
 </ui:composition>
