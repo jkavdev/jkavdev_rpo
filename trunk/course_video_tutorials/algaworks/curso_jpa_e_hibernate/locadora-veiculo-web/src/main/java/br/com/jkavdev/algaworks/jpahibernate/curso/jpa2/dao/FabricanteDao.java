@@ -19,7 +19,9 @@ public class FabricanteDao implements Serializable {
 	private EntityManager manager;
 
 	public void salvar(Fabricante fabricante) {
-		manager.persist(fabricante);
+		//usaremos o merge, pois utilizamos este método 
+		//também para edição
+		manager.merge(fabricante);
 	}
 
 	@Transactional
@@ -34,6 +36,10 @@ public class FabricanteDao implements Serializable {
 	public List<Fabricante> buscarTodos() {
 		return manager.createQuery("from Fabricante", Fabricante.class)
 				.getResultList();
+	}
+
+	public Fabricante buscarPeloCodigo(Long codigo) {
+		return this.manager.find(Fabricante.class, codigo);
 	}
 
 }
