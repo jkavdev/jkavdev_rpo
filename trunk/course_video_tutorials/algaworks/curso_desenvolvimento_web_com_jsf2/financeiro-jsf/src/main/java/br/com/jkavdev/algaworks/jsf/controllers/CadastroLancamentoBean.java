@@ -48,16 +48,16 @@ public class CadastroLancamentoBean implements Serializable {
 		try {
 			gestaoLancamentos.guardar(lancamento);
 
-			FacesUtil.adicionarMensagem(FacesMessage.SEVERITY_INFO, "Lançamento salvo com sucesso!");
+			FacesUtil.adicionarMensagem(FacesMessage.SEVERITY_INFO, FacesUtil.getMensagemI18n("entry_saved"));
 		} catch (RegraNegocioException e) {
-			FacesUtil.adicionarMensagem(FacesMessage.SEVERITY_INFO, e.getMessage());
+			FacesUtil.adicionarMensagem(FacesMessage.SEVERITY_INFO, FacesUtil.getMensagemI18n(e.getMessage()));
 		}
 
 		this.lancamento = new Lancamento();
 	}
 
 	public boolean isEditando() {
-		//se codigo nao for vazio está editando
+		// se codigo nao for vazio está editando
 		return this.lancamento.getCodigo() != null;
 	}
 
@@ -71,7 +71,7 @@ public class CadastroLancamentoBean implements Serializable {
 
 	public void setLancamento(Lancamento lancamento) throws CloneNotSupportedException {
 		this.lancamento = lancamento;
-		//verificação por causa do conversor
+		// verificação por causa do conversor
 		if (this.lancamento == null) {
 			this.lancamento = new Lancamento();
 		} else {

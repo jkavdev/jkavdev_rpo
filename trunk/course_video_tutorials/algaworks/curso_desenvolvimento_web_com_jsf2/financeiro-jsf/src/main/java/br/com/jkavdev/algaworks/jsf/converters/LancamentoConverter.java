@@ -10,6 +10,7 @@ import javax.faces.convert.FacesConverter;
 import br.com.jkavdev.algaworks.jsf.model.Lancamento;
 import br.com.jkavdev.algaworks.jsf.repositories.Lancamentos;
 import br.com.jkavdev.algaworks.jsf.util.jpa.Repositorios;
+import br.com.jkavdev.algaworks.jsf.util.jsf.FacesUtil;
 
 @FacesConverter(forClass = Lancamento.class)
 public class LancamentoConverter implements Converter {
@@ -25,7 +26,7 @@ public class LancamentoConverter implements Converter {
 			retorno = lancamentos.porCodigo(new Integer(value));
 
 			if (retorno == null) {
-				String descricaoErro = "Lançamento não existe.";
+				String descricaoErro = FacesUtil.getMensagemI18n("entry_does_not_exist");
 
 				FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, descricaoErro, descricaoErro);
 				throw new ConverterException(message);
