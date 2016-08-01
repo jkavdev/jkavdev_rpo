@@ -5,7 +5,19 @@
 	version="2.2">
 
 	<application>
-		<message-bundle>resources.messages</message-bundle>
+		<message-bundle>resources.validacao</message-bundle>
+		
+		<resource-bundle>
+			<base-name>resources.sistema</base-name>
+			<var>msg</var>
+		</resource-bundle>
+		
+		<!-- idiomas da aplicacao -->
+		<locale-config>
+			<default-locale>pt</default-locale>
+			<supported-locale>pt</supported-locale>
+			<supported-locale>en</supported-locale>
+		</locale-config>
 	</application>
 	
 </faces-config>

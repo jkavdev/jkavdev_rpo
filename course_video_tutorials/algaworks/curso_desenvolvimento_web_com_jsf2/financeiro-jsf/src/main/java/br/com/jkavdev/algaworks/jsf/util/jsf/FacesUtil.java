@@ -7,6 +7,15 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 
 public class FacesUtil {
+	
+	//recebendo as do arquivo de configuração 
+	public static String getMensagemI18n(String chave){
+		
+		FacesContext currentInstance = FacesContext.getCurrentInstance();
+		String msg = currentInstance.getApplication().getResourceBundle(currentInstance, "msg").getString(chave);
+		
+		return msg;
+	}
 
 	public static void adicionarMensagem(Severity tipo, String msg) {
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(tipo, msg, msg));

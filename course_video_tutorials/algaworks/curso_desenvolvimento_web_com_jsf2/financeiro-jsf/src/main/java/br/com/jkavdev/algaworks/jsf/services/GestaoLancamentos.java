@@ -14,7 +14,7 @@ public class GestaoLancamentos {
 	public void guardar(Lancamento lancamento) throws RegraNegocioException {
 
 		if (existeLancamentoSemelhante(lancamento)) {
-			throw new RegraNegocioException("Já existe um lançamento igual a este.");
+			throw new RegraNegocioException("existing_entry");
 		}
 
 		this.lancamentos.guardar(lancamento);
