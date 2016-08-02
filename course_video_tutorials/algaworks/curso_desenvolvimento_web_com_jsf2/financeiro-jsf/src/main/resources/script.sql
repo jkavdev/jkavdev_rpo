@@ -10,7 +10,7 @@ insert into pessoas values
 	
 create table usuario(
 	nome_usuario varchar(15) not null primary key,
-	senha varchar(15) not null
+	senha varchar(32) not null
 );
 
 create table permissao_usuario(
@@ -30,3 +30,5 @@ insert into permissao_usuario values
 	('Lucas', 'consulta'),
 	('Douglas', 'cadastro'),
 	('Douglas', 'consulta');
+	
+update usuario set senha = md5(senha);
