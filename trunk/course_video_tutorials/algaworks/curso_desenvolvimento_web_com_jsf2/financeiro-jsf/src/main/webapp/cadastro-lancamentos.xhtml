@@ -20,7 +20,8 @@
 		<h:form id="frm">
 
 			<h:button value="#{msg.new_msg}" outcome="cadastro-lancamentos" />
-			<h:button value="#{msg.search}" outcome="consulta-lancamentos" />
+			<h:button value="#{msg.search}" outcome="consulta-lancamentos" 
+				rendered="#{request.isUserInRole('consulta')}"/>
 
 			<h:messages showDetail="false" showSummary="true"
 				styleClass="form-messages" errorClass="error" infoClass="info" />
