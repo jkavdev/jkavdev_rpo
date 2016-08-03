@@ -1,11 +1,16 @@
 package br.com.jkavdev.hibernate.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Publisher {
 
 	private String code;
 	private String name;
 	private String address;
 
+	@Id
 	public String getCode() {
 		return code;
 	}
