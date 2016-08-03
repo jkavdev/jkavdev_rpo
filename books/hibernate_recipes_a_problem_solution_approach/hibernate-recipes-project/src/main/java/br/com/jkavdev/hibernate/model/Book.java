@@ -1,8 +1,16 @@
 package br.com.jkavdev.hibernate.model;
 
 import java.util.Date;
-import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "book")
 public class Book {
 
 	private String isbn;
@@ -10,8 +18,9 @@ public class Book {
 	private Publisher publisher;
 	private Date publishDate;
 	private int price;
-	private List<Chapter> chapters;
 
+	@Id
+	@Column(name = "isbn")
 	public String getIsbn() {
 		return isbn;
 	}
@@ -20,6 +29,7 @@ public class Book {
 		this.isbn = isbn;
 	}
 
+	@Column(name = "book_name")
 	public String getName() {
 		return name;
 	}
@@ -28,6 +38,8 @@ public class Book {
 		this.name = name;
 	}
 
+	@OneToOne
+	@JoinColumn(name = "publisher_code")
 	public Publisher getPublisher() {
 		return publisher;
 	}
@@ -36,6 +48,7 @@ public class Book {
 		this.publisher = publisher;
 	}
 
+	@Column(name = "publish_date")
 	public Date getPublishDate() {
 		return publishDate;
 	}
@@ -44,20 +57,13 @@ public class Book {
 		this.publishDate = publishDate;
 	}
 
+	@Column(name = "price")
 	public int getPrice() {
 		return price;
 	}
 
 	public void setPrice(int price) {
 		this.price = price;
-	}
-
-	public List<Chapter> getChapters() {
-		return chapters;
-	}
-
-	public void setChapters(List<Chapter> chapters) {
-		this.chapters = chapters;
 	}
 
 }
