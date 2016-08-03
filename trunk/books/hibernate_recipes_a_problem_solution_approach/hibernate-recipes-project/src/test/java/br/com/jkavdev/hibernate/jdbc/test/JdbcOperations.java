@@ -106,7 +106,7 @@ public class JdbcOperations extends JdbcConfig {
 			chapters.add(chapter);
 		}
 
-		book.setChapters(chapters);
+//		book.setChapters(chapters);
 
 		for (Chapter chapter : chapters) {
 			System.out.println(chapter.getTitle());
@@ -141,14 +141,14 @@ public class JdbcOperations extends JdbcConfig {
 		stmt.close();
 
 		stmt = this.getConnection().prepareStatement(sql3);
-		for (Iterator<Chapter> iter = book.getChapters().iterator(); iter.hasNext();) {
-			Chapter chapter = (Chapter) iter.next();
-			stmt.setString(1, book.getIsbn());
-			stmt.setInt(2, chapter.getIndex());
-			stmt.setString(3, chapter.getTitle());
-			stmt.setInt(4, chapter.getNumOfPages());
-			stmt.executeUpdate();
-		}
+//		for (Iterator<Chapter> iter = book.getChapters().iterator(); iter.hasNext();) {
+//			Chapter chapter = (Chapter) iter.next();
+//			stmt.setString(1, book.getIsbn());
+//			stmt.setInt(2, chapter.getIndex());
+//			stmt.setString(3, chapter.getTitle());
+//			stmt.setInt(4, chapter.getNumOfPages());
+//			stmt.executeUpdate();
+//		}
 		stmt.close();
 	}
 
