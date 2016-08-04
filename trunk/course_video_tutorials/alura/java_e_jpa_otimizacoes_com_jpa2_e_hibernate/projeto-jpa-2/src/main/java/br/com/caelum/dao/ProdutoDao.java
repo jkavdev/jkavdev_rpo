@@ -28,9 +28,12 @@ public class ProdutoDao {
 
 		// join fetch indicando que quando o produto for
 		// buscado tambem traga as categorias associadas
-		// return em.createQuery("select distinct p from Produtop join fetch p.categorias", Produto.class).getResultList();
 		
-		return em.createQuery("from Produto", Produto.class).getResultList();
+		//tambem e uma solucao para o problema do n+1
+		//no qual e realizado varias buscas para match de buscas
+		 return em.createQuery("select distinct p from Produto p join fetch p.categorias", Produto.class).getResultList();
+		
+//		return em.createQuery("from Produto", Produto.class).getResultList();
 	}
 
 	public Produto getProduto(Integer id) {
