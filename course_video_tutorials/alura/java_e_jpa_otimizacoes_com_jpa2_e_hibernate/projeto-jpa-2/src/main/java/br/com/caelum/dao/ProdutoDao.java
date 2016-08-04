@@ -58,22 +58,37 @@ public class ProdutoDao {
 		// para armazenar os predicas e passar como array no where da query
 		List<Predicate> predicates = new ArrayList<>();
 
+		// criando filtro de conjuncao
+		Predicate conjuncao = criteriaBuilder.conjunction();
+
 		// criando filtro
 		// verificando variaveis passadas
 		if (!nome.isEmpty()) {
-			Predicate nomeIgual = criteriaBuilder.like(nomePath, nome);
+			Predicate nomeIgual = criteriaBuilder.like(nomePath, "%" + nome + "%");
 			predicates.add(nomeIgual);
+
+			// adiciona conjuncao
+			conjuncao = criteriaBuilder.and(nomeIgual);
 		}
 
 		if (categoriaId != null) {
 			Predicate categoriaIgual = criteriaBuilder.equal(categoriaPath, categoriaId);
 			predicates.add(categoriaIgual);
+
+			// como o criteria builder recebe uma varargs de predicates
+			// podemos adicionar varios predicates
+			conjuncao = criteriaBuilder.and(conjuncao, criteriaBuilder.and(categoriaIgual));
 		}
 
 		if (lojaId != null) {
 			Predicate lojaIgual = criteriaBuilder.equal(lojaPath, lojaId);
 			predicates.add(lojaIgual);
+
+			conjuncao = criteriaBuilder.and(conjuncao, criteriaBuilder.and(lojaIgual));
 		}
+
+		// usando filtro de conjuncao
+		// query.where(conjuncao);
 
 		// adiciona filtro a query
 		query.where((Predicate[]) predicates.toArray(new Predicate[0]));
