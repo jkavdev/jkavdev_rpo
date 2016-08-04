@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
@@ -40,6 +41,8 @@ public class Produto {
 
 	// varios produtos tem varias categorias
 	@ManyToMany
+	//alterando o nome da juncao das tabelas
+	@JoinTable(name = "categoria_produto")
 	private List<Categoria> categorias = new ArrayList<>();
 
 	public String getDescricao() {
