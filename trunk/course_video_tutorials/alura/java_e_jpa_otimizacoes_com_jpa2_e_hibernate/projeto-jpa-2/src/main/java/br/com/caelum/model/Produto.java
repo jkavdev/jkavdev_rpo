@@ -26,24 +26,22 @@ public class Produto {
 	private String nome;
 	@NotEmpty
 	private String linkDaFoto;
-	
+
 	@NotEmpty
-	@Column(columnDefinition="TEXT")
+	@Column(columnDefinition = "TEXT")
 	private String descricao;
-	
+
 	@Min(20)
 	private double preco;
-	
-	
+
 	@Valid
 	@ManyToOne
 	private Loja loja;
-	
-	//varios produtos tem varias categorias
+
+	// varios produtos tem varias categorias
 	@ManyToMany
 	private List<Categoria> categorias = new ArrayList<>();
-	
-	
+
 	public String getDescricao() {
 		return descricao;
 	}
@@ -51,19 +49,19 @@ public class Produto {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
-	//método auxiliar para associar categorias com o produto
-	//se funcionar apos ter definido o relacionamento entre produto e categoria
-//	public void adicionarCategorias(Categoria... categorias) {
-//		for (Categoria categoria : categorias) {
-//			this.categorias.add(categoria);
-//		}
-//	}
+
+	// método auxiliar para associar categorias com o produto
+	// se funcionar apos ter definido o relacionamento entre produto e categoria
+	public void adicionarCategorias(Categoria... categorias) {
+		for (Categoria categoria : categorias) {
+			this.categorias.add(categoria);
+		}
+	}
 
 	public String getLinkDaFoto() {
 		return linkDaFoto;
 	}
-	
+
 	public double getPreco() {
 		return preco;
 	}
@@ -75,7 +73,7 @@ public class Produto {
 	public void setLinkDaFoto(String linkDaFoto) {
 		this.linkDaFoto = linkDaFoto;
 	}
-	
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
@@ -98,6 +96,14 @@ public class Produto {
 
 	public Loja getLoja() {
 		return loja;
+	}
+
+	public List<Categoria> getCategorias() {
+		return categorias;
+	}
+
+	public void setCategorias(List<Categoria> categorias) {
+		this.categorias = categorias;
 	}
 
 }
