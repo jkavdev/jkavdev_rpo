@@ -20,7 +20,16 @@ public class ProdutoDao {
 	@PersistenceContext
 	private EntityManager em;
 
+	// podemos solucionar o problema do lazy com join fetch
 	public List<Produto> getProdutos() {
+		// usamos o distinct pois o relacionamento e manytomany
+		// podendo ocorrer repeticao de resultados
+		// caso uma varias categorias tenha um mesmo produto
+
+		// join fetch indicando que quando o produto for
+		// buscado tambem traga as categorias associadas
+		// return em.createQuery("select distinct p from Produtop join fetch p.categorias", Produto.class).getResultList();
+		
 		return em.createQuery("from Produto", Produto.class).getResultList();
 	}
 
@@ -34,23 +43,22 @@ public class ProdutoDao {
 	public List<Produto> getProdutos(String nome, Integer categoriaId, Integer lojaId) {
 
 		Session session = em.unwrap(Session.class);
-		
+
 		Criteria criteria = session.createCriteria(Produto.class);
-		
-		if(!nome.isEmpty()){
+
+		if (!nome.isEmpty()) {
 			criteria.add(Restrictions.like("nome", "%" + nome + "%"));
 		}
-		
-		if(lojaId != null){
+
+		if (lojaId != null) {
 			criteria.add(Restrictions.eq("loja.id", lojaId));
 		}
-		
-		if(categoriaId != null){
-			criteria.setFetchMode("categorias", FetchMode.JOIN)
-				.createAlias("categorias", "c")
-				.add(Restrictions.eq("c.id", categoriaId));
+
+		if (categoriaId != null) {
+			criteria.setFetchMode("categorias", FetchMode.JOIN).createAlias("categorias", "c")
+					.add(Restrictions.eq("c.id", categoriaId));
 		}
-		
+
 		return criteria.list();
 
 	}
