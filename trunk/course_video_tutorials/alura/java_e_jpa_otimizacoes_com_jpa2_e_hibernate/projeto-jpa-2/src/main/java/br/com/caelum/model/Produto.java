@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,6 +17,7 @@ import javax.persistence.NamedEntityGraphs;
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
 
+import org.hibernate.annotations.Entity;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @NamedEntityGraphs({
@@ -28,7 +28,13 @@ import org.hibernate.validator.constraints.NotEmpty;
 			})
 })
 
-@Entity
+@javax.persistence.Entity
+
+@Entity(
+		dynamicUpdate = true	//informando alterará apenas os campos modificados e, nao todos os campos 
+		
+)
+
 public class Produto {
 
 	@Id
