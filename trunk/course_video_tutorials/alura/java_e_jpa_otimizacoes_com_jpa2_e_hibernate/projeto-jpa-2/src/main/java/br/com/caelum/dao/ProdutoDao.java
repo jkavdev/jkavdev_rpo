@@ -31,7 +31,12 @@ public class ProdutoDao {
 		
 		//tambem e uma solucao para o problema do n+1
 		//no qual e realizado varias buscas para match de buscas
-		 return em.createQuery("select distinct p from Produto p join fetch p.categorias", Produto.class).getResultList();
+		//return em.createQuery("select distinct p from Produto p join fetch p.categorias", Produto.class).getResultList();
+		
+		//utilizando grafos
+		return em.createQuery("select distinct p from Produto p", Produto.class)
+				.setHint("javax.persistence.fetchgraph", em.getEntityGraph("produtoComCategoria"))
+				.getResultList();
 		
 //		return em.createQuery("from Produto", Produto.class).getResultList();
 	}
