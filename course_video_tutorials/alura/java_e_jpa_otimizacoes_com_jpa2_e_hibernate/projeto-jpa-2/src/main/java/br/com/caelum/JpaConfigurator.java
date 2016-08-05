@@ -19,7 +19,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 @EnableTransactionManagement
 public class JpaConfigurator {
 
-	@Bean
+	@Bean(destroyMethod = "close")
 	public DataSource getDataSource() throws PropertyVetoException {
 		//adicionando pool do c3p0
 	    ComboPooledDataSource dataSource = new ComboPooledDataSource();
