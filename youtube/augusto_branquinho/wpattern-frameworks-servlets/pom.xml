@@ -22,7 +22,7 @@
 
 		<!-- Java Resources plugin -->
 		<maven-resources-plugin.version>3.0.1</maven-resources-plugin.version>
-		
+
 		<!-- Jetty -->
 		<jetty.version>9.3.11.v20160721</jetty.version>
 		<jetty.port>8085</jetty.port>
@@ -31,8 +31,11 @@
 		<!-- JavaEE -->
 		<javaee.version>7.0</javaee.version>
 
+		<!-- Servlet API -->
+		<servlet.version>3.1.0</servlet.version>
+
 		<!-- JUnit -->
-		<junit.version>4.12</junit.version>
+		<junit.version>4.11</junit.version>
 
 		<!-- slf4j -->
 		<slf4j.version>1.7.21</slf4j.version>
@@ -53,6 +56,11 @@
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
 			<version>${javaee.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${servlet.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>

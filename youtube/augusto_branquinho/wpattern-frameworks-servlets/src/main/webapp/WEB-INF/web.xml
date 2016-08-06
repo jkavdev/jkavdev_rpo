@@ -20,4 +20,14 @@
 		<url-pattern>/hello</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>multipleServlet</servlet-name>
+		<servlet-class>br.com.jkavdev.wpattern.servlets.multiple.MultipleServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>multipleServlet</servlet-name>
+		<url-pattern>/multiple</url-pattern>
+	</servlet-mapping>
+
 </web-app>
