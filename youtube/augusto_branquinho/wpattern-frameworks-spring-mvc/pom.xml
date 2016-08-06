@@ -26,7 +26,7 @@
 		<!-- Jetty -->
 		<jetty.version>9.3.11.v20160721</jetty.version>
 		<jetty.port>8085</jetty.port>
-		<jetty.contextName>/spring-mvc</jetty.contextName>
+		<jetty.contextName>/</jetty.contextName>
 
 		<!-- JavaEE -->
 		<javaee.version>7.0</javaee.version>
