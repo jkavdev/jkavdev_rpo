@@ -22,6 +22,11 @@
 
 		<!-- Java Resources plugin -->
 		<maven-resources-plugin.version>3.0.1</maven-resources-plugin.version>
+		
+		<!-- Jetty -->
+		<jetty.version>9.3.11.v20160721</jetty.version>
+		<jetty.port>8085</jetty.port>
+		<jetty.contextName>/servlets</jetty.contextName>
 
 		<!-- JavaEE -->
 		<javaee.version>7.0</javaee.version>
@@ -37,7 +42,7 @@
 
 		<!-- commons-logging -->
 		<commons-logging.version>1.2</commons-logging.version>
-		
+
 		<!-- commons-lang -->
 		<commons-lang.version>2.6</commons-lang.version>
 
@@ -115,7 +120,31 @@
 					<target>${java.version}</target>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>${jetty.version}</version>
+				<configuration>
+					<scanIntervalSeconds>1</scanIntervalSeconds>
+					<webApp>
+						<contextPath>${jetty.contextName}</contextPath>
+					</webApp>
+					<httpConnector>
+						<port>${jetty.port}</port>
+					</httpConnector>
+				</configuration>
+			</plugin>
 		</plugins>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*.xml</include>
+					<include>**/*.properties</include>
+				</includes>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
 	</build>
 
 </project>
