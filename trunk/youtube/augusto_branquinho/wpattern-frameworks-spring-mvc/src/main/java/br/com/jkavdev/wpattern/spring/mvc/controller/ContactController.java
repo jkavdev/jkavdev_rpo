@@ -94,5 +94,33 @@ public class ContactController {
 		return "contact/addEdit";
 	}
 
-}
+	@RequestMapping(value = "/listEdit", method = RequestMethod.GET)
+	public ModelAndView listEdit() {
 
+		logger.info("List all contacts.");
+
+		ContactFormBean contactFormBean = new ContactFormBean();
+		
+		contactFormBean.setContacts(Dataset.getContacts());
+
+		return new ModelAndView("contact/listEdit", "contactForm", contactFormBean);
+
+	}
+
+	@RequestMapping(value = "/saveList", method = RequestMethod.POST)
+	public ModelAndView salveList(@ModelAttribute("contactForm") ContactFormBean contactFormBean,
+			@RequestParam("action") String action) {
+
+		if ((action != null) && (action.trim().toLowerCase().equals("cancel"))) {
+			return this.list();
+		}
+
+		logger.info("Saving all contacts");
+
+		Dataset.setContacts(contactFormBean.getContacts());
+
+		return this.list();
+
+	}
+
+}
