@@ -51,7 +51,7 @@
 					<tr th:each="vinho: ${vinhos}">
 						<td th:text="${vinho.codigo}">1</td>
 						<td th:text="${vinho.nome}"><a href="#">Viña Amalia</a> <span class="label  label-danger">Sem estoque</span></td>
-						<td th:text="${vinho.tipo}">1</td>
+						<td th:text="${vinho.tipo.descricao}">1</td>
 						<td th:text="${vinho.safra}">1</td>
 						<td th:text="${vinho.volume}">1</td>
 						<td th:text="${vinho.valor}">1</td>
