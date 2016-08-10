@@ -5,10 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.com.jkavdev.algaworks.spring.model.TipoVinho;
 import br.com.jkavdev.algaworks.spring.model.Vinho;
 import br.com.jkavdev.algaworks.spring.repository.Vinhos;
+import br.com.jkavdev.algaworks.spring.service.CadastroVinhoService;
 
 @Controller
 @RequestMapping("/vinhos")
@@ -16,6 +19,8 @@ public class VinhosController {
 
 	@Autowired
 	private Vinhos vinhos;
+	@Autowired
+	private CadastroVinhoService cadastroVinhoService;
 
 	@RequestMapping
 	public ModelAndView pesquisa() {
@@ -32,7 +37,20 @@ public class VinhosController {
 	}
 
 	@RequestMapping("/novo")
-	public String novo() {
-		return "/vinho/cadastro-vinho";
+	// adicionando vinho para a pagina de cadastro
+	public ModelAndView novo(Vinho vinho) {
+		ModelAndView modelAndView = new ModelAndView("/vinho/cadastro-vinho");
+		modelAndView.addObject("tipos", TipoVinho.values());
+
+		return modelAndView;
+	}
+
+	@RequestMapping(value = "/novo", method = RequestMethod.POST)
+	public ModelAndView salvar(Vinho vinho) {
+		
+		cadastroVinhoService.salvar(vinho);
+		
+		//realizando refresh na pagina
+		return new ModelAndView("redirect:/vinhos/novo");
 	}
 }
