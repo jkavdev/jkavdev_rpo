@@ -2,8 +2,11 @@ package br.com.jkavdev.algaworks.spring.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -46,11 +49,17 @@ public class VinhosController {
 	}
 
 	@RequestMapping(value = "/novo", method = RequestMethod.POST)
-	public ModelAndView salvar(Vinho vinho) {
-		
+	public ModelAndView salvar(@Valid Vinho vinho, BindingResult result) {
+
+		// se ocorrer algum erro, chamara metodo novo
+		// passando o objeto com os atribtuos já preenchidos
+		if (result.hasErrors()) {
+			return novo(vinho);
+		}
+
 		cadastroVinhoService.salvar(vinho);
-		
-		//realizando refresh na pagina
+
+		// realizando refresh na pagina
 		return new ModelAndView("redirect:/vinhos/novo");
 	}
 }
