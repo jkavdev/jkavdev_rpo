@@ -10,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.jkavdev.algaworks.spring.model.TipoVinho;
 import br.com.jkavdev.algaworks.spring.model.Vinho;
@@ -49,7 +50,7 @@ public class VinhosController {
 	}
 
 	@RequestMapping(value = "/novo", method = RequestMethod.POST)
-	public ModelAndView salvar(@Valid Vinho vinho, BindingResult result) {
+	public ModelAndView salvar(@Valid Vinho vinho, BindingResult result, RedirectAttributes attributes) {
 
 		// se ocorrer algum erro, chamara metodo novo
 		// passando o objeto com os atribtuos já preenchidos
@@ -58,6 +59,9 @@ public class VinhosController {
 		}
 
 		cadastroVinhoService.salvar(vinho);
+		
+		//adicionando mensagem durante o redirect
+		attributes.addFlashAttribute("mensagem", "Vinho salvo " + vinho.getNome() + " com sucesso!");
 
 		// realizando refresh na pagina
 		return new ModelAndView("redirect:/vinhos/novo");
