@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -65,5 +66,16 @@ public class VinhosController {
 
 		// realizando refresh na pagina
 		return new ModelAndView("redirect:/vinhos/novo");
+	}
+	
+	@RequestMapping(value = "/{codigo}")
+	public ModelAndView visualizar(@PathVariable Long codigo){
+		
+		ModelAndView modelAndView = new ModelAndView("/vinho/visualizacao-vinho");
+		
+		Vinho vinho = vinhos.findOne(codigo);
+		
+		return modelAndView.addObject("vinho", vinho);
+		
 	}
 }
