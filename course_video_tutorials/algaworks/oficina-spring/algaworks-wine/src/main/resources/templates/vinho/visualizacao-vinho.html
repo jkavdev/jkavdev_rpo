@@ -17,6 +17,24 @@
 		</div>
 	</div>
 	
+	<div class="container-fluid">
+		<div class="rol">
+			<div class="col-sm-9">
+				<div>Foto</div>
+			</div>
+			
+			<div class="col-sm-3">
+				<ul class="list-group">
+					<li class="list-group-item" th:text="|Vinho ${vinho.tipo.descricao}|"></li>
+					<li class="list-group-item" th:text="|${vinho.volume}ml|"></li>
+					<li class="list-group-item" th:text="${vinho.safra}"></li>
+					<li class="list-group-item" th:text="|$${vinho.valor}|"></li>
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+	
 </section>
 </body>
 </html>

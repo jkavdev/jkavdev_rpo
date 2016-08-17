@@ -69,13 +69,13 @@ public class VinhosController {
 	}
 	
 	@RequestMapping(value = "/{codigo}")
-	public ModelAndView visualizar(@PathVariable Long codigo){
+	public ModelAndView visualizar(@PathVariable("codigo") Vinho vinho){
 		
 		ModelAndView modelAndView = new ModelAndView("/vinho/visualizacao-vinho");
 		
-		Vinho vinho = vinhos.findOne(codigo);
+		modelAndView.addObject("vinho", vinho);
 		
-		return modelAndView.addObject("vinho", vinho);
+		return modelAndView;
 		
 	}
 }
