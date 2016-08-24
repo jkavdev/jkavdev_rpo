@@ -42,6 +42,12 @@ public class ClienteController {
 		return clientes.get(id);
 	}
 
+	private Cliente alterar(Cliente cliente){
+		clientes.put(cliente.getId(), cliente);
+		
+		return cliente;
+	}
+	
 	// consumes - indicamos que este metodo possa tambem ler um json
 	@RequestMapping(method = RequestMethod.POST, value = "/clientes", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	// requestBody - indicamos que o json que contem os dados sera
@@ -79,6 +85,19 @@ public class ClienteController {
 
 		excluir(clienteEncontrado);
 		return new ResponseEntity<>(HttpStatus.OK);
+
+	}
+	
+	@RequestMapping(method = RequestMethod.PUT, value = "/clientes", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	// requestBody - indicamos que o json que contem os dados sera
+	// prenchido dentro de cliente
+
+	// retornara um ResponseEntity para json na pagina
+	public ResponseEntity<Cliente> alterarCliente(@RequestBody Cliente cliente) {
+
+		Cliente clienteAlterado = alterar(cliente);
+
+		return new ResponseEntity<>(clienteAlterado, HttpStatus.OK);
 
 	}
 
