@@ -8,18 +8,42 @@
 				var elDisplay = document.getElementById('display');
 
 				elDisplay.innerText = nome;
+
+				console.log(nome);
+
+			}
+
+			function novoContato(){
+				var elListaContatos = document.getElementById('listaContatos');
+				var inputContato = document.createElement('input');
+				var labelContato = document.createElement('label');
+				var br = document.createElement('br');
+
+				labelContato.innerText = 'Contato: ';
+
+				elListaContatos.appendChild(labelContato);
+				elListaContatos.appendChild(inputContato);
+				elListaContatos.appendChild(br);
 			}
 
 		</script>
 	</head>
 
 	<body>
-		Nome: <input type="text" id="nome">
+		<div>
+			Nome: <input type="text" id="nome">
 
-		<input type="button" value="OK" onclick="exibeNome()">
+			<input type="button" value="+" onclick="novoContato()">
+			<input type="button" value="OK" onclick="exibeNome()">
+
+			<div id="listaContatos">
+				
+
+			</div>
+		</div>
 
 		<div id="display">
-			askdj
+			
 		</div>
 	</body>
 </html>
