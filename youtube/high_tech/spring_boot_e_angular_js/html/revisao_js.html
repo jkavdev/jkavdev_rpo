@@ -1,32 +1,6 @@
 <html>
 	<head>
-		<script>
-
-			function exibeNome(){
-				var elNome = document.getElementById('nome');
-				var nome = elNome.value;
-				var elDisplay = document.getElementById('display');
-
-				elDisplay.innerText = nome;
-
-				console.log(nome);
-
-			}
-
-			function novoContato(){
-				var elListaContatos = document.getElementById('listaContatos');
-				var inputContato = document.createElement('input');
-				var labelContato = document.createElement('label');
-				var br = document.createElement('br');
-
-				labelContato.innerText = 'Contato: ';
-
-				elListaContatos.appendChild(labelContato);
-				elListaContatos.appendChild(inputContato);
-				elListaContatos.appendChild(br);
-			}
-
-		</script>
+		<script src="revisao.js"></script>
 	</head>
 
 	<body>
