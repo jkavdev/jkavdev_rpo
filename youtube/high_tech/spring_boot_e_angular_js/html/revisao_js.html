@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<script>
+
+			function exibeNome(){
+				var elNome = document.getElementById('nome');
+				var nome = elNome.value;
+				var elDisplay = document.getElementById('display');
+
+				elDisplay.innerText = nome;
+			}
+
+		</script>
+	</head>
+
+	<body>
+		Nome: <input type="text" id="nome">
+
+		<input type="button" value="OK" onclick="exibeNome()">
+
+		<div id="display">
+			askdj
+		</div>
+	</body>
+</html>
