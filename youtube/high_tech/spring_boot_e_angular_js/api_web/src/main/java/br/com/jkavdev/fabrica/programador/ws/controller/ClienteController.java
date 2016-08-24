@@ -35,7 +35,7 @@ public class ClienteController {
 	}
 
 	private void excluir(Cliente cliente) {
-		clientes.remove(cliente);
+		clientes.remove(cliente.getId());
 	}
 
 	private Cliente buscarPorId(Integer id) {
@@ -77,6 +77,7 @@ public class ClienteController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 
+		excluir(clienteEncontrado);
 		return new ResponseEntity<>(HttpStatus.OK);
 
 	}
