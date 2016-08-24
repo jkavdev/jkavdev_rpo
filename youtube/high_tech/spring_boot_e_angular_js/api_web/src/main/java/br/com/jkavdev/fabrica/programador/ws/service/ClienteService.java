@@ -1,44 +1,37 @@
 package br.com.jkavdev.fabrica.programador.ws.service;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.jkavdev.fabrica.programador.ws.model.Cliente;
+import br.com.jkavdev.fabrica.programador.ws.repository.ClienteRepository;
 
 @Service
 public class ClienteService {
 	
-	private Map<Integer, Cliente> clientes = new HashMap<Integer, Cliente>();
-	private Integer proximoId = 0;
+	@Autowired
+	ClienteRepository clienteRepository;
 
 	public Cliente cadastrar(Cliente cliente) {
-
-		cliente.setId(++proximoId);
-
-		clientes.put(cliente.getId(), cliente);
-
-		return cliente;
+		return clienteRepository.save(cliente);
 	}
 
 	public Collection<Cliente> buscarTodos() {
-		return clientes.values();
+		return clienteRepository.findAll();
 	}
 
 	public void excluir(Cliente cliente) {
-		clientes.remove(cliente.getId());
+		clienteRepository.delete(cliente);
 	}
 
 	public Cliente buscarPorId(Integer id) {
-		return clientes.get(id);
+		return clienteRepository.findOne(id);
 	}
 
 	public Cliente alterar(Cliente cliente){
-		clientes.put(cliente.getId(), cliente);
-		
-		return cliente;
+		return clienteRepository.save(cliente);
 	}
 
 }
