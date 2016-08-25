@@ -1,0 +1,35 @@
+<html>
+	<head>
+
+	</head>
+
+	<body>
+		<div id="saida">
+			
+		</div>
+	</body>
+
+	<script>
+			var pessoa = {
+				nome: 'Jhonatan',
+				idade: 5,
+
+				dizerOla:function(mensagem, saida){
+					saida(mensagem);
+				}
+			}
+
+			console.log(pessoa.nome);
+			console.log(pessoa.idade);
+
+			pessoa.dizerOla('Parametro div', function(mensagem){
+				var divSaida = document.getElementById('saida');
+				divSaida.innerHTML = mensagem;
+			});
+
+			pessoa.dizerOla('Parametro Callback', function(mensagem){
+				window.alert(mensagem);
+			});
+			
+		</script>
+</html>
