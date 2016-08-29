@@ -12,7 +12,10 @@ public class UserPermissionKey extends BaseKey {
 
 	private static final long serialVersionUID = 1L;
 
+	@Column(name = "permission_id")
 	private Long permissionId;
+
+	@Column(name = "user_id")
 	private Long userId;
 
 	public UserPermissionKey() {
@@ -24,7 +27,6 @@ public class UserPermissionKey extends BaseKey {
 		this.userId = userId;
 	}
 
-	@Column(name = "permission_id")
 	public Long getPermissionId() {
 		return permissionId;
 	}
@@ -33,7 +35,6 @@ public class UserPermissionKey extends BaseKey {
 		this.permissionId = permissionId;
 	}
 
-	@Column(name = "user_id")
 	public Long getUserId() {
 		return userId;
 	}
