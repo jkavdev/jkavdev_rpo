@@ -5,10 +5,13 @@ import java.util.Date;
 import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import br.com.jkavdev.wpattern.mutrack.user.UserEntity;
 import br.com.jkavdev.wpattern.mutrack.utils.BaseEntity;
 
 //Entidade pacote
@@ -24,18 +27,20 @@ public class PackageeEntity extends BaseEntity<Long> {
 	private String code;
 	private String description;
 	private Date registerDate;
-	private Long ownerId;
+	@ManyToOne
+	@JoinColumn(name = "owner_id")
+	private UserEntity user;
 
 	public PackageeEntity() {
 	}
 
-	public PackageeEntity(String name, String code, String description, Date registerDate, Long ownerId) {
+	public PackageeEntity(String name, String code, String description, Date registerDate, UserEntity user) {
 		super();
 		this.name = name;
 		this.code = code;
 		this.description = description;
 		this.registerDate = registerDate;
-		this.ownerId = ownerId;
+		this.user = user;
 	}
 
 	@Column(name = "name", length = 60, nullable = false)
@@ -75,13 +80,12 @@ public class PackageeEntity extends BaseEntity<Long> {
 		this.registerDate = registerDate;
 	}
 
-	@Column(name = "owner_id", length = 11, nullable = false)
-	public Long getOwnerId() {
-		return ownerId;
+	public UserEntity getUser() {
+		return user;
 	}
 
-	public void setOwnerId(Long ownerId) {
-		this.ownerId = ownerId;
+	public void setUser(UserEntity user) {
+		this.user = user;
 	}
 
 }
