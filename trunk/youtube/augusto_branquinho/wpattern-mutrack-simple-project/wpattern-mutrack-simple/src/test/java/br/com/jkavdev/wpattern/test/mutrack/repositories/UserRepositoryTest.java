@@ -24,6 +24,22 @@ public class UserRepositoryTest extends AbstractTest {
 		logger.info(users);
 	}
 
+	@Test
+	public void testFindUserByEmail() {
+		UserEntity user = this.userRepository.findByEmail("user@user.com");
+		UserEntity admin = this.userRepository.findByEmail("admin@admin.com");
+
+		logger.info("User: " + user);
+		logger.info("Admin: " + admin);
+	}
+	
+	@Test
+	public void testFindUserByEmailOrName() {
+		UserEntity user = this.userRepository.findByEmailOrName("user@user.com", "user");
+		UserEntity admin = this.userRepository.findByEmailOrName("admin@admin.com", "admin");
+
+		logger.info("User: " + user);
+		logger.info("Admin: " + admin);
+	}
+
 }
-
-
