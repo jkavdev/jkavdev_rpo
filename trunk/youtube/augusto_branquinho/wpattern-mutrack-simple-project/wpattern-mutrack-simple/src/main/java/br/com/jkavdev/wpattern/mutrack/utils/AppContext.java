@@ -6,6 +6,8 @@ import org.springframework.context.annotation.Configuration;
 
 import br.com.jkavdev.wpattern.mutrack.AppMain;
 
+//Classe de configuracao do Spring
+
 @Configuration
 @EnableAutoConfiguration
 @ComponentScan(basePackageClasses = AppMain.class)
