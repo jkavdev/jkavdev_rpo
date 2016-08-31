@@ -13,5 +13,7 @@ public final class ServicePath {
 	public static final String PRIVATE_ROOT_PATH = "/private";
 
 	public static final String USER_PATH = PRIVATE_ROOT_PATH + "/user";
+	
+	public static final String PACKAGEE_PATH = PRIVATE_ROOT_PATH + "/packagee";
 
 }
