@@ -9,10 +9,8 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import br.com.jkavdev.wpattern.mutrack.packagee.PackageeEntity;
 import br.com.jkavdev.wpattern.mutrack.permission.PermissionEntity;
 import br.com.jkavdev.wpattern.mutrack.utils.BaseEntity;
 
@@ -31,8 +29,8 @@ public class UserEntity extends BaseEntity<Long> {
 
 	// mapeamento bidirecional, packagees e o lado forte
 	// trara todos os pacotes
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
-	private List<PackageeEntity> packagees;
+	// @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
+	// private List<PackageeEntity> packagees;
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(
@@ -78,12 +76,20 @@ public class UserEntity extends BaseEntity<Long> {
 		this.password = password;
 	}
 
-	public List<PackageeEntity> getPackagees() {
-		return packagees;
+	public List<PermissionEntity> getPermissions() {
+		return permissions;
 	}
 
-	public void setPackagees(List<PackageeEntity> packagees) {
-		this.packagees = packagees;
+	public void setPermissions(List<PermissionEntity> permissions) {
+		this.permissions = permissions;
 	}
+
+	// public List<PackageeEntity> getPackagees() {
+	// return packagees;
+	// }
+	//
+	// public void setPackagees(List<PackageeEntity> packagees) {
+	// this.packagees = packagees;
+	// }
 
 }
