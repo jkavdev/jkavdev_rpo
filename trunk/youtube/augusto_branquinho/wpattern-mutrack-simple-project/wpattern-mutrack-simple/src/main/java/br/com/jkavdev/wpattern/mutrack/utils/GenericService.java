@@ -39,5 +39,26 @@ public abstract class GenericService<T extends BaseEntity<ID>, ID extends Serial
 
 		return this.genericRepository.save(entity);
 	}
+	
+	@RequestMapping(method = RequestMethod.PUT)
+	public T update(@RequestBody T entity) {
+
+		this.logger.info(String.format("updating the entity {%s}.", entity));
+		
+		if(entity.getId() == null){
+			this.logger.error("The ID cannot be null.");
+			return null;
+		}
+
+		return this.genericRepository.save(entity);
+	}
+	
+	@RequestMapping(method = RequestMethod.DELETE)
+	public void delete(@RequestBody T entity) {
+
+		this.logger.info(String.format("deleting the entity {%s}.", entity));		
+
+		this.genericRepository.delete(entity);
+	}
 
 }
