@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -26,6 +27,17 @@ public abstract class GenericService<T extends BaseEntity<ID>, ID extends Serial
 		this.logger.info("Requesting all records.");
 
 		return this.genericRepository.findAll();
+	}
+	
+	@RequestMapping(method = RequestMethod.POST)
+	public T insert(@RequestBody T entity) {
+
+		this.logger.info(String.format("Saving entity {%s}.", entity));
+		
+		//uma entidade nova
+		entity.setId(null);
+
+		return this.genericRepository.save(entity);
 	}
 
 }
