@@ -14,10 +14,10 @@
 		<!-- 		<jta-data-source>java:jdbc/ds_name</jta-data-source> -->
 	
 		<!-- informando qual é a implementação da jpa, no caso hibernate -->
-		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>		
 		
-		<!-- informando as entidades presentes no persistence -->
-		<class>br.com.jkavdev.book.jpa.model.Student</class>
+		<!-- informando que as entidades da aplicacao estao no arquivo a seguir -->
+		<mapping-file>META-INF/entities/entityMapping.xml</mapping-file>
 		
 		<!-- informando que apenas as classes listadas no persistence serão reconhecidas -->
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
@@ -39,7 +39,10 @@
 
 	<!-- utilizando mais de uma unidade de persistencia -->	
 	<persistence-unit name="jpaPostgresPU" transaction-type="RESOURCE_LOCAL">
+	
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		
+		<mapping-file>META-INF/entities/entityMapping.xml</mapping-file>
 	
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/db_book_jpa_eficaz" />
