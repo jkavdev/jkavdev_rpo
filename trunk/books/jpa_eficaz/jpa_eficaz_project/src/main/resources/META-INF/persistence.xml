@@ -4,12 +4,48 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 
-	<persistence-unit name="jpaPU" transaction-type="RESOURCE_LOCAL">
+	<!-- name - nome da unidade de persistence -->
+	<!-- transaction-type - indica como sera controlada a transacao -->
+		<!-- RESOURCE_LOCAL - indica que o controle será feito manual -->
+		<!-- JTA - indica que o controle será efetuado pelo servidor -->
+	<persistence-unit name="jpaMysqlPU" transaction-type="RESOURCE_LOCAL">
+	
+		<!-- caso utilizassemos um datasource -->
+		<!-- 		<jta-data-source>java:jdbc/ds_name</jta-data-source> -->
+	
+		<!-- informando qual é a implementação da jpa, no caso hibernate -->
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		
+		<!-- informando as entidades presentes no persistence -->
+		<class>br.com.jkavdev.book.jpa.model.Student</class>
+		
+		<!-- informando que apenas as classes listadas no persistence serão reconhecidas -->
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+	
+		<!-- propriedades da conexão com o banco de dados -->
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/db_book_jpa_eficaz" />
 			<property name="javax.persistence.jdbc.user" value="jkavdev" />
 			<property name="javax.persistence.jdbc.password" value="123456" />
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+
+			<!-- específico do hibernate -->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+		</properties>
+
+	</persistence-unit>
+
+	<!-- utilizando mais de uma unidade de persistencia -->	
+	<persistence-unit name="jpaPostgresPU" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+	
+		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/db_book_jpa_eficaz" />
+			<property name="javax.persistence.jdbc.user" value="postgres" />
+			<property name="javax.persistence.jdbc.password" value="99346554" />
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
 
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.show_sql" value="true" />

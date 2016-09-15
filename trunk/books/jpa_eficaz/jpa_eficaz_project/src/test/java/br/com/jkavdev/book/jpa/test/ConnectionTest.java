@@ -12,11 +12,22 @@ public class ConnectionTest {
 	private static final Logger logger = Logger.getLogger(ConnectionTest.class);
 
 	@Test
-	public void connectionDatabaseTest() {
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpaPU");
+	public void connectionDatabaseTestMysql() {
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpaMysqlPU");
 		EntityManager entityManager = factory.createEntityManager();
 
-		logger.info("Conectou..............");
+		logger.info("Conectou ao Mysql..............");
+
+		entityManager.close();
+		factory.close();
+	}
+	
+	@Test
+	public void connectionDatabaseTestPostgres() {
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpaPostgresPU");
+		EntityManager entityManager = factory.createEntityManager();
+
+		logger.info("Conectando ao Postgres..............");
 
 		entityManager.close();
 		factory.close();
