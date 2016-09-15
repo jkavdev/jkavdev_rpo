@@ -21,6 +21,9 @@
 
 		<!-- Java Resources plugin -->
 		<maven-resources-plugin.version>3.0.1</maven-resources-plugin.version>
+		
+		<!-- Servlet API -->
+		<servlet.version>3.1.0</servlet.version>
 
 		<!-- Hibernate -->
 		<hibernate.version>5.1.0.Final</hibernate.version>
@@ -43,6 +46,11 @@
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${servlet.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
