@@ -27,6 +27,9 @@
 
 		<!-- MySQL Drive -->
 		<mysql.version>5.1.38</mysql.version>
+		
+		<!-- Postgres Drive -->
+		<postgres.version>9.4.1208</postgres.version>
 
 		<!-- JUnit -->
 		<junit.version>4.12</junit.version>
@@ -49,6 +52,11 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>${postgres.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
